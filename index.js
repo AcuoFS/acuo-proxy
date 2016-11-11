@@ -15,9 +15,15 @@ const server = restify.createServer({
   name: appName,
 })
 
-// register plugins
-server.use(restify.queryParser({mapParams: false}))
+// register pluginsnpm
+server.use(restify.queryParser())
+server.use(restify.CORS())
 server.use(restify.bodyParser({mapParams: false}))
+server.use(restify.authorizationParser())
+
+// enable preflight
+const preflightEnabler = require('se7ensky-restify-preflight')
+preflightEnabler(server, {'Access-Control-Allow-Origin': '[*]'})
 
 // ===============================
 // load routers: app/routes/*

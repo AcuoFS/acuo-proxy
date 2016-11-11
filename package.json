@@ -17,10 +17,15 @@
   },
   "homepage": "https://github.com/AcuoFS/acuo-proxy#readme",
   "dependencies": {
+    "bluebird": "^3.4.6",
+    "bluebird-lru-cache": "^1.0.0",
     "cron": "^1.1.1",
     "lodash": "^4.16.6",
     "moment": "^2.16.0",
+    "request": "^2.78.0",
+    "request-promise": "^4.1.1",
     "restify": "^4.2.0",
-    "restify-router": "^0.2.1"
+    "restify-router": "^0.2.1",
+    "se7ensky-restify-preflight": "^0.1.7"
   }
 }
