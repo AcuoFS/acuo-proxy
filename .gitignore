@@ -1,0 +1,5 @@
+#ignore symbolic link
+app
+
+#IDE related
+.idea
