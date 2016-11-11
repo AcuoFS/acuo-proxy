@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/AcuoFS/acuo-proxy/issues"
   },
-  "homepage": "https://github.com/AcuoFS/acuo-proxy#readme"
+  "homepage": "https://github.com/AcuoFS/acuo-proxy#readme",
+  "dependencies": {
+    "cron": "^1.1.1",
+    "lodash": "^4.16.6",
+    "moment": "^2.16.0",
+    "restify": "^4.2.0",
+    "restify-router": "^0.2.1"
+  }
 }
