@@ -1,0 +1,19 @@
+{
+  "name": "acuo-proxy",
+  "version": "1.0.0",
+  "description": "ACUO Proxy for Frontend Web",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AcuoFS/acuo-proxy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AcuoFS/acuo-proxy/issues"
+  },
+  "homepage": "https://github.com/AcuoFS/acuo-proxy#readme"
+}
