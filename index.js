@@ -3,17 +3,15 @@
 // 3rd party Lib
 const _ = require('lodash')
 
-// conf
-const Conf = require('app/conf')('server')
+// env
+const Env = require('app/env')
 
 // app name
-const appName = 'ACUO Proxy'
+const name = 'ACUO Proxy'
 
 // create server
 const restify = require('restify')
-const server = restify.createServer({
-  name: appName,
-})
+const server = restify.createServer({name})
 
 // register pluginsnpm
 server.use(restify.queryParser())
@@ -21,19 +19,18 @@ server.use(restify.CORS())
 server.use(restify.bodyParser({mapParams: false}))
 server.use(restify.authorizationParser())
 
-// enable preflight
+// enable preflight (for chrome)
 const preflightEnabler = require('se7ensky-restify-preflight')
 preflightEnabler(server, {'Access-Control-Allow-Origin': '[*]'})
 
 // ===============================
-// load routers: app/routes
-// ===============================
-_(['derivative']).each(route => {
-  require(`app/routes/${route}`)(server)
-})
+// register routers
+require('app/routes')(server)
 
+
+// ===============================
 // start server
-const port = _.get(Conf, 'port', 80)
+const port = _.get(Env, 'SERVER_PORT', 80)
 
 server.listen(port, () => {
   console.log(`${server.name} is listening at ${server.url}`)
