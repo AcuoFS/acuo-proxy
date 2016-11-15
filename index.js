@@ -26,9 +26,11 @@ const preflightEnabler = require('se7ensky-restify-preflight')
 preflightEnabler(server, {'Access-Control-Allow-Origin': '[*]'})
 
 // ===============================
-// load routers: app/routes/*
+// load routers: app/routes
 // ===============================
-require('app/routes/home')(server)
+_(['derivative']).each(route => {
+  require(`app/routes/${route}`)(server)
+})
 
 // start server
 const port = _.get(Conf, 'port', 80)
