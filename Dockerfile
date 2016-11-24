@@ -16,4 +16,4 @@ ENV PORT = 8181
 EXPOSE 8181
 
 # Start app from forever:
-CMD forever start index.js
+CMD ["forever", "-f", "index.js"]
