@@ -11,9 +11,9 @@ WORKDIR /usr/src/app
 RUN npm install
 
 # Set environment variables 
-ENV PORT = 8080
+ENV PORT = 8181
 
-EXPOSE 8080
+EXPOSE 8181
 
 # Start app from forever:
 CMD forever start /usr/src/app/index.js
