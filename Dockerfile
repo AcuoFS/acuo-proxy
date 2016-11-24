@@ -1,3 +1,5 @@
+FROM node:latest
+
 # Install forever as global module (root previlledges might be required)
 RUN npm i -g forever
 
