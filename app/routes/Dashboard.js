@@ -11,7 +11,7 @@ const prefix = "dashboard"
 
 // ======================================================================
 routerInstance.get('/', (req, res, next) => {
-  DashboardService.getItems()
+  DashboardService.get()
   .then(data => res.send(data))
   .catch(err => res.json(err.statusCode, {msg:'failed'}))
 })
