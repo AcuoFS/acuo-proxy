@@ -21,12 +21,11 @@ preflightEnabler(server, {'Access-Control-Allow-Origin': '[*]'})
 
 // ===============================
 // register routers
-require('app/routes')(server)
+require('./app/routes')(server)
 
 
 // ===============================
 // start server
-
 server.listen(process.env.PORT || 8080, () => {
   console.log(`${server.name} is listening at ${server.url}`)
 })
