@@ -10,7 +10,7 @@ const Pledge = {}
 // get Pledge items
 Pledge.get = () => {
   return rp('http://margin.acuo.com/acuo/api/pledge/settings/optimization/999')
-    .then(JSON.parse)
+    .then(data => ({items: JSON.parse(data)}))
     .then(json => {
       cache.set('pledge', json)
       return json
