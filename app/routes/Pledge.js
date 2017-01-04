@@ -16,5 +16,17 @@ routerInstance.get('/optimization', (req, res, next) => {
   .catch(err => res.json(err.statusCode, {msg:'failed'}))
 })
 
+routerInstance.get('/allocate-selection', (req, res, next) => {
+  PledgeService.allocateSelection().then(data => res.send(data))
+})
+
+routerInstance.get('/init-selection', (req, res, next) => {
+  PledgeService.getInitSelection().then(data => res.send(data))
+})
+
+routerInstance.get('/init-collateral', (req, res, next) => {
+  PledgeService.getInitCollateral().then(data => res.send(data))
+})
+
 
 module.exports = ({server}) => routerInstance.applyRoutes(server, prefix)

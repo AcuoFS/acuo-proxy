@@ -5,5 +5,5 @@ const PledgeRoute = require('./Pledge')
 module.exports = [
   DashboardRoute,
   ReconRoute,
-  PledgeRoute
+  PledgeRoute,
 ]
