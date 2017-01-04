@@ -1,5 +1,5 @@
-#ignore symbolic link
-app
-
 #IDE related
 .idea
+
+#node_modules
+/node_modules/
