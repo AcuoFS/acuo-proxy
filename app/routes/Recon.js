@@ -13,7 +13,11 @@ const prefix = "recon"
 routerInstance.get('/', (req, res, next) => {
   ReconService.get()
   .then(data => res.send(data))
-  .catch(err => res.json(err.statusCode, {msg:'failed'}))
+  .catch(err => {
+    ReconService.getFromCache()
+      .then(data => res.send(data))
+      .catch(err => res.json(404, {msg: 'failed to get data for first time'}))
+  })
 })
 
 

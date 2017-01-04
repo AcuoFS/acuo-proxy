@@ -13,7 +13,11 @@ const prefix = "pledge"
 routerInstance.get('/optimization', (req, res, next) => {
   PledgeService.get()
   .then(data => res.send(data))
-  .catch(err => res.json(err.statusCode, {msg:'failed'}))
+  .catch(err => {
+    PledgeService.getFromCache()
+      .then(data => res.send(data))
+      .catch(err => res.json(404, {msg: 'failed to get data for first time'}))
+  })
 })
 
 routerInstance.get('/allocate-selection', (req, res, next) => {
