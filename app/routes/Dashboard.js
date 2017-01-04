@@ -10,9 +10,11 @@ const routerInstance = new Router()
 const prefix = "dashboard"
 
 // ======================================================================
-// [GET] /users
 routerInstance.get('/', (req, res, next) => {
-
+  DashboardService.getItems()
+  .then(data => res.send(data))
+  .catch(err => res.json(err.statusCode, {msg:'failed'}))
 })
+
 
 module.exports = ({server}) => routerInstance.applyRoutes(server, prefix)
