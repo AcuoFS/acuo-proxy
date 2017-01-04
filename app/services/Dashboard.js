@@ -4,7 +4,7 @@ const rp = require('request-promise')
 // main object
 const Dashboard = {}
 
-// get forex items
+// get Dashboard items
 Dashboard.get = () => {
   return rp('http://margin.acuo.com/acuo/api/margin/dashboard').then(JSON.parse)
 }
