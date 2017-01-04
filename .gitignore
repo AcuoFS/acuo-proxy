@@ -1,8 +1,11 @@
 #IDE related
-.idea
+/.idea
 
 #node_modules
-/node_modules/
+/node_modules
 
 #.env
-.env
+/.env
+
+# log file
+/*.log
