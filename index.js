@@ -1,4 +1,3 @@
-'use strict'
 // import external libraries
 require('dotenv').config()
 
@@ -21,8 +20,7 @@ preflightEnabler(server, {'Access-Control-Allow-Origin': '[*]'})
 
 // ===============================
 // register routers
-require('./app/routes')(server)
-
+require('./app/routes').forEach(router => router({server}))
 
 // ===============================
 // start server
