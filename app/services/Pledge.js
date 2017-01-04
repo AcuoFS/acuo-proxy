@@ -17,7 +17,7 @@ Pledge.get = () => {
     })
 }
 
-Dashboard.getFromCache = () => {
+Pledge.getFromCache = () => {
   return cache.get('pledge').then(data => _.set(data, 'fromCache', true))
 }
 

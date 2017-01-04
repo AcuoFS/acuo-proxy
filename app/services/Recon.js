@@ -16,7 +16,7 @@ Recon.get = () => {
     })
 }
 
-Dashboard.getFromCache = () => {
+Recon.getFromCache = () => {
   return cache.get('recon').then(data => _.set(data, 'fromCache', true))
 }
 
