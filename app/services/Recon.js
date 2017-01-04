@@ -6,7 +6,7 @@ const Recon = {}
 
 // get forex items
 Recon.get = () => {
-  return rp('http://margin.acuo.com/acuo/api/margin/dashboard').then(JSON.parse)
+  return rp('http://margin.acuo.com/acuo/api/margin/items/all/999').then(JSON.parse)
 }
 
 module.exports = Recon
