@@ -25,7 +25,7 @@ routerInstance.get('/allocate-selection', (req, res, next) => {
 })
 
 routerInstance.get('/init-selection', (req, res, next) => {
-  PledgeService.getInitSelection().then(data => res.send(data))
+  PledgeService.getInitSelection().then(data => res.send({data}))
 })
 
 routerInstance.get('/init-collateral', (req, res, next) => {
