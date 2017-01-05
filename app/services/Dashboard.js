@@ -1,6 +1,7 @@
 // import external library
 const rp = require('request-promise')
 const _ = require('lodash')
+
 // cache
 const cache = require('../common/Cache')
 
