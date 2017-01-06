@@ -11,10 +11,10 @@ const prefix = "pledge"
 
 // ======================================================================
 routerInstance.get('/optimization', (req, res, next) => {
-  PledgeService.get()
+  PledgeService.get(req.path())
   .then(data => res.send(data))
   .catch(err => {
-    PledgeService.getFromCache()
+    PledgeService.getFromCache(req.path())
       .then(data => res.send(data))
       .catch(err => res.json(404, {msg: 'failed to get data for first time'}))
   })
@@ -25,7 +25,13 @@ routerInstance.get('/allocate-selection', (req, res, next) => {
 })
 
 routerInstance.get('/init-selection', (req, res, next) => {
-  PledgeService.getInitSelection().then(data => res.send({data}))
+  PledgeService.getInitSelection(req.path())
+  .then(data => res.send(data))
+  .catch(err => {
+    PledgeService.getFromCache(req.path())
+      .then(data => res.send(data))
+      .catch(err => res.json(404, {msg: 'failed to get data for first time'}))
+  })
 })
 
 routerInstance.get('/init-collateral', (req, res, next) => {

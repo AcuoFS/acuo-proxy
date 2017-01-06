@@ -8,17 +8,18 @@ const cache = require('../common/Cache')
 const Pledge = {}
 
 // get Pledge items
-Pledge.get = () => {
+Pledge.get = (path) => {
   return rp('http://margin.acuo.com/acuo/api/pledge/settings/optimization/999')
     .then(data => ({items: JSON.parse(data)}))
     .then(json => {
-      cache.set('pledge', json)
+      cache.set(path, json)
       return json
     })
 }
 
-Pledge.getFromCache = () => {
-  return cache.get('pledge').then(data => _.set(data, 'fromCache', true))
+Pledge.getFromCache = (path) => {
+  console.log(path)
+  return cache.get(path).then(data => _.set(data, 'fromCache', true))
 }
 
 Pledge.getInitCollateral = () => new Promise((resolve, reject) => {
@@ -28,12 +29,14 @@ Pledge.getInitCollateral = () => new Promise((resolve, reject) => {
   resolve(data)
 })
 
-Pledge.getInitSelection = () => new Promise((resolve, reject) => {
-  const rawInitSelection = require('../json/initSelection')
-  const data = _.get(rawInitSelection, 'data')
-
-  resolve(data)
-})
+Pledge.getInitSelection = (path) => {
+  return rp('http://margin.acuo.com/acuo/api/pledge/items/all/999')
+    .then(data => ({items: JSON.parse(data)}))
+    .then(json => {
+      cache.set(path, json)
+      return json
+    })
+}
 
 Pledge.allocateSelection = () => new Promise((resolve, reject) => {
   const rawAllocateSelection = require('../json/allocateSelection')
