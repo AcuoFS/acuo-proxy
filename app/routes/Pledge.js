@@ -27,8 +27,7 @@ routerInstance.get('/optimization', (req, res, next) => {
 })
 
 routerInstance.get('/allocate-selection', (req, res, next) => {
-  Promise.all([PledgeService.asset(), PledgeService.earmarked()])
-  .then(data => {
+  Promise.all([PledgeService.asset(), PledgeService.earmarked()]).then(data => {
     const [asset, {earmarked}] = data
     // const newData = _(data1).forEach(instruments => {
     //   console.log("in")
@@ -40,12 +39,16 @@ routerInstance.get('/allocate-selection', (req, res, next) => {
 })
 
 routerInstance.get('/init-selection', (req, res, next) => {
-  PledgeService.getInitSelection(req.path())
-  .then(data => res.send(data))
-  .catch(err => {
-    PledgeService.getFromCache(req.path())
-      .then(data => res.send(data))
-      .catch(err => res.json(404, {msg: 'failed to get data for first time'}))
+  const key = req.path()
+
+  PledgeService.getInitSelection().then(data => {
+    // hit backend
+    FsCacheService.set({key, data})
+    res.send({items:data})
+
+  }).catch(err => {
+    // hit cache
+    FsCacheService.get(key).then(items => res.json({items, fromCache: true}))
   })
 })
 
