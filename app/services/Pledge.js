@@ -19,6 +19,16 @@ Pledge.getInitSelection = () => {
   return rp({uri, json: true})
 }
 
+Pledge.asset = () => {
+  const uri = 'http://collateral.acuo.com/acuo/api/assets/eligible/client/999'
+  return rp({uri, json: true})
+}
+
+Pledge.earmarked = () => {
+  const uri = 'http://collateral.acuo.com/acuo/api/assets/reserved/client/999'
+  return rp({uri, json: true})
+}
+
 Pledge.allocateSelection = () => new Promise(resolve => {
   const json = require('../json/allocateSelection')
   resolve(json)

@@ -1,5 +1,6 @@
 // import libs
 const Router = require('restify-router').Router
+const _ = require('lodash')
 // import services
 const { PledgeService, FsCacheService } = require('../services')
 
@@ -26,7 +27,16 @@ routerInstance.get('/optimization', (req, res, next) => {
 })
 
 routerInstance.get('/allocate-selection', (req, res, next) => {
-  PledgeService.allocateSelection().then(data => res.send(data))
+  Promise.all([PledgeService.asset(), PledgeService.earmarked()])
+  .then(data => {
+    const [asset, {earmarked}] = data
+    // const newData = _(data1).forEach(instruments => {
+    //   console.log("in")
+    //   return instruments
+    // })
+    // console.log()
+    res.send(asset)
+  })
 })
 
 routerInstance.get('/init-selection', (req, res, next) => {
