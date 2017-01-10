@@ -1,45 +1,28 @@
 //import external library
 const rp = require('request-promise')
-const _ = require('lodash')
-// cache
-const cache = require('../common/Cache')
 
 // main object
 const Pledge = {}
 
-// get Pledge items
+
 Pledge.get = () => {
-  return rp('http://margin.acuo.com/acuo/api/pledge/settings/optimization/999')
-    .then(data => ({items: JSON.parse(data)}))
-    .then(json => {
-      cache.set('pledge', json)
-      return json
-    })
+  const uri = 'http://margin.acuo.com/acuo/api/pledge/settings/optimization/999'
+  return rp({uri, json: true})
 }
 
-Pledge.getFromCache = () => {
-  return cache.get('pledge').then(data => _.set(data, 'fromCache', true))
-}
-
-Pledge.getInitCollateral = () => new Promise((resolve, reject) => {
-  const rawInitCollateral = require('../json/initCollateral')
-  const data = _.get(rawInitCollateral, 'data')
-
-  resolve(data)
+Pledge.getInitCollateral = () => new Promise(resolve => {
+  const json = require('../json/initCollateral')
+  resolve(json)
 })
 
-Pledge.getInitSelection = () => new Promise((resolve, reject) => {
-  const rawInitSelection = require('../json/initSelection')
-  const data = _.get(rawInitSelection, 'data')
-
-  resolve(data)
+Pledge.getInitSelection = () => new Promise(resolve => {
+  const json = require('../json/initSelection')
+  resolve(json)
 })
 
-Pledge.allocateSelection = () => new Promise((resolve, reject) => {
-  const rawAllocateSelection = require('../json/allocateSelection')
-  const data = _.get(rawAllocateSelection, 'data')
-
-  resolve(data)
+Pledge.allocateSelection = () => new Promise(resolve => {
+  const json = require('../json/allocateSelection')
+  resolve(json)
 })
 
 module.exports = Pledge

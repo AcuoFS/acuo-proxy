@@ -1,7 +1,7 @@
 // import libs
 const Router = require('restify-router').Router
 // import services
-const { PledgeService } = require('../services')
+const { PledgeService, FsCacheService } = require('../services')
 
 // main object
 const routerInstance = new Router()
@@ -11,12 +11,17 @@ const prefix = "pledge"
 
 // ======================================================================
 routerInstance.get('/optimization', (req, res, next) => {
-  PledgeService.get()
-  .then(data => res.send(data))
-  .catch(err => {
-    PledgeService.getFromCache()
-      .then(data => res.send(data))
-      .catch(err => res.json(404, {msg: 'failed to get data for first time'}))
+  // get data
+  const key = req.path()
+
+  PledgeService.get().then(items => {
+    // hit backend
+    FsCacheService.set({key, data:items})
+    res.json({items})
+
+  }).catch(err => {
+    // backend is down, get from cache
+    FsCacheService.get(key).then(items => res.json({items, fromCache: true}))
   })
 })
 
