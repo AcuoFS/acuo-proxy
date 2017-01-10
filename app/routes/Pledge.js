@@ -27,14 +27,30 @@ routerInstance.get('/optimization', (req, res, next) => {
 })
 
 routerInstance.get('/allocate-selection', (req, res, next) => {
+  const key = req.path()
+
   Promise.all([PledgeService.asset(), PledgeService.earmarked()]).then(data => {
-    const [asset, {earmarked}] = data
-    // const newData = _(data1).forEach(instruments => {
-    //   console.log("in")
-    //   return instruments
-    // })
-    // console.log()
-    res.send(asset)
+    // hit backend
+    const [detailedAssets, {earmarked}] = data
+    const assets = _(detailedAssets).values()
+      .reduce((all, one) => {
+        return _.concat(all, one)
+      }, [])
+      .map(asset => {
+        const filter = _.pick(asset, ['assetId', 'assetIdType'])
+        const result = _.find(earmarked, filter)
+
+        return result
+          ? _.set(asset, 'earmarked', true)
+          : asset
+      })
+
+    FsCacheService.set({key, data: assets})
+    res.send({items: assets})
+
+  }).catch(err => {
+    // hit cache
+    FsCacheService.get(key).then(items => res.send({items, fromCache: true}))
   })
 })
 
