@@ -5,16 +5,12 @@ const _ = require('lodash')
 // import utils
 const cache = require('../common/Cache')
 
-// config
-const fsPath = './app/cache/'
-const requirePath = '../cache/'
-
 // main obj
 const FsCache = {}
 
 // set data in FsCache
 FsCache.set = ({key, data}) => {
-  const fsKey = generateKey(fsPath, key)
+  const fsKey = generateKey(key)
 
   // write file is async
   fs.writeFile(fsKey, JSON.stringify(data))
@@ -25,15 +21,14 @@ FsCache.set = ({key, data}) => {
 
 // get data from FsCache
 FsCache.get = (key) => new Promise((resolve, reject) => {
-  const requireKey = generateKey(requirePath, key)
+  const fsKey = generateKey(key)
 
   cache.get(key)
     // hit cache
-    .then(json => resolve(json))
-    // hit fs
+    .then(resolve)
+    // hit fs by requiring
     .catch(err => {
-      const json = require(requireKey)
-      resolve(json)
+      fs.readFile(fsKey, 'utf8', (err, data) => resolve(JSON.parse(data)))
     })
 })
 
@@ -41,7 +36,7 @@ FsCache.get = (key) => new Promise((resolve, reject) => {
 // ==================================================
 // internal function
 // transform key so that it is a valid file name
-const generateKey = (prefix, key) => prefix + key.replace(/\//g, '_') + '.json'
+const generateKey = (key) => './app/cache/' + key.replace(/\//g, '_') + '.json'
 
 
 module.exports = FsCache
