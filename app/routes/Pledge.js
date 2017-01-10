@@ -32,25 +32,22 @@ routerInstance.get('/allocate-selection', (req, res, next) => {
   Promise.all([PledgeService.asset(), PledgeService.earmarked()]).then(data => {
     // hit backend
     const [detailedAssets, {earmarked}] = data
-    const assets = _(detailedAssets).values()
-      .reduce((all, one) => {
-        return _.concat(all, one)
-      }, [])
-      .map(asset => {
-        const filter = _.pick(asset, ['assetId', 'assetIdType'])
-        const result = _.find(earmarked, filter)
+    const {"MM Instruments": mmInstruments,
+           "Sovereign Bonds": sovereignBonds,
+           "Corporate Equity": corporateEquity,
+           "CASH": cash} = detailedAssets
 
-        return result
-          ? _.set(asset, 'earmarked', true)
-          : asset
-      })
+    const assets = { earmarked, cash, mmInstruments, sovereignBonds, corporateEquity }
 
     FsCacheService.set({key, data: assets})
-    res.send({items: assets})
+    res.send(assets)
 
   }).catch(err => {
     // hit cache
-    FsCacheService.get(key).then(items => res.send({items, fromCache: true}))
+    FsCacheService.get(key).then(items => {
+      console.log(items)
+      res.send(Object.assign({},items, {fromCache: true})
+    })
   })
 })
 
