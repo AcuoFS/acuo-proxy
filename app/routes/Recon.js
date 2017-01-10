@@ -1,7 +1,8 @@
 // import libs
 const Router = require('restify-router').Router
+const _ = require('lodash')
 // import services
-const { ReconService } = require('../services')
+const { ReconService, FsCacheService } = require('../services')
 
 // main object
 const routerInstance = new Router()
@@ -11,12 +12,16 @@ const prefix = "recon"
 
 // ======================================================================
 routerInstance.get('/', (req, res, next) => {
-  ReconService.get()
-  .then(data => res.send(data))
-  .catch(err => {
-    ReconService.getFromCache()
-      .then(data => res.send(data))
-      .catch(err => res.json(404, {msg: 'failed to get data for first time'}))
+  const key = req.path()
+
+  ReconService.get().then(data => {
+    // hit backend
+    FsCacheService.set({key, data})
+    res.json({items:data})
+
+  }).catch(err => {
+    // hit cache
+    FsCacheService.get(key).then(items => res.json(_.set({items}, 'fromCache', true)))
   })
 })
 
