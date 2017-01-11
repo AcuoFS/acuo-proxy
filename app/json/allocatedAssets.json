@@ -1,0 +1,110 @@
+[
+  {
+    "GUID": "ms7",
+    "caseCode": "A",
+    "type": "variationMargin",
+    "assetName": "Singapore Dollar",
+    "valuePostHaircut": 284000,
+    "CCY": "SGD",
+    "haircut": 0.05,
+    "value": 298947.4,
+    "FX": 1.42,
+    "venue": "SG"
+  },
+  {
+    "GUID": "ms7",
+    "caseCode": "A",
+    "type": "variationMargin",
+    "assetName": "US Dollar",
+    "valuePostHaircut": 300000,
+    "CCY": "USD",
+    "haircut": 0,
+    "value": 300000,
+    "FX": 1,
+    "venue": "SG"
+  },
+  {
+    "GUID": "ms7",
+    "caseCode": "C",
+    "type": "variationMargin",
+    "assetName": "Euro",
+    "valuePostHaircut": 93000,
+    "CCY": "EUR",
+    "haircut": 0.05,
+    "value": 113186.2,
+    "FX": 0.93,
+    "venue": "SG"
+  },
+  {
+    "GUID": "ms7",
+    "caseCode": "C",
+    "type": "variationMargin",
+    "assetName": "Singapore Dollar",
+    "valuePostHaircut": 284000,
+    "CCY": "SGD",
+    "haircut": 0.05,
+    "value": 298947.4,
+    "FX": 1.42,
+    "venue": "SG"
+  },
+  {
+    "GUID": "ms7",
+    "caseCode": "C",
+    "type": "variationMargin",
+    "assetName": "Hongkong Dollar",
+    "valuePostHaircut": 1548000,
+    "CCY": "HKD",
+    "haircut": 0,
+    "value": 1629474,
+    "FX": 7.74,
+    "venue": "SG"
+  },
+  {
+    "GUID": "ms7",
+    "caseCode": "L",
+    "type": "variationMargin",
+    "assetName": "Euro",
+    "valuePostHaircut": 93000,
+    "CCY": "EUR",
+    "haircut": 0.05,
+    "value": 113186.2,
+    "FX": 0.93,
+    "venue": "SG"
+  },
+  {
+    "GUID": "ms7",
+    "caseCode": "L",
+    "type": "variationMargin",
+    "assetName": "Singapore Dollar",
+    "valuePostHaircut": 284000,
+    "CCY": "SGD",
+    "haircut": 0.05,
+    "value": 298947.4,
+    "FX": 1.42,
+    "venue": "SG"
+  },
+  {
+    "GUID": "ms7",
+    "caseCode": "L",
+    "type": "variationMargin",
+    "assetName": "US Dollar",
+    "valuePostHaircut": 200000,
+    "CCY": "USD",
+    "haircut": 0,
+    "value": 200000,
+    "FX": 1,
+    "venue": "SG"
+  },
+  {
+    "GUID": "ms7",
+    "caseCode": "O",
+    "type": "variationMargin",
+    "assetName": "US Dollar",
+    "valuePostHaircut": 500000,
+    "CCY": "USD",
+    "haircut": 0,
+    "value": 500000,
+    "FX": 1,
+    "venue": "SG"
+  }
+]
