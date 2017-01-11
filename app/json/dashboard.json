@@ -1,0 +1,1797 @@
+{
+  "derivatives": [
+    {
+      "type": "OTC_legacy",
+      "marginStatus": [
+        {
+          "status": "matchedtoreceived",
+          "timeFrames": [
+            {
+              "timeRangeStart": "2016-10-25T18:00:00.000Z",
+              "timeRangeEnd": "2016-10-25T19:00:00.000Z",
+              "actionsList": [
+                {
+                  "time": "20161025",
+                  "ccy": "USD",
+                  "direction": "OUT",
+                  "status": "MatchedToReceived",
+                  "type": "legacy",
+                  "GUID": "ms23",
+                  "legalEntity": "ACUO US LLC",
+                  "cptyEntity": "Counterparty A3",
+                  "cptyOrg": "Counterpart A",
+                  "initialMargin": "1000000.00",
+                  "variableMargin": "3000000.00"
+                },
+                {
+                  "time": "20161025",
+                  "ccy": "USD",
+                  "direction": "OUT",
+                  "status": "MatchedToReceived",
+                  "type": "legacy",
+                  "GUID": "ms27",
+                  "legalEntity": "ACUO UK PLC",
+                  "cptyEntity": "Counterparty B2",
+                  "cptyOrg": "Counterpart B",
+                  "initialMargin": "500000.00",
+                  "variableMargin": "1000000.00"
+                }
+              ]
+            },
+            {
+              "timeRangeStart": "2016-10-25T19:00:00.000Z",
+              "timeRangeEnd": "2016-10-25T20:00:00.000Z",
+              "actionsList": [
+                {
+                  "time": "20161025",
+                  "ccy": "USD",
+                  "direction": "OUT",
+                  "status": "MatchedToReceived",
+                  "type": "legacy",
+                  "GUID": "ms7",
+                  "legalEntity": "ACUO SG Pte Ltd",
+                  "cptyEntity": "Counterparty B2",
+                  "cptyOrg": "Counterpart B",
+                  "initialMargin": "500000.00",
+                  "variableMargin": "1000000.00"
+                },
+                {
+                  "time": "20161025",
+                  "ccy": "USD",
+                  "direction": "OUT",
+                  "status": "MatchedToReceived",
+                  "type": "legacy",
+                  "GUID": "ms3",
+                  "legalEntity": "ACUO UK PLC",
+                  "cptyEntity": "Counterparty A3",
+                  "cptyOrg": "Counterpart A",
+                  "initialMargin": "800000.00",
+                  "variableMargin": "2010000.00"
+                }
+              ]
+            },
+            {
+              "timeRangeStart": "2016-10-25T05:00:00.000Z",
+              "timeRangeEnd": "2016-10-25T06:00:00.000Z",
+              "actionsList": [
+                {
+                  "time": "20161025",
+                  "ccy": "USD",
+                  "direction": "OUT",
+                  "status": "MatchedToReceived",
+                  "type": "legacy",
+                  "GUID": "ms5",
+                  "legalEntity": "ACUO US LLC",
+                  "cptyEntity": "Counterparty A5",
+                  "cptyOrg": "Counterpart A",
+                  "initialMargin": "1000000.00",
+                  "variableMargin": "3000000.00"
+                },
+                {
+                  "time": "20161025",
+                  "ccy": "USD",
+                  "direction": "OUT",
+                  "status": "MatchedToReceived",
+                  "type": "legacy",
+                  "GUID": "ms25",
+                  "legalEntity": "ACUO SG Pte Ltd",
+                  "cptyEntity": "Counterparty A5",
+                  "cptyOrg": "Counterpart A",
+                  "initialMargin": "500000.00",
+                  "variableMargin": "1000000.00"
+                },
+                {
+                  "time": "20161025",
+                  "ccy": "USD",
+                  "direction": "OUT",
+                  "status": "MatchedToReceived",
+                  "type": "legacy",
+                  "GUID": "ms1",
+                  "legalEntity": "ACUO SG Pte Ltd",
+                  "cptyEntity": "Counterparty A1",
+                  "cptyOrg": "Counterpart A",
+                  "initialMargin": "500000.00",
+                  "variableMargin": "1000000.00"
+                },
+                {
+                  "time": "20161025",
+                  "ccy": "USD",
+                  "direction": "OUT",
+                  "status": "MatchedToReceived",
+                  "type": "legacy",
+                  "GUID": "ms21",
+                  "legalEntity": "ACUO UK PLC",
+                  "cptyEntity": "Counterparty A1",
+                  "cptyOrg": "Counterpart A",
+                  "initialMargin": "800000.00",
+                  "variableMargin": "2010000.00"
+                },
+                {
+                  "time": "20161025",
+                  "ccy": "USD",
+                  "direction": "OUT",
+                  "status": "MatchedToReceived",
+                  "type": "legacy",
+                  "GUID": "ms9",
+                  "legalEntity": "ACUO UK PLC",
+                  "cptyEntity": "Counterparty B4",
+                  "cptyOrg": "Counterpart B",
+                  "initialMargin": "500000.00",
+                  "variableMargin": "1000000.00"
+                }
+              ]
+            },
+            {
+              "timeRangeStart": "2016-10-25T20:00:00.000Z",
+              "timeRangeEnd": "2016-10-25T21:00:00.000Z",
+              "actionsList": [
+                {
+                  "time": "20161025",
+                  "ccy": "USD",
+                  "direction": "OUT",
+                  "status": "MatchedToReceived",
+                  "type": "legacy",
+                  "GUID": "ms19",
+                  "legalEntity": "ACUO SG Pte Ltd",
+                  "cptyEntity": "Counterparty B4",
+                  "cptyOrg": "Counterpart B",
+                  "initialMargin": "500000.00",
+                  "variableMargin": "1000000.00"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "status": "reconciled",
+          "timeFrames": [
+            {
+              "timeRangeStart": "2016-10-25T18:00:00.000Z",
+              "timeRangeEnd": "2016-10-25T19:00:00.000Z",
+              "actionsList": [
+                {
+                  "time": "20161025",
+                  "ccy": "USD",
+                  "direction": "OUT",
+                  "status": "Reconciled",
+                  "type": "legacy",
+                  "GUID": "ms23",
+                  "legalEntity": "ACUO US LLC",
+                  "cptyEntity": "Counterparty A3",
+                  "cptyOrg": "Counterpart A",
+                  "initialMargin": "1000000.00",
+                  "variableMargin": "3000000.00"
+                },
+                {
+                  "time": "20161025",
+                  "ccy": "USD",
+                  "direction": "OUT",
+                  "status": "Reconciled",
+                  "type": "legacy",
+                  "GUID": "ms27",
+                  "legalEntity": "ACUO UK PLC",
+                  "cptyEntity": "Counterparty B2",
+                  "cptyOrg": "Counterpart B",
+                  "initialMargin": "500000.00",
+                  "variableMargin": "1000000.00"
+                }
+              ]
+            },
+            {
+              "timeRangeStart": "2016-10-25T19:00:00.000Z",
+              "timeRangeEnd": "2016-10-25T20:00:00.000Z",
+              "actionsList": [
+                {
+                  "time": "20161025",
+                  "ccy": "USD",
+                  "direction": "OUT",
+                  "status": "Reconciled",
+                  "type": "legacy",
+                  "GUID": "ms7",
+                  "legalEntity": "ACUO SG Pte Ltd",
+                  "cptyEntity": "Counterparty B2",
+                  "cptyOrg": "Counterpart B",
+                  "initialMargin": "500000.00",
+                  "variableMargin": "1000000.00"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "status": "unrecon",
+          "timeFrames": [
+            {
+              "timeRangeStart": "2016-10-26T05:00:00.000Z",
+              "timeRangeEnd": "2016-10-26T06:00:00.000Z",
+              "actionsList": [
+                {
+                  "time": "20161026",
+                  "ccy": "USD",
+                  "direction": "IN",
+                  "status": "Unrecon",
+                  "type": "legacy",
+                  "GUID": "ms32",
+                  "legalEntity": "ACUO US LLC",
+                  "cptyEntity": "Counterparty A5",
+                  "cptyOrg": "Counterpart A",
+                  "initialMargin": "1000000.00",
+                  "variableMargin": "1000000.00"
+                },
+                {
+                  "time": "20161026",
+                  "ccy": "USD",
+                  "direction": "IN",
+                  "status": "Unrecon",
+                  "type": "legacy",
+                  "GUID": "ms28",
+                  "legalEntity": "ACUO SG Pte Ltd",
+                  "cptyEntity": "Counterparty A1",
+                  "cptyOrg": "Counterpart A",
+                  "initialMargin": "500000.00",
+                  "variableMargin": "500000.00"
+                },
+                {
+                  "time": "20161026",
+                  "ccy": "USD",
+                  "direction": "IN",
+                  "status": "Unrecon",
+                  "type": "legacy",
+                  "GUID": "ms36",
+                  "legalEntity": "ACUO UK PLC",
+                  "cptyEntity": "Counterparty B4",
+                  "cptyOrg": "Counterpart B",
+                  "initialMargin": "500000.00",
+                  "variableMargin": "500000.00"
+                }
+              ]
+            },
+            {
+              "timeRangeStart": "2016-10-25T19:00:00.000Z",
+              "timeRangeEnd": "2016-10-25T20:00:00.000Z",
+              "actionsList": [
+                {
+                  "time": "20161025",
+                  "ccy": "USD",
+                  "direction": "OUT",
+                  "status": "Unrecon",
+                  "type": "legacy",
+                  "GUID": "ms3",
+                  "legalEntity": "ACUO UK PLC",
+                  "cptyEntity": "Counterparty A3",
+                  "cptyOrg": "Counterpart A",
+                  "initialMargin": "1000000.00",
+                  "variableMargin": "2000000.00"
+                }
+              ]
+            },
+            {
+              "timeRangeStart": "2016-10-26T19:00:00.000Z",
+              "timeRangeEnd": "2016-10-26T20:00:00.000Z",
+              "actionsList": [
+                {
+                  "time": "20161026",
+                  "ccy": "USD",
+                  "direction": "IN",
+                  "status": "Unrecon",
+                  "type": "legacy",
+                  "GUID": "ms34",
+                  "legalEntity": "ACUO SG Pte Ltd",
+                  "cptyEntity": "Counterparty B2",
+                  "cptyOrg": "Counterpart B",
+                  "initialMargin": "500000.00",
+                  "variableMargin": "500000.00"
+                },
+                {
+                  "time": "20161026",
+                  "ccy": "USD",
+                  "direction": "IN",
+                  "status": "Unrecon",
+                  "type": "legacy",
+                  "GUID": "ms30",
+                  "legalEntity": "ACUO UK PLC",
+                  "cptyEntity": "Counterparty A3",
+                  "cptyOrg": "Counterpart A",
+                  "initialMargin": "1000000.00",
+                  "variableMargin": "1000000.00"
+                }
+              ]
+            },
+            {
+              "timeRangeStart": "2016-10-25T05:00:00.000Z",
+              "timeRangeEnd": "2016-10-25T06:00:00.000Z",
+              "actionsList": [
+                {
+                  "time": "20161025",
+                  "ccy": "USD",
+                  "direction": "OUT",
+                  "status": "Unrecon",
+                  "type": "legacy",
+                  "GUID": "ms5",
+                  "legalEntity": "ACUO US LLC",
+                  "cptyEntity": "Counterparty A5",
+                  "cptyOrg": "Counterpart A",
+                  "initialMargin": "1000000.00",
+                  "variableMargin": "3000000.00"
+                },
+                {
+                  "time": "20161025",
+                  "ccy": "USD",
+                  "direction": "OUT",
+                  "status": "Unrecon",
+                  "type": "legacy",
+                  "GUID": "ms25",
+                  "legalEntity": "ACUO SG Pte Ltd",
+                  "cptyEntity": "Counterparty A5",
+                  "cptyOrg": "Counterpart A",
+                  "initialMargin": "500000.00",
+                  "variableMargin": "1000000.00"
+                },
+                {
+                  "time": "20161025",
+                  "ccy": "USD",
+                  "direction": "OUT",
+                  "status": "Unrecon",
+                  "type": "legacy",
+                  "GUID": "ms1",
+                  "legalEntity": "ACUO SG Pte Ltd",
+                  "cptyEntity": "Counterparty A1",
+                  "cptyOrg": "Counterpart A",
+                  "initialMargin": "500000.00",
+                  "variableMargin": "1000000.00"
+                },
+                {
+                  "time": "20161025",
+                  "ccy": "USD",
+                  "direction": "OUT",
+                  "status": "Unrecon",
+                  "type": "legacy",
+                  "GUID": "ms21",
+                  "legalEntity": "ACUO UK PLC",
+                  "cptyEntity": "Counterparty A1",
+                  "cptyOrg": "Counterpart A",
+                  "initialMargin": "1000000.00",
+                  "variableMargin": "2000000.00"
+                },
+                {
+                  "time": "20161025",
+                  "ccy": "USD",
+                  "direction": "OUT",
+                  "status": "Unrecon",
+                  "type": "legacy",
+                  "GUID": "ms9",
+                  "legalEntity": "ACUO UK PLC",
+                  "cptyEntity": "Counterparty B4",
+                  "cptyOrg": "Counterpart B",
+                  "initialMargin": "500000.00",
+                  "variableMargin": "1000000.00"
+                }
+              ]
+            },
+            {
+              "timeRangeStart": "2016-10-25T20:00:00.000Z",
+              "timeRangeEnd": "2016-10-25T21:00:00.000Z",
+              "actionsList": [
+                {
+                  "time": "20161025",
+                  "ccy": "USD",
+                  "direction": "OUT",
+                  "status": "Unrecon",
+                  "type": "legacy",
+                  "GUID": "ms19",
+                  "legalEntity": "ACUO SG Pte Ltd",
+                  "cptyEntity": "Counterparty B4",
+                  "cptyOrg": "Counterpart B",
+                  "initialMargin": "500000.00",
+                  "variableMargin": "1000000.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "OTC_bilateral",
+      "marginStatus": [
+        {
+          "status": "matchedtoreceived",
+          "timeFrames": [
+            {
+              "timeRangeStart": "2016-10-25T06:00:00.000Z",
+              "timeRangeEnd": "2016-10-25T07:00:00.000Z",
+              "actionsList": [
+                {
+                  "time": "20161025",
+                  "ccy": "USD",
+                  "direction": "OUT",
+                  "status": "MatchedToReceived",
+                  "type": "bilateral",
+                  "GUID": "ms26",
+                  "legalEntity": "ACUO US LLC",
+                  "cptyEntity": "Counterparty B1",
+                  "cptyOrg": "Counterpart B",
+                  "initialMargin": "500000.00",
+                  "variableMargin": "1000000.00"
+                },
+                {
+                  "time": "20161025",
+                  "ccy": "USD",
+                  "direction": "OUT",
+                  "status": "MatchedToReceived",
+                  "type": "bilateral",
+                  "GUID": "ms2",
+                  "legalEntity": "ACUO US LLC",
+                  "cptyEntity": "Counterparty A2",
+                  "cptyOrg": "Counterpart A",
+                  "initialMargin": "700000.00",
+                  "variableMargin": "1500000.00"
+                },
+                {
+                  "time": "20161025",
+                  "ccy": "USD",
+                  "direction": "OUT",
+                  "status": "MatchedToReceived",
+                  "type": "bilateral",
+                  "GUID": "ms22",
+                  "legalEntity": "ACUO SG Pte Ltd",
+                  "cptyEntity": "Counterparty A2",
+                  "cptyOrg": "Counterpart A",
+                  "initialMargin": "950000.00",
+                  "variableMargin": "250.00"
+                },
+                {
+                  "time": "20161025",
+                  "ccy": "USD",
+                  "direction": "OUT",
+                  "status": "MatchedToReceived",
+                  "type": "bilateral",
+                  "GUID": "ms6",
+                  "legalEntity": "ACUO UK PLC",
+                  "cptyEntity": "Counterparty B1",
+                  "cptyOrg": "Counterpart B",
+                  "initialMargin": "1150000.00",
+                  "variableMargin": "1000000.00"
+                }
+              ]
+            },
+            {
+              "timeRangeStart": "2016-10-25T11:00:00.000Z",
+              "timeRangeEnd": "2016-10-25T12:00:00.000Z",
+              "actionsList": [
+                {
+                  "time": "20161025",
+                  "ccy": "USD",
+                  "direction": "OUT",
+                  "status": "MatchedToReceived",
+                  "type": "bilateral",
+                  "GUID": "ms20",
+                  "legalEntity": "ACUO US LLC",
+                  "cptyEntity": "Counterparty B5",
+                  "cptyOrg": "Counterpart B",
+                  "initialMargin": "700000.00",
+                  "variableMargin": "1500000.00"
+                },
+                {
+                  "time": "20161025",
+                  "ccy": "USD",
+                  "direction": "OUT",
+                  "status": "MatchedToReceived",
+                  "type": "bilateral",
+                  "GUID": "ms24",
+                  "legalEntity": "ACUO UK PLC",
+                  "cptyEntity": "Counterparty A4",
+                  "cptyOrg": "Counterpart A",
+                  "initialMargin": "1150000.00",
+                  "variableMargin": "1000000.00"
+                }
+              ]
+            },
+            {
+              "timeRangeStart": "2016-10-25T12:00:00.000Z",
+              "timeRangeEnd": "2016-10-25T13:00:00.000Z",
+              "actionsList": [
+                {
+                  "time": "20161025",
+                  "ccy": "USD",
+                  "direction": "OUT",
+                  "status": "MatchedToReceived",
+                  "type": "bilateral",
+                  "GUID": "ms8",
+                  "legalEntity": "ACUO US LLC",
+                  "cptyEntity": "Counterparty B3",
+                  "cptyOrg": "Counterpart B",
+                  "initialMargin": "500000.00",
+                  "variableMargin": "1000000.00"
+                },
+                {
+                  "time": "20161025",
+                  "ccy": "USD",
+                  "direction": "OUT",
+                  "status": "MatchedToReceived",
+                  "type": "bilateral",
+                  "GUID": "ms4",
+                  "legalEntity": "ACUO SG Pte Ltd",
+                  "cptyEntity": "Counterparty A4",
+                  "cptyOrg": "Counterpart A",
+                  "initialMargin": "950000.00",
+                  "variableMargin": "250.00"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "status": "unrecon",
+          "timeFrames": [
+            {
+              "timeRangeStart": "2016-10-26T06:00:00.000Z",
+              "timeRangeEnd": "2016-10-26T07:00:00.000Z",
+              "actionsList": [
+                {
+                  "time": "20161026",
+                  "ccy": "USD",
+                  "direction": "IN",
+                  "status": "Unrecon",
+                  "type": "bilateral",
+                  "GUID": "ms29",
+                  "legalEntity": "ACUO US LLC",
+                  "cptyEntity": "Counterparty A2",
+                  "cptyOrg": "Counterpart A",
+                  "initialMargin": "700000.00",
+                  "variableMargin": "700000.00"
+                },
+                {
+                  "time": "20161026",
+                  "ccy": "USD",
+                  "direction": "IN",
+                  "status": "Unrecon",
+                  "type": "bilateral",
+                  "GUID": "ms33",
+                  "legalEntity": "ACUO UK PLC",
+                  "cptyEntity": "Counterparty B1",
+                  "cptyOrg": "Counterpart B",
+                  "initialMargin": "1150000.00",
+                  "variableMargin": "1150000.00"
+                }
+              ]
+            },
+            {
+              "timeRangeStart": "2016-10-25T06:00:00.000Z",
+              "timeRangeEnd": "2016-10-25T07:00:00.000Z",
+              "actionsList": [
+                {
+                  "time": "20161025",
+                  "ccy": "USD",
+                  "direction": "OUT",
+                  "status": "Unrecon",
+                  "type": "bilateral",
+                  "GUID": "ms26",
+                  "legalEntity": "ACUO US LLC",
+                  "cptyEntity": "Counterparty B1",
+                  "cptyOrg": "Counterpart B",
+                  "initialMargin": "500000.00",
+                  "variableMargin": "1000000.00"
+                },
+                {
+                  "time": "20161025",
+                  "ccy": "USD",
+                  "direction": "OUT",
+                  "status": "Unrecon",
+                  "type": "bilateral",
+                  "GUID": "ms2",
+                  "legalEntity": "ACUO US LLC",
+                  "cptyEntity": "Counterparty A2",
+                  "cptyOrg": "Counterpart A",
+                  "initialMargin": "700000.00",
+                  "variableMargin": "1500000.00"
+                },
+                {
+                  "time": "20161025",
+                  "ccy": "USD",
+                  "direction": "OUT",
+                  "status": "Unrecon",
+                  "type": "bilateral",
+                  "GUID": "ms22",
+                  "legalEntity": "ACUO SG Pte Ltd",
+                  "cptyEntity": "Counterparty A2",
+                  "cptyOrg": "Counterpart A",
+                  "initialMargin": "950000.00",
+                  "variableMargin": "250.00"
+                },
+                {
+                  "time": "20161025",
+                  "ccy": "USD",
+                  "direction": "OUT",
+                  "status": "Unrecon",
+                  "type": "bilateral",
+                  "GUID": "ms6",
+                  "legalEntity": "ACUO UK PLC",
+                  "cptyEntity": "Counterparty B1",
+                  "cptyOrg": "Counterpart B",
+                  "initialMargin": "1150000.00",
+                  "variableMargin": "1000000.00"
+                }
+              ]
+            },
+            {
+              "timeRangeStart": "2016-10-25T11:00:00.000Z",
+              "timeRangeEnd": "2016-10-25T12:00:00.000Z",
+              "actionsList": [
+                {
+                  "time": "20161025",
+                  "ccy": "USD",
+                  "direction": "OUT",
+                  "status": "Unrecon",
+                  "type": "bilateral",
+                  "GUID": "ms20",
+                  "legalEntity": "ACUO US LLC",
+                  "cptyEntity": "Counterparty B5",
+                  "cptyOrg": "Counterpart B",
+                  "initialMargin": "700000.00",
+                  "variableMargin": "1500000.00"
+                },
+                {
+                  "time": "20161025",
+                  "ccy": "USD",
+                  "direction": "OUT",
+                  "status": "Unrecon",
+                  "type": "bilateral",
+                  "GUID": "ms24",
+                  "legalEntity": "ACUO UK PLC",
+                  "cptyEntity": "Counterparty A4",
+                  "cptyOrg": "Counterpart A",
+                  "initialMargin": "1150000.00",
+                  "variableMargin": "1000000.00"
+                }
+              ]
+            },
+            {
+              "timeRangeStart": "2016-10-25T12:00:00.000Z",
+              "timeRangeEnd": "2016-10-25T13:00:00.000Z",
+              "actionsList": [
+                {
+                  "time": "20161025",
+                  "ccy": "USD",
+                  "direction": "OUT",
+                  "status": "Unrecon",
+                  "type": "bilateral",
+                  "GUID": "ms8",
+                  "legalEntity": "ACUO US LLC",
+                  "cptyEntity": "Counterparty B3",
+                  "cptyOrg": "Counterpart B",
+                  "initialMargin": "500000.00",
+                  "variableMargin": "1000000.00"
+                },
+                {
+                  "time": "20161025",
+                  "ccy": "USD",
+                  "direction": "OUT",
+                  "status": "Unrecon",
+                  "type": "bilateral",
+                  "GUID": "ms4",
+                  "legalEntity": "ACUO SG Pte Ltd",
+                  "cptyEntity": "Counterparty A4",
+                  "cptyOrg": "Counterpart A",
+                  "initialMargin": "950000.00",
+                  "variableMargin": "250.00"
+                }
+              ]
+            },
+            {
+              "timeRangeStart": "2016-10-26T12:00:00.000Z",
+              "timeRangeEnd": "2016-10-26T13:00:00.000Z",
+              "actionsList": [
+                {
+                  "time": "20161026",
+                  "ccy": "USD",
+                  "direction": "IN",
+                  "status": "Unrecon",
+                  "type": "bilateral",
+                  "GUID": "ms35",
+                  "legalEntity": "ACUO US LLC",
+                  "cptyEntity": "Counterparty B3",
+                  "cptyOrg": "Counterpart B",
+                  "initialMargin": "500000.00",
+                  "variableMargin": "500000.00"
+                },
+                {
+                  "time": "20161026",
+                  "ccy": "USD",
+                  "direction": "IN",
+                  "status": "Unrecon",
+                  "type": "bilateral",
+                  "GUID": "ms31",
+                  "legalEntity": "ACUO SG Pte Ltd",
+                  "cptyEntity": "Counterparty A4",
+                  "cptyOrg": "Counterpart A",
+                  "initialMargin": "950000.00",
+                  "variableMargin": "950000.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "recons": [
+    {
+      "time": "20161025",
+      "ccy": "USD",
+      "direction": "OUT",
+      "GUID": "ms26",
+      "legalEntity": "ACUO US LLC",
+      "cptyEntity": "Counterparty B1",
+      "cptyOrg": "Counterpart B",
+      "initialMargin": "1535.00",
+      "variableMargin": "10025.00",
+      "ClientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": []
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL IM USD (ms26)",
+              "secondLevel": [
+                {
+                  "id": -1395289494,
+                  "name": "Initial USD (mc35)",
+                  "amount": 500000
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL VM USD (ms26)",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mc26)",
+                  "amount": 1000000
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "20161025",
+      "ccy": "USD",
+      "direction": "OUT",
+      "GUID": "ms20",
+      "legalEntity": "ACUO US LLC",
+      "cptyEntity": "Counterparty B5",
+      "cptyOrg": "Counterpart B",
+      "initialMargin": "1529.00",
+      "variableMargin": "10019.00",
+      "ClientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": []
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL IM USD (ms20)",
+              "secondLevel": [
+                {
+                  "id": -1395291788,
+                  "name": "Initial SGD (mc29)",
+                  "amount": 700000
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL VM USD (ms20)",
+              "secondLevel": [
+                {
+                  "id": 1077370051,
+                  "name": "Variation SGD (mc20)",
+                  "amount": 1500000
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "20161026",
+      "ccy": "USD",
+      "direction": "IN",
+      "GUID": "ms35",
+      "legalEntity": "ACUO US LLC",
+      "cptyEntity": "Counterparty B3",
+      "cptyOrg": "Counterpart B",
+      "initialMargin": "1514.00",
+      "variableMargin": "10007.00",
+      "ClientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": []
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL IM USD (ms35)",
+              "secondLevel": [
+                {
+                  "id": -1395289494,
+                  "name": "Initial USD (mc44)",
+                  "amount": 500000
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL VM USD (ms35)",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mc53)",
+                  "amount": 500000
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "20161025",
+      "ccy": "USD",
+      "direction": "OUT",
+      "GUID": "ms8",
+      "legalEntity": "ACUO US LLC",
+      "cptyEntity": "Counterparty B3",
+      "cptyOrg": "Counterpart B",
+      "initialMargin": "1514.00",
+      "variableMargin": "10007.00",
+      "ClientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": []
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL IM USD (ms8)",
+              "secondLevel": [
+                {
+                  "id": -1395289494,
+                  "name": "Initial USD (mc17)",
+                  "amount": 500000
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL VM USD (ms8)",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mc8)",
+                  "amount": 1000000
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "20161025",
+      "ccy": "USD",
+      "direction": "OUT",
+      "GUID": "ms2",
+      "legalEntity": "ACUO US LLC",
+      "cptyEntity": "Counterparty A2",
+      "cptyOrg": "Counterpart A",
+      "initialMargin": "1502.00",
+      "variableMargin": "10001.00",
+      "ClientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": []
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL IM USD (ms2)",
+              "secondLevel": [
+                {
+                  "id": -1395291788,
+                  "name": "Initial SGD (mc11)",
+                  "amount": 700000
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL VM USD (ms2)",
+              "secondLevel": [
+                {
+                  "id": 1077370051,
+                  "name": "Variation SGD (mc2)",
+                  "amount": 1500000
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "20161026",
+      "ccy": "USD",
+      "direction": "IN",
+      "GUID": "ms29",
+      "legalEntity": "ACUO US LLC",
+      "cptyEntity": "Counterparty A2",
+      "cptyOrg": "Counterpart A",
+      "initialMargin": "1502.00",
+      "variableMargin": "10001.00",
+      "ClientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": []
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL IM USD (ms29)",
+              "secondLevel": [
+                {
+                  "id": -1395291788,
+                  "name": "Initial SGD (mc38)",
+                  "amount": 700000
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL VM USD (ms29)",
+              "secondLevel": [
+                {
+                  "id": 1077370051,
+                  "name": "Variation SGD (mc47)",
+                  "amount": 700000
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "20161025",
+      "ccy": "USD",
+      "direction": "OUT",
+      "GUID": "ms5",
+      "legalEntity": "ACUO US LLC",
+      "cptyEntity": "Counterparty A5",
+      "cptyOrg": "Counterpart A",
+      "initialMargin": "1509.00",
+      "variableMargin": "10004.00",
+      "ClientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": []
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL IM USD (ms5)",
+              "secondLevel": [
+                {
+                  "id": -1395307131,
+                  "name": "Initial CHF (mc14)",
+                  "amount": 1000000
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL VM USD (ms5)",
+              "secondLevel": [
+                {
+                  "id": 1077354708,
+                  "name": "Variation CHF (mc5)",
+                  "amount": 3000000
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "20161026",
+      "ccy": "USD",
+      "direction": "IN",
+      "GUID": "ms32",
+      "legalEntity": "ACUO US LLC",
+      "cptyEntity": "Counterparty A5",
+      "cptyOrg": "Counterpart A",
+      "initialMargin": "1509.00",
+      "variableMargin": "10004.00",
+      "ClientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": []
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL IM USD (ms32)",
+              "secondLevel": [
+                {
+                  "id": -1395307131,
+                  "name": "Initial CHF (mc41)",
+                  "amount": 1000000
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL VM USD (ms32)",
+              "secondLevel": [
+                {
+                  "id": 1077354708,
+                  "name": "Variation CHF (mc50)",
+                  "amount": 1000000
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "20161025",
+      "ccy": "USD",
+      "direction": "OUT",
+      "GUID": "ms25",
+      "legalEntity": "ACUO SG Pte Ltd",
+      "cptyEntity": "Counterparty A5",
+      "cptyOrg": "Counterpart A",
+      "initialMargin": "1534.00",
+      "variableMargin": "10024.00",
+      "ClientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": []
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL IM USD (ms25)",
+              "secondLevel": [
+                {
+                  "id": -1395289494,
+                  "name": "Initial USD (mc34)",
+                  "amount": 500000
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL VM USD (ms25)",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mc25)",
+                  "amount": 1000000
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "20161025",
+      "ccy": "USD",
+      "direction": "OUT",
+      "GUID": "ms22",
+      "legalEntity": "ACUO SG Pte Ltd",
+      "cptyEntity": "Counterparty A2",
+      "cptyOrg": "Counterpart A",
+      "initialMargin": "1531.00",
+      "variableMargin": "10021.00",
+      "ClientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": []
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL IM USD (ms22)",
+              "secondLevel": [
+                {
+                  "id": -1395303463,
+                  "name": "Initial GBP (mc31)",
+                  "amount": 950000
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL VM USD (ms22)",
+              "secondLevel": [
+                {
+                  "id": 1077358376,
+                  "name": "Variation GBP (mc22)",
+                  "amount": 250
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "20161025",
+      "ccy": "USD",
+      "direction": "OUT",
+      "GUID": "ms19",
+      "legalEntity": "ACUO SG Pte Ltd",
+      "cptyEntity": "Counterparty B4",
+      "cptyOrg": "Counterpart B",
+      "initialMargin": "1528.00",
+      "variableMargin": "10018.00",
+      "ClientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": []
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL IM USD (ms19)",
+              "secondLevel": [
+                {
+                  "id": -1395289494,
+                  "name": "Initial USD (mc28)",
+                  "amount": 500000
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL VM USD (ms19)",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mc19)",
+                  "amount": 1000000
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "20161026",
+      "ccy": "USD",
+      "direction": "IN",
+      "GUID": "ms34",
+      "legalEntity": "ACUO SG Pte Ltd",
+      "cptyEntity": "Counterparty B2",
+      "cptyOrg": "Counterpart B",
+      "initialMargin": "1513.00",
+      "variableMargin": "10006.00",
+      "ClientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": []
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL IM USD (ms34)",
+              "secondLevel": [
+                {
+                  "id": -1395289494,
+                  "name": "Initial USD (mc43)",
+                  "amount": 500000
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL VM USD (ms34)",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mc52)",
+                  "amount": 500000
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "20161025",
+      "ccy": "USD",
+      "direction": "OUT",
+      "GUID": "ms4",
+      "legalEntity": "ACUO SG Pte Ltd",
+      "cptyEntity": "Counterparty A4",
+      "cptyOrg": "Counterpart A",
+      "initialMargin": "1506.00",
+      "variableMargin": "10003.00",
+      "ClientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": []
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL IM USD (ms4)",
+              "secondLevel": [
+                {
+                  "id": -1395303463,
+                  "name": "Initial GBP (mc13)",
+                  "amount": 950000
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL VM USD (ms4)",
+              "secondLevel": [
+                {
+                  "id": 1077358376,
+                  "name": "Variation GBP (mc4)",
+                  "amount": 250
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "20161026",
+      "ccy": "USD",
+      "direction": "IN",
+      "GUID": "ms31",
+      "legalEntity": "ACUO SG Pte Ltd",
+      "cptyEntity": "Counterparty A4",
+      "cptyOrg": "Counterpart A",
+      "initialMargin": "1506.00",
+      "variableMargin": "10003.00",
+      "ClientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": []
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL IM USD (ms31)",
+              "secondLevel": [
+                {
+                  "id": -1395303463,
+                  "name": "Initial GBP (mc40)",
+                  "amount": 950000
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL VM USD (ms31)",
+              "secondLevel": [
+                {
+                  "id": 1077358376,
+                  "name": "Variation GBP (mc49)",
+                  "amount": 950000
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "20161025",
+      "ccy": "USD",
+      "direction": "OUT",
+      "GUID": "ms1",
+      "legalEntity": "ACUO SG Pte Ltd",
+      "cptyEntity": "Counterparty A1",
+      "cptyOrg": "Counterpart A",
+      "initialMargin": "1501.00",
+      "variableMargin": "10000.00",
+      "ClientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": []
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL IM USD (ms1)",
+              "secondLevel": [
+                {
+                  "id": -1395289494,
+                  "name": "Initial USD (mc10)",
+                  "amount": 500000
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL VM USD (ms1)",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mc1)",
+                  "amount": 1000000
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "20161026",
+      "ccy": "USD",
+      "direction": "IN",
+      "GUID": "ms28",
+      "legalEntity": "ACUO SG Pte Ltd",
+      "cptyEntity": "Counterparty A1",
+      "cptyOrg": "Counterpart A",
+      "initialMargin": "1501.00",
+      "variableMargin": "10000.00",
+      "ClientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": []
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL IM USD (ms28)",
+              "secondLevel": [
+                {
+                  "id": -1395289494,
+                  "name": "Initial USD (mc37)",
+                  "amount": 500000
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL VM USD (ms28)",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mc46)",
+                  "amount": 500000
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "20161025",
+      "ccy": "USD",
+      "direction": "OUT",
+      "GUID": "ms24",
+      "legalEntity": "ACUO UK PLC",
+      "cptyEntity": "Counterparty A4",
+      "cptyOrg": "Counterpart A",
+      "initialMargin": "1533.00",
+      "variableMargin": "10023.00",
+      "ClientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": []
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL IM USD (ms24)",
+              "secondLevel": [
+                {
+                  "id": -1395308652,
+                  "name": "Initial AUD (mc33)",
+                  "amount": 1150000
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL VM USD (ms24)",
+              "secondLevel": [
+                {
+                  "id": 1077353187,
+                  "name": "Variation AUD (mc24)",
+                  "amount": 1000000
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "20161025",
+      "ccy": "USD",
+      "direction": "OUT",
+      "GUID": "ms21",
+      "legalEntity": "ACUO UK PLC",
+      "cptyEntity": "Counterparty A1",
+      "cptyOrg": "Counterpart A",
+      "initialMargin": "1530.00",
+      "variableMargin": "10020.00",
+      "ClientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": []
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL IM USD (ms21)",
+              "secondLevel": [
+                {
+                  "id": -1395304794,
+                  "name": "Initial EUR (mc30)",
+                  "amount": 1000000
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL VM USD (ms21)",
+              "secondLevel": [
+                {
+                  "id": 1077357045,
+                  "name": "Variation EUR (mc21)",
+                  "amount": 2000000
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "20161025",
+      "ccy": "USD",
+      "direction": "OUT",
+      "GUID": "ms9",
+      "legalEntity": "ACUO UK PLC",
+      "cptyEntity": "Counterparty B4",
+      "cptyOrg": "Counterpart B",
+      "initialMargin": "1517.00",
+      "variableMargin": "10008.00",
+      "ClientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": []
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL IM USD (ms9)",
+              "secondLevel": [
+                {
+                  "id": -1395289494,
+                  "name": "Initial USD (mc18)",
+                  "amount": 500000
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL VM USD (ms9)",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mc9)",
+                  "amount": 1000000
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "20161026",
+      "ccy": "USD",
+      "direction": "IN",
+      "GUID": "ms36",
+      "legalEntity": "ACUO UK PLC",
+      "cptyEntity": "Counterparty B4",
+      "cptyOrg": "Counterpart B",
+      "initialMargin": "1517.00",
+      "variableMargin": "10008.00",
+      "ClientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": []
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL IM USD (ms36)",
+              "secondLevel": [
+                {
+                  "id": -1395289494,
+                  "name": "Initial USD (mc45)",
+                  "amount": 500000
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL VM USD (ms36)",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mc54)",
+                  "amount": 500000
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "20161026",
+      "ccy": "USD",
+      "direction": "IN",
+      "GUID": "ms30",
+      "legalEntity": "ACUO UK PLC",
+      "cptyEntity": "Counterparty A3",
+      "cptyOrg": "Counterpart A",
+      "initialMargin": "1505.00",
+      "variableMargin": "10002.00",
+      "ClientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": []
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL IM USD (ms30)",
+              "secondLevel": [
+                {
+                  "id": -1395304794,
+                  "name": "Initial EUR (mc39)",
+                  "amount": 1000000
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL VM USD (ms30)",
+              "secondLevel": [
+                {
+                  "id": 1077357045,
+                  "name": "Variation EUR (mc48)",
+                  "amount": 1000000
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "20161025",
+      "ccy": "USD",
+      "direction": "OUT",
+      "GUID": "ms3",
+      "legalEntity": "ACUO UK PLC",
+      "cptyEntity": "Counterparty A3",
+      "cptyOrg": "Counterpart A",
+      "initialMargin": "1505.00",
+      "variableMargin": "10002.00",
+      "ClientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": []
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL IM USD (ms3)",
+              "secondLevel": [
+                {
+                  "id": -1395304794,
+                  "name": "Initial EUR (mc12)",
+                  "amount": 1000000
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL VM USD (ms3)",
+              "secondLevel": [
+                {
+                  "id": 1077357045,
+                  "name": "Variation EUR (mc3)",
+                  "amount": 2000000
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "20161026",
+      "ccy": "USD",
+      "direction": "IN",
+      "GUID": "ms33",
+      "legalEntity": "ACUO UK PLC",
+      "cptyEntity": "Counterparty B1",
+      "cptyOrg": "Counterpart B",
+      "initialMargin": "1510.00",
+      "variableMargin": "10005.00",
+      "ClientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": []
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL IM USD (ms33)",
+              "secondLevel": [
+                {
+                  "id": -1395308652,
+                  "name": "Initial AUD (mc42)",
+                  "amount": 1150000
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL VM USD (ms33)",
+              "secondLevel": [
+                {
+                  "id": 1077353187,
+                  "name": "Variation AUD (mc51)",
+                  "amount": 1150000
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "20161025",
+      "ccy": "USD",
+      "direction": "OUT",
+      "GUID": "ms6",
+      "legalEntity": "ACUO UK PLC",
+      "cptyEntity": "Counterparty B1",
+      "cptyOrg": "Counterpart B",
+      "initialMargin": "1510.00",
+      "variableMargin": "10005.00",
+      "ClientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": []
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL IM USD (ms6)",
+              "secondLevel": [
+                {
+                  "id": -1395308652,
+                  "name": "Initial AUD (mc15)",
+                  "amount": 1150000
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL VM USD (ms6)",
+              "secondLevel": [
+                {
+                  "id": 1077353187,
+                  "name": "Variation AUD (mc6)",
+                  "amount": 1000000
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "timeUpdated": "2017-01-11T07:50:46.441Z"
+}
