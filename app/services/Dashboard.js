@@ -5,9 +5,14 @@ const rp = require('request-promise')
 const Dashboard = {}
 
 // get Dashboard items
-Dashboard.get = () => {
-  const uri = 'http://margin.acuo.com/acuo/api/margin/dashboard'
-  return rp({uri, json: true})
-}
+// Dashboard.get = () => {
+//   const uri = 'http://margin.acuo.com/acuo/api/margin/dashboard'
+//   return rp({uri, json: true})
+// }
+
+Dashboard.get = () => new Promise(resolve => {
+  const json = require('../json/dashboard.json')
+  resolve(json)
+})
 
 module.exports = Dashboard
