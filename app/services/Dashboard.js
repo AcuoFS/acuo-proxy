@@ -11,7 +11,7 @@ const Dashboard = {}
 // }
 
 Dashboard.get = () => new Promise(resolve => {
-  const json = require('../json/dashboard.json')
+  const json = require('../json/dashboard')
   resolve(json)
 })
 
