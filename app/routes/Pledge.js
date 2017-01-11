@@ -26,33 +26,55 @@ routerInstance.get('/optimization', (req, res, next) => {
   })
 })
 
-routerInstance.get('/allocate-selection', (req, res, next) => {
+routerInstance.post('/allocate-selection', (req, res, next) => {
   const key = req.path()
+  const { guids, optimisationSetting } = JSON.parse(req.body)
 
-  Promise.all([PledgeService.asset(), PledgeService.earmarked()]).then(data => {
+  Promise.all([PledgeService.calculateCase(optimisationSetting), PledgeService.getInitSelection(), PledgeService.getAllocatedAssets()]).then(data => {
     // hit backend
-    const [detailedAssets, {earmarked}] = data
-    const assets = _(detailedAssets).values()
-      .reduce((all, one) => {
-        return _.concat(all, one)
-      }, [])
-      .map(asset => {
-        const filter = _.pick(asset, ['assetId', 'assetIdType'])
-        const result = _.find(earmarked, filter)
+    const [caseCode, items, assets] = data
+    const processedItems = items.map(item => (guids.includes(item.GUID)
+      ? PledgeService.allocateAssets(item, caseCode, assets)
+      : item
+    ))
 
-        return result
-          ? _.set(asset, 'earmarked', true)
-          : asset
-      })
-
-    FsCacheService.set({key, data: assets})
-    res.send({items: assets})
+    // FsCacheService.set({key, data})
+    res.send({items: processedItems})
 
   }).catch(err => {
     // hit cache
-    FsCacheService.get(key).then(items => res.send({items, fromCache: true}))
+    // FsCacheService.get(key).then(items => res.send({items, fromCache: true}))
+    console.log(err)
   })
 })
+
+// routerInstance.post('/allocate-selection', (req, res, next) => {
+//   const key = req.path()
+//
+//   Promise.all([PledgeService.asset(), PledgeService.earmarked()]).then(data => {
+//     // hit backend
+//     const [detailedAssets, {earmarked}] = data
+//     const assets = _(detailedAssets).values()
+//       .reduce((all, one) => {
+//         return _.concat(all, one)
+//       }, [])
+//       .map(asset => {
+//         const filter = _.pick(asset, ['assetId', 'assetIdType'])
+//         const result = _.find(earmarked, filter)
+//
+//         return result
+//           ? _.set(asset, 'earmarked', true)
+//           : asset
+//       })
+//
+//     FsCacheService.set({key, data: assets})
+//     res.send({items: assets})
+//
+//   }).catch(err => {
+//     // hit cache
+//     FsCacheService.get(key).then(items => res.send({items, fromCache: true}))
+//   })
+// })
 
 routerInstance.get('/init-selection', (req, res, next) => {
   const key = req.path()
