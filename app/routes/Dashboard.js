@@ -16,8 +16,16 @@ routerInstance.get('/', (req, res, next) => {
 
   DashboardService.get().then(data => {
     // hit backend
-    FsCacheService.set({key, data})
-    res.send(data)
+    const { derivatives, timeUpdated } = data
+    const newDerivative = _.map(derivatives, (x => {
+      return _.set(x, 'marginStatus', _.filter(x.marginStatus, (x => {
+        const excludedStatus = ['matchedtoreceived', 'waitdispute', 'partialdispute']
+        return !excludedStatus.includes(x.status)
+      })))
+    }))
+
+    FsCacheService.set({key, newDerivative})
+    res.send({derivatives: newDerivative, timeUpdated})
 
   }).catch(err => {
     // hit cache

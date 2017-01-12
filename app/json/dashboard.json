@@ -14,7 +14,7 @@
                   "time": "20161026",
                   "ccy": "USD",
                   "direction": "IN",
-                  "status": "dispute",
+                  "status": "ActionDispute",
                   "type": "legacy",
                   "GUID": "ms30",
                   "legalEntity": "ACUO UK PLC",
