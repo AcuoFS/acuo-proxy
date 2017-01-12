@@ -5,6 +5,8 @@ const _ = require('lodash')
 // main object
 const Pledge = {}
 
+// =============================================================================
+//
 Pledge.get = () => {
   const uri = 'http://margin.acuo.com/acuo/api/pledge/settings/optimization/999'
   return rp({uri, json: true})
@@ -41,6 +43,7 @@ Pledge.allocateSelection = () => new Promise(resolve => {
 })
 
 // =============================================================================
+//
 Pledge.calculateCase = (optimisationSetting) => new Promise(resolve => {
   const sum = _(optimisationSetting).reduce((sum, item) => {
     return sum + _.get(item, 'rating', 0)
@@ -58,11 +61,28 @@ Pledge.calculateCase = (optimisationSetting) => new Promise(resolve => {
 })
 
 Pledge.allocateAssets = (item, caseCode, assets) => {
-  const GUID = item.GUID
-  const initialMargin = _.filter(assets, {GUID, caseCode, type:'initialMargin'})
-  const variationMargin = _.filter(assets, {GUID, caseCode, type:'variationMargin'})
+  const guid = item.GUID
 
-  return _.set(item, 'allocated', {initialMargin, variationMargin})
+  const initialMargin = _.filter(assets, {GUID: guid, caseCode, type: 'initialMargin'})
+    .map(asset => _.set(asset, 'valuePostHaircutOriginal', (asset.valuePostHaircut / asset.FX)))
+
+  const variationMargin = _.filter(assets, {GUID: guid, caseCode, type: 'variationMargin'})
+    .map(asset => _.set(asset, 'valuePostHaircutOriginal', (asset.valuePostHaircut / asset.FX)))
+
+  const initialMarginTotal = _.sumBy(initialMargin, 'valuePostHaircutOriginal')
+  const variationMarginTotal = _.sumBy(variationMargin, 'valuePostHaircutOriginal')
+  const marginTotal = initialMarginTotal + variationMarginTotal
+
+  return _.merge(item, {allocated : {
+    caseCode,
+    // margin items
+    initialMargin,
+    variationMargin,
+    // sub-totals and total
+    initialMarginTotal,
+    variationMarginTotal,
+    marginTotal,
+  }})
 }
 
 module.exports = Pledge

@@ -30,11 +30,18 @@ routerInstance.post('/allocate-selection', (req, res, next) => {
   const key = req.path()
   const { guids, optimisationSetting } = JSON.parse(req.body)
 
-  Promise.all([PledgeService.calculateCase(optimisationSetting), PledgeService.getInitSelection(), PledgeService.getAllocatedAssets()]).then(data => {
+  Promise.all([
+    PledgeService.calculateCase(optimisationSetting),
+    PledgeService.getInitSelection(),
+    PledgeService.getAllocatedAssets()
+  ]).then(data => {
     // hit backend
-    const [caseCode, items, assets] = data
+    const [caseCode, items, {items: assets}] = data
+
     const processedItems = items.map(item => (guids.includes(item.GUID)
+      // if item is in request list, then allocate assets to it
       ? PledgeService.allocateAssets(item, caseCode, assets)
+      // if item is not in request list, just return it
       : item
     ))
 
