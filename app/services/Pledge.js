@@ -46,7 +46,7 @@ Pledge.allocateSelection = () => new Promise(resolve => {
 //
 Pledge.calculateCase = (optimisationSetting) => new Promise(resolve => {
   const sum = _(optimisationSetting).reduce((sum, item) => {
-    return sum + _.get(item, 'rating', 0)
+    return sum + Number(_.get(item, 'rating', 0))
   }, 0)
 
   const sorted = _.sortBy(optimisationSetting, ['rating'])
