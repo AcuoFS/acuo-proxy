@@ -10,9 +10,4 @@ Dashboard.get = () => {
   return rp({uri, json: true})
 }
 
-// Dashboard.get = () => new Promise(resolve => {
-//   const json = require('../json/dashboard')
-//   resolve(json)
-// })
-
 module.exports = Dashboard
