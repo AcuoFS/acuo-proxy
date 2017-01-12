@@ -17,8 +17,9 @@ routerInstance.get('/', (req, res, next) => {
   DashboardService.get().then(data => {
     // hit backend
     let { derivatives, timeUpdated } = data
+
     derivatives = _.map(derivatives, (derivative => {
-      return _.set(x, 'marginStatus', _.filter(derivative.marginStatus, (margin => {
+      return _.set(derivative, 'marginStatus', _.filter(derivative.marginStatus, (margin => {
         const excludedStatus = ['matchedtoreceived', 'waitdispute', 'partialdispute']
         return !excludedStatus.includes(margin.status)
       })))
