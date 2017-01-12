@@ -16,22 +16,22 @@ routerInstance.get('/', (req, res, next) => {
 
   DashboardService.get().then(data => {
     // hit backend
-    const { derivatives, timeUpdated } = data
-    const newDerivative = _.map(derivatives, (x => {
-      return _.set(x, 'marginStatus', _.filter(x.marginStatus, (x => {
+    let { derivatives, timeUpdated } = data
+    derivatives = _.map(derivatives, (derivative => {
+      return _.set(x, 'marginStatus', _.filter(derivative.marginStatus, (margin => {
         const excludedStatus = ['matchedtoreceived', 'waitdispute', 'partialdispute']
-        return !excludedStatus.includes(x.status)
+        return !excludedStatus.includes(margin.status)
       })))
     }))
 
-    const stringified = JSON.stringify(newDerivative).replace(/(ActionDispute|actiondispute)/g, "dispute")
+    derivatives = JSON.parse(JSON.stringify(derivatives).replace(/(ActionDispute|actiondispute)/g, "dispute"))
 
-    FsCacheService.set({key, newDerivative})
-    res.send({derivatives: JSON.parse(stringified), timeUpdated})
+    FsCacheService.set({key, data: derivatives})
+    res.send({derivatives, timeUpdated})
 
   }).catch(err => {
     // hit cache
-    FsCacheService.get(key).then(data => res.json(_.set(data, 'fromCache', true)))
+    FsCacheService.get(key).then(data => res.json({derivatives: data, fromCache: true}))
   })
 })
 
