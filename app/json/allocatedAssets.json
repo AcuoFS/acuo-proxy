@@ -33,7 +33,7 @@
       "CCY": "USD",
       "haircut": "0",
       "value": "10277.78",
-      "FX": "0.93",
+      "FX": "1",
       "venue": "SG"
     },
     {
@@ -117,7 +117,7 @@
       "CCY": "USD",
       "haircut": "0",
       "value": "2500",
-      "FX": "0.93",
+      "FX": "1",
       "venue": "SG"
     },
     {
@@ -201,7 +201,7 @@
       "CCY": "USD",
       "haircut": "0",
       "value": "1840833.33",
-      "FX": "0.93",
+      "FX": "1",
       "venue": "SG"
     },
     {
@@ -285,7 +285,7 @@
       "CCY": "USD",
       "haircut": "0",
       "value": "6875556.56",
-      "FX": "0.93",
+      "FX": "1",
       "venue": "SG"
     },
     {
@@ -369,7 +369,7 @@
       "CCY": "USD",
       "haircut": "0",
       "value": "2985833.33",
-      "FX": "0.93",
+      "FX": "1",
       "venue": "SG"
     },
     {
@@ -453,7 +453,7 @@
       "CCY": "USD",
       "haircut": "0",
       "value": "33055.56",
-      "FX": "0.93",
+      "FX": "1",
       "venue": "SG"
     },
     {
@@ -537,7 +537,7 @@
       "CCY": "USD",
       "haircut": "0",
       "value": "24166.67",
-      "FX": "0.93",
+      "FX": "1",
       "venue": "SG"
     },
     {
@@ -621,7 +621,7 @@
       "CCY": "USD",
       "haircut": "0",
       "value": "35277.78",
-      "FX": "0.93",
+      "FX": "1",
       "venue": "SG"
     },
     {
@@ -705,7 +705,7 @@
       "CCY": "USD",
       "haircut": "0",
       "value": "29444.44",
-      "FX": "0.93",
+      "FX": "1",
       "venue": "SG"
     },
     {
@@ -789,7 +789,7 @@
       "CCY": "USD",
       "haircut": "0",
       "value": "26944.44",
-      "FX": "0.93",
+      "FX": "1",
       "venue": "SG"
     },
     {
@@ -873,7 +873,7 @@
       "CCY": "USD",
       "haircut": "0",
       "value": "55833.33",
-      "FX": "0.93",
+      "FX": "1",
       "venue": "SG"
     },
     {
@@ -957,7 +957,7 @@
       "CCY": "USD",
       "haircut": "0",
       "value": "43888.79",
-      "FX": "0.93",
+      "FX": "1",
       "venue": "SG"
     },
     {
@@ -1041,7 +1041,7 @@
       "CCY": "USD",
       "haircut": "0",
       "value": "22777.78",
-      "FX": "0.93",
+      "FX": "1",
       "venue": "SG"
     },
     {
@@ -1125,7 +1125,7 @@
       "CCY": "USD",
       "haircut": "0",
       "value": "3565.56",
-      "FX": "0.93",
+      "FX": "1",
       "venue": "SG"
     },
     {
@@ -1209,7 +1209,7 @@
       "CCY": "USD",
       "haircut": "0",
       "value": "5439.44",
-      "FX": "0.93",
+      "FX": "1",
       "venue": "SG"
     },
     {
@@ -1293,7 +1293,7 @@
       "CCY": "USD",
       "haircut": "0",
       "value": "2606.11",
-      "FX": "0.93",
+      "FX": "1",
       "venue": "SG"
     },
     {
@@ -1377,7 +1377,7 @@
       "CCY": "USD",
       "haircut": "0",
       "value": "41571.11",
-      "FX": "0.93",
+      "FX": "1",
       "venue": "SG"
     },
     {
@@ -1461,7 +1461,7 @@
       "CCY": "USD",
       "haircut": "0",
       "value": "1146.11",
-      "FX": "0.93",
+      "FX": "1",
       "venue": "SG"
     },
     {
@@ -1545,7 +1545,7 @@
       "CCY": "USD",
       "haircut": "0",
       "value": "1440.56",
-      "FX": "0.93",
+      "FX": "1",
       "venue": "SG"
     },
     {
@@ -1629,7 +1629,7 @@
       "CCY": "USD",
       "haircut": "0",
       "value": "6077.22",
-      "FX": "0.93",
+      "FX": "1",
       "venue": "SG"
     },
     {
@@ -1713,7 +1713,7 @@
       "CCY": "USD",
       "haircut": "0",
       "value": "44553.33",
-      "FX": "0.93",
+      "FX": "1",
       "venue": "SG"
     },
     {
@@ -1797,7 +1797,7 @@
       "CCY": "USD",
       "haircut": "0",
       "value": "4375.56",
-      "FX": "0.93",
+      "FX": "1",
       "venue": "SG"
     },
     {
@@ -1881,7 +1881,7 @@
       "CCY": "USD",
       "haircut": "0",
       "value": "2604.44",
-      "FX": "0.93",
+      "FX": "1",
       "venue": "SG"
     },
     {
@@ -1965,7 +1965,7 @@
       "CCY": "USD",
       "haircut": "0",
       "value": "51388.91",
-      "FX": "0.93",
+      "FX": "1",
       "venue": "SG"
     },
     {
@@ -2049,7 +2049,7 @@
       "CCY": "USD",
       "haircut": "0",
       "value": "11944.44",
-      "FX": "0.93",
+      "FX": "1",
       "venue": "SG"
     },
     {
@@ -2133,7 +2133,7 @@
       "CCY": "USD",
       "haircut": "0",
       "value": "16944.44",
-      "FX": "0.93",
+      "FX": "1",
       "venue": "SG"
     },
     {
@@ -2217,7 +2217,7 @@
       "CCY": "USD",
       "haircut": "0",
       "value": "13055.55",
-      "FX": "0.93",
+      "FX": "1",
       "venue": "SG"
     },
     {
@@ -3347,6 +3347,18 @@
       "value": "52992",
       "FX": "1",
       "venue": "SG"
+    },
+    {
+      "GUID": "O",
+      "caseCode": "initialMargin",
+      "type": "US Dollar",
+      "assetName": "52992",
+      "valuePostHaircut": "USD",
+      "CCY": "0",
+      "haircut": "52992",
+      "value": "1",
+      "FX": "SG",
+      "venue": ""
     }
   ]
 }
