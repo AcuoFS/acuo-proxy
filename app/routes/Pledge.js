@@ -101,5 +101,33 @@ routerInstance.get('/init-collateral', (req, res, next) => {
   PledgeService.getInitCollateral().then(data => res.send(data))
 })
 
+routerInstance.get('/init-new-collateral', (req, res, next) => {
+  const key = req.path()
+
+  Promise.all([PledgeService.asset(), PledgeService.earmarked()]).then(data => {
+    // hit backend
+    const [detailedAssets, {earmarked}] = data
+    const assets = _(detailedAssets).values()
+      .reduce((all, one) => {
+        return _.concat(all, one)
+      }, [])
+      .map(asset => {
+        const filter = _.pick(asset, ['assetId', 'assetIdType'])
+        const result = _.find(earmarked, filter)
+
+        return result
+          ? _.set(asset, 'earmarked', true)
+          : asset
+      })
+
+    FsCacheService.set({key, data: assets})
+    res.send({items: assets})
+
+  }).catch(err => {
+    // hit cache
+    FsCacheService.get(key).then(items => res.send({items, fromCache: true}))
+  })
+})
+
 
 module.exports = ({server}) => routerInstance.applyRoutes(server, prefix)
