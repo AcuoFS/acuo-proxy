@@ -11,7 +11,8 @@ WORKDIR /usr/src/app
 RUN npm install
 
 # Set environment variables 
-ENV PORT = 8181
+ENV DOCKER_PORT="8181"
+ENV DOCKER_HOST="::"
 
 EXPOSE 8181
 

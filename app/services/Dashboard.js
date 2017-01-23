@@ -6,7 +6,7 @@ const Dashboard = {}
 
 // get Dashboard items
 Dashboard.get = () => {
-  const uri = 'http://margin.acuo.com/acuo/api/margin/dashboard'
+  const uri = 'http://margin:7070/acuo/api/margin/dashboard'
   return rp({uri, json: true})
 }
 

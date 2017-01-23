@@ -8,7 +8,7 @@ const Pledge = {}
 // =============================================================================
 //
 Pledge.get = () => {
-  const uri = 'http://margin.acuo.com/acuo/api/pledge/settings/optimization/999'
+  const uri = 'http://margin:7070/acuo/api/pledge/settings/optimization/999'
   return rp({uri, json: true})
 }
 
@@ -18,7 +18,7 @@ Pledge.getInitCollateral = () => new Promise(resolve => {
 })
 
 Pledge.getInitSelection = () => {
-  const uri = 'http://margin.acuo.com/acuo/api/pledge/items/all/999'
+  const uri = 'http://margin:7070/acuo/api/pledge/items/all/999'
   return rp({uri, json: true})
 }
 
@@ -28,12 +28,12 @@ Pledge.getAllocatedAssets = () => new Promise (resolve => {
 })
 
 Pledge.asset = () => {
-  const uri = 'http://collateral.acuo.com/acuo/api/assets/eligible/client/999'
+  const uri = 'http://collateral:8080/acuo/api/assets/eligible/client/999'
   return rp({uri, json: true})
 }
 
 Pledge.earmarked = () => {
-  const uri = 'http://collateral.acuo.com/acuo/api/assets/reserved/client/999'
+  const uri = 'http://collateral:8080/acuo/api/assets/reserved/client/999'
   return rp({uri, json: true})
 }
 
