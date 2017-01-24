@@ -107,26 +107,19 @@ routerInstance.get('/init-collateral', (req, res, next) => {
   Promise.all([PledgeService.asset(), PledgeService.earmarked()]).then(data => {
     // hit backend
     const [detailedAssets, {earmarked}] = data
-    // const assets = _(detailedAssets).values()
-    //   .reduce((all, one) => {
-    //     return _.concat(all, one)
-    //   }, [])
-    //   .map(asset => {
-    //     const filter = _.pick(asset, ['assetId', 'assetIdType'])
-    //     const result = _.find(earmarked, filter)
-    //
-    //     return result
-    //       ? _.set(asset, 'earmarked', true)
-    //       : asset
-    //   })
-    //
+
     const listOfAllAssets = _(detailedAssets).values().reduce((all, one) => {
-      return _.concat(all, one)
-    }, [])
+        return _.concat(all, one)
+      }, []).map(asset => {
+        const filter = _.pick(asset, ['assetId', 'assetIdType'])
+        const result = _.find(earmarked, filter)
 
-    const listOfCategories = _.uniq(_.map(listOfAllAssets, 'assetCategory'))
+        return result
+          ? _.set(asset, 'earmarked', true)
+          : asset
+      })
 
-    const list = _(listOfCategories).reduce((obj, category) => {
+    const list = _(_.uniq(_.map(listOfAllAssets, 'assetCategory'))).reduce((obj, category) => {
       return _.set(obj, [category], _(listOfAllAssets).filter(asset => (asset.assetCategory == category && !asset.earmarked)))
     }, {})
 
