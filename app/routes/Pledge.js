@@ -119,11 +119,11 @@ routerInstance.get('/init-new-collateral', (req, res, next) => {
           : asset
       })
 
-    const list = _(_.uniq(_.map(listOfAllAssets, 'assetCategory'))).reduce((obj, category) => {
+    const assets = _(_.uniq(_.map(listOfAllAssets, 'assetCategory'))).reduce((obj, category) => {
       return _.set(obj, [category], _(listOfAllAssets).filter(asset => (asset.assetCategory == category && !asset.earmarked)))
-    }, {})
+    }, _.set({}, 'earmarked', _(listOfAllAssets).filter(asset => asset.earmarked)))
 
-    const assets = _.set(list, 'earmarked', _(listOfAllAssets).filter(asset => asset.earmarked))
+    //const assets = _.set(list, 'earmarked', _(listOfAllAssets).filter(asset => asset.earmarked))
 
     FsCacheService.set({key, data: assets})
 
