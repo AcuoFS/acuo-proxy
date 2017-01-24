@@ -97,11 +97,11 @@ routerInstance.get('/init-selection', (req, res, next) => {
   })
 })
 
-routerInstance.get('/init-old-collateral', (req, res, next) => {
+routerInstance.get('/init-collateral', (req, res, next) => {
   PledgeService.getInitCollateral().then(data => res.send(data))
 })
 
-routerInstance.get('/init-collateral', (req, res, next) => {
+routerInstance.get('/init-new-collateral', (req, res, next) => {
   const key = req.path()
 
   Promise.all([PledgeService.asset(), PledgeService.earmarked()]).then(data => {
