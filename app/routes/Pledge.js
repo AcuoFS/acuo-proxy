@@ -97,30 +97,43 @@ routerInstance.get('/init-selection', (req, res, next) => {
   })
 })
 
-routerInstance.get('/init-collateral', (req, res, next) => {
+routerInstance.get('/init-old-collateral', (req, res, next) => {
   PledgeService.getInitCollateral().then(data => res.send(data))
 })
 
-routerInstance.get('/init-new-collateral', (req, res, next) => {
+routerInstance.get('/init-collateral', (req, res, next) => {
   const key = req.path()
 
   Promise.all([PledgeService.asset(), PledgeService.earmarked()]).then(data => {
     // hit backend
     const [detailedAssets, {earmarked}] = data
-    const assets = _(detailedAssets).values()
-      .reduce((all, one) => {
-        return _.concat(all, one)
-      }, [])
-      .map(asset => {
-        const filter = _.pick(asset, ['assetId', 'assetIdType'])
-        const result = _.find(earmarked, filter)
+    // const assets = _(detailedAssets).values()
+    //   .reduce((all, one) => {
+    //     return _.concat(all, one)
+    //   }, [])
+    //   .map(asset => {
+    //     const filter = _.pick(asset, ['assetId', 'assetIdType'])
+    //     const result = _.find(earmarked, filter)
+    //
+    //     return result
+    //       ? _.set(asset, 'earmarked', true)
+    //       : asset
+    //   })
+    //
+    const listOfAllAssets = _(detailedAssets).values().reduce((all, one) => {
+      return _.concat(all, one)
+    }, [])
 
-        return result
-          ? _.set(asset, 'earmarked', true)
-          : asset
-      })
+    const listOfCategories = _.uniq(_.map(listOfAllAssets, 'assetCategory'))
+
+    const list = _(listOfCategories).reduce((obj, category) => {
+      return _.set(obj, [category], _(listOfAllAssets).filter(asset => (asset.assetCategory == category && !asset.earmarked)))
+    }, {})
+
+    const assets = _.set(list, 'earmarked', _(listOfAllAssets).filter(asset => asset.earmarked))
 
     FsCacheService.set({key, data: assets})
+
     res.send({items: assets})
 
   }).catch(err => {
