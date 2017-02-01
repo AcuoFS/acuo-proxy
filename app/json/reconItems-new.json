@@ -174,14 +174,7 @@
           "data": [
             {
               "firstLevel": "NET TOTAL VM USD (msp23)",
-              "amount": "100000099.00",
-              "secondLevel": [
-                {
-                  "id": 1077372345,
-                  "name": "Variation USD (mcep23)",
-                  "amount": "-35762500.00"
-                }
-              ]
+              "amount": "100000099.00"
             }
           ]
         }
