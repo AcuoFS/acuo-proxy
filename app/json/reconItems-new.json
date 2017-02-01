@@ -1,1490 +1,2068 @@
-{ "items" :[
-  {
-    "time": "2017-01-13T06:00:00.000Z",
-    "ccy": "USD",
-    "direction": "OUT",
-    "type": "OTC_bilateral",
-    "GUID": "msp30",
-    "legalEntity": "ACUO UK PLC",
-    "cptyEntity": "Counterpart B5",
-    "cptyOrg": "Counterpart B",
-    "initialMargin": "0.00",
-    "variableMargin": "-30058000.00",
-    "productCashFlows": "0.00",
-    "interestPayment": "0.00",
-    "pendingNonCash": "0.00",
-    "pendingCash": "0.00",
-    "clientAssets": [
-      {
-        "groupName": "Group 1",
-        "data": []
-      }
-    ],
-    "counterpartyAssets": [
-      {
-        "groupName": "Group 1",
-        "data": [
-          {
-            "firstLevel": "NET TOTAL VM USD (msp30)",
-            "secondLevel": [
-              {
-                "id": 1077372345,
-                "name": "Variation USD (mcp30)",
-                "amount": "-30058000.00"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "2017-01-13T18:00:00.000Z",
-    "ccy": "USD",
-    "direction": "IN",
-    "type": "OTC_legacy",
-    "GUID": "msp27",
-    "legalEntity": "ACUO UK PLC",
-    "cptyEntity": "Counterpart B2",
-    "cptyOrg": "Counterpart B",
-    "initialMargin": "0.00",
-    "variableMargin": "6258000.00",
-    "productCashFlows": "0.00",
-    "interestPayment": "0.00",
-    "pendingNonCash": "0.00",
-    "pendingCash": "0.00",
-    "clientAssets": [
-      {
-        "groupName": "Group 1",
-        "data": []
-      }
-    ],
-    "counterpartyAssets": [
-      {
-        "groupName": "Group 1",
-        "data": [
-          {
-            "firstLevel": "NET TOTAL VM USD (msp27)",
-            "secondLevel": [
-              {
-                "id": 1077372345,
-                "name": "Variation USD (mcp27)",
-                "amount": "6258000.00"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "2017-01-13T06:00:00.000Z",
-    "ccy": "USD",
-    "direction": "IN",
-    "type": "OTC_bilateral",
-    "GUID": "msp18",
-    "legalEntity": "ACUO UK PLC",
-    "cptyEntity": "Counterpart B3",
-    "cptyOrg": "Counterpart B",
-    "initialMargin": "0.00",
-    "variableMargin": "-29987000.00",
-    "productCashFlows": "0.00",
-    "interestPayment": "0.00",
-    "pendingNonCash": "0.00",
-    "pendingCash": "0.00",
-    "clientAssets": [
-      {
-        "groupName": "Group 1",
-        "data": []
-      }
-    ],
-    "counterpartyAssets": [
-      {
-        "groupName": "Group 1",
-        "data": [
-          {
-            "firstLevel": "NET TOTAL VM USD (msp18)",
-            "secondLevel": [
-              {
-                "id": 1077372345,
-                "name": "Variation USD (mcp18)",
-                "amount": "-29987000.00"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "2017-01-13T12:00:00.000Z",
-    "ccy": "USD",
-    "direction": "IN",
-    "type": "OTC_bilateral",
-    "GUID": "msp12",
-    "legalEntity": "ACUO UK PLC",
-    "cptyEntity": "Counterpart A2",
-    "cptyOrg": "Counterpart A",
-    "initialMargin": "0.00",
-    "variableMargin": "-29976500.00",
-    "productCashFlows": "0.00",
-    "interestPayment": "0.00",
-    "pendingNonCash": "0.00",
-    "pendingCash": "0.00",
-    "clientAssets": [
-      {
-        "groupName": "Group 1",
-        "data": []
-      }
-    ],
-    "counterpartyAssets": [
-      {
-        "groupName": "Group 1",
-        "data": [
-          {
-            "firstLevel": "NET TOTAL VM USD (msp12)",
-            "secondLevel": [
-              {
-                "id": 1077372345,
-                "name": "Variation USD (mcp12)",
-                "amount": "-29976500.00"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "2017-01-13T19:00:00.000Z",
-    "ccy": "USD",
-    "direction": "IN",
-    "type": "OTC_legacy",
-    "GUID": "msp3",
-    "legalEntity": "ACUO UK PLC",
-    "cptyEntity": "Counterpart A3",
-    "cptyOrg": "Counterpart A",
-    "initialMargin": "0.00",
-    "variableMargin": "6262000.00",
-    "productCashFlows": "50000.00",
-    "interestPayment": "0.00",
-    "pendingNonCash": "0.00",
-    "pendingCash": "0.00",
-    "clientAssets": [
-      {
-        "groupName": "Group 1",
-        "data": []
-      }
-    ],
-    "counterpartyAssets": [
-      {
-        "groupName": "Group 1",
-        "data": [
-          {
-            "firstLevel": "NET TOTAL VM USD (msp3)",
-            "secondLevel": [
-              {
-                "id": 1077372345,
-                "name": "Variation USD (mcp3)",
-                "amount": "6262000.00"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "2017-01-13T06:00:00.000Z",
-    "ccy": "USD",
-    "direction": "IN",
-    "type": "OTC_bilateral",
-    "GUID": "msp6",
-    "legalEntity": "ACUO UK PLC",
-    "cptyEntity": "Counterpart B1",
-    "cptyOrg": "Counterpart B",
-    "initialMargin": "0.00",
-    "variableMargin": "-30006000.00",
-    "productCashFlows": "0.00",
-    "interestPayment": "0.00",
-    "pendingNonCash": "0.00",
-    "pendingCash": "0.00",
-    "clientAssets": [
-      {
-        "groupName": "Group 1",
-        "data": []
-      }
-    ],
-    "counterpartyAssets": [
-      {
-        "groupName": "Group 1",
-        "data": [
-          {
-            "firstLevel": "NET TOTAL VM USD (msp6)",
-            "secondLevel": [
-              {
-                "id": 1077372345,
-                "name": "Variation USD (mcp6)",
-                "amount": "-30006000.00"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "2017-01-13T12:00:00.000Z",
-    "ccy": "USD",
-    "direction": "OUT",
-    "type": "OTC_clear",
-    "GUID": "msp36",
-    "legalEntity": "ACUO UK PLC",
-    "cptyEntity": "Morgan Stanley MUFG Securities Co., Ltd.",
-    "cptyOrg": "Morgan Stanley",
-    "initialMargin": "-3827132.00",
-    "variableMargin": "1779063.00",
-    "productCashFlows": "66500.00",
-    "interestPayment": "19136.00",
-    "pendingNonCash": "0.00",
-    "pendingCash": "0.00",
-    "clientAssets": [
-      {
-        "groupName": "Group 1",
-        "data": []
-      }
-    ],
-    "counterpartyAssets": [
-      {
-        "groupName": "Group 1",
-        "data": [
-          {
-            "firstLevel": "NET TOTAL VM USD (msp36)",
-            "secondLevel": [
-              {
-                "id": 1077372345,
-                "name": "Variation USD (mcp36)",
-                "amount": "1779063.00"
-              }
-            ]
-          },
-          {
-            "firstLevel": "NET TOTAL IM USD (msp36)",
-            "secondLevel": [
-              {
-                "id": -1395289494,
-                "name": "Initial USD (mcp48)",
-                "amount": "-3827132.00"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "2017-01-13T12:00:00.000Z",
-    "ccy": "USD",
-    "direction": "OUT",
-    "type": "OTC_clear",
-    "GUID": "msp38",
-    "legalEntity": "ACUO UK PLC",
-    "cptyEntity": "J.P. Morgan Securities LLC",
-    "cptyOrg": "J.P. Morgan",
-    "initialMargin": "-42552972.00",
-    "variableMargin": "-24437069.00",
-    "productCashFlows": "1085000.00",
-    "interestPayment": "212765.00",
-    "pendingNonCash": "0.00",
-    "pendingCash": "0.00",
-    "clientAssets": [
-      {
-        "groupName": "Group 1",
-        "data": []
-      }
-    ],
-    "counterpartyAssets": [
-      {
-        "groupName": "Group 1",
-        "data": [
-          {
-            "firstLevel": "NET TOTAL VM USD (msp38)",
-            "secondLevel": [
-              {
-                "id": 1077372345,
-                "name": "Variation USD (mcp38)",
-                "amount": "-24437069.00"
-              }
-            ]
-          },
-          {
-            "firstLevel": "NET TOTAL IM USD (msp38)",
-            "secondLevel": [
-              {
-                "id": -1395289494,
-                "name": "Initial USD (mcp50)",
-                "amount": "-42552972.00"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "2017-01-13T12:00:00.000Z",
-    "ccy": "USD",
-    "direction": "OUT",
-    "type": "OTC_clear",
-    "GUID": "msp33",
-    "legalEntity": "ACUO UK PLC",
-    "cptyEntity": "Goldman Sachs & Co.",
-    "cptyOrg": "Goldman Sachs",
-    "initialMargin": "-27399040.00",
-    "variableMargin": "-5868464.00",
-    "productCashFlows": "700000.00",
-    "interestPayment": "136995.00",
-    "pendingNonCash": "0.00",
-    "pendingCash": "0.00",
-    "clientAssets": [
-      {
-        "groupName": "Group 1",
-        "data": []
-      }
-    ],
-    "counterpartyAssets": [
-      {
-        "groupName": "Group 1",
-        "data": [
-          {
-            "firstLevel": "NET TOTAL VM USD (msp33)",
-            "secondLevel": [
-              {
-                "id": 1077372345,
-                "name": "Variation USD (mcp33)",
-                "amount": "-5868464.00"
-              }
-            ]
-          },
-          {
-            "firstLevel": "NET TOTAL IM USD (msp33)",
-            "secondLevel": [
-              {
-                "id": -1395289494,
-                "name": "Initial USD (mcp45)",
-                "amount": "-27399040.00"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "2017-01-13T12:00:00.000Z",
-    "ccy": "USD",
-    "direction": "IN",
-    "type": "OTC_clear",
-    "GUID": "msp41",
-    "legalEntity": "ACUO UK PLC",
-    "cptyEntity": "DBS BANK LTD",
-    "cptyOrg": "DBS",
-    "initialMargin": "-1575040.00",
-    "variableMargin": "-3182750.00",
-    "productCashFlows": "0.00",
-    "interestPayment": "0.00",
-    "pendingNonCash": "0.00",
-    "pendingCash": "0.00",
-    "clientAssets": [
-      {
-        "groupName": "Group 1",
-        "data": []
-      }
-    ],
-    "counterpartyAssets": [
-      {
-        "groupName": "Group 1",
-        "data": [
-          {
-            "firstLevel": "NET TOTAL VM USD (msp41)",
-            "secondLevel": [
-              {
-                "id": 1077372345,
-                "name": "Variation USD (mcp41)",
-                "amount": "-3182750.00"
-              }
-            ]
-          },
-          {
-            "firstLevel": "NET TOTAL IM USD (msp41)",
-            "secondLevel": [
-              {
-                "id": -1395289494,
-                "name": "Initial USD (mcp53)",
-                "amount": "-1575040.00"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "2017-01-13T05:00:00.000Z",
-    "ccy": "USD",
-    "direction": "IN",
-    "type": "OTC_legacy",
-    "GUID": "msp29",
-    "legalEntity": "ACUO US LLC",
-    "cptyEntity": "Counterpart B4",
-    "cptyOrg": "Counterpart B",
-    "initialMargin": "0.00",
-    "variableMargin": "-35722500.00",
-    "productCashFlows": "0.00",
-    "interestPayment": "0.00",
-    "pendingNonCash": "0.00",
-    "pendingCash": "0.00",
-    "clientAssets": [
-      {
-        "groupName": "Group 1",
-        "data": []
-      }
-    ],
-    "counterpartyAssets": [
-      {
-        "groupName": "Group 1",
-        "data": [
-          {
-            "firstLevel": "NET TOTAL VM USD (msp29)",
-            "secondLevel": [
-              {
-                "id": 1077372345,
-                "name": "Variation USD (mcp29)",
-                "amount": "-35722500.00"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "2017-01-13T06:00:00.000Z",
-    "ccy": "USD",
-    "direction": "OUT",
-    "type": "OTC_bilateral",
-    "GUID": "msp26",
-    "legalEntity": "ACUO US LLC",
-    "cptyEntity": "Counterpart B1",
-    "cptyOrg": "Counterpart B",
-    "initialMargin": "0.00",
-    "variableMargin": "-29023000.00",
-    "productCashFlows": "0.00",
-    "interestPayment": "0.00",
-    "pendingNonCash": "0.00",
-    "pendingCash": "0.00",
-    "clientAssets": [
-      {
-        "groupName": "Group 1",
-        "data": []
-      }
-    ],
-    "counterpartyAssets": [
-      {
-        "groupName": "Group 1",
-        "data": [
-          {
-            "firstLevel": "NET TOTAL VM USD (msp26)",
-            "secondLevel": [
-              {
-                "id": 1077372345,
-                "name": "Variation USD (mcp26)",
-                "amount": "-29023000.00"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "2017-01-13T18:00:00.000Z",
-    "ccy": "USD",
-    "direction": "OUT",
-    "type": "OTC_legacy",
-    "GUID": "msp23",
-    "legalEntity": "ACUO US LLC",
-    "cptyEntity": "Counterpart A3",
-    "cptyOrg": "Counterpart A",
-    "initialMargin": "0.00",
-    "variableMargin": "-35778500.00",
-    "productCashFlows": "0.00",
-    "interestPayment": "0.00",
-    "pendingNonCash": "0.00",
-    "pendingCash": "0.00",
-    "clientAssets": [
-      {
-        "groupName": "Group 1",
-        "data": []
-      }
-    ],
-    "counterpartyAssets": [
-      {
-        "groupName": "Group 1",
-        "data": [
-          {
-            "firstLevel": "NET TOTAL VM USD (msp23)",
-            "secondLevel": [
-              {
-                "id": 1077372345,
-                "name": "Variation USD (mcp23)",
-                "amount": "-35778500.00"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "2017-01-13T11:00:00.000Z",
-    "ccy": "USD",
-    "direction": "OUT",
-    "type": "OTC_bilateral",
-    "GUID": "msp20",
-    "legalEntity": "ACUO US LLC",
-    "cptyEntity": "Counterpart B5",
-    "cptyOrg": "Counterpart B",
-    "initialMargin": "0.00",
-    "variableMargin": "-29007500.00",
-    "productCashFlows": "0.00",
-    "interestPayment": "0.00",
-    "pendingNonCash": "0.00",
-    "pendingCash": "0.00",
-    "clientAssets": [
-      {
-        "groupName": "Group 1",
-        "data": []
-      }
-    ],
-    "counterpartyAssets": [
-      {
-        "groupName": "Group 1",
-        "data": [
-          {
-            "firstLevel": "NET TOTAL VM USD (msp20)",
-            "secondLevel": [
-              {
-                "id": 1077372345,
-                "name": "Variation USD (mcp20)",
-                "amount": "-29007500.00"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "2017-01-13T05:00:00.000Z",
-    "ccy": "USD",
-    "direction": "IN",
-    "type": "OTC_legacy",
-    "GUID": "msp17",
-    "legalEntity": "ACUO US LLC",
-    "cptyEntity": "Counterpart B2",
-    "cptyOrg": "Counterpart B",
-    "initialMargin": "0.00",
-    "variableMargin": "-35682000.00",
-    "productCashFlows": "0.00",
-    "interestPayment": "0.00",
-    "pendingNonCash": "0.00",
-    "pendingCash": "0.00",
-    "clientAssets": [
-      {
-        "groupName": "Group 1",
-        "data": []
-      }
-    ],
-    "counterpartyAssets": [
-      {
-        "groupName": "Group 1",
-        "data": [
-          {
-            "firstLevel": "NET TOTAL VM USD (msp17)",
-            "secondLevel": [
-              {
-                "id": 1077372345,
-                "name": "Variation USD (mcp17)",
-                "amount": "-35682000.00"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "2017-01-13T12:00:00.000Z",
-    "ccy": "USD",
-    "direction": "OUT",
-    "type": "OTC_bilateral",
-    "GUID": "msp8",
-    "legalEntity": "ACUO US LLC",
-    "cptyEntity": "Counterpart B3",
-    "cptyOrg": "Counterpart B",
-    "initialMargin": "0.00",
-    "variableMargin": "-28967500.00",
-    "productCashFlows": "0.00",
-    "interestPayment": "0.00",
-    "pendingNonCash": "0.00",
-    "pendingCash": "0.00",
-    "clientAssets": [
-      {
-        "groupName": "Group 1",
-        "data": []
-      }
-    ],
-    "counterpartyAssets": [
-      {
-        "groupName": "Group 1",
-        "data": [
-          {
-            "firstLevel": "NET TOTAL VM USD (msp8)",
-            "secondLevel": [
-              {
-                "id": 1077372345,
-                "name": "Variation USD (mcp8)",
-                "amount": "-28967500.00"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "2017-01-13T20:00:00.000Z",
-    "ccy": "USD",
-    "direction": "IN",
-    "type": "OTC_legacy",
-    "GUID": "msp11",
-    "legalEntity": "ACUO US LLC",
-    "cptyEntity": "Counterpart A1",
-    "cptyOrg": "Counterpart A",
-    "initialMargin": "0.00",
-    "variableMargin": "-35704500.00",
-    "productCashFlows": "0.00",
-    "interestPayment": "0.00",
-    "pendingNonCash": "0.00",
-    "pendingCash": "0.00",
-    "clientAssets": [
-      {
-        "groupName": "Group 1",
-        "data": []
-      }
-    ],
-    "counterpartyAssets": [
-      {
-        "groupName": "Group 1",
-        "data": [
-          {
-            "firstLevel": "NET TOTAL VM USD (msp11)",
-            "secondLevel": [
-              {
-                "id": 1077372345,
-                "name": "Variation USD (mcp11)",
-                "amount": "-35704500.00"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "2017-01-13T06:00:00.000Z",
-    "ccy": "USD",
-    "direction": "OUT",
-    "type": "OTC_bilateral",
-    "GUID": "msp2",
-    "legalEntity": "ACUO US LLC",
-    "cptyEntity": "Counterpart A2",
-    "cptyOrg": "Counterpart A",
-    "initialMargin": "0.00",
-    "variableMargin": "-28987500.00",
-    "productCashFlows": "42000.00",
-    "interestPayment": "0.00",
-    "pendingNonCash": "0.00",
-    "pendingCash": "0.00",
-    "clientAssets": [
-      {
-        "groupName": "Group 1",
-        "data": []
-      }
-    ],
-    "counterpartyAssets": [
-      {
-        "groupName": "Group 1",
-        "data": [
-          {
-            "firstLevel": "NET TOTAL VM USD (msp2)",
-            "secondLevel": [
-              {
-                "id": 1077372345,
-                "name": "Variation USD (mcp2)",
-                "amount": "-28987500.00"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "2017-01-13T05:00:00.000Z",
-    "ccy": "USD",
-    "direction": "OUT",
-    "type": "OTC_legacy",
-    "GUID": "msp5",
-    "legalEntity": "ACUO US LLC",
-    "cptyEntity": "Counterpart A5",
-    "cptyOrg": "Counterpart A",
-    "initialMargin": "0.00",
-    "variableMargin": "-35752000.00",
-    "productCashFlows": "42000.00",
-    "interestPayment": "0.00",
-    "pendingNonCash": "0.00",
-    "pendingCash": "0.00",
-    "clientAssets": [
-      {
-        "groupName": "Group 1",
-        "data": []
-      }
-    ],
-    "counterpartyAssets": [
-      {
-        "groupName": "Group 1",
-        "data": [
-          {
-            "firstLevel": "NET TOTAL VM USD (msp5)",
-            "secondLevel": [
-              {
-                "id": 1077372345,
-                "name": "Variation USD (mcp5)",
-                "amount": "-35752000.00"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "2017-01-13T12:00:00.000Z",
-    "ccy": "USD",
-    "direction": "OUT",
-    "type": "OTC_clear",
-    "GUID": "msp32",
-    "legalEntity": "ACUO US LLC",
-    "cptyEntity": "Goldman Sachs & Co.",
-    "cptyOrg": "Goldman Sachs",
-    "initialMargin": "-26355080.00",
-    "variableMargin": "-10888772.00",
-    "productCashFlows": "659400.00",
-    "interestPayment": "131775.00",
-    "pendingNonCash": "0.00",
-    "pendingCash": "0.00",
-    "clientAssets": [
-      {
-        "groupName": "Group 1",
-        "data": []
-      }
-    ],
-    "counterpartyAssets": [
-      {
-        "groupName": "Group 1",
-        "data": [
-          {
-            "firstLevel": "NET TOTAL VM USD (msp32)",
-            "secondLevel": [
-              {
-                "id": 1077372345,
-                "name": "Variation USD (mcp32)",
-                "amount": "-10888772.00"
-              }
-            ]
-          },
-          {
-            "firstLevel": "NET TOTAL IM USD (msp32)",
-            "secondLevel": [
-              {
-                "id": -1395289494,
-                "name": "Initial USD (mcp44)",
-                "amount": "-26355080.00"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "2017-01-13T12:00:00.000Z",
-    "ccy": "USD",
-    "direction": "OUT",
-    "type": "OTC_clear",
-    "GUID": "msp35",
-    "legalEntity": "ACUO US LLC",
-    "cptyEntity": "Morgan Stanley MUFG Securities Co., Ltd.",
-    "cptyOrg": "Morgan Stanley",
-    "initialMargin": "-3430963.00",
-    "variableMargin": "1509495.00",
-    "productCashFlows": "58800.00",
-    "interestPayment": "17155.00",
-    "pendingNonCash": "0.00",
-    "pendingCash": "0.00",
-    "clientAssets": [
-      {
-        "groupName": "Group 1",
-        "data": []
-      }
-    ],
-    "counterpartyAssets": [
-      {
-        "groupName": "Group 1",
-        "data": [
-          {
-            "firstLevel": "NET TOTAL VM USD (msp35)",
-            "secondLevel": [
-              {
-                "id": 1077372345,
-                "name": "Variation USD (mcp35)",
-                "amount": "1509495.00"
-              }
-            ]
-          },
-          {
-            "firstLevel": "NET TOTAL IM USD (msp35)",
-            "secondLevel": [
-              {
-                "id": -1395289494,
-                "name": "Initial USD (mcp47)",
-                "amount": "-3430963.00"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "2017-01-13T12:00:00.000Z",
-    "ccy": "USD",
-    "direction": "OUT",
-    "type": "OTC_clear",
-    "GUID": "msp34",
-    "legalEntity": "ACUO US LLC",
-    "cptyEntity": "J.P. Morgan Securities LLC",
-    "cptyOrg": "J.P. Morgan",
-    "initialMargin": "-49165880.00",
-    "variableMargin": "36428994.00",
-    "productCashFlows": "1211000.00",
-    "interestPayment": "245829.00",
-    "pendingNonCash": "0.00",
-    "pendingCash": "0.00",
-    "clientAssets": [
-      {
-        "groupName": "Group 1",
-        "data": [
-          {
-            "firstLevel": "NET TOTAL VM USD (msp34)",
-            "secondLevel": [
-              {
-                "id": 1077372345,
-                "name": "Variation USD (mcep34e)",
-                "amount": "-25365395.00"
-              },
-              {
-                "id": 1077369996,
-                "name": "Variation SEK (mcep34g)",
-                "amount": "-10130848.00"
-              },
-              {
-                "id": 1077365835,
-                "name": "Variation NZD (mcep34f)",
-                "amount": "18460330.00"
-              },
-              {
-                "id": 1077357045,
-                "name": "Variation EUR (mcep34c)",
-                "amount": "-19498297.00"
-              },
-              {
-                "id": 1077361702,
-                "name": "Variation JPY (mcep34i)",
-                "amount": "3252.00"
-              },
-              {
-                "id": 1077365501,
-                "name": "Variation NOK (mcep34d)",
-                "amount": "1992681.00"
-              },
-              {
-                "id": 1077354708,
-                "name": "Variation CHF (mcep34b)",
-                "amount": "-590613.00"
-              },
-              {
-                "id": 1077358376,
-                "name": "Variation GBP (mcep34a)",
-                "amount": "-93439.00"
-              },
-              {
-                "id": 1077354489,
-                "name": "Variation CAD (mcep34h)",
-                "amount": "-420375.00"
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "counterpartyAssets": [
-      {
-        "groupName": "Group 1",
-        "data": [
-          {
-            "firstLevel": "NET TOTAL VM USD (msp34)",
-            "secondLevel": [
-              {
-                "id": 1077372345,
-                "name": "Variation USD (mcp34e)",
-                "amount": "26380011.00"
-              },
-              {
-                "id": 1077354708,
-                "name": "Variation CHF (mcp34b)",
-                "amount": "590613.00"
-              },
-              {
-                "id": 1077357045,
-                "name": "Variation EUR (mcp34c)",
-                "amount": "19498297.00"
-              },
-              {
-                "id": 1077361702,
-                "name": "Variation JPY (mcp34i)",
-                "amount": "-3155.00"
-              },
-              {
-                "id": 1077369996,
-                "name": "Variation SEK (mcp34g)",
-                "amount": "9826922.00"
-              },
-              {
-                "id": 1077354489,
-                "name": "Variation CAD (mcp34h)",
-                "amount": "416171.00"
-              },
-              {
-                "id": 1077365835,
-                "name": "Variation NZD (mcp34f)",
-                "amount": "-18460330.00"
-              },
-              {
-                "id": 1077365501,
-                "name": "Variation NOK (mcp34d)",
-                "amount": "-1912974.00"
-              },
-              {
-                "id": 1077358376,
-                "name": "Variation GBP (mcp34a)",
-                "amount": "93439.00"
-              }
-            ]
-          },
-          {
-            "firstLevel": "NET TOTAL IM USD (msp34)",
-            "secondLevel": [
-              {
-                "id": -1395289494,
-                "name": "Initial USD (mcp46)",
-                "amount": "-49165880.00"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "2017-01-13T12:00:00.000Z",
-    "ccy": "USD",
-    "direction": "OUT",
-    "type": "OTC_clear",
-    "GUID": "msp42",
-    "legalEntity": "ACUO US LLC",
-    "cptyEntity": "DBS BANK LTD",
-    "cptyOrg": "DBS",
-    "initialMargin": "-1143840.00",
-    "variableMargin": "-2396725.00",
-    "productCashFlows": "0.00",
-    "interestPayment": "0.00",
-    "pendingNonCash": "0.00",
-    "pendingCash": "0.00",
-    "clientAssets": [
-      {
-        "groupName": "Group 1",
-        "data": []
-      }
-    ],
-    "counterpartyAssets": [
-      {
-        "groupName": "Group 1",
-        "data": [
-          {
-            "firstLevel": "NET TOTAL VM USD (msp42)",
-            "secondLevel": [
-              {
-                "id": 1077372345,
-                "name": "Variation USD (mcp42)",
-                "amount": "-2396725.00"
-              }
-            ]
-          },
-          {
-            "firstLevel": "NET TOTAL IM USD (msp42)",
-            "secondLevel": [
-              {
-                "id": -1395289494,
-                "name": "Initial USD (mcp54)",
-                "amount": "-1143840.00"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "2017-01-13T11:00:00.000Z",
-    "ccy": "USD",
-    "direction": "IN",
-    "type": "OTC_bilateral",
-    "GUID": "msp28",
-    "legalEntity": "ACUO SG Pte Ltd",
-    "cptyEntity": "Counterpart B3",
-    "cptyOrg": "Counterpart B",
-    "initialMargin": "0.00",
-    "variableMargin": "-43984000.00",
-    "productCashFlows": "0.00",
-    "interestPayment": "0.00",
-    "pendingNonCash": "0.00",
-    "pendingCash": "0.00",
-    "clientAssets": [
-      {
-        "groupName": "Group 1",
-        "data": []
-      }
-    ],
-    "counterpartyAssets": [
-      {
-        "groupName": "Group 1",
-        "data": [
-          {
-            "firstLevel": "NET TOTAL VM USD (msp28)",
-            "secondLevel": [
-              {
-                "id": 1077372345,
-                "name": "Variation USD (mcp28)",
-                "amount": "-43984000.00"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "2017-01-13T05:00:00.000Z",
-    "ccy": "USD",
-    "direction": "OUT",
-    "type": "OTC_legacy",
-    "GUID": "msp25",
-    "legalEntity": "ACUO SG Pte Ltd",
-    "cptyEntity": "Counterpart A5",
-    "cptyOrg": "Counterpart A",
-    "initialMargin": "0.00",
-    "variableMargin": "-30527000.00",
-    "productCashFlows": "42000.00",
-    "interestPayment": "0.00",
-    "pendingNonCash": "0.00",
-    "pendingCash": "0.00",
-    "clientAssets": [
-      {
-        "groupName": "Group 1",
-        "data": []
-      }
-    ],
-    "counterpartyAssets": [
-      {
-        "groupName": "Group 1",
-        "data": [
-          {
-            "firstLevel": "NET TOTAL VM USD (msp25)",
-            "secondLevel": [
-              {
-                "id": 1077372345,
-                "name": "Variation USD (mcp25)",
-                "amount": "-30527000.00"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "2017-01-13T06:00:00.000Z",
-    "ccy": "USD",
-    "direction": "OUT",
-    "type": "OTC_bilateral",
-    "GUID": "msp22",
-    "legalEntity": "ACUO SG Pte Ltd",
-    "cptyEntity": "Counterpart A2",
-    "cptyOrg": "Counterpart A",
-    "initialMargin": "0.00",
-    "variableMargin": "-44065500.00",
-    "productCashFlows": "0.00",
-    "interestPayment": "0.00",
-    "pendingNonCash": "0.00",
-    "pendingCash": "0.00",
-    "clientAssets": [
-      {
-        "groupName": "Group 1",
-        "data": []
-      }
-    ],
-    "counterpartyAssets": [
-      {
-        "groupName": "Group 1",
-        "data": [
-          {
-            "firstLevel": "NET TOTAL VM USD (msp22)",
-            "secondLevel": [
-              {
-                "id": 1077372345,
-                "name": "Variation USD (mcp22)",
-                "amount": "-44065500.00"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "2017-01-13T20:00:00.000Z",
-    "ccy": "USD",
-    "direction": "OUT",
-    "type": "OTC_legacy",
-    "GUID": "msp19",
-    "legalEntity": "ACUO SG Pte Ltd",
-    "cptyEntity": "Counterpart B4",
-    "cptyOrg": "Counterpart B",
-    "initialMargin": "0.00",
-    "variableMargin": "-30486000.00",
-    "productCashFlows": "0.00",
-    "interestPayment": "0.00",
-    "pendingNonCash": "0.00",
-    "pendingCash": "0.00",
-    "clientAssets": [
-      {
-        "groupName": "Group 1",
-        "data": []
-      }
-    ],
-    "counterpartyAssets": [
-      {
-        "groupName": "Group 1",
-        "data": [
-          {
-            "firstLevel": "NET TOTAL VM USD (msp19)",
-            "secondLevel": [
-              {
-                "id": 1077372345,
-                "name": "Variation USD (mcp19)",
-                "amount": "-30486000.00"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "2017-01-13T19:00:00.000Z",
-    "ccy": "USD",
-    "direction": "OUT",
-    "type": "OTC_legacy",
-    "GUID": "msp7",
-    "legalEntity": "ACUO SG Pte Ltd",
-    "cptyEntity": "Counterpart B2",
-    "cptyOrg": "Counterpart B",
-    "initialMargin": "0.00",
-    "variableMargin": "-30457000.00",
-    "productCashFlows": "0.00",
-    "interestPayment": "0.00",
-    "pendingNonCash": "0.00",
-    "pendingCash": "0.00",
-    "clientAssets": [
-      {
-        "groupName": "Group 1",
-        "data": []
-      }
-    ],
-    "counterpartyAssets": [
-      {
-        "groupName": "Group 1",
-        "data": [
-          {
-            "firstLevel": "NET TOTAL VM USD (msp7)",
-            "secondLevel": [
-              {
-                "id": 1077372345,
-                "name": "Variation USD (mcp7)",
-                "amount": "-30457000.00"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "2017-01-13T06:00:00.000Z",
-    "ccy": "USD",
-    "direction": "OUT",
-    "type": "OTC_bilateral",
-    "GUID": "msp10",
-    "legalEntity": "ACUO SG Pte Ltd",
-    "cptyEntity": "Counterpart B5",
-    "cptyOrg": "Counterpart B",
-    "initialMargin": "0.00",
-    "variableMargin": "-44017000.00",
-    "productCashFlows": "0.00",
-    "interestPayment": "0.00",
-    "pendingNonCash": "0.00",
-    "pendingCash": "0.00",
-    "clientAssets": [
-      {
-        "groupName": "Group 1",
-        "data": []
-      }
-    ],
-    "counterpartyAssets": [
-      {
-        "groupName": "Group 1",
-        "data": [
-          {
-            "firstLevel": "NET TOTAL VM USD (msp10)",
-            "secondLevel": [
-              {
-                "id": 1077372345,
-                "name": "Variation USD (mcp10)",
-                "amount": "-44017000.00"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "2017-01-13T12:00:00.000Z",
-    "ccy": "USD",
-    "direction": "OUT",
-    "type": "OTC_bilateral",
-    "GUID": "msp4",
-    "legalEntity": "ACUO SG Pte Ltd",
-    "cptyEntity": "Counterpart A4",
-    "cptyOrg": "Counterpart A",
-    "initialMargin": "0.00",
-    "variableMargin": "-44105000.00",
-    "productCashFlows": "42000.00",
-    "interestPayment": "0.00",
-    "pendingNonCash": "0.00",
-    "pendingCash": "0.00",
-    "clientAssets": [
-      {
-        "groupName": "Group 1",
-        "data": []
-      }
-    ],
-    "counterpartyAssets": [
-      {
-        "groupName": "Group 1",
-        "data": [
-          {
-            "firstLevel": "NET TOTAL VM USD (msp4)",
-            "secondLevel": [
-              {
-                "id": 1077372345,
-                "name": "Variation USD (mcp4)",
-                "amount": "-44105000.00"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "2017-01-13T12:00:00.000Z",
-    "ccy": "USD",
-    "direction": "OUT",
-    "type": "OTC_clear",
-    "GUID": "msp37",
-    "legalEntity": "ACUO SG Pte Ltd",
-    "cptyEntity": "J.P. Morgan Securities LLC",
-    "cptyOrg": "J.P. Morgan",
-    "initialMargin": "-47071647.00",
-    "variableMargin": "-37601184.00",
-    "productCashFlows": "1204000.00",
-    "interestPayment": "235358.00",
-    "pendingNonCash": "0.00",
-    "pendingCash": "0.00",
-    "clientAssets": [
-      {
-        "groupName": "Group 1",
-        "data": []
-      }
-    ],
-    "counterpartyAssets": [
-      {
-        "groupName": "Group 1",
-        "data": [
-          {
-            "firstLevel": "NET TOTAL VM USD (msp37)",
-            "secondLevel": [
-              {
-                "id": 1077372345,
-                "name": "Variation USD (mcp37)",
-                "amount": "-37601184.00"
-              }
-            ]
-          },
-          {
-            "firstLevel": "NET TOTAL IM USD (msp37)",
-            "secondLevel": [
-              {
-                "id": -1395289494,
-                "name": "Initial USD (mcp49)",
-                "amount": "-47071647.00"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "2017-01-13T12:00:00.000Z",
-    "ccy": "USD",
-    "direction": "OUT",
-    "type": "OTC_clear",
-    "GUID": "msp39",
-    "legalEntity": "ACUO SG Pte Ltd",
-    "cptyEntity": "DBS BANK LTD",
-    "cptyOrg": "DBS",
-    "initialMargin": "-1606000.00",
-    "variableMargin": "-3197259.00",
-    "productCashFlows": "0.00",
-    "interestPayment": "0.00",
-    "pendingNonCash": "0.00",
-    "pendingCash": "0.00",
-    "clientAssets": [
-      {
-        "groupName": "Group 1",
-        "data": []
-      }
-    ],
-    "counterpartyAssets": [
-      {
-        "groupName": "Group 1",
-        "data": [
-          {
-            "firstLevel": "NET TOTAL VM USD (msp39)",
-            "secondLevel": [
-              {
-                "id": 1077372345,
-                "name": "Variation USD (mcp39)",
-                "amount": "-3197259.00"
-              }
-            ]
-          },
-          {
-            "firstLevel": "NET TOTAL IM USD (msp39)",
-            "secondLevel": [
-              {
-                "id": -1395289494,
-                "name": "Initial USD (mcp51)",
-                "amount": "-1606000.00"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "time": "2017-01-13T12:00:00.000Z",
-    "ccy": "USD",
-    "direction": "IN",
-    "type": "OTC_clear",
-    "GUID": "msp40",
-    "legalEntity": "ACUO SG Pte Ltd",
-    "cptyEntity": "Morgan Stanley MUFG Securities Co., Ltd.",
-    "cptyOrg": "Morgan Stanley",
-    "initialMargin": "-3389800.00",
-    "variableMargin": "1628013.00",
-    "productCashFlows": "59500.00",
-    "interestPayment": "17051.00",
-    "pendingNonCash": "0.00",
-    "pendingCash": "0.00",
-    "clientAssets": [
-      {
-        "groupName": "Group 1",
-        "data": []
-      }
-    ],
-    "counterpartyAssets": [
-      {
-        "groupName": "Group 1",
-        "data": [
-          {
-            "firstLevel": "NET TOTAL VM USD (msp40)",
-            "secondLevel": [
-              {
-                "id": 1077372345,
-                "name": "Variation USD (mcp40)",
-                "amount": "1628013.00"
-              }
-            ]
-          },
-          {
-            "firstLevel": "NET TOTAL IM USD (msp40)",
-            "secondLevel": [
-              {
-                "id": -1395289494,
-                "name": "Initial USD (mcp52)",
-                "amount": "-3389800.00"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  }
-]}
+{
+  "items": [
+    {
+      "time": "2017-01-13T05:00:00.000Z",
+      "ccy": "USD",
+      "direction": "IN",
+      "type": "OTC_legacy",
+      "agreementName": "ACUO US LLC v Counterparty B2",
+      "GUID": "msp17",
+      "legalEntity": "ACUO US LLC",
+      "cptyEntity": "Counterpart B2",
+      "cptyOrg": "Counterpart B",
+      "initialMargin": "0.00",
+      "variableMargin": "-35682000.00",
+      "productCashFlows": "0.00",
+      "interestPayment": "0.00",
+      "pendingNonCash": "0.00",
+      "pendingCash": "0.00",
+      "clientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp17)",
+              "amount": "100000099.00"
+            }
+          ]
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp17)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcp17)",
+                  "amount": "-35682000.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "2017-01-13T11:00:00.000Z",
+      "ccy": "USD",
+      "direction": "OUT",
+      "type": "OTC_bilateral",
+      "agreementName": "ACUO US LLC v Counterparty B5",
+      "GUID": "msp20",
+      "legalEntity": "ACUO US LLC",
+      "cptyEntity": "Counterpart B5",
+      "cptyOrg": "Counterpart B",
+      "initialMargin": "0.00",
+      "variableMargin": "-29007500.00",
+      "productCashFlows": "0.00",
+      "interestPayment": "0.00",
+      "pendingNonCash": "0.00",
+      "pendingCash": "0.00",
+      "clientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp20)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcep20)",
+                  "amount": "-29005000.00"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp20)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcp20)",
+                  "amount": "-29007500.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "2017-01-13T05:00:00.000Z",
+      "ccy": "USD",
+      "direction": "IN",
+      "type": "OTC_legacy",
+      "agreementName": "ACUO US LLC v Counterparty B4",
+      "GUID": "msp29",
+      "legalEntity": "ACUO US LLC",
+      "cptyEntity": "Counterpart B4",
+      "cptyOrg": "Counterpart B",
+      "initialMargin": "0.00",
+      "variableMargin": "-35722500.00",
+      "productCashFlows": "0.00",
+      "interestPayment": "0.00",
+      "pendingNonCash": "0.00",
+      "pendingCash": "0.00",
+      "clientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp29)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcep29)",
+                  "amount": "-35716500.00"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp29)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcp29)",
+                  "amount": "-35722500.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "2017-01-13T18:00:00.000Z",
+      "ccy": "USD",
+      "direction": "OUT",
+      "type": "OTC_legacy",
+      "agreementName": "ACUO US LLC v Counterparty A3",
+      "GUID": "msp23",
+      "legalEntity": "ACUO US LLC",
+      "cptyEntity": "Counterpart A3",
+      "cptyOrg": "Counterpart A",
+      "initialMargin": "0.00",
+      "variableMargin": "-35778500.00",
+      "productCashFlows": "0.00",
+      "interestPayment": "0.00",
+      "pendingNonCash": "0.00",
+      "pendingCash": "0.00",
+      "clientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp23)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcep23)",
+                  "amount": "-35762500.00"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp23)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcp23)",
+                  "amount": "-35778500.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "2017-01-13T06:00:00.000Z",
+      "ccy": "USD",
+      "direction": "OUT",
+      "type": "OTC_bilateral",
+      "agreementName": "ACUO US LLC v Counterparty B1",
+      "GUID": "msp26",
+      "legalEntity": "ACUO US LLC",
+      "cptyEntity": "Counterpart B1",
+      "cptyOrg": "Counterpart B",
+      "initialMargin": "0.00",
+      "variableMargin": "-29023000.00",
+      "productCashFlows": "0.00",
+      "interestPayment": "0.00",
+      "pendingNonCash": "0.00",
+      "pendingCash": "0.00",
+      "clientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp26)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcep26)",
+                  "amount": "-28993500.00"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp26)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcp26)",
+                  "amount": "-29023000.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "2017-01-13T20:00:00.000Z",
+      "ccy": "USD",
+      "direction": "IN",
+      "type": "OTC_legacy",
+      "agreementName": "ACUO US LLC v Counterparty A1",
+      "GUID": "msp11",
+      "legalEntity": "ACUO US LLC",
+      "cptyEntity": "Counterpart A1",
+      "cptyOrg": "Counterpart A",
+      "initialMargin": "0.00",
+      "variableMargin": "-35704500.00",
+      "productCashFlows": "0.00",
+      "interestPayment": "0.00",
+      "pendingNonCash": "0.00",
+      "pendingCash": "0.00",
+      "clientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp11)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcep11)",
+                  "amount": "-35706000.00"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp11)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcp11)",
+                  "amount": "-35704500.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "2017-01-13T12:00:00.000Z",
+      "ccy": "USD",
+      "direction": "OUT",
+      "type": "OTC_bilateral",
+      "agreementName": "ACUO US LLC v Counterparty B3",
+      "GUID": "msp8",
+      "legalEntity": "ACUO US LLC",
+      "cptyEntity": "Counterpart B3",
+      "cptyOrg": "Counterpart B",
+      "initialMargin": "0.00",
+      "variableMargin": "-28967500.00",
+      "productCashFlows": "0.00",
+      "interestPayment": "0.00",
+      "pendingNonCash": "0.00",
+      "pendingCash": "0.00",
+      "clientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp8)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcep8)",
+                  "amount": "-28967500.00"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp8)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcp8)",
+                  "amount": "-28967500.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "2017-01-13T05:00:00.000Z",
+      "ccy": "USD",
+      "direction": "OUT",
+      "type": "OTC_legacy",
+      "agreementName": "ACUO US LLC v Counterparty A5",
+      "GUID": "msp5",
+      "legalEntity": "ACUO US LLC",
+      "cptyEntity": "Counterpart A5",
+      "cptyOrg": "Counterpart A",
+      "initialMargin": "0.00",
+      "variableMargin": "-35752000.00",
+      "productCashFlows": "42000.00",
+      "interestPayment": "0.00",
+      "pendingNonCash": "0.00",
+      "pendingCash": "0.00",
+      "clientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp5)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcep5)",
+                  "amount": "-35752000.00"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp5)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcp5)",
+                  "amount": "-35752000.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "2017-01-13T06:00:00.000Z",
+      "ccy": "USD",
+      "direction": "OUT",
+      "type": "OTC_bilateral",
+      "agreementName": "ACUO US LLC v Counterparty A2",
+      "GUID": "msp2",
+      "legalEntity": "ACUO US LLC",
+      "cptyEntity": "Counterpart A2",
+      "cptyOrg": "Counterpart A",
+      "initialMargin": "0.00",
+      "variableMargin": "-28987500.00",
+      "productCashFlows": "42000.00",
+      "interestPayment": "0.00",
+      "pendingNonCash": "0.00",
+      "pendingCash": "0.00",
+      "clientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp2)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcep2)",
+                  "amount": "-28987500.00"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp2)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcp2)",
+                  "amount": "-28987500.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "2017-01-13T12:00:00.000Z",
+      "ccy": "USD",
+      "direction": "OUT",
+      "type": "OTC_clear",
+      "agreementName": "ACUO US v DBS BANK LTD at SGX",
+      "GUID": "msp42",
+      "legalEntity": "ACUO US LLC",
+      "cptyEntity": "DBS BANK LTD",
+      "cptyOrg": "DBS",
+      "initialMargin": "-1143840.00",
+      "variableMargin": "-2396725.00",
+      "productCashFlows": "0.00",
+      "interestPayment": "0.00",
+      "pendingNonCash": "0.00",
+      "pendingCash": "0.00",
+      "clientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp42)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcep42)",
+                  "amount": "-2388688.00"
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL IM USD (msp42)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": -1395289494,
+                  "name": "Initial USD (mcep54)",
+                  "amount": "-1215600.00"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp42)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcp42)",
+                  "amount": "-2396725.00"
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL IM USD (msp42)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": -1395289494,
+                  "name": "Initial USD (mcp54)",
+                  "amount": "-1143840.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "2017-01-13T12:00:00.000Z",
+      "ccy": "USD",
+      "direction": "OUT",
+      "type": "OTC_clear",
+      "agreementName": "ACUO US v J.P. Morgan Securities LLC at CME Group",
+      "GUID": "msp34",
+      "legalEntity": "ACUO US LLC",
+      "cptyEntity": "J.P. Morgan Securities LLC",
+      "cptyOrg": "J.P. Morgan",
+      "initialMargin": "-49165880.00",
+      "variableMargin": "36428994.00",
+      "productCashFlows": "1211000.00",
+      "interestPayment": "245829.00",
+      "pendingNonCash": "0.00",
+      "pendingCash": "0.00",
+      "clientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp34)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcep34e)",
+                  "amount": "-25365395.00"
+                },
+                {
+                  "id": 1077365835,
+                  "name": "Variation NZD (mcep34f)",
+                  "amount": "18460330.00"
+                },
+                {
+                  "id": 1077354708,
+                  "name": "Variation CHF (mcep34b)",
+                  "amount": "-590613.00"
+                },
+                {
+                  "id": 1077354489,
+                  "name": "Variation CAD (mcep34h)",
+                  "amount": "-420375.00"
+                },
+                {
+                  "id": 1077365501,
+                  "name": "Variation NOK (mcep34d)",
+                  "amount": "1992681.00"
+                },
+                {
+                  "id": 1077358376,
+                  "name": "Variation GBP (mcep34a)",
+                  "amount": "-93439.00"
+                },
+                {
+                  "id": 1077361702,
+                  "name": "Variation JPY (mcep34i)",
+                  "amount": "3252.00"
+                },
+                {
+                  "id": 1077369996,
+                  "name": "Variation SEK (mcep34g)",
+                  "amount": "-10130848.00"
+                },
+                {
+                  "id": 1077357045,
+                  "name": "Variation EUR (mcep34c)",
+                  "amount": "-19498297.00"
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL IM USD (msp34)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": -1395303463,
+                  "name": "Initial GBP (mcep46)",
+                  "amount": "-49165880.00"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp34)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077357045,
+                  "name": "Variation EUR (mcp34c)",
+                  "amount": "19498297.00"
+                },
+                {
+                  "id": 1077354708,
+                  "name": "Variation CHF (mcp34b)",
+                  "amount": "590613.00"
+                },
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcp34e)",
+                  "amount": "26380011.00"
+                },
+                {
+                  "id": 1077361702,
+                  "name": "Variation JPY (mcp34i)",
+                  "amount": "-3155.00"
+                },
+                {
+                  "id": 1077365835,
+                  "name": "Variation NZD (mcp34f)",
+                  "amount": "-18460330.00"
+                },
+                {
+                  "id": 1077369996,
+                  "name": "Variation SEK (mcp34g)",
+                  "amount": "9826922.00"
+                },
+                {
+                  "id": 1077358376,
+                  "name": "Variation GBP (mcp34a)",
+                  "amount": "93439.00"
+                },
+                {
+                  "id": 1077354489,
+                  "name": "Variation CAD (mcp34h)",
+                  "amount": "416171.00"
+                },
+                {
+                  "id": 1077365501,
+                  "name": "Variation NOK (mcp34d)",
+                  "amount": "-1912974.00"
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL IM USD (msp34)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": -1395289494,
+                  "name": "Initial USD (mcp46)",
+                  "amount": "-49165880.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "2017-01-13T12:00:00.000Z",
+      "ccy": "USD",
+      "direction": "OUT",
+      "type": "OTC_clear",
+      "agreementName": "ACUO US v Morgan Stanley MUFG Securities Co. Ltd. at Japan Securities Clearing Corporation",
+      "GUID": "msp35",
+      "legalEntity": "ACUO US LLC",
+      "cptyEntity": "Morgan Stanley MUFG Securities Co., Ltd.",
+      "cptyOrg": "Morgan Stanley",
+      "initialMargin": "-3430963.00",
+      "variableMargin": "1509495.00",
+      "productCashFlows": "58800.00",
+      "interestPayment": "17155.00",
+      "pendingNonCash": "0.00",
+      "pendingCash": "0.00",
+      "clientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp35)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcep35)",
+                  "amount": "1509593.00"
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL IM USD (msp35)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": -1395289494,
+                  "name": "Initial USD (mcep47)",
+                  "amount": "-3433920.00"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp35)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcp35)",
+                  "amount": "1509495.00"
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL IM USD (msp35)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": -1395289494,
+                  "name": "Initial USD (mcp47)",
+                  "amount": "-3430963.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "2017-01-13T12:00:00.000Z",
+      "ccy": "USD",
+      "direction": "OUT",
+      "type": "OTC_clear",
+      "agreementName": "ACUO US v Goldman Sachs Co. at LCH Clearnet Ltd ",
+      "GUID": "msp32",
+      "legalEntity": "ACUO US LLC",
+      "cptyEntity": "Goldman Sachs & Co.",
+      "cptyOrg": "Goldman Sachs",
+      "initialMargin": "-26355080.00",
+      "variableMargin": "-10888772.00",
+      "productCashFlows": "659400.00",
+      "interestPayment": "131775.00",
+      "pendingNonCash": "0.00",
+      "pendingCash": "0.00",
+      "clientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp32)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcep32)",
+                  "amount": "-10888772.00"
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL IM USD (msp32)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": -1395289494,
+                  "name": "Initial USD (mcep44)",
+                  "amount": "-26355080.00"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp32)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcp32)",
+                  "amount": "-10888772.00"
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL IM USD (msp32)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": -1395289494,
+                  "name": "Initial USD (mcp44)",
+                  "amount": "-26355080.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "2017-01-13T20:00:00.000Z",
+      "ccy": "USD",
+      "direction": "OUT",
+      "type": "OTC_legacy",
+      "agreementName": "ACUO SG Pte Ltd v Counterparty B4",
+      "GUID": "msp19",
+      "legalEntity": "ACUO SG Pte Ltd",
+      "cptyEntity": "Counterpart B4",
+      "cptyOrg": "Counterpart B",
+      "initialMargin": "0.00",
+      "variableMargin": "-30486000.00",
+      "productCashFlows": "0.00",
+      "interestPayment": "0.00",
+      "pendingNonCash": "0.00",
+      "pendingCash": "0.00",
+      "clientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp19)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcep19)",
+                  "amount": "-30487500.00"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp19)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcp19)",
+                  "amount": "-30486000.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "2017-01-13T11:00:00.000Z",
+      "ccy": "USD",
+      "direction": "IN",
+      "type": "OTC_bilateral",
+      "agreementName": "ACUO SG Pte Ltd v Counterparty B3",
+      "GUID": "msp28",
+      "legalEntity": "ACUO SG Pte Ltd",
+      "cptyEntity": "Counterpart B3",
+      "cptyOrg": "Counterpart B",
+      "initialMargin": "0.00",
+      "variableMargin": "-43984000.00",
+      "productCashFlows": "0.00",
+      "interestPayment": "0.00",
+      "pendingNonCash": "0.00",
+      "pendingCash": "0.00",
+      "clientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp28)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcep28)",
+                  "amount": "-43964500.00"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp28)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcp28)",
+                  "amount": "-43984000.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "2017-01-13T06:00:00.000Z",
+      "ccy": "USD",
+      "direction": "OUT",
+      "type": "OTC_bilateral",
+      "agreementName": "ACUO SG Pte Ltd v Counterparty A2",
+      "GUID": "msp22",
+      "legalEntity": "ACUO SG Pte Ltd",
+      "cptyEntity": "Counterpart A2",
+      "cptyOrg": "Counterpart A",
+      "initialMargin": "0.00",
+      "variableMargin": "-44065500.00",
+      "productCashFlows": "0.00",
+      "interestPayment": "0.00",
+      "pendingNonCash": "0.00",
+      "pendingCash": "0.00",
+      "clientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp22)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcep22)",
+                  "amount": "-44047500.00"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp22)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcp22)",
+                  "amount": "-44065500.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "2017-01-13T05:00:00.000Z",
+      "ccy": "USD",
+      "direction": "OUT",
+      "type": "OTC_legacy",
+      "agreementName": "ACUO SG Pte Ltd v Counterparty A5",
+      "GUID": "msp25",
+      "legalEntity": "ACUO SG Pte Ltd",
+      "cptyEntity": "Counterpart A5",
+      "cptyOrg": "Counterpart A",
+      "initialMargin": "0.00",
+      "variableMargin": "-30527000.00",
+      "productCashFlows": "42000.00",
+      "interestPayment": "0.00",
+      "pendingNonCash": "0.00",
+      "pendingCash": "0.00",
+      "clientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp25)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcep25)",
+                  "amount": "-30493500.00"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp25)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcp25)",
+                  "amount": "-30527000.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "2017-01-13T06:00:00.000Z",
+      "ccy": "USD",
+      "direction": "OUT",
+      "type": "OTC_bilateral",
+      "agreementName": "ACUO SG Pte Ltd v Counterparty B5",
+      "GUID": "msp10",
+      "legalEntity": "ACUO SG Pte Ltd",
+      "cptyEntity": "Counterpart B5",
+      "cptyOrg": "Counterpart B",
+      "initialMargin": "0.00",
+      "variableMargin": "-44017000.00",
+      "productCashFlows": "0.00",
+      "interestPayment": "0.00",
+      "pendingNonCash": "0.00",
+      "pendingCash": "0.00",
+      "clientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp10)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcep10)",
+                  "amount": "-44017000.00"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp10)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcp10)",
+                  "amount": "-44017000.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "2017-01-13T19:00:00.000Z",
+      "ccy": "USD",
+      "direction": "OUT",
+      "type": "OTC_legacy",
+      "agreementName": "ACUO SG Pte Ltd v Counterparty B2",
+      "GUID": "msp7",
+      "legalEntity": "ACUO SG Pte Ltd",
+      "cptyEntity": "Counterpart B2",
+      "cptyOrg": "Counterpart B",
+      "initialMargin": "0.00",
+      "variableMargin": "-30457000.00",
+      "productCashFlows": "0.00",
+      "interestPayment": "0.00",
+      "pendingNonCash": "0.00",
+      "pendingCash": "0.00",
+      "clientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp7)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcep7)",
+                  "amount": "-30457000.00"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp7)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcp7)",
+                  "amount": "-30457000.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "2017-01-13T12:00:00.000Z",
+      "ccy": "USD",
+      "direction": "OUT",
+      "type": "OTC_bilateral",
+      "agreementName": "ACUO SG Pte Ltd v Counterparty A4",
+      "GUID": "msp4",
+      "legalEntity": "ACUO SG Pte Ltd",
+      "cptyEntity": "Counterpart A4",
+      "cptyOrg": "Counterpart A",
+      "initialMargin": "0.00",
+      "variableMargin": "-44105000.00",
+      "productCashFlows": "42000.00",
+      "interestPayment": "0.00",
+      "pendingNonCash": "0.00",
+      "pendingCash": "0.00",
+      "clientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp4)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcep4)",
+                  "amount": "-44105000.00"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp4)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcp4)",
+                  "amount": "-44105000.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "2017-01-13T12:00:00.000Z",
+      "ccy": "USD",
+      "direction": "OUT",
+      "type": "OTC_clear",
+      "agreementName": "ACUO SG v DBS BANK LTD at SGX",
+      "GUID": "msp39",
+      "legalEntity": "ACUO SG Pte Ltd",
+      "cptyEntity": "DBS BANK LTD",
+      "cptyOrg": "DBS",
+      "initialMargin": "-1606000.00",
+      "variableMargin": "-3197259.00",
+      "productCashFlows": "0.00",
+      "interestPayment": "0.00",
+      "pendingNonCash": "0.00",
+      "pendingCash": "0.00",
+      "clientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp39)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcep39)",
+                  "amount": "-3195442.00"
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL IM USD (msp39)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": -1395289494,
+                  "name": "Initial USD (mcep51)",
+                  "amount": "-1600000.00"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp39)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcp39)",
+                  "amount": "-3197259.00"
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL IM USD (msp39)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": -1395289494,
+                  "name": "Initial USD (mcp51)",
+                  "amount": "-1606000.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "2017-01-13T12:00:00.000Z",
+      "ccy": "USD",
+      "direction": "IN",
+      "type": "OTC_clear",
+      "agreementName": "ACUO SG v Morgan Stanley MUFG Securities Co. Ltd. at Japan Securities Clearing Corporation",
+      "GUID": "msp40",
+      "legalEntity": "ACUO SG Pte Ltd",
+      "cptyEntity": "Morgan Stanley MUFG Securities Co., Ltd.",
+      "cptyOrg": "Morgan Stanley",
+      "initialMargin": "-3389800.00",
+      "variableMargin": "1628013.00",
+      "productCashFlows": "59500.00",
+      "interestPayment": "17051.00",
+      "pendingNonCash": "0.00",
+      "pendingCash": "0.00",
+      "clientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp40)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcep40)",
+                  "amount": "1625962.00"
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL IM USD (msp40)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": -1395289494,
+                  "name": "Initial USD (mcep52)",
+                  "amount": "-3383000.00"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp40)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcp40)",
+                  "amount": "1628013.00"
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL IM USD (msp40)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": -1395289494,
+                  "name": "Initial USD (mcp52)",
+                  "amount": "-3389800.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "2017-01-13T12:00:00.000Z",
+      "ccy": "USD",
+      "direction": "OUT",
+      "type": "OTC_clear",
+      "agreementName": "ACUO SG v J.P. Morgan Securities LLC at CME Group",
+      "GUID": "msp37",
+      "legalEntity": "ACUO SG Pte Ltd",
+      "cptyEntity": "J.P. Morgan Securities LLC",
+      "cptyOrg": "J.P. Morgan",
+      "initialMargin": "-47071647.00",
+      "variableMargin": "-37601184.00",
+      "productCashFlows": "1204000.00",
+      "interestPayment": "235358.00",
+      "pendingNonCash": "0.00",
+      "pendingCash": "0.00",
+      "clientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp37)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcep37)",
+                  "amount": "-37578967.00"
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL IM USD (msp37)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": -1395289494,
+                  "name": "Initial USD (mcep49)",
+                  "amount": "-47092860.00"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp37)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcp37)",
+                  "amount": "-37601184.00"
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL IM USD (msp37)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": -1395289494,
+                  "name": "Initial USD (mcp49)",
+                  "amount": "-47071647.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "2017-01-13T06:00:00.000Z",
+      "ccy": "USD",
+      "direction": "IN",
+      "type": "OTC_bilateral",
+      "agreementName": "ACUO UK PLC v Counterparty B3",
+      "GUID": "msp18",
+      "legalEntity": "ACUO UK PLC",
+      "cptyEntity": "Counterpart B3",
+      "cptyOrg": "Counterpart B",
+      "initialMargin": "0.00",
+      "variableMargin": "-29987000.00",
+      "productCashFlows": "0.00",
+      "interestPayment": "0.00",
+      "pendingNonCash": "0.00",
+      "pendingCash": "0.00",
+      "clientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp18)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcep18)",
+                  "amount": "-29988000.00"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp18)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcp18)",
+                  "amount": "-29987000.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "2017-01-13T12:00:00.000Z",
+      "ccy": "USD",
+      "direction": "IN",
+      "type": "OTC_bilateral",
+      "agreementName": "ACUO UK PLC v Counterparty A2",
+      "GUID": "msp12",
+      "legalEntity": "ACUO UK PLC",
+      "cptyEntity": "Counterpart A2",
+      "cptyOrg": "Counterpart A",
+      "initialMargin": "0.00",
+      "variableMargin": "-29976500.00",
+      "productCashFlows": "0.00",
+      "interestPayment": "0.00",
+      "pendingNonCash": "0.00",
+      "pendingCash": "0.00",
+      "clientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp12)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcep12)",
+                  "amount": "-29976000.00"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp12)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcp12)",
+                  "amount": "-29976500.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "2017-01-13T06:00:00.000Z",
+      "ccy": "USD",
+      "direction": "OUT",
+      "type": "OTC_bilateral",
+      "agreementName": "ACUO UK PLC v Counterparty B5",
+      "GUID": "msp30",
+      "legalEntity": "ACUO UK PLC",
+      "cptyEntity": "Counterpart B5",
+      "cptyOrg": "Counterpart B",
+      "initialMargin": "0.00",
+      "variableMargin": "-30058000.00",
+      "productCashFlows": "0.00",
+      "interestPayment": "0.00",
+      "pendingNonCash": "0.00",
+      "pendingCash": "0.00",
+      "clientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp30)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcep30)",
+                  "amount": "-30044500.00"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp30)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcp30)",
+                  "amount": "-30058000.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "2017-01-13T18:00:00.000Z",
+      "ccy": "USD",
+      "direction": "IN",
+      "type": "OTC_legacy",
+      "agreementName": "ACUO UK PLC v Counterparty B2",
+      "GUID": "msp27",
+      "legalEntity": "ACUO UK PLC",
+      "cptyEntity": "Counterpart B2",
+      "cptyOrg": "Counterpart B",
+      "initialMargin": "0.00",
+      "variableMargin": "6258000.00",
+      "productCashFlows": "0.00",
+      "interestPayment": "0.00",
+      "pendingNonCash": "0.00",
+      "pendingCash": "0.00",
+      "clientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp27)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcep27)",
+                  "amount": "6261000.00"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp27)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcp27)",
+                  "amount": "6258000.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "2017-01-13T06:00:00.000Z",
+      "ccy": "USD",
+      "direction": "IN",
+      "type": "OTC_bilateral",
+      "agreementName": "ACUO UK PLC v Counterparty B1",
+      "GUID": "msp6",
+      "legalEntity": "ACUO UK PLC",
+      "cptyEntity": "Counterpart B1",
+      "cptyOrg": "Counterpart B",
+      "initialMargin": "0.00",
+      "variableMargin": "-30006000.00",
+      "productCashFlows": "0.00",
+      "interestPayment": "0.00",
+      "pendingNonCash": "0.00",
+      "pendingCash": "0.00",
+      "clientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp6)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcep6)",
+                  "amount": "-30006000.00"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp6)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcp6)",
+                  "amount": "-30006000.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "2017-01-13T19:00:00.000Z",
+      "ccy": "USD",
+      "direction": "IN",
+      "type": "OTC_legacy",
+      "agreementName": "ACUO UK PLC v Counterparty A3",
+      "GUID": "msp3",
+      "legalEntity": "ACUO UK PLC",
+      "cptyEntity": "Counterpart A3",
+      "cptyOrg": "Counterpart A",
+      "initialMargin": "0.00",
+      "variableMargin": "6262000.00",
+      "productCashFlows": "50000.00",
+      "interestPayment": "0.00",
+      "pendingNonCash": "0.00",
+      "pendingCash": "0.00",
+      "clientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp3)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcep3)",
+                  "amount": "6262000.00"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp3)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcp3)",
+                  "amount": "6262000.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "2017-01-13T12:00:00.000Z",
+      "ccy": "USD",
+      "direction": "IN",
+      "type": "OTC_clear",
+      "agreementName": "ACUO UK v DBS BANK LTD at SGX",
+      "GUID": "msp41",
+      "legalEntity": "ACUO UK PLC",
+      "cptyEntity": "DBS BANK LTD",
+      "cptyOrg": "DBS",
+      "initialMargin": "-1575040.00",
+      "variableMargin": "-3182750.00",
+      "productCashFlows": "0.00",
+      "interestPayment": "0.00",
+      "pendingNonCash": "0.00",
+      "pendingCash": "0.00",
+      "clientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp41)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcep41)",
+                  "amount": "-3194486.00"
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL IM USD (msp41)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": -1395289494,
+                  "name": "Initial USD (mcep53)",
+                  "amount": "-1580800.00"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp41)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcp41)",
+                  "amount": "-3182750.00"
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL IM USD (msp41)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": -1395289494,
+                  "name": "Initial USD (mcp53)",
+                  "amount": "-1575040.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "2017-01-13T12:00:00.000Z",
+      "ccy": "USD",
+      "direction": "OUT",
+      "type": "OTC_clear",
+      "agreementName": "ACUO UK v J.P. Morgan Securities LLC at CME Group",
+      "GUID": "msp38",
+      "legalEntity": "ACUO UK PLC",
+      "cptyEntity": "J.P. Morgan Securities LLC",
+      "cptyOrg": "J.P. Morgan",
+      "initialMargin": "-42552972.00",
+      "variableMargin": "-24437069.00",
+      "productCashFlows": "1085000.00",
+      "interestPayment": "212765.00",
+      "pendingNonCash": "0.00",
+      "pendingCash": "0.00",
+      "clientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp38)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcep38)",
+                  "amount": "-24433251.00"
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL IM USD (msp38)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": -1395289494,
+                  "name": "Initial USD (mcep50)",
+                  "amount": "-42566300.00"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp38)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcp38)",
+                  "amount": "-24437069.00"
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL IM USD (msp38)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": -1395289494,
+                  "name": "Initial USD (mcp50)",
+                  "amount": "-42552972.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "2017-01-13T12:00:00.000Z",
+      "ccy": "USD",
+      "direction": "OUT",
+      "type": "OTC_clear",
+      "agreementName": "ACUO UK v Morgan Stanley MUFG Securities Co. Ltd. at Japan Securities Clearing Corporation",
+      "GUID": "msp36",
+      "legalEntity": "ACUO UK PLC",
+      "cptyEntity": "Morgan Stanley MUFG Securities Co., Ltd.",
+      "cptyOrg": "Morgan Stanley",
+      "initialMargin": "-3827132.00",
+      "variableMargin": "1779063.00",
+      "productCashFlows": "66500.00",
+      "interestPayment": "19136.00",
+      "pendingNonCash": "0.00",
+      "pendingCash": "0.00",
+      "clientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp36)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcep36)",
+                  "amount": "1779162.00"
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL IM USD (msp36)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": -1395289494,
+                  "name": "Initial USD (mcep48)",
+                  "amount": "-3826600.00"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp36)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcp36)",
+                  "amount": "1779063.00"
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL IM USD (msp36)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": -1395289494,
+                  "name": "Initial USD (mcp48)",
+                  "amount": "-3827132.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "time": "2017-01-13T12:00:00.000Z",
+      "ccy": "USD",
+      "direction": "OUT",
+      "type": "OTC_clear",
+      "agreementName": "ACUO UK v Goldman Sachs Co. at LCH Clearnet Ltd ",
+      "GUID": "msp33",
+      "legalEntity": "ACUO UK PLC",
+      "cptyEntity": "Goldman Sachs & Co.",
+      "cptyOrg": "Goldman Sachs",
+      "initialMargin": "-27399040.00",
+      "variableMargin": "-5868464.00",
+      "productCashFlows": "700000.00",
+      "interestPayment": "136995.00",
+      "pendingNonCash": "0.00",
+      "pendingCash": "0.00",
+      "clientAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp33)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcep33)",
+                  "amount": "-5868464.00"
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL IM USD (msp33)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": -1395289494,
+                  "name": "Initial USD (mcep45)",
+                  "amount": "-27399040.00"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "counterpartyAssets": [
+        {
+          "groupName": "Group 1",
+          "data": [
+            {
+              "firstLevel": "NET TOTAL VM USD (msp33)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcp33)",
+                  "amount": "-5868464.00"
+                }
+              ]
+            },
+            {
+              "firstLevel": "NET TOTAL IM USD (msp33)",
+              "amount": "100000099.00",
+              "secondLevel": [
+                {
+                  "id": -1395289494,
+                  "name": "Initial USD (mcp45)",
+                  "amount": "-27399040.00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
