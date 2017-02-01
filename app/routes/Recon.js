@@ -25,5 +25,11 @@ routerInstance.get('/', (req, res, next) => {
   })
 })
 
+routerInstance.get('/recon-test-route', (req, res, next) => {
+  ReconService.getTestRecon().then(data => {
+    res.json({items:data})
+  })
+})
+
 
 module.exports = ({server}) => routerInstance.applyRoutes(server, prefix)
