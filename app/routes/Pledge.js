@@ -58,17 +58,15 @@ routerInstance.post('/allocate-selection', (req, res, next) => {
 
 routerInstance.post('/allocate-selection_new', (req, res, next) => {
   const key = req.path()
-  const {optimisationSetting, toBeAllocatedGUIDs} = JSON.parse(req.body)
+  const {optimisationSettings, toBeAllocated} = JSON.parse(req.body)
 
   Promise.all([
     PledgeService.getInitSelection(),
-    PledgeService.getAllocatedAssetsNew()
+    PledgeService.postSelection({optimisationSettings, toBeAllocated})
   ]).then(data => {
-    // hit backend
     const [selectionItems, {allocated}] = data
-
+    // console.log('allocated' + JSON.stringify(allocated))
     const processedItems = selectionItems.map(selectionItem => {
-
         _.forOwn(allocated, (allocatedInfo, allocatedGUID) => {
           if (selectionItem.GUID == allocatedGUID) {
             return _.merge(selectionItem, {
@@ -76,17 +74,11 @@ routerInstance.post('/allocate-selection_new', (req, res, next) => {
             })
           }
         })
-
         return selectionItem
       }
     )
-
-    // FsCacheService.set({key, data})
     res.send({items: processedItems})
-
   }).catch(err => {
-    // hit cache
-    // FsCacheService.get(key).then(items => res.send({items, fromCache: true}))
     console.log(err)
   })
 })
