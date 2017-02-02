@@ -27,6 +27,11 @@ Pledge.getAllocatedAssets = () => new Promise (resolve => {
   resolve(json)
 })
 
+Pledge.getAllocatedAssetsNew = () => new Promise (resolve => {
+  const json = require('../json/respAllocated_newFormat')
+  resolve(json)
+})
+
 Pledge.asset = () => {
   const uri = 'http://collateral.acuo.com/acuo/api/assets/eligible/client/999'
   return rp({uri, json: true})
