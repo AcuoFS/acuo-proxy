@@ -26,35 +26,6 @@ routerInstance.get('/optimization', (req, res, next) => {
   })
 })
 
-routerInstance.post('/allocate-selection-test', (req, res, next) => {
-  const key = req.path()
-  const { guids, optimisationSetting } = JSON.parse(req.body)
-
-  Promise.all([
-    PledgeService.calculateCase(optimisationSetting),
-    PledgeService.getInitSelection(),
-    PledgeService.getAllocatedAssets()
-  ]).then(data => {
-    // hit backend
-    const [caseCode, items, {items: assets}] = data
-
-    const processedItems = items.map(item => (guids.includes(item.GUID)
-        // if item is in request list, then allocate assets to it
-        ? PledgeService.allocateAssets(item, caseCode, assets)
-        // if item is not in request list, just return it
-        : item
-    ))
-
-    // FsCacheService.set({key, data})
-    res.send({items: processedItems})
-
-  }).catch(err => {
-    // hit cache
-    // FsCacheService.get(key).then(items => res.send({items, fromCache: true}))
-    console.log(err)
-  })
-})
-
 routerInstance.post('/allocate-selection', (req, res, next) => {
   const key = req.path()
   const { guids, optimisationSetting } = JSON.parse(req.body)
