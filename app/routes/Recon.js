@@ -29,7 +29,7 @@ routerInstance.get('/', (req, res, next) => {
   const key = req.path()
 
   ReconService.get().then(data => {
-    const newData = _.map(_.map(data.items, (item) =>
+    const newData = _.map(_.map(data, (item) =>
       _.set(item, 'clientAssets', _.map(item.clientAssets, (group) =>
         _.set(group, 'data', _.map(group.data, (firstLevel) =>
           _.set(firstLevel, 'secondLevel', _.map(firstLevel.firstLevel.secondLevel, (secondLevel) =>
