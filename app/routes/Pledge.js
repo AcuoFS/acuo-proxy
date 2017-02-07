@@ -85,8 +85,9 @@ routerInstance.post('/allocate-selection-new', (req, res, next) => {
 
 routerInstance.post('/pledge-allocation', (req, res, next) => {
   const pledgeReq = JSON.parse(req.body)
-  // console.log(pledgeReq)
-  res.send({fromUi: pledgeReq})
+
+  // forwards reponse from endpoint
+  res.send(PledgeService.postPledgeAllocation(pledgeReq))
 })
 
 // routerInstance.post('/allocate-selection', (req, res, next) => {

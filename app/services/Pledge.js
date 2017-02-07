@@ -67,6 +67,18 @@ Pledge.postSelection = (reqBody) => {
   })
 }
 
+Pledge.postPledgeAllocation = (reqBody) => {
+  return rp({
+    method: 'POST',
+    headers: {'content-type': 'application/json'},
+    uri: 'http://collateral.acuo.com/acuo/api/pledge',
+    body: reqBody,
+    json: true,
+    // Use full response to check status code
+    resolveWithFullResponse: true
+  })
+}
+
 Pledge.asset = () => {
   const uri = 'http://collateral.acuo.com/acuo/api/assets/eligible/client/999'
   return rp({uri, json: true})
