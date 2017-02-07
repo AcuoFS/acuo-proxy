@@ -32,12 +32,20 @@ routerInstance.get('/', (req, res, next) => {
     const newData = _.map(_.map(data, (item) =>
       _.set(item, 'clientAssets', _.map(item.clientAssets, (group) =>
         _.set(group, 'data', _.map(group.data, (firstLevel) =>
-          _.set(firstLevel, 'secondLevel', _.map(firstLevel.firstLevel.secondLevel, (secondLevel) =>
-            _.set(secondLevel, 'parentIndex', firstLevel.firstLevel.id)))))))), (item) =>
+          _.chain(firstLevel)
+            .set(['firstLevel', 'secondLevel'], _.map(firstLevel.firstLevel.secondLevel, (secondLevel) =>
+              _.set(secondLevel, 'parentIndex', firstLevel.firstLevel.id)))
+            .set(['firstLevel', 'secondLevelCount'], firstLevel.firstLevel.secondLevel.length)
+            .set(['firstLevel', 'GUID'], item.GUID)
+        ))))), (item) =>
       _.set(item, 'counterpartyAssets', _.map(item.counterpartyAssets, (group) =>
         _.set(group, 'data', _.map(group.data, (firstLevel) =>
-          _.set(firstLevel, 'secondLevel', _.map(firstLevel.firstLevel.secondLevel, (secondLevel) =>
-            _.set(secondLevel, 'parentIndex', firstLevel.firstLevel.id))))))))
+          _.chain(firstLevel)
+            .set(['firstLevel', 'secondLevel'], _.map(firstLevel.firstLevel.secondLevel, (secondLevel) =>
+              _.set(secondLevel, 'parentIndex', firstLevel.firstLevel.id)))
+            .set(['firstLevel', 'secondLevelCount'], firstLevel.firstLevel.secondLevel.length)
+            .set(['firstLevel', 'GUID'], item.GUID)
+        )))))
 
     FsCacheService.set({key, newData})
     res.json({items:newData})
