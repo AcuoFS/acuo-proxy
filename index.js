@@ -32,6 +32,6 @@ require('app/routes')(server)
 // start server
 const port = _.get(Env, 'SERVER_PORT', 80)
 
-server.listen(port, () => {
+server.listen(process.env.port || port, () => {
   console.log(`${server.name} is listening at ${server.url}`)
 })
