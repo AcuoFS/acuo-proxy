@@ -61,7 +61,7 @@ Pledge.postSelection = (reqBody) => {
   return rp({
     method: 'POST',
     headers: {'content-type': 'application/json'},
-    uri: 'http://collateral.acuo.com/acuo/api/optimization/allocate',
+    uri: 'http://collateral:8080/acuo/api/optimization/allocate',
     body: reqBody,
     json: true
   })
@@ -71,7 +71,7 @@ Pledge.postPledgeAllocation = (reqBody) => {
   return rp({
     method: 'POST',
     headers: {'content-type': 'application/json'},
-    uri: 'http://collateral.acuo.com/acuo/api/pledge',
+    uri: 'http://collateral:8080/acuo/api/pledge',
     body: reqBody,
     json: true,
     // Use full response to check status code

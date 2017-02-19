@@ -5,7 +5,7 @@ const rp = require('request-promise')
 const UnmatchedPortfolio = {}
 
 UnmatchedPortfolio.get = () => {
-  const uri = 'http://margin.acuo.com/acuo/api/margin/items/unmatched/999'
+  const uri = 'http://margin:7070/acuo/api/margin/items/unmatched/999'
   return rp({uri, json: true})
 }
 
