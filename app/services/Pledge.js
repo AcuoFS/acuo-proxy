@@ -27,6 +27,58 @@ Pledge.getAllocatedAssets = () => new Promise (resolve => {
   resolve(json)
 })
 
+Pledge.getAllocatedAssetsNew = () => new Promise (resolve => {
+  const json = require('../json/respAllocated_newFormat')
+  resolve(json)
+})
+
+/**
+ * format:
+ *{
+  "optimisationSettings": [
+    {
+      "name": "operations",
+      "rating": 7.2
+    },
+    {
+      "name": "liquidity",
+      "rating": 3.5
+    },
+    {
+      "name": "cost",
+      "rating": 5.4
+    }
+  ],
+  "toBeAllocated": [
+    "mcp1",
+    "mcp3",
+    "mcp7"
+  ]
+}
+ * @param reqBody
+ */
+Pledge.postSelection = (reqBody) => {
+  return rp({
+    method: 'POST',
+    headers: {'content-type': 'application/json'},
+    uri: 'http://collateral.acuo.com/acuo/api/optimization/allocate',
+    body: reqBody,
+    json: true
+  })
+}
+
+Pledge.postPledgeAllocation = (reqBody) => {
+  return rp({
+    method: 'POST',
+    headers: {'content-type': 'application/json'},
+    uri: 'http://collateral.acuo.com/acuo/api/pledge',
+    body: reqBody,
+    json: true,
+    // Use full response to check status code
+    resolveWithFullResponse: true
+  })
+}
+
 Pledge.asset = () => {
   const uri = 'http://collateral:8080/acuo/api/assets/eligible/client/999'
   return rp({uri, json: true})

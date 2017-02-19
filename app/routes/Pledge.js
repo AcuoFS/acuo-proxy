@@ -55,6 +55,41 @@ routerInstance.post('/allocate-selection', (req, res, next) => {
   })
 })
 
+
+routerInstance.post('/allocate-selection-new', (req, res, next) => {
+  const key = req.path()
+  const {optimisationSettings, toBeAllocated} = JSON.parse(req.body)
+
+  Promise.all([
+    PledgeService.getInitSelection(),
+    PledgeService.postSelection({optimisationSettings, toBeAllocated})
+  ]).then(data => {
+    const [selectionItems, {allocated}] = data
+    // console.log('allocated' + JSON.stringify(allocated))
+    const processedItems = selectionItems.map(selectionItem => {
+        _.forOwn(allocated, (allocatedInfo, allocatedGUID) => {
+          if (selectionItem.GUID == allocatedGUID) {
+            return _.merge(selectionItem, {
+              allocated: allocatedInfo
+            })
+          }
+        })
+        return selectionItem
+      }
+    )
+    res.send({items: processedItems})
+  }).catch(err => {
+    console.log(err)
+  })
+})
+
+routerInstance.post('/pledge-allocation', (req, res, next) => {
+  const pledgeReq = JSON.parse(req.body)
+
+  // forwards reponse from endpoint
+  res.send(PledgeService.postPledgeAllocation(pledgeReq))
+})
+
 // routerInstance.post('/allocate-selection', (req, res, next) => {
 //   const key = req.path()
 //
@@ -107,11 +142,10 @@ routerInstance.get('/init-new-collateral', (req, res, next) => {
   Promise.all([PledgeService.asset(), PledgeService.earmarked()]).then(data => {
     // hit backend
     const [detailedAssets, {earmarked}] = data
-    const assets = _(detailedAssets).values()
-      .reduce((all, one) => {
+
+    const listOfAllAssets = _(detailedAssets).values().reduce((all, one) => {
         return _.concat(all, one)
-      }, [])
-      .map(asset => {
+      }, []).map(asset => {
         const filter = _.pick(asset, ['assetId', 'assetIdType'])
         const result = _.find(earmarked, filter)
 
@@ -120,7 +154,14 @@ routerInstance.get('/init-new-collateral', (req, res, next) => {
           : asset
       })
 
+    const assets = _(_.uniq(_.map(listOfAllAssets, 'assetCategory'))).reduce((obj, category) => {
+      return _.set(obj, [category], _(listOfAllAssets).filter(asset => (asset.assetCategory == category && !asset.earmarked)))
+    }, _.set({}, 'earmarked', _(listOfAllAssets).filter(asset => asset.earmarked)))
+
+    //const assets = _.set(list, 'earmarked', _(listOfAllAssets).filter(asset => asset.earmarked))
+
     FsCacheService.set({key, data: assets})
+
     res.send({items: assets})
 
   }).catch(err => {

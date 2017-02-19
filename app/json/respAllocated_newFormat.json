@@ -1,0 +1,85 @@
+{
+  "allocated": {
+    "mcp7": {
+      "variationMargin": [
+        {
+          "assetName": "Cash",
+          "priceNetHaircut": 10000.0,
+          "priceNetHaircutCcy": "USD",
+          "haircutPct": 0.0,
+          "venue": "SG",
+          "price": 10000.0,
+          "priceCcy": "USD"
+        },
+        {
+          "assetName": "Cash",
+          "priceNetHaircut": 10000.0,
+          "priceNetHaircutCcy": "EUR",
+          "haircutPct": 0.0,
+          "venue": "HK",
+          "price": 10000.0,
+          "priceCcy": "EUR"
+        },
+        {
+          "assetName": "Cash",
+          "priceNetHaircut": 10000.0,
+          "priceNetHaircutCcy": "GBP",
+          "haircutPct": 0.0,
+          "venue": "SG",
+          "price": 10000.0,
+          "priceCcy": "GBP"
+        },
+        {
+          "assetName": "Cash",
+          "priceNetHaircut": 10000.0,
+          "priceNetHaircutCcy": "JPY",
+          "haircutPct": 0.0,
+          "venue": "SG",
+          "price": 10000.0,
+          "priceCcy": "JPY"
+        }
+      ]
+    },
+    "msp1": {
+      "variationMargin": [
+        {
+          "assetName": "Cash",
+          "priceNetHaircut": 10000.0,
+          "priceNetHaircutCcy": "USD",
+          "haircutPct": 0.0,
+          "venue": "SG",
+          "price": 10000.0,
+          "priceCcy": "USD"
+        },
+        {
+          "assetName": "Cash",
+          "priceNetHaircut": 10000.0,
+          "priceNetHaircutCcy": "EUR",
+          "haircutPct": 0.0,
+          "venue": "HK",
+          "price": 10000.0,
+          "priceCcy": "EUR"
+        },
+        {
+          "assetName": "Cash",
+          "priceNetHaircut": 10000.0,
+          "priceNetHaircutCcy": "GBP",
+          "haircutPct": 0.0,
+          "venue": "SG",
+          "price": 10000.0,
+          "priceCcy": "GBP"
+        },
+        {
+          "assetName": "Cash",
+          "priceNetHaircut": 10000.0,
+          "priceNetHaircutCcy": "JPY",
+          "haircutPct": 0.0,
+          "venue": "SG",
+          "price": 10000.0,
+          "priceCcy": "JPY"
+        }
+      ]
+    }
+
+  }
+}

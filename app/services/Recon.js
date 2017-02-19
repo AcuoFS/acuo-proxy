@@ -10,4 +10,10 @@ Recon.get = () => {
   return rp({uri, json: true})
 }
 
+Recon.getTestRecon = () => new Promise(resolve => {
+  const json = require('../json/reconItems-new.json')
+  resolve(json)
+})
+
+
 module.exports = Recon
