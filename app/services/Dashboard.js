@@ -1,3 +1,5 @@
+const {GET_DASHBOARD_URL} = require('../constants/endpoints')
+
 // import external library
 const rp = require('request-promise')
 
@@ -6,7 +8,7 @@ const Dashboard = {}
 
 // get Dashboard items
 Dashboard.get = () => {
-  const uri = 'http://margin.acuo.com/acuo/api/margin/dashboard'
+  const uri = GET_DASHBOARD_URL
   return rp({uri, json: true})
 }
 

@@ -1,3 +1,5 @@
+const {GET_RECON_URL} = require('../constants/endpoints')
+
 //import external library
 const rp = require('request-promise')
 
@@ -6,7 +8,7 @@ const Recon = {}
 
 // get Recon items
 Recon.get = () => {
-  const uri = 'http://margin.acuo.com/acuo/api/margin/items/all/999'
+  const uri = GET_RECON_URL
   return rp({uri, json: true})
 }
 

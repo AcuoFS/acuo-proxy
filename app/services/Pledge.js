@@ -1,3 +1,12 @@
+const {
+  GET_OPTIMISATION_URL,
+  GET_PLEDGE_SELECTIONS_URL,
+  GET_COLLATERAL_URL,
+  GET_EARMARKED_COLLATERAL_URL,
+  POST_PLEDGE_SELECTIONS_URL,
+  POST_PLEDGE_ALLOCATIONS_URL,
+} = require('../constants/endpoints')
+
 //import external library
 const rp = require('request-promise')
 const _ = require('lodash')
@@ -8,7 +17,7 @@ const Pledge = {}
 // =============================================================================
 //
 Pledge.get = () => {
-  const uri = 'http://margin.acuo.com/acuo/api/pledge/settings/optimization/999'
+  const uri = GET_OPTIMISATION_URL
   return rp({uri, json: true})
 }
 
@@ -18,7 +27,7 @@ Pledge.getInitCollateral = () => new Promise(resolve => {
 })
 
 Pledge.getInitSelection = () => {
-  const uri = 'http://margin.acuo.com/acuo/api/pledge/items/all/999'
+  const uri = GET_PLEDGE_SELECTIONS_URL
   return rp({uri, json: true})
 }
 
@@ -61,7 +70,7 @@ Pledge.postSelection = (reqBody) => {
   return rp({
     method: 'POST',
     headers: {'content-type': 'application/json'},
-    uri: 'http://collateral.acuo.com/acuo/api/optimization/allocate',
+    uri: POST_PLEDGE_SELECTIONS_URL,
     body: reqBody,
     json: true
   })
@@ -71,7 +80,7 @@ Pledge.postPledgeAllocation = (reqBody) => {
   return rp({
     method: 'POST',
     headers: {'content-type': 'application/json'},
-    uri: 'http://collateral.acuo.com/acuo/api/pledge',
+    uri: POST_PLEDGE_ALLOCATIONS_URL,
     body: reqBody,
     json: true,
     // Use full response to check status code
@@ -80,12 +89,12 @@ Pledge.postPledgeAllocation = (reqBody) => {
 }
 
 Pledge.asset = () => {
-  const uri = 'http://collateral.acuo.com/acuo/api/assets/eligible/client/999'
+  const uri = GET_COLLATERAL_URL
   return rp({uri, json: true})
 }
 
 Pledge.earmarked = () => {
-  const uri = 'http://collateral.acuo.com/acuo/api/assets/reserved/client/999'
+  const uri = GET_EARMARKED_COLLATERAL_URL
   return rp({uri, json: true})
 }
 
