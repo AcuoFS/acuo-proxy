@@ -1,10 +1,5 @@
-'use strict'
-
-// 3rd party Lib
-const _ = require('lodash')
-
-// env
-const Env = require('app/env')
+// import external libraries
+require('dotenv').config()
 
 // app name
 const name = 'ACUO Proxy'
@@ -25,13 +20,10 @@ preflightEnabler(server, {'Access-Control-Allow-Origin': '[*]'})
 
 // ===============================
 // register routers
-require('app/routes')(server)
-
+require('./app/routes').forEach(router => router({server}))
 
 // ===============================
 // start server
-const port = _.get(Env, 'SERVER_PORT', 80)
-
-server.listen(process.env.port || port, () => {
+server.listen(process.env.PORT || 8080, () => {
   console.log(`${server.name} is listening at ${server.url}`)
 })

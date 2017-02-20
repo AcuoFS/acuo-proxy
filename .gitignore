@@ -1,5 +1,11 @@
-#ignore symbolic link
-app
-
 #IDE related
-.idea
+/.idea
+
+#node_modules
+/node_modules
+
+#.env
+/.env
+
+# log file
+/*.log

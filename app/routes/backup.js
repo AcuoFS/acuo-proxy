@@ -8,12 +8,12 @@ const _ = require('lodash')
 // ===================================
 // To be changed when backend comes in
 // Raw Data
-const rawDerivativeActions = require('app/json/derivativeActions')
-const rawReconItems = require('app/json/reconItems')
-const rawInitCollateral = require('app/json/initCollateral')
-const rawInitSelection = require('app/json/initSelection')
-const rawAllocateSelection = require('app/json/allocateSelection')
-const rawOptimisation = require('app/json/optimisation')
+const rawDerivativeActions = require('../json/derivativeActions')
+const rawReconItems = require('../json/reconItems')
+const rawInitCollateral = require('../json/initCollateral')
+const rawInitSelection = require('../json/initSelection')
+const rawAllocateSelection = require('../json/allocateSelection')
+const rawOptimisation = require('../json/optimisation')
 
 routerInstance.get('/derivative-actions', (req, res, next) => {
   const data = _.get(rawDerivativeActions, 'data')
