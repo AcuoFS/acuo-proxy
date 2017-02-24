@@ -4,7 +4,7 @@
 // app name
 const name = 'ACUO Proxy'
 
-var host = process.env.DOCKER_HOST || 'localhost';
+var host = process.env.DOCKER_HOST || '';
 var port = process.env.DOCKER_PORT || 8081;
 
 // create server
