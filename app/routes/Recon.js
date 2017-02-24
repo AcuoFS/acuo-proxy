@@ -31,10 +31,7 @@ routerInstance.get('/', (req, res, next) => {
   ReconService.get().then(data => {
 
     const checkTolerance = (item, parentID, id, amount, toleranceLevel, GUID, who) => {
-      //console.log(parentID, id)
       let otherside = {amount: 0}
-
-      //console.log('++++++ ' + who + ' ++++++')
 
       if (who == 'COUNTERPARTY') {
         otherside = _.reduce(item.clientAssets, (sum, group) => {
@@ -71,9 +68,9 @@ routerInstance.get('/', (req, res, next) => {
       }
 
       if (
-        (Math.abs(parseFloat(amount)) > (Math.abs(parseFloat(otherside.amount)) * (1 + parseFloat(toleranceLevel))))
-        &&
-        (Math.abs(parseFloat(amount)) < (Math.abs(parseFloat(otherside.amount)) * (1 - parseFloat(toleranceLevel))))
+        ((Math.abs(parseFloat(otherside.amount))) > (Math.abs(parseFloat(amount)) * (1 + parseFloat(toleranceLevel))))
+        ||
+        ((Math.abs(parseFloat(otherside.amount))) < (Math.abs(parseFloat(amount)) * (1 - parseFloat(toleranceLevel))))
       ) {
         return true
       }
