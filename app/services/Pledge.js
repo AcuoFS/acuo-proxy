@@ -1,3 +1,4 @@
+const config = require('../constants/config').get(process.env.DOCKER_ENV)
 const {
   GET_OPTIMISATION_URL,
   GET_PLEDGE_SELECTIONS_URL,
@@ -5,7 +6,7 @@ const {
   GET_EARMARKED_COLLATERAL_URL,
   POST_PLEDGE_SELECTIONS_URL,
   POST_PLEDGE_ALLOCATIONS_URL,
-} = require('../constants/endpoints-dev')
+} = config
 
 //import external library
 const rp = require('request-promise')

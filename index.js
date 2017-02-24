@@ -4,8 +4,9 @@
 // app name
 const name = 'ACUO Proxy'
 
-var host = process.env.DOCKER_HOST || '';
-var port = process.env.DOCKER_PORT || 8081;
+const host = process.env.DOCKER_HOST || ''
+const port = process.env.DOCKER_PORT || 8081
+const env = process.env.DOCKER_ENV || 'dev'
 
 // create server
 const restify = require('restify')

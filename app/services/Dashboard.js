@@ -1,4 +1,6 @@
-const {GET_DASHBOARD_URL} = require('../constants/endpoints-dev')
+const config = require('../constants/config').get(process.env.DOCKER_ENV)
+const {GET_DASHBOARD_URL} = config
+
 
 // import external library
 const rp = require('request-promise')
