@@ -1,4 +1,4 @@
-const {GET_UNMATCHED_URL} = require('../constants/endpoints')
+const {GET_UNMATCHED_URL} = require('../constants/endpoints-dev')
 
 //import external library
 const rp = require('request-promise')

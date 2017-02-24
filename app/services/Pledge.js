@@ -5,7 +5,7 @@ const {
   GET_EARMARKED_COLLATERAL_URL,
   POST_PLEDGE_SELECTIONS_URL,
   POST_PLEDGE_ALLOCATIONS_URL,
-} = require('../constants/endpoints')
+} = require('../constants/endpoints-dev')
 
 //import external library
 const rp = require('request-promise')
