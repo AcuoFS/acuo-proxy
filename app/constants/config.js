@@ -34,5 +34,6 @@ const config = {
  * GET_EARMARKED_COLLATERAL_URL, POST_PLEDGE_SELECTIONS_URL, POST_PLEDGE_ALLOCATIONS_URL}}
  */
 exports.get = (env) => {
+  console.log('Current config environment accessed is ' + (env || 'dev'))
   return config[env] || config.dev
 }
