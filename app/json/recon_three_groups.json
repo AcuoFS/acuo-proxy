@@ -1,0 +1,384 @@
+[
+  {
+    "time": "2017-01-13T20:00:00.000Z",
+    "notificationTime": "2017-01-13T16:00:00.000Z",
+    "ccy": "USD",
+    "direction": "IN",
+    "type": "OTC_legacy",
+    "agreementName": "ACUO US LLC v Counterparty A1",
+    "tolerance": "0.20",
+    "status": "Unrecon",
+    "GUID": "msp11",
+    "legalEntity": "ACUO US LLC",
+    "cptyEntity": "Counterpart A1",
+    "cptyOrg": "Counterpart A",
+    "initialMargin": "0.00",
+    "variableMargin": "-35704500.00",
+    "productCashFlows": "0.00",
+    "interestPayment": "0.00",
+    "pendingNonCash": "0.00",
+    "pendingCash": "0.00",
+    "clientAssets": [
+      {
+        "groupName": "Group 1",
+        "data": [
+          {
+            "firstLevel": {
+              "id": 93000304,
+              "name": "NET TOTAL VM USD (msp11)",
+              "amount": "-35755000.00",
+              "tolerance": 0.2,
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcp11)",
+                  "amount": "-35756500.00"
+                },
+                {
+                  "id": 1077372345,
+                  "name": "Current MTM Exposure USD (mcp11)",
+                  "amount": "-35756500.00"
+                },
+                {
+                  "id": 1077372345,
+                  "name": "Variation Margin Balance USD (mcp11)",
+                  "amount": "-35756500.00"
+                }
+              ]
+            }
+          },
+          {
+            "firstLevel": {
+              "id": 93000304,
+              "name": "NET TOTAL IM USD (msp11)",
+              "amount": "-35755000.00",
+              "tolerance": 0.2,
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "IM Requirement (Exchange) (mcp11)",
+                  "amount": "-35756500.00"
+                },
+                {
+                  "id": 1077372345,
+                  "name": "IM Requirement (Broker) (mcp11)",
+                  "amount": "-35756500.00"
+                },
+                {
+                  "id": 1077372345,
+                  "name": "Initial Balance Cash (mcp11)",
+                  "amount": "-35756500.00"
+                },
+                {
+                  "id": 1077372345,
+                  "name": "Initial Balance Non-Cash (mcp11)",
+                  "amount": "-35756500.00"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "groupName": "Group 2",
+        "data": [
+          {
+            "firstLevel": {
+              "id": 93000304,
+              "name": "Interest Payment (msp11)",
+              "amount": "-35755000.00",
+              "tolerance": 0.2,
+              "secondLevel": []
+            }
+          },
+          {
+            "firstLevel": {
+              "id": 93000304,
+              "name": "Product Cash Flows (msp11)",
+              "amount": "-35755000.00",
+              "tolerance": 0.2,
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Total Coupon Payment Amount (mcp11)",
+                  "amount": "-35756500.00"
+                },
+                {
+                  "id": 1077372345,
+                  "name": "Total Upfront Fee (mcp11)",
+                  "amount": "-35756500.00"
+                },
+                {
+                  "id": 1077372345,
+                  "name": "Premium Payment/amount (mcp11)",
+                  "amount": "-35756500.00"
+                },
+                {
+                  "id": 1077372345,
+                  "name": "CDS Credit Event Payment (mcp11)",
+                  "amount": "-35756500.00"
+                },
+                {
+                  "id": 1077372345,
+                  "name": "NDF Cash Settlement (mcp11)",
+                  "amount": "-35756500.00"
+                }
+              ]
+            }
+          },
+          {
+            "firstLevel": {
+              "id": 93000304,
+              "name": "Fees and Commissions (msp11)",
+              "amount": "-35755000.00",
+              "tolerance": 0.2,
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Exchange Fee USD (mcp11)",
+                  "amount": "-35756500.00"
+                },
+                {
+                  "id": 1077372345,
+                  "name": "Clearing Broker Fee USD (mcp11)",
+                  "amount": "-35756500.00"
+                }
+              ]
+            }
+          },
+          {
+            "firstLevel": {
+              "id": 93000304,
+              "name": "Daily PAI (msp11)",
+              "amount": "-35755000.00",
+              "tolerance": 0.2,
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Daily PAI Fee USD (mcp11)",
+                  "amount": "-35756500.00"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "groupName": "Group 3",
+        "data": [
+          {
+            "firstLevel": {
+              "id": 93000304,
+              "name": "Pending Non-Cash Net (msp11)",
+              "amount": "-35755000.00",
+              "tolerance": 0.2,
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Securities USD (mcp11)",
+                  "amount": "-35756500.00"
+                }
+              ]
+            }
+          },
+          {
+            "firstLevel": {
+              "id": 93000304,
+              "name": "Pending Cash Net (msp11)",
+              "amount": "-35755000.00",
+              "tolerance": 0.2,
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Cash USD (mcp11)",
+                  "amount": "-35756500.00"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "counterpartyAssets": [
+      {
+        "groupName": "Group 1",
+        "data": [
+          {
+            "firstLevel": {
+              "id": 93000304,
+              "name": "NET TOTAL VM USD (msp11)",
+              "amount": "-35755000.00",
+              "tolerance": 0.2,
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Variation USD (mcp11)",
+                  "amount": "-35756500.00"
+                },
+                {
+                  "id": 1077372345,
+                  "name": "Current MTM Exposure USD (mcp11)",
+                  "amount": "-35756500.00"
+                },
+                {
+                  "id": 1077372345,
+                  "name": "Variation Margin Balance USD (mcp11)",
+                  "amount": "-35756500.00"
+                }
+              ]
+            }
+          },
+          {
+            "firstLevel": {
+              "id": 93000304,
+              "name": "NET TOTAL IM USD (msp11)",
+              "amount": "-35755000.00",
+              "tolerance": 0.2,
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "IM Requirement (Exchange) (mcp11)",
+                  "amount": "-35756500.00"
+                },
+                {
+                  "id": 1077372345,
+                  "name": "IM Requirement (Broker) (mcp11)",
+                  "amount": "-35756500.00"
+                },
+                {
+                  "id": 1077372345,
+                  "name": "Initial Balance Cash (mcp11)",
+                  "amount": "-35756500.00"
+                },
+                {
+                  "id": 1077372345,
+                  "name": "Initial Balance Non-Cash (mcp11)",
+                  "amount": "-35756500.00"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "groupName": "Group 2",
+        "data": [
+          {
+            "firstLevel": {
+              "id": 93000304,
+              "name": "Interest Payment (msp11)",
+              "amount": "-35755000.00",
+              "tolerance": 0.2,
+              "secondLevel": []
+            }
+          },
+          {
+            "firstLevel": {
+              "id": 93000304,
+              "name": "Product Cash Flows (msp11)",
+              "amount": "-35755000.00",
+              "tolerance": 0.2,
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Total Coupon Payment Amount (mcp11)",
+                  "amount": "-35756500.00"
+                },
+                {
+                  "id": 1077372345,
+                  "name": "Total Upfront Fee (mcp11)",
+                  "amount": "-35756500.00"
+                },
+                {
+                  "id": 1077372345,
+                  "name": "Premium Payment/amount (mcp11)",
+                  "amount": "-35756500.00"
+                },
+                {
+                  "id": 1077372345,
+                  "name": "CDS Credit Event Payment (mcp11)",
+                  "amount": "-35756500.00"
+                },
+                {
+                  "id": 1077372345,
+                  "name": "NDF Cash Settlement (mcp11)",
+                  "amount": "-35756500.00"
+                }
+              ]
+            }
+          },
+          {
+            "firstLevel": {
+              "id": 93000304,
+              "name": "Fees and Commissions (msp11)",
+              "amount": "-35755000.00",
+              "tolerance": 0.2,
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Exchange Fee USD (mcp11)",
+                  "amount": "-35756500.00"
+                },
+                {
+                  "id": 1077372345,
+                  "name": "Clearing Broker Fee USD (mcp11)",
+                  "amount": "-35756500.00"
+                }
+              ]
+            }
+          },
+          {
+            "firstLevel": {
+              "id": 93000304,
+              "name": "Daily PAI (msp11)",
+              "amount": "-35755000.00",
+              "tolerance": 0.2,
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Daily PAI Fee USD (mcp11)",
+                  "amount": "-35756500.00"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "groupName": "Group 3",
+        "data": [
+          {
+            "firstLevel": {
+              "id": 93000304,
+              "name": "Pending Non-Cash Net (msp11)",
+              "amount": "-35755000.00",
+              "tolerance": 0.2,
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Securities USD (mcp11)",
+                  "amount": "-35756500.00"
+                }
+              ]
+            }
+          },
+          {
+            "firstLevel": {
+              "id": 93000304,
+              "name": "Pending Cash Net (msp11)",
+              "amount": "-35755000.00",
+              "tolerance": 0.2,
+              "secondLevel": [
+                {
+                  "id": 1077372345,
+                  "name": "Cash USD (mcp11)",
+                  "amount": "-35756500.00"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
