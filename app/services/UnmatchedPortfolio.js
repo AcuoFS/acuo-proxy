@@ -1,3 +1,6 @@
+const config = require('../constants/config').get(process.env.DOCKER_ENV)
+const {GET_UNMATCHED_URL} = config
+
 //import external library
 const rp = require('request-promise')
 
@@ -5,7 +8,7 @@ const rp = require('request-promise')
 const UnmatchedPortfolio = {}
 
 UnmatchedPortfolio.get = () => {
-  const uri = 'http://margin.acuo.com/acuo/api/margin/items/unmatched/999'
+  const uri = GET_UNMATCHED_URL
   return rp({uri, json: true})
 }
 

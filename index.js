@@ -1,8 +1,12 @@
 // import external libraries
-require('dotenv').config()
+//require('dotenv').config()
 
 // app name
 const name = 'ACUO Proxy'
+
+const host = process.env.DOCKER_HOST || ''
+const port = process.env.DOCKER_PORT || 8081
+const env = process.env.DOCKER_ENV || 'dev'
 
 // create server
 const restify = require('restify')
@@ -24,6 +28,6 @@ require('./app/routes').forEach(router => router({server}))
 
 // ===============================
 // start server
-server.listen(process.env.PORT || 8080, () => {
+server.listen(port, host, () => {
   console.log(`${server.name} is listening at ${server.url}`)
 })

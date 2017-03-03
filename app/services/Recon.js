@@ -1,3 +1,6 @@
+const config = require('../constants/config').get(process.env.DOCKER_ENV)
+const {GET_RECON_URL} = config
+
 //import external library
 const rp = require('request-promise')
 
@@ -6,7 +9,7 @@ const Recon = {}
 
 // get Recon items
 Recon.get = () => {
-  const uri = 'http://margin.acuo.com/acuo/api/margin/items/all/999'
+  const uri = GET_RECON_URL
   return rp({uri, json: true})
 }
 
