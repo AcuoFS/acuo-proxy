@@ -82,7 +82,7 @@ routerInstance.get('/', (req, res, next) => {
 
     const newData = _.map(data, (item) =>
       _.chain(item)
-        .set('clientAssets', _.map(item.clientAssets, (group) =>
+        .set('clientAssets', _.map(_.filter(item.clientAssets, (group) => group.data.length), (group) =>
           _.set(group, 'data', _.map(group.data, (firstLevel) =>
             _.chain(firstLevel)
               .set(['firstLevel', 'secondLevel'], _.map(firstLevel.firstLevel.secondLevel, (secondLevel) =>
@@ -92,7 +92,7 @@ routerInstance.get('/', (req, res, next) => {
               .set(['firstLevel', 'secondLevelCount'], firstLevel.firstLevel.secondLevel.length)
               .set(['firstLevel', 'GUID'], item.GUID)
           ))))
-        .set('counterpartyAssets', _.map(item.counterpartyAssets, (group) =>
+        .set('counterpartyAssets', _.map(_.filter(item.counterpartyAssets, (group) => group.data.length), (group) =>
           _.set(group, 'data', _.map(group.data, (firstLevel) =>
             _.chain(firstLevel)
               .set(['firstLevel', 'secondLevel'], _.map(firstLevel.firstLevel.secondLevel, (secondLevel) =>
