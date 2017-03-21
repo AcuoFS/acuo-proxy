@@ -122,9 +122,14 @@ routerInstance.get('/init-selection', (req, res, next) => {
   const key = req.path()
 
   PledgeService.getInitSelection().then(data => {
-    // hit backend
-    FsCacheService.set({key, data})
-    res.send({items:data})
+
+    const newData = _.map(data, (item) =>
+      _.chain(item)
+        .set('clientAssets', _.map(_.filter(item.clientAssets, (group) => group.data.length))))
+
+    // hit back
+    FsCacheService.set({key, newData})
+    res.send({items:newData})
 
   }).catch(err => {
     // hit cache
