@@ -13,10 +13,8 @@ const prefix = "dashboard"
 // ======================================================================
 routerInstance.get('/', (req, res, next) => {
   const key = req.path()
-  console.log('before dashboard get: ' + DashboardService.get())
   DashboardService.get().then(data => {
     // hit backend
-    console.log('inside get: ' + data)
     let { derivatives, timeUpdated } = data
 
     derivatives = _.map(derivatives, (derivative => {
@@ -25,7 +23,7 @@ routerInstance.get('/', (req, res, next) => {
         return !excludedStatus.includes(margin.status)
       })))
     }))
-    console.log('derivatives: ' + derivatives)
+
     derivatives = JSON.parse(JSON.stringify(derivatives).replace(/(ActionDispute|actiondispute)/g, "dispute"))
 
     FsCacheService.set({key, data: derivatives})
