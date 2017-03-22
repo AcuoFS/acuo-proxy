@@ -13,7 +13,7 @@ const prefix = "dashboard"
 // ======================================================================
 routerInstance.get('/', (req, res, next) => {
   const key = req.path()
-
+  console.log('before dashboard get: ' + DashboardService.get())
   DashboardService.get().then(data => {
     // hit backend
     console.log('inside get: ' + data)

@@ -12,6 +12,7 @@ const Dashboard = {}
 Dashboard.get = () => {
   const uri = GET_DASHBOARD_URL
   console.log('dashboard URL: ' + uri)
+  console.log('rp: ' + rp({uri, json: true}))
   return rp({uri, json: true})
 }
 
