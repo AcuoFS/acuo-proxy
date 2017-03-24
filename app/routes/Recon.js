@@ -107,7 +107,9 @@ routerInstance.get('/', (req, res, next) => {
     res.json({items: newData})
   }).catch(err => {
     // hit cache
-    FsCacheService.get(key).then(items => res.json(_.set({items}, 'fromCache', true)))
+    FsCacheService.get(key)
+      .then(items => res.json(_.set({items}, 'fromCache', true)))
+      .catch((error) => console.log('Error getting from cache: ' + error))
   })
 })
 

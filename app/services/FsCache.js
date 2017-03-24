@@ -13,7 +13,12 @@ FsCache.set = ({key, data}) => {
   const fsKey = generateKey(key)
 
   // write file is async
-  fs.writeFile(fsKey, JSON.stringify(data))
+  fs.writeFile(fsKey, JSON.stringify(data), (error) => {
+    if (error) {
+      console.log('Error: ' + error)
+    }
+    console.log('Caching done for: ' + key)
+  })
 
   // return cache set promise
   return cache.set(key, data)
@@ -24,7 +29,7 @@ FsCache.get = (key) => new Promise((resolve, reject) => {
   const fsKey = generateKey(key)
 
   cache.get(key)
-    // hit cache
+  // hit cache
     .then(resolve)
     // hit fs by requiring
     .catch(err => {
