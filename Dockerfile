@@ -10,6 +10,8 @@ WORKDIR /usr/src/app
 # Install node modules
 RUN npm install
 
+# Set environment variables
+
 EXPOSE 8181
 
 # Start app from forever:
