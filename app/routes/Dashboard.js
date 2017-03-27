@@ -13,7 +13,6 @@ const prefix = "dashboard"
 // ======================================================================
 routerInstance.get('/', (req, res, next) => {
   const key = req.path()
-
   DashboardService.get().then(data => {
     // hit backend
     let { derivatives, timeUpdated } = data
