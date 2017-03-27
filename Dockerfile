@@ -10,9 +10,6 @@ WORKDIR /usr/src/app
 # Install node modules
 RUN npm install
 
-# Set environment variables 
-ENV DOCKER_PORT = 8181
-
 EXPOSE 8181
 
 # Start app from forever:
