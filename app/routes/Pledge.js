@@ -71,7 +71,7 @@ routerInstance.post('/allocate-selection-new', (req, res, next) => {
         _.forOwn(allocated, (allocatedInfo, allocatedGUID) => {
           if (selectionItem.GUID == allocatedGUID) {
             return _.merge(selectionItem, {
-              allocated: allocatedInfo
+              allocated: allocatedInfo[0]
             })
           }
         })
