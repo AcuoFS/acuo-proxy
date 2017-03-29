@@ -65,7 +65,8 @@ routerInstance.post('/allocate-selection-new', (req, res, next) => {
     PledgeService.postSelection({optimisationSettings, toBeAllocated})
   ]).then(data => {
     const [selectionItems, {allocated}] = data
-    console.log('allocated' + JSON.stringify(allocated))
+    console.log('data: ' + JSON.stringify(data))
+    console.log('allocated: ' + JSON.stringify(allocated))
     //console.log(JSON.stringify(_.map(selectionItems, (item) => _.set(item, 'clientAssets', _.filter(item.clientAssets, (group) => group.data.length)))))
     const processedItems = _.map(selectionItems, (item) => _.set(item, 'clientAssets', _.filter(item.clientAssets, (group) => group.data.length))).map(selectionItem => {
         _.forOwn(allocated, (allocatedInfo, allocatedGUID) => {
