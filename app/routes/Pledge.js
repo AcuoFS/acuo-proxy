@@ -70,6 +70,7 @@ routerInstance.post('/allocate-selection-new', (req, res, next) => {
     const processedItems = _.map(selectionItems, (item) => _.set(item, 'clientAssets', _.filter(item.clientAssets, (group) => group.data.length))).map(selectionItem => {
         _.forOwn(allocated, (allocatedInfo, allocatedGUID) => {
           if (selectionItem.GUID == allocatedGUID) {
+            console.log(allocatedInfo)
             return _.merge(selectionItem, {
               allocated: allocatedInfo[0]
             })
