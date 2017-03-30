@@ -8,7 +8,9 @@ const config = {
     GET_COLLATERAL_URL: 'http://collateral.acuo.com/acuo/api/assets/eligible/client/999',
     GET_EARMARKED_COLLATERAL_URL: 'http://collateral.acuo.com/acuo/api/assets/reserved/client/999',
     POST_PLEDGE_SELECTIONS_URL: 'http://collateral.acuo.com/acuo/api/optimization/allocate',
-    POST_PLEDGE_ALLOCATIONS_URL: 'http://collateral.acuo.com/acuo/api/pledge'
+    POST_PLEDGE_ALLOCATIONS_URL: 'http://collateral.acuo.com/acuo/api/pledge',
+    GET_RECON_DISPUTES_URL: 'http://margin.acuo.com/acuo/api/dispute/items/all/999',
+    POST_RECON_DISPUTE_URL: 'http://margin.acuo.com/acuo/api/dispute/add'
   },
   qa: {
     GET_DASHBOARD_URL: 'http://margin:7070/acuo/api/margin/dashboard',
@@ -19,7 +21,9 @@ const config = {
     GET_COLLATERAL_URL: 'http://collateral:8080/acuo/api/assets/eligible/client/999',
     GET_EARMARKED_COLLATERAL_URL: 'http://collateral:8080/acuo/api/assets/reserved/client/999',
     POST_PLEDGE_SELECTIONS_URL: 'http://collateral:8080/acuo/api/optimization/allocate',
-    POST_PLEDGE_ALLOCATIONS_URL: 'http://collateral:8080/acuo/api/pledge'
+    POST_PLEDGE_ALLOCATIONS_URL: 'http://collateral:8080/acuo/api/pledge',
+    GET_RECON_DISPUTES_URL: 'new endpoint!!!',
+    POST_RECON_DISPUTE_URL: 'new endpoint!!!'
   },
   prod: {}
 }
