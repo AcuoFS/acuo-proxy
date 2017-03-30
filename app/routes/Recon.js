@@ -153,7 +153,7 @@ routerInstance.get('/new', (req, res, next) => {
               .set(['firstLevel', 'GUID'], item.GUID)
           ))))
         // Add disputes info
-        .set('disputeInfo', _.filter(disputes, disputeItem => (item.GUID === disputeItem.msId)))
+        .set('disputeInfo', (_.filter(disputes, disputeItem => (item.GUID === disputeItem.msId))[0] || {}))
     )
 
     FsCacheService.set({key, newData})
