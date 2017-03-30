@@ -2,7 +2,7 @@
 const Router = require('restify-router').Router
 const _ = require('lodash')
 // import services
-const { PledgeService, FsCacheService } = require('../services')
+const {PledgeService, FsCacheService} = require('../services')
 
 // main object
 const routerInstance = new Router()
@@ -17,7 +17,7 @@ routerInstance.get('/optimization', (req, res, next) => {
 
   PledgeService.get().then(items => {
     // hit backend
-    FsCacheService.set({key, data:items})
+    FsCacheService.set({key, data: items})
     res.json({items})
 
   }).catch(err => {
@@ -28,7 +28,7 @@ routerInstance.get('/optimization', (req, res, next) => {
 
 routerInstance.post('/allocate-selection', (req, res, next) => {
   const key = req.path()
-  const { guids, optimisationSetting } = JSON.parse(req.body)
+  const {guids, optimisationSetting} = JSON.parse(req.body)
 
   Promise.all([
     PledgeService.calculateCase(optimisationSetting),
@@ -39,10 +39,10 @@ routerInstance.post('/allocate-selection', (req, res, next) => {
     const [caseCode, items, {items: assets}] = data
 
     const processedItems = items.map(item => (guids.includes(item.GUID)
-      // if item is in request list, then allocate assets to it
-      ? PledgeService.allocateAssets(item, caseCode, assets)
-      // if item is not in request list, just return it
-      : item
+        // if item is in request list, then allocate assets to it
+        ? PledgeService.allocateAssets(item, caseCode, assets)
+        // if item is not in request list, just return it
+        : item
     ))
 
     // FsCacheService.set({key, data})
@@ -65,8 +65,8 @@ routerInstance.post('/allocate-selection-new', (req, res, next) => {
     PledgeService.postSelection({optimisationSettings, toBeAllocated})
   ]).then(data => {
     const [selectionItems, {allocated}] = data
-    console.log('data: ' + JSON.stringify(data))
-    console.log('allocated: ' + JSON.stringify(allocated))
+    // console.log('data: ' + JSON.stringify(data))
+    // console.log('allocated: ' + JSON.stringify(allocated))
     //console.log(JSON.stringify(_.map(selectionItems, (item) => _.set(item, 'clientAssets', _.filter(item.clientAssets, (group) => group.data.length)))))
     const processedItems = _.map(selectionItems, (item) => _.set(item, 'clientAssets', _.filter(item.clientAssets, (group) => group.data.length))).map(selectionItem => {
         _.forOwn(allocated, (allocatedInfo, allocatedGUID) => {
@@ -132,7 +132,7 @@ routerInstance.get('/init-selection', (req, res, next) => {
 
     // hit back
     FsCacheService.set({key, newData})
-    res.send({items:newData})
+    res.send({items: newData})
 
   }).catch(err => {
     // hit cache
@@ -152,15 +152,15 @@ routerInstance.get('/init-new-collateral', (req, res, next) => {
     const [detailedAssets, {earmarked}] = data
 
     const listOfAllAssets = _(detailedAssets).values().reduce((all, one) => {
-        return _.concat(all, one)
-      }, []).map(asset => {
-        const filter = _.pick(asset, ['assetId', 'assetIdType'])
-        const result = _.find(earmarked, filter)
+      return _.concat(all, one)
+    }, []).map(asset => {
+      const filter = _.pick(asset, ['assetId', 'assetIdType'])
+      const result = _.find(earmarked, filter)
 
-        return result
-          ? _.set(asset, 'earmarked', true)
-          : asset
-      })
+      return result
+        ? _.set(asset, 'earmarked', true)
+        : asset
+    })
 
     const assets = _(_.uniq(_.map(listOfAllAssets, 'assetCategory'))).reduce((obj, category) => {
       return _.set(obj, [category], _(listOfAllAssets).filter(asset => (asset.assetCategory == category && !asset.earmarked)))
