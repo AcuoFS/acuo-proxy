@@ -42,11 +42,10 @@ routerInstance.get('/', (req, res, next) => {
             if (_.get(_.get(firstLevel, '__wrapped__'), ['firstLevel', 'id'], 0) === parentID) {
               secondLevelItem = _.find(_.get(firstLevel, '__wrapped__').firstLevel.secondLevel, {id: id})
             }
-
             return (secondLevelItem ? sum = secondLevelItem : sum)
           }, {})
 
-          return (secondLevelItem ? sum = secondLevelItem : sum)
+          return (!_.isEmpty(secondLevelItem) ? sum = secondLevelItem : sum)
         }, {})
       }
 
@@ -63,9 +62,17 @@ routerInstance.get('/', (req, res, next) => {
             return (secondLevelItem ? sum = secondLevelItem : sum)
           }, {})
 
-          return (secondLevelItem ? sum = secondLevelItem : sum)
+          return (!_.isEmpty(secondLevelItem) ? sum = secondLevelItem : sum)
         }, {})
       }
+
+      // if(GUID === 'msp42'){
+      //   console.log('--------- ' + GUID + ' ---------')
+      //   console.log('tolerance: ' + parseFloat(toleranceLevel))
+      //   console.log('otherside amount: ' + Math.abs(parseFloat(otherside.amount)))
+      //   console.log('this side amount: ' + Math.abs(parseFloat(amount)))
+      //   console.log('-----------------------------')
+      // }
 
       if (
         ((Math.abs(parseFloat(otherside.amount))) > (Math.abs(parseFloat(amount)) * (1 + parseFloat(toleranceLevel))))
