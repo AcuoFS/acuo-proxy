@@ -182,5 +182,14 @@ routerInstance.get('/disputes', (req, res, next) => {
   })
 })
 
+routerInstance.post('/disputeStatement', (req, res, next) => {
+  // forwards response from endpoint
+  ReconService.postReconDispute(req.body).then(data => {
+    res.send(data)
+  }).catch(err => {
+    res.send(err)
+  })
+})
+
 
 module.exports = ({server}) => routerInstance.applyRoutes(server, prefix)
