@@ -3,6 +3,7 @@ const Router = require('restify-router').Router
 const _ = require('lodash')
 // import services
 const {ReconService, FsCacheService} = require('../services')
+const {isString} = require('../utils')
 
 // main object
 const routerInstance = new Router()
@@ -184,7 +185,14 @@ routerInstance.get('/disputes', (req, res, next) => {
 
 routerInstance.post('/disputeStatement', (req, res, next) => {
   // forwards response from endpoint
-  ReconService.postReconDispute(req.body).then(data => {
+  let objToSend = req.body
+  if (isString(objToSend)) {
+    // parse as a js obj
+    objToSend = JSON.parse(req.body)
+  }
+  console.log('objToSend: ' + objToSend)
+
+  ReconService.postReconDispute(objToSend).then(data => {
     res.send(data)
   }).catch(err => {
     res.send(err)
