@@ -10,13 +10,25 @@ const FsCache = {}
 
 // set data in FsCache
 FsCache.set = ({key, data}) => {
+
+  const disableCache = process.env.DOCKER_DISABLE_CACHE || 0
+  let newData = {}
+
+  if(!disableCache)
+    newData = data
+
   const fsKey = generateKey(key)
 
   // write file is async
-  fs.writeFile(fsKey, JSON.stringify(data))
+  fs.writeFile(fsKey, JSON.stringify(newData), (error) => {
+    if (error) {
+      console.log('Error: ' + error)
+    }
+    console.log('Caching done for: ' + key)
+  })
 
   // return cache set promise
-  return cache.set(key, data)
+  return cache.set(key, newData)
 }
 
 // get data from FsCache
@@ -24,7 +36,7 @@ FsCache.get = (key) => new Promise((resolve, reject) => {
   const fsKey = generateKey(key)
 
   cache.get(key)
-    // hit cache
+  // hit cache
     .then(resolve)
     // hit fs by requiring
     .catch(err => {
