@@ -26,10 +26,53 @@ const prefix = "recon"
 //   })
 // })
 
+const checkFirstLevelOnlyTolerance = (item, id, amount, toleranceLevel, GUID, who) => {
+  let otherside = {amount: 0}
+
+  if (who === 'COUNTERPARTY') {
+    otherside = _.reduce(item.clientAssets, (sum, group) => {
+
+      const firstLevelItem = _.reduce(group.data, (sum, firstLevel) => (
+        firstLevel.__wrapped__.firstLevel.id === id ? sum = firstLevel.__wrapped__.firstLevel : sum
+      ), {})
+
+      // console.log(firstLevelItem)
+
+      return (!_.isEmpty(firstLevelItem) ? sum = firstLevelItem : sum)
+    }, {})
+
+    // console.log('================ COUNTERPARTY ===============')
+    // console.log(otherside)
+  }
+
+  if (who === 'CLIENT') {
+    otherside = _.reduce(item.counterpartyAssets, (sum, group) => {
+
+      const firstLevelItem = _.reduce(group.data, (sum, firstLevel) => (
+        firstLevel.firstLevel.id === id ? sum = firstLevel.firstLevel : sum
+      ), {})
+
+      // console.log(firstLevelItem)
+
+      return (!_.isEmpty(firstLevelItem) ? sum = firstLevelItem : sum)
+
+    }, {})
+
+    // console.log('================ CLIENT ===============')
+    // console.log(otherside)
+  }
+
+  return (
+    ((Math.abs(parseFloat(otherside.amount))) > (Math.abs(parseFloat(amount)) * (1 + parseFloat(toleranceLevel))))
+    ||
+    ((Math.abs(parseFloat(otherside.amount))) < (Math.abs(parseFloat(amount)) * (1 - parseFloat(toleranceLevel))))
+  )
+}
+
 const checkTolerance = (item, parentID, id, amount, toleranceLevel, GUID, who) => {
   let otherside = {amount: 0}
 
-  if (who == 'COUNTERPARTY') {
+  if (who === 'COUNTERPARTY') {
     otherside = _.reduce(item.clientAssets, (sum, group) => {
       const secondLevelItem = _.reduce(group.data, (sum, firstLevel) => {
 
@@ -45,7 +88,7 @@ const checkTolerance = (item, parentID, id, amount, toleranceLevel, GUID, who) =
     }, {})
   }
 
-  if (who == 'CLIENT') {
+  if (who === 'CLIENT') {
     otherside = _.reduce(item.counterpartyAssets, (sum, group) => {
 
       const secondLevelItem = _.reduce(group.data, (sum, firstLevel) => {
@@ -70,16 +113,11 @@ const checkTolerance = (item, parentID, id, amount, toleranceLevel, GUID, who) =
   //   console.log('-----------------------------')
   // }
 
-  if (
+  return (
     ((Math.abs(parseFloat(otherside.amount))) > (Math.abs(parseFloat(amount)) * (1 + parseFloat(toleranceLevel))))
     ||
     ((Math.abs(parseFloat(otherside.amount))) < (Math.abs(parseFloat(amount)) * (1 - parseFloat(toleranceLevel))))
-  ) {
-    return true
-  }
-  else {
-    return false
-  }
+  )
 
 }
 
@@ -99,6 +137,8 @@ routerInstance.get('/', (req, res, next) => {
                   .set('tolerance', checkTolerance(item, firstLevel.firstLevel.id, secondLevel.id, secondLevel.amount, item.tolerance, item.GUID, 'CLIENT'))))
               .set(['firstLevel', 'secondLevelCount'], firstLevel.firstLevel.secondLevel.length)
               .set(['firstLevel', 'GUID'], item.GUID)
+              .set(['firstLevel', 'tolerance'], (!firstLevel.firstLevel.secondLevel.length ? checkFirstLevelOnlyTolerance(item, firstLevel.firstLevel.id, firstLevel.firstLevel.amount, item.tolerance, item.GUID, 'CLIENT') : false))
+
           ))))
         .set('counterpartyAssets', _.map(_.filter(item.counterpartyAssets, (group) => group.data.length), (group) =>
           _.set(group, 'data', _.map(group.data, (firstLevel) =>
@@ -109,6 +149,8 @@ routerInstance.get('/', (req, res, next) => {
                   .set('tolerance', checkTolerance(item, firstLevel.firstLevel.id, secondLevel.id, secondLevel.amount, item.tolerance, item.GUID, 'COUNTERPARTY'))))
               .set(['firstLevel', 'secondLevelCount'], firstLevel.firstLevel.secondLevel.length)
               .set(['firstLevel', 'GUID'], item.GUID)
+              .set(['firstLevel', 'tolerance'], (!firstLevel.firstLevel.secondLevel.length ? checkFirstLevelOnlyTolerance(item, firstLevel.firstLevel.id, firstLevel.firstLevel.amount, item.tolerance, item.GUID, 'COUNTERPARTY') : false))
+
           )))))
 
     FsCacheService.set({key, newData})
