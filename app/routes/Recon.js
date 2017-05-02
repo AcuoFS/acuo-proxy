@@ -68,6 +68,14 @@ const checkFirstLevelOnlyTolerance = (item, id, amount, toleranceLevel, GUID, wh
     // console.log(otherside)
   }
 
+  // if(GUID === 'msp37'){
+  //   console.log('--------- ' + GUID + ' ---------')
+  //   console.log('tolerance: ' + parseFloat(toleranceLevel))
+  //   console.log('otherside amount: ' + Math.abs(parseFloat(otherside.amount)))
+  //   console.log('this side amount: ' + Math.abs(parseFloat(amount)))
+  //   console.log('-----------------------------')
+  // }
+
   return (
     ((Math.abs(parseFloat(otherside.amount))) > (Math.abs(parseFloat(amount)) * (1 + parseFloat(toleranceLevel))))
     ||
@@ -198,6 +206,7 @@ routerInstance.get('/new', (req, res, next) => {
                   .set('tolerance', checkTolerance(item, firstLevel.firstLevel.id, secondLevel.id, secondLevel.amount, item.tolerance, item.GUID, 'CLIENT'))))
               .set(['firstLevel', 'secondLevelCount'], firstLevel.firstLevel.secondLevel.length)
               .set(['firstLevel', 'GUID'], item.GUID)
+              .set(['firstLevel', 'tolerance'], (!firstLevel.firstLevel.secondLevel.length ? checkFirstLevelOnlyTolerance(item, firstLevel.firstLevel.id, firstLevel.firstLevel.amount, item.tolerance, item.GUID, 'CLIENT') : false))
           ))))
         .set('counterpartyAssets', _.map(_.filter(item.counterpartyAssets, (group) => group.data.length), (group) =>
           _.set(group, 'data', _.map(group.data, (firstLevel) =>
@@ -208,6 +217,7 @@ routerInstance.get('/new', (req, res, next) => {
                   .set('tolerance', checkTolerance(item, firstLevel.firstLevel.id, secondLevel.id, secondLevel.amount, item.tolerance, item.GUID, 'COUNTERPARTY'))))
               .set(['firstLevel', 'secondLevelCount'], firstLevel.firstLevel.secondLevel.length)
               .set(['firstLevel', 'GUID'], item.GUID)
+              .set(['firstLevel', 'tolerance'], (!firstLevel.firstLevel.secondLevel.length ? checkFirstLevelOnlyTolerance(item, firstLevel.firstLevel.id, firstLevel.firstLevel.amount, item.tolerance, item.GUID, 'COUNTERPARTY') : false))
           ))))
         // Add disputes info
         .set('disputeInfo', (_.filter(disputes, disputeItem => (item.GUID === disputeItem.msId))[0] || {}))
