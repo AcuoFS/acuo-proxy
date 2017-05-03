@@ -10,6 +10,35 @@ const routerInstance = new Router()
 // constants
 const prefix = "pledge"
 
+routerInstance.post('/remove-allocated-asset', (req, res, next) => {
+  const key = req.path()
+  const json = req.body
+  Promise.all([
+    PledgeService.getInitSelection(),
+    PledgeService.postRemoveAllocated(json)
+  ]).then(data => {
+    // hit backend
+    const [selectionItems, {allocated}] = data
+
+    const processedItems = _.map(selectionItems, (item) => _.set(item, 'clientAssets', _.filter(item.clientAssets, (group) => group.data.length))).map(selectionItem => {
+        _.forOwn(allocated, (allocatedInfo, allocatedGUID) => {
+          if (selectionItem.GUID == allocatedGUID) {
+            //console.log(allocatedInfo)
+            return _.merge(selectionItem, {
+              allocated: allocatedInfo[0]
+            })
+          }
+        })
+        return selectionItem
+      }
+    )
+    res.send({items: processedItems})
+  }).catch(err => {
+    // hit cache
+    // FsCacheService.get(key).then(items => res.send({items, fromCache: true}))
+    console.log(err)
+  })
+})
 // ======================================================================
 routerInstance.get('/optimization', (req, res, next) => {
   // get data
@@ -71,7 +100,7 @@ routerInstance.post('/allocate-selection-new', (req, res, next) => {
     const processedItems = _.map(selectionItems, (item) => _.set(item, 'clientAssets', _.filter(item.clientAssets, (group) => group.data.length))).map(selectionItem => {
         _.forOwn(allocated, (allocatedInfo, allocatedGUID) => {
           if (selectionItem.GUID == allocatedGUID) {
-            console.log(allocatedInfo)
+            //console.log(allocatedInfo)
             return _.merge(selectionItem, {
               allocated: allocatedInfo[0]
             })

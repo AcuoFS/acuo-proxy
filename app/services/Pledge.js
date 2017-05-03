@@ -6,6 +6,7 @@ const {
   GET_EARMARKED_COLLATERAL_URL,
   POST_PLEDGE_SELECTIONS_URL,
   POST_PLEDGE_ALLOCATIONS_URL,
+  POST_REMOVE_ALLOCATED_ASSET
 } = config
 
 //import external library
@@ -72,6 +73,16 @@ Pledge.postSelection = (reqBody) => {
     method: 'POST',
     headers: {'content-type': 'application/json'},
     uri: POST_PLEDGE_SELECTIONS_URL,
+    body: reqBody,
+    json: true
+  })
+}
+
+Pledge.postRemoveAllocated = (reqBody) => {
+  return rp({
+    method: 'POST',
+    headers: {'content-type': 'application/json'},
+    uri: POST_REMOVE_ALLOCATED_ASSET,
     body: reqBody,
     json: true
   })
