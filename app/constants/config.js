@@ -11,7 +11,8 @@ const config = {
     POST_PLEDGE_ALLOCATIONS_URL: 'http://collateral.acuo.com/acuo/api/pledge',
     GET_RECON_DISPUTES_URL: 'http://margin.acuo.com/acuo/api/dispute/items/all/999',
     POST_RECON_DISPUTE_URL: 'http://margin.acuo.com/acuo/api/dispute/add',
-    GET_CURRENCY_INFO_URL : 'http://margin.acuo.com/acuo/api/margin/fxvalue/999'
+    GET_CURRENCY_INFO_URL : 'http://margin.acuo.com/acuo/api/margin/fxvalue/999',
+    POST_REMOVE_ALLOCATED_ASSET: 'http://collateral.acuo.com/acuo/api/optimization/update'
   },
   qa: {
     GET_DASHBOARD_URL: 'http://margin:7070/acuo/api/margin/dashboard',
@@ -24,7 +25,8 @@ const config = {
     POST_PLEDGE_SELECTIONS_URL: 'http://collateral:8080/acuo/api/optimization/allocate',
     POST_PLEDGE_ALLOCATIONS_URL: 'http://collateral:8080/acuo/api/pledge',
     GET_RECON_DISPUTES_URL: 'new endpoint!!!',
-    POST_RECON_DISPUTE_URL: 'new endpoint!!!'
+    POST_RECON_DISPUTE_URL: 'new endpoint!!!',
+    POST_REMOVE_ALLOCATED_ASSET: 'new endpoint!!!'
   },
   prod: {}
 }
