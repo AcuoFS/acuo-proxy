@@ -1,8 +1,14 @@
 // import libs
 const Router = require('restify-router').Router
 const _ = require('lodash')
+
 // import services
-const {ReconService, FsCacheService} = require('../services')
+const {
+  ReconService,
+  FsCacheService,
+  CommonService
+} = require('../services')
+
 const {isString} = require('../utils')
 
 // main object
@@ -129,6 +135,9 @@ const checkTolerance = (item, parentID, id, amount, toleranceLevel, GUID, who) =
 
 }
 
+/*********
+* DEPRECATED ROUTE
+* */
 routerInstance.get('/', (req, res, next) => {
   const key = req.path()
 
@@ -171,15 +180,20 @@ routerInstance.get('/', (req, res, next) => {
   })
 })
 
+/**********
+ * DEPRECATED ROUTE END
+ * */
+
 routerInstance.get('/new', (req, res, next) => {
   const key = req.path()
 
   Promise.all([
     ReconService.get(),
-    ReconService.getReconDisputes()
+    ReconService.getReconDisputes(),
+    CommonService.getCurrencyInfo()
   ]).then(data => {
 
-    const [recon, disputes] = data
+    const [recon, disputes, currencyInfo] = data
 
     const newData = _.map(recon, (item) =>
       _.chain(item)
@@ -209,8 +223,10 @@ routerInstance.get('/new', (req, res, next) => {
         .set('disputeInfo', (_.filter(disputes, disputeItem => (item.GUID === disputeItem.msId))[0] || {}))
     )
 
-    FsCacheService.set({key, newData})
-    res.json({items: newData})
+    const compositeData = {items: newData, currencyInfo: currencyInfo}
+
+    FsCacheService.set({key, compositeData})
+    res.json(compositeData)
   }).catch(err => {
     // hit cache
     FsCacheService.get(key)
