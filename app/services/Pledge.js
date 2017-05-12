@@ -97,7 +97,7 @@ Pledge.postPledgeAllocation = (reqBody) => {
     json: true,
     // Use full response to check status code
     resolveWithFullResponse: true
-  })
+  }).then(response => console.log(response))
 }
 
 Pledge.asset = () => {
