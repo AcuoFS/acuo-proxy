@@ -23,7 +23,7 @@ const config = {
     GET_COLLATERAL_URL: 'http://collateral:8080/acuo/api/assets/eligible/client/999',
     GET_EARMARKED_COLLATERAL_URL: 'http://collateral:8080/acuo/api/assets/reserved/client/999',
     POST_PLEDGE_SELECTIONS_URL: 'http://collateral:8080/acuo/api/optimization/allocate',
-    POST_PLEDGE_ALLOCATIONS_URL: 'http://margin:8080/acuo/api/pledge/assets/transfer',
+    POST_PLEDGE_ALLOCATIONS_URL: 'http://margin:7070/acuo/api/pledge/assets/transfer',
     GET_RECON_DISPUTES_URL: 'http://margin:7070/acuo/api/dispute/items/all/999',
     POST_RECON_DISPUTE_URL: 'http://margin:7070/acuo/api/dispute/add',
     GET_CURRENCY_INFO_URL : 'http://margin:7070/acuo/api/margin/fxvalue/999',
