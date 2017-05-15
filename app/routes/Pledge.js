@@ -46,12 +46,12 @@ routerInstance.get('/optimization', (req, res, next) => {
 
   PledgeService.get().then(items => {
     // hit backend
-    FsCacheService.set({key, data: items})
+    //FsCacheService.set({key, data: items})
     res.json({items})
 
   }).catch(err => {
     // backend is down, get from cache
-    FsCacheService.get(key).then(items => res.json({items, fromCache: true}))
+    //FsCacheService.get(key).then(items => res.json({items, fromCache: true}))
   })
 })
 
@@ -160,12 +160,12 @@ routerInstance.get('/init-selection', (req, res, next) => {
         .set('clientAssets', _.map(_.filter(item.clientAssets, (group) => group.data.length))))
 
     // hit back
-    FsCacheService.set({key, newData})
+    //FsCacheService.set({key, newData})
     res.send({items: newData})
 
   }).catch(err => {
     // hit cache
-    FsCacheService.get(key).then(items => res.json({items, fromCache: true}))
+    //FsCacheService.get(key).then(items => res.json({items, fromCache: true}))
   })
 })
 
@@ -176,7 +176,10 @@ routerInstance.get('/init-collateral', (req, res, next) => {
 routerInstance.get('/init-new-collateral', (req, res, next) => {
   const key = req.path()
 
-  Promise.all([PledgeService.asset(), PledgeService.earmarked()]).then(data => {
+  Promise.all([
+    PledgeService.asset(),
+    PledgeService.earmarked()
+  ]).then(data => {
     // hit backend
     const [detailedAssets, {earmarked}] = data
 
@@ -197,13 +200,13 @@ routerInstance.get('/init-new-collateral', (req, res, next) => {
 
     //const assets = _.set(list, 'earmarked', _(listOfAllAssets).filter(asset => asset.earmarked))
 
-    FsCacheService.set({key, data: assets})
+    //FsCacheService.set({key, data: assets})
 
     res.send({items: assets})
 
   }).catch(err => {
     // hit cache
-    FsCacheService.get(key).then(items => res.send({items, fromCache: true}))
+    //FsCacheService.get(key).then(items => res.send({items, fromCache: true}))
   })
 })
 
