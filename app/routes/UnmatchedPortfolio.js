@@ -14,11 +14,11 @@ routerInstance.get('/', (req, res, next) => {
   const key = req.path()
 
   UnmatchedPortfolioService.get().then(data => {
-    FsCacheService.set({key, data})
+    // FsCacheService.set({key, data})
     res.json({ items:data })
   }).catch(err => {
     // hit cache
-    FsCacheService.get(key).then(items => res.json(_.set({items}, 'fromCache', true)))
+    // FsCacheService.get(key).then(items => res.json(_.set({items}, 'fromCache', true)))
   })
 })
 

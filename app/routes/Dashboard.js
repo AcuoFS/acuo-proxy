@@ -26,12 +26,12 @@ routerInstance.get('/', (req, res, next) => {
 
     derivatives = JSON.parse(JSON.stringify(derivatives).replace(/(ActionDispute|actiondispute)/g, "dispute"))
 
-    FsCacheService.set({key, data: derivatives})
+    //FsCacheService.set({key, data: derivatives})
     res.send({derivatives, timeUpdated})
 
   }).catch(err => {
     // hit cache
-    FsCacheService.get(key).then(data => res.json({derivatives: data, fromCache: true}))
+    //FsCacheService.get(key).then(data => res.json({derivatives: data, fromCache: true}))
   })
 })
 
