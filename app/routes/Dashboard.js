@@ -15,7 +15,7 @@ routerInstance.get('/', (req, res, next) => {
   const key = req.path()
   DashboardService.get().then(data => {
     // hit backend
-    let { derivatives, timeUpdated } = data
+    let { derivatives, timeUpdated, menu } = data
 
     derivatives = _.map(derivatives, (derivative => {
       return _.set(derivative, 'marginStatus', _.filter(derivative.marginStatus, (margin => {
@@ -27,7 +27,7 @@ routerInstance.get('/', (req, res, next) => {
     derivatives = JSON.parse(JSON.stringify(derivatives).replace(/(ActionDispute|actiondispute)/g, "dispute"))
 
     //FsCacheService.set({key, data: derivatives})
-    res.send({derivatives, timeUpdated})
+    res.send({derivatives, timeUpdated, menu})
 
   }).catch(err => {
     // hit cache
