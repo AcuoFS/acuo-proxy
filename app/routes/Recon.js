@@ -185,6 +185,7 @@ routerInstance.get('/', (req, res, next) => {
  * */
 
 routerInstance.get('/new', (req, res, next) => {
+  console.log('requesting recon data')
   const key = req.path()
 
   Promise.all([
@@ -192,7 +193,7 @@ routerInstance.get('/new', (req, res, next) => {
     ReconService.getReconDisputes(),
     CommonService.getCurrencyInfo()
   ]).then(data => {
-
+    console.log('recon URLs resolved')
     const [recon, disputes, currencyInfo] = data
 
     const newData = _.map(recon, (item) =>
@@ -227,7 +228,10 @@ routerInstance.get('/new', (req, res, next) => {
 
     //FsCacheService.set({key, compositeData})
     res.json(compositeData)
+    console.log('recon returned')
   }).catch(err => {
+    console.log('recon URL did not resolve')
+    console.log(err)
     // hit cache
     //FsCacheService.get(key)
     //  .then(items => res.json(_.set({items}, 'fromCache', true)))
@@ -238,21 +242,27 @@ routerInstance.get('/new', (req, res, next) => {
 
 
 routerInstance.get('/disputes', (req, res, next) => {
+  console.log('requesting recon disputes')
   const key = req.path()
 
   ReconService.getReconDisputes().then(data => {
     //FsCacheService.set({key, data})
+    console.log('recon disputes URL resolved')
     res.json({items: data})
+    console.log('recon disputes returned')
   }).catch(err => {
     // hit cache
     // FsCacheService.get(key)
     //   .then(items => res.json(_.set({items}, 'fromCache', true)))
     //   .catch((error) => console.log('Error getting from cache: ' + error))
+    console.log('recon disputes URL did not resolve')
+    console.log(err)
   })
 })
 
 routerInstance.post('/disputeStatement', (req, res, next) => {
   // forwards response from endpoint
+  console.log('posting dispute')
   let objToSend = req.body
   if (isString(objToSend)) {
     // parse as a js obj
@@ -261,8 +271,12 @@ routerInstance.post('/disputeStatement', (req, res, next) => {
   console.log('objToSend: ' + objToSend)
 
   ReconService.postReconDispute(objToSend).then(data => {
+    console.log('posting dispute resolved')
     res.send(data)
+    console.log('posting dispute returned')
   }).catch(err => {
+    console.log('posting dispute URL did not resolve')
+    console.log(err)
     res.send(err)
   })
 })
