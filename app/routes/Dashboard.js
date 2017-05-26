@@ -12,9 +12,11 @@ const prefix = "dashboard"
 
 // ======================================================================
 routerInstance.get('/', (req, res, next) => {
+  console.log('requesting dashboard')
   const key = req.path()
   DashboardService.get().then(data => {
     // hit backend
+    console.log('dashboard URL resolved')
     let { derivatives, timeUpdated, menu } = data
 
     derivatives = _.map(derivatives, (derivative => {
@@ -28,10 +30,13 @@ routerInstance.get('/', (req, res, next) => {
 
     //FsCacheService.set({key, data: derivatives})
     res.send({derivatives, timeUpdated, menu})
+    console.log('dashboard returned')
 
   }).catch(err => {
     // hit cache
     //FsCacheService.get(key).then(data => res.json({derivatives: data, fromCache: true}))
+    console.log('dashboard URL did not resolve')
+    console.log(err)
   })
 })
 
