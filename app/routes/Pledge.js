@@ -10,6 +10,35 @@ const routerInstance = new Router()
 // constants
 const prefix = "pledge"
 
+routerInstance.post('/remove-allocated-asset', (req, res, next) => {
+  const key = req.path()
+  const json = req.body
+  Promise.all([
+    PledgeService.getInitSelection(),
+    PledgeService.postRemoveAllocated(json)
+  ]).then(data => {
+    // hit backend
+    const [selectionItems, {allocated}] = data
+
+    const processedItems = _.map(selectionItems, (item) => _.set(item, 'clientAssets', _.filter(item.clientAssets, (group) => group.data.length))).map(selectionItem => {
+        _.forOwn(allocated, (allocatedInfo, allocatedGUID) => {
+          if (selectionItem.GUID == allocatedGUID) {
+            //console.log(allocatedInfo)
+            return _.merge(selectionItem, {
+              allocated: allocatedInfo[0]
+            })
+          }
+        })
+        return selectionItem
+      }
+    )
+    res.send({items: processedItems})
+  }).catch(err => {
+    // hit cache
+    // FsCacheService.get(key).then(items => res.send({items, fromCache: true}))
+    console.log(err)
+  })
+})
 // ======================================================================
 routerInstance.get('/optimization', (req, res, next) => {
   // get data
@@ -17,12 +46,12 @@ routerInstance.get('/optimization', (req, res, next) => {
 
   PledgeService.get().then(items => {
     // hit backend
-    FsCacheService.set({key, data: items})
+    //FsCacheService.set({key, data: items})
     res.json({items})
 
   }).catch(err => {
     // backend is down, get from cache
-    FsCacheService.get(key).then(items => res.json({items, fromCache: true}))
+    //FsCacheService.get(key).then(items => res.json({items, fromCache: true}))
   })
 })
 
@@ -71,7 +100,7 @@ routerInstance.post('/allocate-selection-new', (req, res, next) => {
     const processedItems = _.map(selectionItems, (item) => _.set(item, 'clientAssets', _.filter(item.clientAssets, (group) => group.data.length))).map(selectionItem => {
         _.forOwn(allocated, (allocatedInfo, allocatedGUID) => {
           if (selectionItem.GUID == allocatedGUID) {
-            console.log(allocatedInfo)
+            //console.log(allocatedInfo)
             return _.merge(selectionItem, {
               allocated: allocatedInfo[0]
             })
@@ -87,7 +116,7 @@ routerInstance.post('/allocate-selection-new', (req, res, next) => {
 })
 
 routerInstance.post('/pledge-allocation', (req, res, next) => {
-  const pledgeReq = JSON.parse(req.body)
+  const pledgeReq = req.body
 
   // forwards reponse from endpoint
   res.send(PledgeService.postPledgeAllocation(pledgeReq))
@@ -131,12 +160,12 @@ routerInstance.get('/init-selection', (req, res, next) => {
         .set('clientAssets', _.map(_.filter(item.clientAssets, (group) => group.data.length))))
 
     // hit back
-    FsCacheService.set({key, newData})
+    //FsCacheService.set({key, newData})
     res.send({items: newData})
 
   }).catch(err => {
     // hit cache
-    FsCacheService.get(key).then(items => res.json({items, fromCache: true}))
+    //FsCacheService.get(key).then(items => res.json({items, fromCache: true}))
   })
 })
 
@@ -147,7 +176,10 @@ routerInstance.get('/init-collateral', (req, res, next) => {
 routerInstance.get('/init-new-collateral', (req, res, next) => {
   const key = req.path()
 
-  Promise.all([PledgeService.asset(), PledgeService.earmarked()]).then(data => {
+  Promise.all([
+    PledgeService.asset(),
+    PledgeService.earmarked()
+  ]).then(data => {
     // hit backend
     const [detailedAssets, {earmarked}] = data
 
@@ -168,13 +200,13 @@ routerInstance.get('/init-new-collateral', (req, res, next) => {
 
     //const assets = _.set(list, 'earmarked', _(listOfAllAssets).filter(asset => asset.earmarked))
 
-    FsCacheService.set({key, data: assets})
+    //FsCacheService.set({key, data: assets})
 
     res.send({items: assets})
 
   }).catch(err => {
     // hit cache
-    FsCacheService.get(key).then(items => res.send({items, fromCache: true}))
+    //FsCacheService.get(key).then(items => res.send({items, fromCache: true}))
   })
 })
 

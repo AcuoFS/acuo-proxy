@@ -170,13 +170,13 @@ routerInstance.get('/', (req, res, next) => {
 
           )))))
 
-    FsCacheService.set({key, newData})
+    // FsCacheService.set({key, newData})
     res.json({items: newData})
   }).catch(err => {
     // hit cache
-    FsCacheService.get(key)
-      .then(items => res.json(_.set({items}, 'fromCache', true)))
-      .catch((error) => console.log('Error getting from cache: ' + error))
+    // FsCacheService.get(key)
+    //   .then(items => res.json(_.set({items}, 'fromCache', true)))
+    //   .catch((error) => console.log('Error getting from cache: ' + error))
   })
 })
 
@@ -225,13 +225,13 @@ routerInstance.get('/new', (req, res, next) => {
 
     const compositeData = {items: newData, currencyInfo: currencyInfo}
 
-    FsCacheService.set({key, compositeData})
+    //FsCacheService.set({key, compositeData})
     res.json(compositeData)
   }).catch(err => {
     // hit cache
-    FsCacheService.get(key)
-      .then(items => res.json(_.set({items}, 'fromCache', true)))
-      .catch((error) => console.log('Error getting from cache: ' + error))
+    //FsCacheService.get(key)
+    //  .then(items => res.json(_.set({items}, 'fromCache', true)))
+    //  .catch((error) => console.log('Error getting from cache: ' + error))
   })
 
 })
@@ -241,13 +241,13 @@ routerInstance.get('/disputes', (req, res, next) => {
   const key = req.path()
 
   ReconService.getReconDisputes().then(data => {
-    FsCacheService.set({key, data})
+    //FsCacheService.set({key, data})
     res.json({items: data})
   }).catch(err => {
     // hit cache
-    FsCacheService.get(key)
-      .then(items => res.json(_.set({items}, 'fromCache', true)))
-      .catch((error) => console.log('Error getting from cache: ' + error))
+    // FsCacheService.get(key)
+    //   .then(items => res.json(_.set({items}, 'fromCache', true)))
+    //   .catch((error) => console.log('Error getting from cache: ' + error))
   })
 })
 
