@@ -11,6 +11,7 @@ const routerInstance = new Router()
 const prefix = "pledge"
 
 routerInstance.post('/remove-allocated-asset', (req, res, next) => {
+  console.log('removing allocated asset')
   const key = req.path()
   const json = req.body
   Promise.all([
@@ -18,6 +19,7 @@ routerInstance.post('/remove-allocated-asset', (req, res, next) => {
     PledgeService.postRemoveAllocated(json)
   ]).then(data => {
     // hit backend
+    console.log('removing allocated asset all URLs resolved')
     const [selectionItems, {allocated}] = data
 
     const processedItems = _.map(selectionItems, (item) => _.set(item, 'clientAssets', _.filter(item.clientAssets, (group) => group.data.length))).map(selectionItem => {
@@ -33,29 +35,37 @@ routerInstance.post('/remove-allocated-asset', (req, res, next) => {
       }
     )
     res.send({items: processedItems})
+    console.log('removing allocated asset returned')
   }).catch(err => {
     // hit cache
     // FsCacheService.get(key).then(items => res.send({items, fromCache: true}))
+    console.log('removing allocated URL did not resolve')
     console.log(err)
   })
 })
 // ======================================================================
 routerInstance.get('/optimization', (req, res, next) => {
   // get data
+  console.log('request optimization')
   const key = req.path()
 
   PledgeService.get().then(items => {
     // hit backend
+    console.log('optimization resolved')
     //FsCacheService.set({key, data: items})
     res.json({items})
+    console.log('optimization returned')
 
   }).catch(err => {
     // backend is down, get from cache
     //FsCacheService.get(key).then(items => res.json({items, fromCache: true}))
+    console.log('optimization URL did not resolve')
+    console.log(err)
   })
 })
 
 routerInstance.post('/allocate-selection', (req, res, next) => {
+  console.log('posting allocate of selection')
   const key = req.path()
   const {guids, optimisationSetting} = JSON.parse(req.body)
 
@@ -65,6 +75,7 @@ routerInstance.post('/allocate-selection', (req, res, next) => {
     PledgeService.getAllocatedAssets()
   ]).then(data => {
     // hit backend
+    console.log('allocation URLs resolved')
     const [caseCode, items, {items: assets}] = data
 
     const processedItems = items.map(item => (guids.includes(item.GUID)
@@ -76,16 +87,19 @@ routerInstance.post('/allocate-selection', (req, res, next) => {
 
     // FsCacheService.set({key, data})
     res.send({items: processedItems})
+    console.log('allocation returned')
 
   }).catch(err => {
     // hit cache
     // FsCacheService.get(key).then(items => res.send({items, fromCache: true}))
+    console.log('allocation URL did not resolve')
     console.log(err)
   })
 })
 
 
 routerInstance.post('/allocate-selection-new', (req, res, next) => {
+  console.log('posting allocate selection new')
   const key = req.path()
   const {optimisationSettings, toBeAllocated} = JSON.parse(req.body)
 
@@ -93,6 +107,7 @@ routerInstance.post('/allocate-selection-new', (req, res, next) => {
     PledgeService.getInitSelection(),
     PledgeService.postSelection({optimisationSettings, toBeAllocated})
   ]).then(data => {
+    console.log('allocate selection new URLs resolved')
     const [selectionItems, {allocated}] = data
     // console.log('data: ' + JSON.stringify(data))
     // console.log('allocated: ' + JSON.stringify(allocated))
@@ -110,16 +125,20 @@ routerInstance.post('/allocate-selection-new', (req, res, next) => {
       }
     )
     res.send({items: processedItems})
+    console.log('allocate selection new returned')
   }).catch(err => {
+    console.log('allocate selection URL did not resolve')
     console.log(err)
   })
 })
 
 routerInstance.post('/pledge-allocation', (req, res, next) => {
+  console.log('posting pledge')
   const pledgeReq = req.body
 
   // forwards reponse from endpoint
   res.send(PledgeService.postPledgeAllocation(pledgeReq))
+  console.log('pledge returned')
 })
 
 // routerInstance.post('/allocate-selection', (req, res, next) => {
@@ -151,10 +170,11 @@ routerInstance.post('/pledge-allocation', (req, res, next) => {
 // })
 
 routerInstance.get('/init-selection', (req, res, next) => {
+  console.log('requesting selection')
   const key = req.path()
 
   PledgeService.getInitSelection().then(data => {
-
+    console.log('selection URL resolved')
     const newData = _.map(data, (item) =>
       _.chain(item)
         .set('clientAssets', _.map(_.filter(item.clientAssets, (group) => group.data.length))))
@@ -162,25 +182,30 @@ routerInstance.get('/init-selection', (req, res, next) => {
     // hit back
     //FsCacheService.set({key, newData})
     res.send({items: newData})
-
+    console.log('selection returned')
   }).catch(err => {
     // hit cache
     //FsCacheService.get(key).then(items => res.json({items, fromCache: true}))
+    console.log('selection URL did not resolve')
+    console.log(err)
   })
 })
 
 routerInstance.get('/init-collateral', (req, res, next) => {
+  console.log('requesting collateral')
   PledgeService.getInitCollateral().then(data => res.send(data))
+  console.log('collateral returned')
 })
 
 routerInstance.get('/init-new-collateral', (req, res, next) => {
+  console.log('requesting new collateral')
   const key = req.path()
-
   Promise.all([
     PledgeService.asset(),
     PledgeService.earmarked()
   ]).then(data => {
     // hit backend
+    console.log('new collateral URLs resolved')
     const [detailedAssets, {earmarked}] = data
 
     const listOfAllAssets = _(detailedAssets).values().reduce((all, one) => {
@@ -203,10 +228,12 @@ routerInstance.get('/init-new-collateral', (req, res, next) => {
     //FsCacheService.set({key, data: assets})
 
     res.send({items: assets})
-
+    console.log('new collateral returned')
   }).catch(err => {
     // hit cache
     //FsCacheService.get(key).then(items => res.send({items, fromCache: true}))
+    console.log('new collateral URL did not resolve')
+    console.log(err)
   })
 })
 

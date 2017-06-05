@@ -12,10 +12,12 @@ const prefix = "dashboard"
 
 // ======================================================================
 routerInstance.get('/', (req, res, next) => {
+  console.log('requesting dashboard')
   const key = req.path()
   DashboardService.get().then(data => {
     // hit backend
-    let { derivatives, timeUpdated } = data
+    console.log('dashboard URL resolved')
+    let { derivatives, timeUpdated, menu } = data
 
     derivatives = _.map(derivatives, (derivative => {
       return _.set(derivative, 'marginStatus', _.filter(derivative.marginStatus, (margin => {
@@ -27,11 +29,14 @@ routerInstance.get('/', (req, res, next) => {
     derivatives = JSON.parse(JSON.stringify(derivatives).replace(/(ActionDispute|actiondispute)/g, "dispute"))
 
     //FsCacheService.set({key, data: derivatives})
-    res.send({derivatives, timeUpdated})
+    res.send({derivatives, timeUpdated, menu})
+    console.log('dashboard returned')
 
   }).catch(err => {
     // hit cache
     //FsCacheService.get(key).then(data => res.json({derivatives: data, fromCache: true}))
+    console.log('dashboard URL did not resolve')
+    console.log(err)
   })
 })
 

@@ -34,7 +34,7 @@ FsCache.set = ({key, data}) => {
 // get data from FsCache
 FsCache.get = (key) => new Promise((resolve, reject) => {
   const fsKey = generateKey(key)
-
+  console.log('retrieving key: ' + key)
   cache.get(key)
   // hit cache
     .then(resolve)
