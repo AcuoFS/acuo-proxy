@@ -1,6 +1,5 @@
 var configJson = {  
   'baseUrl' : 'http://internal',
-  '$dev_baseUrl' : 'http://api.acuo.com',  
   GET_DASHBOARD_URL: '<%= baseUrl %>/margin/acuo/api/margin/dashboard',
   GET_RECON_URL: '<%= baseUrl %>/margin/acuo/api/margin/items/all/999',
   GET_UNMATCHED_URL: '<%= baseUrl %>/margin/acuo/api/margin/items/unmatched/999',
