@@ -30,5 +30,3 @@ exports.get = (env) => {
   return config
 }
 
-    Contact GitHub API Training Shop Blog About 
-
