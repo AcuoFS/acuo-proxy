@@ -1,5 +1,5 @@
 var configJson = {  
-  'baseUrl' : 'http://internal',
+  'baseUrl' : 'http://dev.acuo.com',
   GET_DASHBOARD_URL: '<%= baseUrl %>/margin/acuo/api/margin/dashboard',
   GET_RECON_URL: '<%= baseUrl %>/margin/acuo/api/margin/items/all/999',
   GET_UNMATCHED_URL: '<%= baseUrl %>/margin/acuo/api/margin/items/unmatched/999',
@@ -12,7 +12,8 @@ var configJson = {
   GET_RECON_DISPUTES_URL: '<%= baseUrl %>/margin/acuo/api/dispute/items/all/999',
   POST_RECON_DISPUTE_URL: '<%= baseUrl %>/margin/acuo/api/dispute/add',
   GET_CURRENCY_INFO_URL : '<%= baseUrl %>/margin/acuo/api/margin/fxvalue/999',
-  POST_REMOVE_ALLOCATED_ASSET: '<%= baseUrl %>/collateral/acuo/api/optimization/update'
+  POST_REMOVE_ALLOCATED_ASSET: '<%= baseUrl %>/collateral/acuo/api/optimization/update',
+  POST_UPLOAD_PORTFOLIO: '<%= baseUrl %>/valuation/acuo/api/upload'
 };
 
 /**
