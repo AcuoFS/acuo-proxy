@@ -1,6 +1,6 @@
 {
   "name": "acuo-proxy",
-  "version": "0.27.0",
+  "version": "0.28.0",
   "description": "ACUO Proxy for Frontend Web",
   "main": "index.js",
   "scripts": {
@@ -26,7 +26,8 @@
     "request-promise": "^4.1.1",
     "restify": "^4.2.0",
     "restify-router": "^0.2.1",
-    "se7ensky-restify-preflight": "^0.1.7"
+    "se7ensky-restify-preflight": "^0.1.7",
+    "json-configurator": "^1.0.1"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
