@@ -14,7 +14,7 @@ const server = restify.createServer({name})
 
 // register pluginsnpm
 server.use(restify.queryParser())
-server.use(restify.CORS())
+//server.use(restify.CORS())
 server.use(restify.bodyParser({mapParams: false}))
 server.use(restify.authorizationParser())
 
