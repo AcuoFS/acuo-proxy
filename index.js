@@ -20,7 +20,7 @@ server.use(restify.authorizationParser())
 
 // enable preflight (for chrome)
 const preflightEnabler = require('se7ensky-restify-preflight')
-preflightEnabler(server, {'Access-Control-Allow-Origin': '[*]'})
+// preflightEnabler(server, {'Access-Control-Allow-Origin': '[*]'})
 
 // ===============================
 // register routers
