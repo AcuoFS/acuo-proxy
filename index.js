@@ -14,13 +14,18 @@ const server = restify.createServer({name})
 
 // register pluginsnpm
 server.use(restify.queryParser())
-//server.use(restify.CORS())
+server.use(restify.CORS({
+  //credentials: true,                 // defaults to false
+  origins: [''],
+  methods: ['GET','POST','OPTIONS']
+
+}))
 server.use(restify.bodyParser({mapParams: false}))
 server.use(restify.authorizationParser())
-
+// add_header 'Access-Control-Allow-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type';
 // enable preflight (for chrome)
 const preflightEnabler = require('se7ensky-restify-preflight')
-// preflightEnabler(server, {'Access-Control-Allow-Origin': '[*]'})
+preflightEnabler(server, {'headers': 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type'})
 
 // ===============================
 // register routers
