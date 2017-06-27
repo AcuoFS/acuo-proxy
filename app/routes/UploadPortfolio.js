@@ -12,7 +12,7 @@ const prefix = "upload"
 
 routerInstance.post('/', (req, res, next) => {
   console.log('attempting upload portfolio')
-  // console.log(req)
+  //console.log(req)
   // let objToSend = req
   UploadPortfolioService.postUpload(req).then(data => {
     console.log('posting upload portfolio resolved')
@@ -23,6 +23,11 @@ routerInstance.post('/', (req, res, next) => {
     console.log(err)
     res.send(err)
   })
+})
+
+routerInstance.post('/testroute', (req, res, next) => {
+  console.log('here')
+  console.log(req)
 })
 
 module.exports = ({server}) => routerInstance.applyRoutes(server, prefix)

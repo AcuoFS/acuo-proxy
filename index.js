@@ -16,7 +16,7 @@ const server = restify.createServer({name})
 server.use(restify.queryParser())
 server.use(restify.CORS({
   //credentials: true,                 // defaults to false
-  origins: [''],
+  origins: ['http://localhost:8080'],
   methods: ['GET','POST','OPTIONS']
 
 }))

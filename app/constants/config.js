@@ -25,6 +25,7 @@ var configJson = {
  * GET_OPTIMISATION_URL, GET_PLEDGE_SELECTIONS_URL, GET_COLLATERAL_URL,
  * GET_EARMARKED_COLLATERAL_URL, POST_PLEDGE_SELECTIONS_URL, POST_PLEDGE_ALLOCATIONS_URL}}
  */
+
 exports.get = (env) => {
   console.log('Current config environment accessed is ' + (env || 'dev'))
   var config = require('json-configurator')(configJson, env);
