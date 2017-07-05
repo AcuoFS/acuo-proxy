@@ -14,7 +14,7 @@ const Recon = {}
 // get Recon items
 Recon.get = () => {
   const uri = GET_RECON_URL
-  return rp({uri, json: true})
+  return rp({uri, json: true}).then(response => console.log('get all recon returned'))
 }
 
 Recon.getTestRecon = () => new Promise(resolve => {
@@ -24,7 +24,7 @@ Recon.getTestRecon = () => new Promise(resolve => {
 
 Recon.getReconDisputes = () => {
   const uri = GET_RECON_DISPUTES_URL
-  return rp({uri, json: true})
+  return rp({uri, json: true}).then(response => console.log('get recon disputes returned'))
 }
 
 Recon.postReconDispute = (reqBody) => {
@@ -36,7 +36,7 @@ Recon.postReconDispute = (reqBody) => {
     json: true,
     // Use full response to check status code
     // resolveWithFullResponse: true
-  })
+  }).then(response => console.log('post recon dispute returned'))
 }
 
 module.exports = Recon
