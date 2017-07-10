@@ -1,6 +1,6 @@
 {
   "name": "acuo-proxy",
-  "version": "0.28.0",
+  "version": "0.33.0",
   "description": "ACUO Proxy for Frontend Web",
   "main": "index.js",
   "scripts": {
