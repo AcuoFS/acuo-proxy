@@ -147,7 +147,8 @@ routerInstance.post('/pledge-allocation', (req, res, next) => {
   const pledgeReq = req.body
 
   // forwards reponse from endpoint
-  res.send(PledgeService.postPledgeAllocation(pledgeReq))
+  PledgeService.postPledgeAllocation(pledgeReq).then(response =>
+    res.send(response))
 })
 
 // routerInstance.post('/allocate-selection', (req, res, next) => {
@@ -183,6 +184,7 @@ routerInstance.get('/init-selection', (req, res, next) => {
   const key = req.path()
 
   PledgeService.getInitSelection().then(data => {
+    console.log('**** ========= ****')
     console.log('selection URL resolved')
     const newData = _.map(data, (item) =>
       _.chain(item)
