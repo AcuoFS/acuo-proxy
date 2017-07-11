@@ -195,6 +195,7 @@ routerInstance.get('/new', (req, res, next) => {
     CommonService.getCurrencyInfo()
   ]).then(data => {
     console.log('recon URLs resolved')
+    console.log(data)
     const [recon, disputes, currencyInfo] = data
 
     const newData = _.map(recon, (item) =>
