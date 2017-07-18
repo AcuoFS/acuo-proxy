@@ -15,10 +15,12 @@ routerInstance.get('/check-connectivity', (req, res, next) => {
 })
 
 routerInstance.get('/throw-404', (req, res, next) => {
+ console.log('throwing 404');
   res.send(404)
 })
 
 routerInstance.get('/throw-500', (req, res, next) => {
+  console.log('throwing 500');
   res.send(500)
 })
 

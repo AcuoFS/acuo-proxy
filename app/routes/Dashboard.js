@@ -12,6 +12,7 @@ const prefix = "dashboard"
 
 // ======================================================================
 routerInstance.get('/', (req, res, next) => {
+  console.log('**** ========= ****')
   console.log('requesting dashboard')
   const key = req.path()
   DashboardService.get().then(data => {
@@ -29,8 +30,11 @@ routerInstance.get('/', (req, res, next) => {
     derivatives = JSON.parse(JSON.stringify(derivatives).replace(/(ActionDispute|actiondispute)/g, "dispute"))
 
     //FsCacheService.set({key, data: derivatives})
+    console.log('responding with: ----------')
+    console.log(data)
+    console.log('---------------------------')
     res.send({derivatives, timeUpdated, menu})
-    console.log('dashboard returned')
+    console.log('dashboard responded')
 
   }).catch(err => {
     // hit cache
