@@ -13,7 +13,7 @@ var configJson = {
   POST_RECON_DISPUTE_URL: '<%= baseUrl %>/margin/acuo/api/dispute/add',
   GET_CURRENCY_INFO_URL : '<%= baseUrl %>/margin/acuo/api/margin/fxvalue/999',
   POST_REMOVE_ALLOCATED_ASSET: '<%= baseUrl %>/collateral/acuo/api/optimization/update',
-  POST_UPLOAD_PORTFOLIO: '<%= baseUrl %>/valuation/acuo/api/upload'
+  POST_UPLOAD_PORTFOLIO: '<%= baseUrl %>/valuation/acuo/api/upload/v1'
 };
 
 /**

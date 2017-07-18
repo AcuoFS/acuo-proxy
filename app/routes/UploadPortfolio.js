@@ -20,7 +20,7 @@ routerInstance.post('/', (req, res, next) => {
     console.log('posting upload portfolio returned')
   }).catch(err => {
     console.log('posting upload portfolio did not resolve')
-    console.log(err)
+    //console.log(err)
     res.send(err)
   })
 })
