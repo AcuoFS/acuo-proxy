@@ -16,7 +16,7 @@ const {
 
 const UploadPortfolio = {}
 
-UploadPortfolio.postUpload = (request) => {
+UploadPortfolio.postUpload = (req) => {
   //const newReq = _.assign({}, req, {'url': 'http://localhost:8081/upload/testroute', 'body': JSON.stringify(req.body)})
   //console.log(JSON.stringify(req.body))
 
@@ -42,43 +42,9 @@ UploadPortfolio.postUpload = (request) => {
 
 
 
-  //return rp(newReq)
+  return rp(req)
 
-  var form = new multiparty.Form();
 
-  form.on('part', function(formPart) {
-    var contentType = formPart.headers['content-type'];
-
-    var formData = {
-      file: {
-        value: formPart,
-        options: {
-          filename: formPart.filename,
-          contentType: contentType,
-          knownLength: formPart.byteCount
-        }
-      }
-    };
-
-    rp({
-      url: POST_UPLOAD_PORTFOLIO,
-      formData: formData,
-
-      // These may or may not be necessary for your server:
-      preambleCRLF: true,
-      postambleCRLF: true
-    });
-  });
-
-  form.on('error', function(error) {
-    next(error);
-  });
-
-  form.on('close', function() {
-    response.send('received upload');
-  });
-
-  form.parse(request);
 }
 
 module.exports = UploadPortfolio
