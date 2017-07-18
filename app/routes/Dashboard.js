@@ -18,7 +18,7 @@ routerInstance.get('/', (req, res, next) => {
   DashboardService.get().then(data => {
     // hit backend
     console.log('dashboard URL resolved')
-    let { derivatives, timeUpdated, menu } = data
+    let { derivatives } = data
 
     derivatives = _.map(derivatives, (derivative => {
       return _.set(derivative, 'marginStatus', _.filter(derivative.marginStatus, (margin => {
@@ -31,9 +31,9 @@ routerInstance.get('/', (req, res, next) => {
 
     //FsCacheService.set({key, data: derivatives})
     console.log('responding with: ----------')
-    console.log(data)
+    console.log({derivatives})
     console.log('---------------------------')
-    res.send({derivatives, timeUpdated, menu})
+    res.send({derivatives})
     console.log('dashboard responded')
 
   }).catch(err => {
