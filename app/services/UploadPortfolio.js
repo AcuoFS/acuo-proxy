@@ -4,7 +4,7 @@
 const config = require('../constants/config').get(process.env.DOCKER_ENV)
 const _ = require('lodash')
 const rp = require('request-promise')
-const multiparty = require('multiparty')
+//const multiparty = require('multiparty')
 const request = require('request')
 
 //require('request-debug')(rp)
