@@ -5,6 +5,7 @@ const config = require('../constants/config').get(process.env.DOCKER_ENV)
 const _ = require('lodash')
 const rp = require('request-promise')
 const multiparty = require('multiparty')
+const request = require('request')
 
 //require('request-debug')(rp)
 
@@ -16,7 +17,7 @@ const {
 
 const UploadPortfolio = {}
 
-UploadPortfolio.postUpload = (req) => {
+UploadPortfolio.postUpload = (req, res) => {
   //const newReq = _.assign({}, req, {'url': 'http://localhost:8081/upload/testroute', 'body': JSON.stringify(req.body)})
   //console.log(JSON.stringify(req.body))
 
@@ -40,9 +41,30 @@ UploadPortfolio.postUpload = (req) => {
   //   files: req.files.file
   // }
 
+  console.log(req.method)
 
+  let x = request({
+    url: POST_UPLOAD_PORTFOLIO,
+    method: req.method,
+    headers: req.headers,
+    files: req.files,
+    body: JSON.stringify(req.body),
+    resolveWithFullResponse: true
+  })
 
-  return rp(req)
+  req.pipe(x).on('response', response => {
+    console.log('response')
+    console.log(response)
+  }).on('error', error => {
+    console.log('error')
+    console.log(error)
+  })
+
+  x.pipe(res)
+
+ //return req.pipe(connector);
+
+  //return rp(req)
 
 
 }
