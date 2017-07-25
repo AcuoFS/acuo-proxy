@@ -28,6 +28,7 @@ routerInstance.post('/', (req, res, next) => {
 
   let form = new FormData();
 
+  console.log('preparing files to send')
   Object.keys(req.files).map(x => {
     let file = req.files[x];
     let buffer = fs.readFileSync(file.path);
@@ -41,11 +42,17 @@ routerInstance.post('/', (req, res, next) => {
     resolveWithFullResponse: true
   }
 
+  console.log('sending files')
   rp(POST_UPLOAD_PORTFOLIO, options)
-    .then(response =>
-      res.send(JSON.parse(response.toJSON().body)))
-    .catch(error =>
-      res.send(error))
+    .then(response => {
+      console.log('server responded')
+      res.send(JSON.parse(response.toJSON().body))
+      console.log('response returned')
+    })
+    .catch(error => {
+      console.log('encountered error')
+      res.send(error)
+    })
 })
 
 routerInstance.post('/testroute', (req, res, next) => {
