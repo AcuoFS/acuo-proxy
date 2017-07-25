@@ -26,22 +26,26 @@ const {
 routerInstance.post('/', (req, res, next) => {
   console.log('attempting upload portfolio')
 
-  var form = new FormData();
-  const list = Object.keys(req.files)
+  let form = new FormData();
 
-  list.map(x => {
-    var file = req.files[x];
-    var buffer = fs.readFileSync(file.path);
+  Object.keys(req.files).map(x => {
+    let file = req.files[x];
+    let buffer = fs.readFileSync(file.path);
     form.append('file', buffer, file.name)
   })
 
   const options = {
-      method: 'POST',
-      headers: form.getHeaders(),
-      body: form
-  };
+    method: 'POST',
+    headers: form.getHeaders(),
+    body: form,
+    resolveWithFullResponse: true
+  }
 
-  rp(POST_UPLOAD_PORTFOLIO, options).then(response => console.log(response))  
+  rp(POST_UPLOAD_PORTFOLIO, options)
+    .then(response =>
+      res.send(JSON.parse(response.toJSON().body)))
+    .catch(error =>
+      res.send(error))
 })
 
 routerInstance.post('/testroute', (req, res, next) => {
