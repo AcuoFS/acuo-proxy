@@ -46,6 +46,7 @@ routerInstance.post('/', (req, res, next) => {
   rp(POST_UPLOAD_PORTFOLIO, options)
     .then(response => {
       console.log('server responded')
+      console.log(JSON.parse(response.toJSON().body))
       res.send(JSON.parse(response.toJSON().body))
       console.log('response returned')
     })
