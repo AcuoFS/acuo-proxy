@@ -43,17 +43,17 @@ routerInstance.post('/', (req, res, next) => {
   }
 
   console.log('sending files')
-  rp(POST_UPLOAD_PORTFOLIO, options)
-    .then(response => {
-      console.log('server responded')
-      console.log(JSON.parse(response.toJSON().body))
-      res.send(JSON.parse(response.toJSON().body))
-      console.log('response returned')
-    })
-    .catch(error => {
-      console.log('encountered error')
-      res.send(error)
-    })
+  UploadPortfolioService.postUpload(options)
+    .then(response => res.send(response))
+  console.log('response returned')
+})
+
+routerInstance.post('/request-valuation', (req, res, next) => {
+  console.log('attempting portfolio valuation')
+  console.log(req.body)
+  UploadPortfolioService.postRequestValuation(req.body)
+    .then(response =>
+      res.send(JSON.parse(response.toJSON().body)))
 })
 
 routerInstance.post('/testroute', (req, res, next) => {

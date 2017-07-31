@@ -14,7 +14,8 @@ var configJson = {
   GET_CURRENCY_INFO_URL : '<%= baseUrl %>/margin/acuo/api/margin/fxvalue/999',
   POST_REMOVE_ALLOCATED_ASSET: '<%= baseUrl %>/collateral/acuo/api/optimization/update',
   POST_UPLOAD_PORTFOLIO: '<%= baseUrl %>/valuation/acuo/api/upload/v1',
-  GET_RECONCILE_URL: '<%= baseUrl %>/margin/acuo/api/margin/reconcile/'
+  GET_RECONCILE_URL: '<%= baseUrl %>/margin/acuo/api/margin/reconcile/',
+  REQUEST_VALUATION: '<%= baseUrl %>/valuation/acuo/api/calls/split/portfolios'
 };
 
 /**
