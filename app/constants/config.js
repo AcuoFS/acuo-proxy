@@ -17,7 +17,8 @@ var configJson = {
   GET_RECONCILE_URL: '<%= baseUrl %>/margin/acuo/api/margin/reconcile/',
   REQUEST_VALUATION: '<%= baseUrl %>/valuation/acuo/api/calls/split/portfolios',
   REQUEST_GENERATE_MARGINCALLS: '<%= baseUrl %>/valuation/acuo/api/calls/generate/portfolios',
-  GET_DEPLOYED_DEPARTURES: '<%= baseUrl %>/margin/acuo/api/pledge/assets/all'
+  GET_DEPLOYED_DEPARTURES: '<%= baseUrl %>/margin/acuo/api/pledge/assets/all',
+  GET_NAVBAR_ALERTS: '<%= baseUrl %>/margin/acuo/api/dashboard/menu'
 };
 
 /**

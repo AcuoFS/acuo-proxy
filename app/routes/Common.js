@@ -14,6 +14,12 @@ routerInstance.get('/check-connectivity', (req, res, next) => {
   res.send({status: "OK"})
 })
 
+routerInstance.get('/navbar-alerts', (req, res, next) => {
+  CommonService.getNavbarAlerts().then(response => {
+    res.send(response)
+  })
+})
+
 routerInstance.get('/throw-404', (req, res, next) => {
  console.log('throwing 404');
   res.send(404)
