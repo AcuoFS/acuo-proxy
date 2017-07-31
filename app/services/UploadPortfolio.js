@@ -8,7 +8,8 @@ const request = require('request')
 
 const {
   POST_UPLOAD_PORTFOLIO,
-  REQUEST_VALUATION
+  REQUEST_VALUATION,
+  REQUEST_GENERATE_MARGINCALLS
 } = config
 
 const UploadPortfolio = {}
@@ -28,6 +29,19 @@ UploadPortfolio.postUpload = (options) =>
 UploadPortfolio.postRequestValuation = (body) =>
   rp({
     url: REQUEST_VALUATION,
+    method: 'POST',
+    body: JSON.stringify(body),
+    headers: {'content-type': 'application/json'},
+    resolveWithFullResponse: true
+  }).then(response => {
+    //console.log(response)
+    //   if(response.ok)
+    return response
+  })
+
+UploadPortfolio.postGenerateMarginCall = (body) =>
+  rp({
+    url: REQUEST_GENERATE_MARGINCALLS,
     method: 'POST',
     body: JSON.stringify(body),
     headers: {'content-type': 'application/json'},

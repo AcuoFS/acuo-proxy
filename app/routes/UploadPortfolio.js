@@ -52,8 +52,24 @@ routerInstance.post('/request-valuation', (req, res, next) => {
   console.log('attempting portfolio valuation')
   console.log(req.body)
   UploadPortfolioService.postRequestValuation(req.body)
-    .then(response =>
-      res.send(JSON.parse(response.toJSON().body)))
+    .then(response => {
+      console.log('responding with :')
+      console.log(JSON.parse(response.toJSON().body))
+      res.send(JSON.parse(response.toJSON().body))
+      console.log('response returned')
+    })
+})
+
+routerInstance.post('/request-margincalls', (req, res, next) => {
+  console.log('attempting portfolio margin call generation')
+  console.log(req.body)
+  UploadPortfolioService.postGenerateMarginCall(req.body)
+    .then(response => {
+      console.log('responding with :')
+      console.log(JSON.parse(response.toJSON().body))
+      res.send(JSON.parse(response.toJSON().body))
+      console.log('response returned')
+    })
 })
 
 routerInstance.post('/testroute', (req, res, next) => {
