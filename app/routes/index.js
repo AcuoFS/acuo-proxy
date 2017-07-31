@@ -4,6 +4,7 @@ const PledgeRoute = require('./Pledge')
 const UnmatchedRoute = require('./UnmatchedPortfolio')
 const CommonRoute = require('./Common')
 const UploadPortfolioRoute = require('./UploadPortfolio')
+const DeployedRoute = require('./Deployed')
 
 module.exports = [
   DashboardRoute,
@@ -11,5 +12,6 @@ module.exports = [
   PledgeRoute,
   UnmatchedRoute,
   CommonRoute,
-  UploadPortfolioRoute
+  UploadPortfolioRoute,
+  DeployedRoute
 ]

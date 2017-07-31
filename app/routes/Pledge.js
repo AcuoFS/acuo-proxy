@@ -262,19 +262,5 @@ routerInstance.get('/init-new-collateral', (req, res, next) => {
   })
 })
 
-routerInstance.get('/init-collateral', (req, res, next) => {
-  console.log('**** ========= ****')
-  console.log('requesting collateral')
-  PledgeService.getInitCollateral().then(data => {
-      console.log('responding with: ----------')
-      console.log(data)
-      console.log('---------------------------')
-      res.send(data)
-      console.log('collateral responded')
-    }
-  )
-
-})
-
 
 module.exports = ({server}) => routerInstance.applyRoutes(server, prefix)
