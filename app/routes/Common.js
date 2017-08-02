@@ -10,13 +10,43 @@ const routerInstance = new Router()
 // constants
 const prefix = "common"
 
-routerInstance.get('/check-connectivity', (req, res, next) => {
+routerInstance.get('/proxy-connectivity', (req, res, next) => {
   res.send({status: "OK"})
 })
 
 routerInstance.get('/navbar-alerts', (req, res, next) => {
   CommonService.getNavbarAlerts().then(response => {
+    console.log('response :')
+    console.log(response)
     res.send(response)
+    console.log('navbar alerts responded')
+  })
+})
+
+routerInstance.get('/margin-connectivity', (req, res, next) => {
+  CommonService.marginConnectivity().then(response => {
+    // console.log('response :')
+    // console.log(response)
+    res.send(response)
+    // console.log('margin connectivity responded')
+  })
+})
+
+routerInstance.get('/valuation-connectivity', (req, res, next) => {
+  CommonService.valuationConnectivity().then(response => {
+    // console.log('response :')
+    // console.log(response)
+    res.send(response)
+    // console.log('valuation connectivity responded')
+  })
+})
+
+routerInstance.get('/collateral-connectivity', (req, res, next) => {
+  CommonService.collateralConnectivity().then(response => {
+    // console.log('response :')
+    // console.log(response)
+    res.send(response)
+    // console.log('collateral connectivity responded')
   })
 })
 

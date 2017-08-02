@@ -18,7 +18,10 @@ var configJson = {
   REQUEST_VALUATION: '<%= baseUrl %>/valuation/acuo/api/calls/split/portfolios',
   REQUEST_GENERATE_MARGINCALLS: '<%= baseUrl %>/valuation/acuo/api/calls/generate/portfolios',
   GET_DEPLOYED_DEPARTURES: '<%= baseUrl %>/margin/acuo/api/pledge/assets/all',
-  GET_NAVBAR_ALERTS: '<%= baseUrl %>/margin/acuo/api/dashboard/menu'
+  GET_NAVBAR_ALERTS: '<%= baseUrl %>/margin/acuo/api/dashboard/menu',
+  MARGIN_HEALTH_CHECK: '<%= baseUrl %>/margin/acuo/admin/ping',
+  VALUATION_HEALTH_CHECK: '<%= baseUrl %>/valuation/acuo/admin/ping',
+  COLLATERAL_HEALTH_CHECK: '<%= baseUrl %>/collateral/acuo/admin/ping',
 };
 
 /**
