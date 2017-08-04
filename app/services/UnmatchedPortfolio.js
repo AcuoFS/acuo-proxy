@@ -9,7 +9,10 @@ const UnmatchedPortfolio = {}
 
 UnmatchedPortfolio.get = () => {
   const uri = GET_UNMATCHED_URL
-  return rp({uri, json: true})
+  return rp({uri, json: true}).then(response => {
+    console.log('unmatched portfolio returned')
+    return response
+  })
 }
 
 module.exports = UnmatchedPortfolio

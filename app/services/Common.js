@@ -10,7 +10,10 @@ const Common = {}
 
 Common.getCurrencyInfo = () => {
   const uri = GET_CURRENCY_INFO_URL
-  return rp({uri, json: true})
+  return rp({uri, json: true}).then(response => {
+    console.log('currency info returned')
+    return response
+  })
 }
 
 module.exports = Common

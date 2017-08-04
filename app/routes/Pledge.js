@@ -11,6 +11,7 @@ const routerInstance = new Router()
 const prefix = "pledge"
 
 routerInstance.post('/remove-allocated-asset', (req, res, next) => {
+  console.log('**** ========= ****')
   console.log('removing allocated asset')
   const key = req.path()
   const json = req.body
@@ -34,8 +35,11 @@ routerInstance.post('/remove-allocated-asset', (req, res, next) => {
         return selectionItem
       }
     )
+    console.log('responding with: ----------')
+    console.log({items: processedItems})
+    console.log('---------------------------')
     res.send({items: processedItems})
-    console.log('removing allocated asset returned')
+    console.log('removing allocated asset responded')
   }).catch(err => {
     // hit cache
     // FsCacheService.get(key).then(items => res.send({items, fromCache: true}))
@@ -46,6 +50,7 @@ routerInstance.post('/remove-allocated-asset', (req, res, next) => {
 // ======================================================================
 routerInstance.get('/optimization', (req, res, next) => {
   // get data
+  console.log('**** ========= ****')
   console.log('request optimization')
   const key = req.path()
 
@@ -65,6 +70,7 @@ routerInstance.get('/optimization', (req, res, next) => {
 })
 
 routerInstance.post('/allocate-selection', (req, res, next) => {
+  console.log('**** ========= ****')
   console.log('posting allocate of selection')
   const key = req.path()
   const {guids, optimisationSetting} = JSON.parse(req.body)
@@ -99,6 +105,7 @@ routerInstance.post('/allocate-selection', (req, res, next) => {
 
 
 routerInstance.post('/allocate-selection-new', (req, res, next) => {
+  console.log('**** ========= ****')
   console.log('posting allocate selection new')
   const key = req.path()
   const {optimisationSettings, toBeAllocated} = JSON.parse(req.body)
@@ -124,8 +131,11 @@ routerInstance.post('/allocate-selection-new', (req, res, next) => {
         return selectionItem
       }
     )
+    console.log('responding with: ----------')
+    console.log({items: processedItems})
+    console.log('---------------------------')
     res.send({items: processedItems})
-    console.log('allocate selection new returned')
+    console.log('allocate selection new responded')
   }).catch(err => {
     console.log('allocate selection URL did not resolve')
     console.log(err)
@@ -137,8 +147,8 @@ routerInstance.post('/pledge-allocation', (req, res, next) => {
   const pledgeReq = req.body
 
   // forwards reponse from endpoint
-  res.send(PledgeService.postPledgeAllocation(pledgeReq))
-  console.log('pledge returned')
+  PledgeService.postPledgeAllocation(pledgeReq).then(response =>
+    res.send(response))
 })
 
 // routerInstance.post('/allocate-selection', (req, res, next) => {
@@ -174,6 +184,7 @@ routerInstance.get('/init-selection', (req, res, next) => {
   const key = req.path()
 
   PledgeService.getInitSelection().then(data => {
+    console.log('**** ========= ****')
     console.log('selection URL resolved')
     const newData = _.map(data, (item) =>
       _.chain(item)
@@ -181,8 +192,11 @@ routerInstance.get('/init-selection', (req, res, next) => {
 
     // hit back
     //FsCacheService.set({key, newData})
+    console.log('responding with: ----------')
+    console.log({items: newData})
+    console.log('---------------------------')
     res.send({items: newData})
-    console.log('selection returned')
+    console.log('selection responded')
   }).catch(err => {
     // hit cache
     //FsCacheService.get(key).then(items => res.json({items, fromCache: true}))
@@ -192,12 +206,21 @@ routerInstance.get('/init-selection', (req, res, next) => {
 })
 
 routerInstance.get('/init-collateral', (req, res, next) => {
+  console.log('**** ========= ****')
   console.log('requesting collateral')
-  PledgeService.getInitCollateral().then(data => res.send(data))
-  console.log('collateral returned')
+  PledgeService.getInitCollateral().then(data => {
+      console.log('responding with: ----------')
+      console.log(data)
+      console.log('---------------------------')
+      res.send(data)
+      console.log('collateral responded')
+    }
+  )
+
 })
 
 routerInstance.get('/init-new-collateral', (req, res, next) => {
+  console.log('**** ========= ****')
   console.log('requesting new collateral')
   const key = req.path()
   Promise.all([
@@ -226,7 +249,9 @@ routerInstance.get('/init-new-collateral', (req, res, next) => {
     //const assets = _.set(list, 'earmarked', _(listOfAllAssets).filter(asset => asset.earmarked))
 
     //FsCacheService.set({key, data: assets})
-
+    console.log('responding with: ----------')
+    console.log({items: assets})
+    console.log('---------------------------')
     res.send({items: assets})
     console.log('new collateral returned')
   }).catch(err => {
