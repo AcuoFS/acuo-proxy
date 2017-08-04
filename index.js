@@ -15,11 +15,11 @@ const server = restify.createServer({name})
 
 // register pluginsnpm
 server.use(restify.queryParser())
-server.use(restify.CORS({
-  //credentials: true,                 // defaults to false
-  origins: ['http://localhost:8080'],
-  methods: ['GET','POST','OPTIONS']
-}))
+// server.use(restify.CORS({
+//   //credentials: true,                 // defaults to false
+//   origins: ['http://localhost:8080'],
+//   methods: ['GET','POST','OPTIONS']
+// }))
 
 server.use(restify.bodyParser({mapParams: false, defer: true}))
 server.use(restify.authorizationParser())
