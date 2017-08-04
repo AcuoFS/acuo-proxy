@@ -4,6 +4,8 @@ const PledgeService = require('./Pledge')
 const FsCacheService = require('./FsCache')
 const UnmatchedPortfolioService = require('./UnmatchedPortfolio')
 const CommonService = require('./Common')
+const UploadPortfolioService = require('./UploadPortfolio')
+const DeployedService = require('./Deployed')
 
 module.exports = {
   DashboardService,
@@ -11,5 +13,7 @@ module.exports = {
   PledgeService,
   FsCacheService,
   UnmatchedPortfolioService,
-  CommonService
+  CommonService,
+  UploadPortfolioService,
+  DeployedService
 }
