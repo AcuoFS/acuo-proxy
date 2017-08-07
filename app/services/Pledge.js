@@ -75,6 +75,9 @@ Pledge.postSelection = (reqBody) => {
     uri: POST_PLEDGE_SELECTIONS_URL,
     body: reqBody,
     json: true
+  }).then(response => {
+    console.log('post selection returned')
+    return response
   })
 }
 
@@ -85,6 +88,9 @@ Pledge.postRemoveAllocated = (reqBody) => {
     uri: POST_REMOVE_ALLOCATED_ASSET,
     body: reqBody,
     json: true
+  }).then(response => {
+    console.log('post remove allocated returned')
+    return response
   })
 }
 
@@ -97,7 +103,10 @@ Pledge.postPledgeAllocation = (reqBody) => {
     json: true,
     // Use full response to check status code
     resolveWithFullResponse: true
-  }).then(response => console.log(response))
+  }).then(response => {
+    console.log('pledge returned')
+    return response
+  })
 }
 
 Pledge.asset = () => {

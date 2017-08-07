@@ -185,6 +185,7 @@ routerInstance.get('/', (req, res, next) => {
  * */
 
 routerInstance.get('/new', (req, res, next) => {
+  console.log('**** ========= ****')
   console.log('requesting recon data')
   const key = req.path()
 
@@ -194,6 +195,7 @@ routerInstance.get('/new', (req, res, next) => {
     CommonService.getCurrencyInfo()
   ]).then(data => {
     console.log('recon URLs resolved')
+    console.log(data)
     const [recon, disputes, currencyInfo] = data
 
     const newData = _.map(recon, (item) =>
@@ -227,8 +229,11 @@ routerInstance.get('/new', (req, res, next) => {
     const compositeData = {items: newData, currencyInfo: currencyInfo}
 
     //FsCacheService.set({key, compositeData})
+    console.log('responding with: ----------')
+    console.log(compositeData)
+    console.log('---------------------------')
     res.json(compositeData)
-    console.log('recon returned')
+    console.log('recon responded')
   }).catch(err => {
     console.log('recon URL did not resolve')
     console.log(err)
@@ -242,14 +247,18 @@ routerInstance.get('/new', (req, res, next) => {
 
 
 routerInstance.get('/disputes', (req, res, next) => {
+  console.log('**** ========= ****')
   console.log('requesting recon disputes')
   const key = req.path()
 
   ReconService.getReconDisputes().then(data => {
     //FsCacheService.set({key, data})
     console.log('recon disputes URL resolved')
+    console.log('responding with: ----------')
+    console.log({items: data})
+    console.log('---------------------------')
     res.json({items: data})
-    console.log('recon disputes returned')
+    console.log('recon disputes responded')
   }).catch(err => {
     // hit cache
     // FsCacheService.get(key)
@@ -262,6 +271,7 @@ routerInstance.get('/disputes', (req, res, next) => {
 
 routerInstance.post('/disputeStatement', (req, res, next) => {
   // forwards response from endpoint
+  console.log('**** ========= ****')
   console.log('posting dispute')
   let objToSend = req.body
   if (isString(objToSend)) {
@@ -272,10 +282,35 @@ routerInstance.post('/disputeStatement', (req, res, next) => {
 
   ReconService.postReconDispute(objToSend).then(data => {
     console.log('posting dispute resolved')
+    console.log('responding with: ----------')
+    console.log(data)
+    console.log('---------------------------')
     res.send(data)
-    console.log('posting dispute returned')
+    console.log('posting dispute responded')
   }).catch(err => {
     console.log('posting dispute URL did not resolve')
+    console.log(err)
+    res.send(err)
+  })
+})
+
+routerInstance.post('/reconcile', (req, res, next) => {
+  // forwards response from endpoint
+  console.log('**** ========= ****')
+  console.log('posting reconcile')
+  const params = JSON.parse(req.body).params
+  console.log('params: ' + params)
+
+  ReconService.getReconcile(params).then(data => {
+    console.log('posting reconcile resolved')
+    console.log('responding with: ----------')
+    console.log(data)
+    console.log('---------------------------' +
+      '')
+    res.send(data)
+    console.log('posting reconcile responded')
+  }).catch(err => {
+    console.log('posting reconcile URL did not resolve')
     console.log(err)
     res.send(err)
   })

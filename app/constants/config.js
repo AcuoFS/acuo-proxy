@@ -1,36 +1,28 @@
-const config = {
-  dev: {
-    GET_DASHBOARD_URL: 'http://margin.acuo.com/acuo/api/margin/dashboard',
-    GET_RECON_URL: 'http://margin.acuo.com/acuo/api/margin/items/all/999',
-    GET_UNMATCHED_URL: 'http://margin.acuo.com/acuo/api/margin/items/unmatched/999',
-    GET_OPTIMISATION_URL: 'http://margin.acuo.com/acuo/api/pledge/settings/optimization/999',
-    GET_PLEDGE_SELECTIONS_URL: 'http://margin.acuo.com/acuo/api/pledge/items/all/999',
-    GET_COLLATERAL_URL: 'http://collateral.acuo.com/acuo/api/assets/eligible/client/999',
-    GET_EARMARKED_COLLATERAL_URL: 'http://collateral.acuo.com/acuo/api/assets/reserved/client/999',
-    POST_PLEDGE_SELECTIONS_URL: 'http://collateral.acuo.com/acuo/api/optimization/allocate',
-    POST_PLEDGE_ALLOCATIONS_URL: 'http://margin.acuo.com/acuo/api/pledge/assets/transfer',
-    GET_RECON_DISPUTES_URL: 'http://margin.acuo.com/acuo/api/dispute/items/all/999',
-    POST_RECON_DISPUTE_URL: 'http://margin.acuo.com/acuo/api/dispute/add',
-    GET_CURRENCY_INFO_URL : 'http://margin.acuo.com/acuo/api/margin/fxvalue/999',
-    POST_REMOVE_ALLOCATED_ASSET: 'http://collateral.acuo.com/acuo/api/optimization/update'
-  },
-  qa: {
-    GET_DASHBOARD_URL: 'http://margin:7070/acuo/api/margin/dashboard',
-    GET_RECON_URL: 'http://margin:7070/acuo/api/margin/items/all/999',
-    GET_UNMATCHED_URL: 'http://margin:7070/acuo/api/margin/items/unmatched/999',
-    GET_OPTIMISATION_URL: 'http://margin:7070/acuo/api/pledge/settings/optimization/999',
-    GET_PLEDGE_SELECTIONS_URL: 'http://margin:7070/acuo/api/pledge/items/all/999',
-    GET_COLLATERAL_URL: 'http://collateral:8080/acuo/api/assets/eligible/client/999',
-    GET_EARMARKED_COLLATERAL_URL: 'http://collateral:8080/acuo/api/assets/reserved/client/999',
-    POST_PLEDGE_SELECTIONS_URL: 'http://collateral:8080/acuo/api/optimization/allocate',
-    POST_PLEDGE_ALLOCATIONS_URL: 'http://margin:7070/acuo/api/pledge/assets/transfer',
-    GET_RECON_DISPUTES_URL: 'http://margin:7070/acuo/api/dispute/items/all/999',
-    POST_RECON_DISPUTE_URL: 'http://margin:7070/acuo/api/dispute/add',
-    GET_CURRENCY_INFO_URL : 'http://margin:7070/acuo/api/margin/fxvalue/999',
-    POST_REMOVE_ALLOCATED_ASSET: 'http://collateral:8080/acuo/api/optimization/update'
-  },
-  prod: {}
-}
+var configJson = {
+  'baseUrl' : 'http://dev.acuo.com',
+  GET_DASHBOARD_URL: '<%= baseUrl %>/margin/acuo/api/margin/dashboard',
+  GET_RECON_URL: '<%= baseUrl %>/margin/acuo/api/margin/items/all/999',
+  GET_UNMATCHED_URL: '<%= baseUrl %>/margin/acuo/api/margin/items/unmatched/999',
+  GET_OPTIMISATION_URL: '<%= baseUrl %>/margin/acuo/api/pledge/settings/optimization/999',
+  GET_PLEDGE_SELECTIONS_URL: '<%= baseUrl %>/margin/acuo/api/pledge/items/all/999',
+  GET_COLLATERAL_URL: '<%= baseUrl %>/collateral/acuo/api/assets/eligible/client/999',
+  GET_EARMARKED_COLLATERAL_URL: '<%= baseUrl %>/collateral/acuo/api/assets/reserved/client/999',
+  POST_PLEDGE_SELECTIONS_URL: '<%= baseUrl %>/collateral/acuo/api/optimization/allocate',
+  POST_PLEDGE_ALLOCATIONS_URL: '<%= baseUrl %>/margin/acuo/api/pledge/assets/transfer',
+  GET_RECON_DISPUTES_URL: '<%= baseUrl %>/margin/acuo/api/dispute/items/all/999',
+  POST_RECON_DISPUTE_URL: '<%= baseUrl %>/margin/acuo/api/dispute/add',
+  GET_CURRENCY_INFO_URL : '<%= baseUrl %>/margin/acuo/api/margin/fxvalue/999',
+  POST_REMOVE_ALLOCATED_ASSET: '<%= baseUrl %>/collateral/acuo/api/optimization/update',
+  POST_UPLOAD_PORTFOLIO: '<%= baseUrl %>/valuation/acuo/api/upload/v1',
+  GET_RECONCILE_URL: '<%= baseUrl %>/margin/acuo/api/margin/reconcile/',
+  REQUEST_VALUATION: '<%= baseUrl %>/valuation/acuo/api/calls/split/portfolios',
+  REQUEST_GENERATE_MARGINCALLS: '<%= baseUrl %>/valuation/acuo/api/calls/generate/portfolios',
+  GET_DEPLOYED_DEPARTURES: '<%= baseUrl %>/margin/acuo/api/pledge/assets/all',
+  GET_NAVBAR_ALERTS: '<%= baseUrl %>/margin/acuo/api/dashboard/menu',
+  MARGIN_HEALTH_CHECK: '<%= baseUrl %>/margin/acuo/admin/ping',
+  VALUATION_HEALTH_CHECK: '<%= baseUrl %>/valuation/acuo/admin/ping',
+  COLLATERAL_HEALTH_CHECK: '<%= baseUrl %>/collateral/acuo/admin/ping',
+};
 
 /**
  * https://medium.com/node-and-beyond/environment-dependent-node-js-configuration-b51149286e7e#.lq4cmz3dg
@@ -41,7 +33,9 @@ const config = {
  * GET_OPTIMISATION_URL, GET_PLEDGE_SELECTIONS_URL, GET_COLLATERAL_URL,
  * GET_EARMARKED_COLLATERAL_URL, POST_PLEDGE_SELECTIONS_URL, POST_PLEDGE_ALLOCATIONS_URL}}
  */
+
 exports.get = (env) => {
   console.log('Current config environment accessed is ' + (env || 'dev'))
-  return config[env] || config.dev
+  var config = require('json-configurator')(configJson, env);
+  return config
 }
