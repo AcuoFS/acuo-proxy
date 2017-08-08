@@ -1,7 +1,7 @@
 var configJson = {
   'baseUrl' : 'http://dev.acuo.com',
   '$qa_baseUrl' : 'http://traefik',
-  '$uat_baseUrl' : 'http://traefik'
+  '$uat_baseUrl' : 'http://traefik',
   GET_DASHBOARD_URL: '<%= baseUrl %>/margin/acuo/api/margin/dashboard',
   GET_RECON_URL: '<%= baseUrl %>/margin/acuo/api/margin/items/all/999',
   GET_UNMATCHED_URL: '<%= baseUrl %>/margin/acuo/api/margin/items/unmatched/999',
