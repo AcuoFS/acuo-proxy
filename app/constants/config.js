@@ -24,6 +24,7 @@ var configJson = {
   MARGIN_HEALTH_CHECK: '<%= baseUrl %>/margin/acuo/admin/ping',
   VALUATION_HEALTH_CHECK: '<%= baseUrl %>/valuation/acuo/admin/ping',
   COLLATERAL_HEALTH_CHECK: '<%= baseUrl %>/collateral/acuo/admin/ping',
+  LOGIN_URL: '<%= baseUrl %>/auth/acuo/api/login/clientId/'
 };
 
 /**

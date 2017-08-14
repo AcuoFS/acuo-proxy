@@ -5,7 +5,8 @@ const {
   GET_NAVBAR_ALERTS,
   MARGIN_HEALTH_CHECK,
   VALUATION_HEALTH_CHECK,
-  COLLATERAL_HEALTH_CHECK
+  COLLATERAL_HEALTH_CHECK,
+  LOGIN_URL
 } = config
 
 const rp = require('request-promise')
@@ -48,5 +49,11 @@ Common.collateralConnectivity = () => {
     return response
   })
 }
+
+Common.login = (user, pass) =>
+  rp({uri: LOGIN_URL + user + '/' + pass}).then(response => {
+    console.log('login return response')
+    return response
+  })
 
 module.exports = Common

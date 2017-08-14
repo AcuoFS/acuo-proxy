@@ -60,4 +60,13 @@ routerInstance.get('/throw-500', (req, res, next) => {
   res.send(500)
 })
 
+routerInstance.post('/auth/login', (req, res, next) => {
+  console.log('attempting login')
+  // console.log(req.body)
+  const { user, pass } = req.body
+  CommonService.login(user, pass).then(response => {
+    res.send({clientID: response})
+  })
+})
+
 module.exports = ({server}) => routerInstance.applyRoutes(server, prefix)
