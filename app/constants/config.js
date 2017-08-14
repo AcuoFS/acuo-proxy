@@ -1,5 +1,7 @@
 var configJson = {
   'baseUrl' : 'http://dev.acuo.com',
+  '$qa_baseUrl' : 'http://traefik',
+  '$uat_baseUrl' : 'http://traefik',
   GET_DASHBOARD_URL: '<%= baseUrl %>/margin/acuo/api/margin/dashboard',
   GET_RECON_URL: '<%= baseUrl %>/margin/acuo/api/margin/items/all/999',
   GET_UNMATCHED_URL: '<%= baseUrl %>/margin/acuo/api/margin/items/unmatched/999',
@@ -12,7 +14,16 @@ var configJson = {
   GET_RECON_DISPUTES_URL: '<%= baseUrl %>/margin/acuo/api/dispute/items/all/999',
   POST_RECON_DISPUTE_URL: '<%= baseUrl %>/margin/acuo/api/dispute/add',
   GET_CURRENCY_INFO_URL : '<%= baseUrl %>/margin/acuo/api/margin/fxvalue/999',
-  POST_REMOVE_ALLOCATED_ASSET: '<%= baseUrl %>/collateral/acuo/api/optimization/update'
+  POST_REMOVE_ALLOCATED_ASSET: '<%= baseUrl %>/collateral/acuo/api/optimization/update',
+  POST_UPLOAD_PORTFOLIO: '<%= baseUrl %>/valuation/acuo/api/upload/v1',
+  GET_RECONCILE_URL: '<%= baseUrl %>/margin/acuo/api/margin/reconcile/',
+  REQUEST_VALUATION: '<%= baseUrl %>/valuation/acuo/api/calls/split/portfolios',
+  REQUEST_GENERATE_MARGINCALLS: '<%= baseUrl %>/valuation/acuo/api/calls/generate/portfolios',
+  GET_DEPLOYED_DEPARTURES: '<%= baseUrl %>/margin/acuo/api/pledge/assets/all',
+  GET_NAVBAR_ALERTS: '<%= baseUrl %>/margin/acuo/api/dashboard/menu',
+  MARGIN_HEALTH_CHECK: '<%= baseUrl %>/margin/acuo/admin/ping',
+  VALUATION_HEALTH_CHECK: '<%= baseUrl %>/valuation/acuo/admin/ping',
+  COLLATERAL_HEALTH_CHECK: '<%= baseUrl %>/collateral/acuo/admin/ping',
 };
 
 /**
@@ -24,6 +35,7 @@ var configJson = {
  * GET_OPTIMISATION_URL, GET_PLEDGE_SELECTIONS_URL, GET_COLLATERAL_URL,
  * GET_EARMARKED_COLLATERAL_URL, POST_PLEDGE_SELECTIONS_URL, POST_PLEDGE_ALLOCATIONS_URL}}
  */
+
 exports.get = (env) => {
   console.log('Current config environment accessed is ' + (env || 'dev'))
   var config = require('json-configurator')(configJson, env);

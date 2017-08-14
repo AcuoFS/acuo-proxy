@@ -294,5 +294,27 @@ routerInstance.post('/disputeStatement', (req, res, next) => {
   })
 })
 
+routerInstance.post('/reconcile', (req, res, next) => {
+  // forwards response from endpoint
+  console.log('**** ========= ****')
+  console.log('posting reconcile')
+  const params = JSON.parse(req.body).params
+  console.log('params: ' + params)
+
+  ReconService.getReconcile(params).then(data => {
+    console.log('posting reconcile resolved')
+    console.log('responding with: ----------')
+    console.log(data)
+    console.log('---------------------------' +
+      '')
+    res.send(data)
+    console.log('posting reconcile responded')
+  }).catch(err => {
+    console.log('posting reconcile URL did not resolve')
+    console.log(err)
+    res.send(err)
+  })
+})
+
 
 module.exports = ({server}) => routerInstance.applyRoutes(server, prefix)

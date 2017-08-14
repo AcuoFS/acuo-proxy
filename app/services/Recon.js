@@ -2,7 +2,8 @@ const config = require('../constants/config').get(process.env.DOCKER_ENV)
 const {
   GET_RECON_URL,
   GET_RECON_DISPUTES_URL,
-  POST_RECON_DISPUTE_URL
+  POST_RECON_DISPUTE_URL,
+  GET_RECONCILE_URL
 } = config
 
 //import external library
@@ -45,6 +46,20 @@ Recon.postReconDispute = (reqBody) => {
     // resolveWithFullResponse: true
   }).then(response => {
     console.log('post recon dispute returned')
+    return response
+  })
+}
+
+Recon.getReconcile = (params) => {
+  return rp({
+    method: 'GET',
+    headers: {'content-type': 'application/json'},
+    uri: GET_RECONCILE_URL + params,
+    json: true,
+    // Use full response to check status code
+    // resolveWithFullResponse: true
+  }).then(response => {
+    console.log('GET recon returned')
     return response
   })
 }
