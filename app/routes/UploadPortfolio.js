@@ -80,7 +80,7 @@ routerInstance.post('/request-margincalls', (req, res, next) => {
 routerInstance.post('/send-margin-calls', (req, res, next) => {
   console.log('attempting to send margin calls')
   console.log(req.body)
-  UploadPortfolioService.postMarginCalls(req.body)
+  UploadPortfolioService.postSendMarginCalls(req.body)
     .then(response => {
       console.log('responding with :')
       console.log(JSON.parse(response.toJSON().body))
