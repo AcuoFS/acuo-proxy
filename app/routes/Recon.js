@@ -1,6 +1,8 @@
 // import libs
 const Router = require('restify-router').Router
 const _ = require('lodash')
+const hash = require('xxhash')
+const seed = 0xAC850AC85
 
 // import services
 const {

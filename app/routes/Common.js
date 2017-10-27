@@ -1,6 +1,8 @@
 // import libs
 const Router = require('restify-router').Router
 const _ = require('lodash')
+const rp = require('request-promise')
+
 // import services
 const { CommonService } = require('../services')
 
@@ -66,6 +68,18 @@ routerInstance.post('/auth/login', (req, res, next) => {
   const { user, pass } = req.body
   CommonService.login(user, pass).then(response => {
     res.send({clientID: response})
+  })
+})
+
+routerInstance.get('/streamtest', (req, res, next) => {
+  const uri = 'https://develop-api.symphony.com:8444/sessionauth/v1/authenticate'
+  return rp({
+    uri,
+    method: 'POST',
+    headers: {'cache-control': 'no-cache'}
+  }).then(response => {
+    console.log(response)
+    // return response
   })
 })
 
