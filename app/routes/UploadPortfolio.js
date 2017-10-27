@@ -72,9 +72,21 @@ routerInstance.post('/request-margincalls', (req, res, next) => {
     })
 })
 
-routerInstance.post('/testroute', (req, res, next) => {
-  console.log('here')
-  console.log(req)
+// routerInstance.post('/testroute', (req, res, next) => {
+//   console.log('here')
+//   console.log(req)
+// })
+
+routerInstance.post('/send-margin-calls', (req, res, next) => {
+  console.log('attempting to send margin calls')
+  console.log(req.body)
+  UploadPortfolioService.postSendMarginCalls(req.body)
+    .then(response => {
+      console.log('responding with :')
+      console.log(JSON.parse(response.toJSON().body))
+      res.send(JSON.parse(response.toJSON().body))
+      console.log('response returned')
+    })
 })
 
 module.exports = ({server}) => routerInstance.applyRoutes(server, prefix)

@@ -9,7 +9,8 @@ const request = require('request')
 const {
   POST_UPLOAD_PORTFOLIO,
   REQUEST_VALUATION,
-  REQUEST_GENERATE_MARGINCALLS
+  REQUEST_GENERATE_MARGINCALLS,
+  REQUEST_SEND_MARGIN_CALLS
 } = config
 
 const UploadPortfolio = {}
@@ -51,5 +52,14 @@ UploadPortfolio.postGenerateMarginCall = (body) =>
     //   if(response.ok)
     return response
   })
+
+UploadPortfolio.postSendMarginCalls = (body) =>
+  rp({
+    url: REQUEST_SEND_MARGIN_CALLS,
+    method: 'POST',
+    body: JSON.stringify(body),
+    headers: {'content-type': 'application/json'},
+    resolveWithFullResponse: true
+  }).then(response => response)
 
 module.exports = UploadPortfolio
