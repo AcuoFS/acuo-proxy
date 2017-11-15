@@ -60,7 +60,7 @@ routerInstance.get('/', (req, res, next) => {
         }
       }, {})
 
-    res.send({"data": _.merge(newClientData, newCptyData)})
+    res.send({"data": _.filter(_.merge(newClientData, newCptyData), x => _.has(x, 'clientAllegation') && _.has(x, 'counterpartyAllegation'))})
 
   })
 
