@@ -26,7 +26,10 @@ var configJson = {
   VALUATION_HEALTH_CHECK: '<%= baseUrl %>valuation/acuo/admin/ping',
   COLLATERAL_HEALTH_CHECK: '<%= baseUrl %>collateral/acuo/admin/ping',
   LOGIN_URL: '<%= baseUrl %>auth/acuo/api/login/clientId/',
-  REQUEST_SEND_MARGIN_CALLS: '<%= baseUrl %>margin/acuo/api/margin/send/calls'
+  REQUEST_SEND_MARGIN_CALLS: '<%= baseUrl %>margin/acuo/api/margin/send/calls',
+
+  GET_ANALYTICS_TEST_CLIENT: '<%= baseUrl %>/analytics/analytics',
+  GET_ANALYTICS_TEST_CPTY: '<%= baseUrl %>/analytics/analytics/cpty'
 };
 
 /**
