@@ -32,7 +32,7 @@ preflightEnabler(server, {'headers': 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X
 // register routers
 require('./app/routes').forEach(router => router({server}))
 
-server.server.setTimeout(60000*5)
+// server.server.setTimeout(60000*5)
 
 // ===============================
 // start server
