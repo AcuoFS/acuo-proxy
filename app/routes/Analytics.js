@@ -28,7 +28,7 @@ routerInstance.get('/', (req, res, next) => {
     _.reduce(client.client, (sum, x) => {
 
       if(sum[`${x["n.id"]}`]){
-        _.set(sum, `${x["n.id"]}.clientAllegation`, parseFloat(sum[`${x["n.id"]}`].clientAllegation) + parseFloat(x["n1.marginAmount"]))
+        _.set(sum, `${x["n.id"]}.clientAllegation`, (parseFloat(sum[`${x["n.id"]}`].clientAllegation) + parseFloat(x["n1.marginAmount"])).toFixed(2))
         return sum
       }
       else {
@@ -47,7 +47,7 @@ routerInstance.get('/', (req, res, next) => {
       _.reduce(cpty.cpty, (sum, x) => {
 
         if(sum[`${x["n.id"]}`]){
-          _.set(sum, `${x["n.id"]}.counterpartyAllegation`, parseFloat(sum[`${x["n.id"]}`].counterpartyAllegation) + parseFloat(x["n1.marginAmount"]))
+          _.set(sum, `${x["n.id"]}.counterpartyAllegation`, (parseFloat(sum[`${x["n.id"]}`].counterpartyAllegation) + parseFloat(x["n1.marginAmount"])).toFixed(2))
           return sum
         }
         else {
