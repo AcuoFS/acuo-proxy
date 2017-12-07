@@ -36,6 +36,47 @@ require('./app/routes').forEach(router => router({server}))
 
 // ===============================
 // start server
-server.listen(port, host, () => {
+const app = server.listen(port, host, () => {
   console.log(`${server.name} is listening at ${server.url}`)
 })
+
+const io = require("socket.io").listen(app)
+const ioToServer = require("socket.io-client")
+
+console.log('new instance')
+
+io.of('/uploadStream')
+  .on('connection', socketToClient => {
+
+    console.log('new connection')
+    const socketToServer = ioToServer('http://localhost:8082/uploadStream')
+
+
+    const userName = 'user@acuocpty.com'
+    console.log(Object.keys(io.sockets.sockets))
+
+    socketToServer.on('connect', function(){
+      console.log('connected to server')
+    });
+    socketToServer.on('event', function(data){
+      console.log('event', data)
+    });
+    socketToServer.on('disconnect', function(){
+      console.log('server dc')
+    });
+
+    socketToServer.on(userName, data => {
+      console.log(data)
+    })
+
+    socketToClient.on('disconnect', () => {
+      console.log('client dc')
+      socketToServer.disconnect()
+      setTimeout(() => {
+        console.log(Object.keys(io.sockets.sockets))
+      }, 500)
+    })
+
+  }).on('disconnect', socket => {
+    console.log('someone dced')
+  })
