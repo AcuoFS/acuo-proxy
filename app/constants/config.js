@@ -1,5 +1,5 @@
 var configJson = {
-  'baseUrl' : 'http://dev.acuo.com/',
+  'baseUrl' : 'https://dev.acuo.com/',
   '$qa_baseUrl' : 'http://traefik/',
   '$uat_baseUrl' : 'http://traefik/',
   '$kube_baseUrl' : 'http://',
