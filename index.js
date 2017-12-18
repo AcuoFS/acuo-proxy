@@ -51,23 +51,34 @@ io.of('/uploadStream')
     console.log('new connection')
     const socketToServer = ioToServer('http://localhost:8082/uploadStream')
 
-
     const userName = 'user@acuocpty.com'
     console.log(Object.keys(io.sockets.sockets))
+    // console.log(id)
 
     socketToServer.on('connect', function(){
       console.log('connected to server')
+      console.log('listning to ' + socketToServer.io.engine.id)
+      socketToServer.on(socketToServer.io.engine.id, data => {
+        //socketToClient.to(socketToClient.conn.id, data.payload)
+        console.log(`from ${socketToServer.io.engine.id} to ${data.user}`)
+        console.log(data.payload)
+        // socketToClient.to(socketToClient.conn.id).emit('message', data.payload)
+        socketToClient.emit('message', data.payload)
+
+        // socketToClient.emit('test', 'pewpew')
+      })
     });
     socketToServer.on('event', function(data){
-      console.log('event', data)
+
     });
     socketToServer.on('disconnect', function(){
       console.log('server dc')
     });
 
-    socketToServer.on(userName, data => {
-      console.log(data)
-    })
+    // socketToClient.on('room', room => {
+    //   console.log('joining ' + room)
+    //   socketToClient.join(room)
+    // })
 
     socketToClient.on('disconnect', () => {
       console.log('client dc')
