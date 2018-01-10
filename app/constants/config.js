@@ -1,6 +1,6 @@
 var configJson = {
   'baseUrl' : 'https://dev.acuo.com/',
-  '$qa_baseUrl' : 'http://traefik/',
+  '$qa_baseUrl' : 'http://',
   '$uat_baseUrl' : 'http://traefik/',
   '$kube_baseUrl' : 'http://',
   GET_DASHBOARD_URL: '<%= baseUrl %>margin/acuo/api/margin/dashboard',
