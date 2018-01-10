@@ -71,6 +71,15 @@ routerInstance.post('/auth/login', (req, res, next) => {
   })
 })
 
+routerInstance.get('/get-currency', (req, res, next) => {
+  CommonService.getCurrencyInfo().then(response => {
+    console.log('response :')
+    console.log(response)
+    res.send(response)
+    console.log('currency info responded')
+  })
+})
+
 routerInstance.get('/streamtest', (req, res, next) => {
   const uri = 'https://develop-api.symphony.com:8444/sessionauth/v1/authenticate'
   return rp({
