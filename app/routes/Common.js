@@ -2,9 +2,10 @@
 const Router = require('restify-router').Router
 const _ = require('lodash')
 const rp = require('request-promise')
+const fs = require('fs')
 
 // import services
-const { CommonService } = require('../services')
+const {CommonService} = require('../services')
 
 // main object
 const routerInstance = new Router()
@@ -53,7 +54,7 @@ routerInstance.get('/collateral-connectivity', (req, res, next) => {
 })
 
 routerInstance.get('/throw-404', (req, res, next) => {
- console.log('throwing 404');
+  console.log('throwing 404');
   res.send(404)
 })
 
@@ -65,7 +66,7 @@ routerInstance.get('/throw-500', (req, res, next) => {
 routerInstance.post('/auth/login', (req, res, next) => {
   console.log('attempting login')
   // console.log(req.body)
-  const { user, pass } = req.body
+  const {user, pass} = req.body
   CommonService.login(user, pass).then(response => {
     res.send({clientID: response})
   })
@@ -80,15 +81,58 @@ routerInstance.get('/get-currency', (req, res, next) => {
   })
 })
 
+// -X POST
+// -H "sessionToken: SESSION_TOKEN"
+// -H "Content-Type: application/json"
+// -d '{
+// "streamTypes": [
+//   {"type": "IM"},
+//   {"type": "MIM"},
+//   {"type": "ROOM"},
+//   {"type": "POST"}
+// ],
+//   "includeInactiveStreams": true
+// }'
+// "https://acme.symphony.com/pod/v1/streams/list"
+
+//.symphony.com/sessionauth/v1/app/user/347583113330922/authenticate
+
+// https://YOUR_POD_SUBDOMAIN-api.symphony.com/sessionauth/v1/app/authenticate
+
 routerInstance.get('/streamtest', (req, res, next) => {
-  const uri = 'https://develop-api.symphony.com:8444/sessionauth/v1/authenticate'
+  const uri = 'https://develop-api.symphony.com:8444/sessionauth/v1/app/authenticate'
+  console.log(__dirname)
   return rp({
     uri,
     method: 'POST',
-    headers: {'cache-control': 'no-cache'}
+    headers: {'cache-control': 'no-cache'},
+    agentOptions: {
+      pfx: fs.readFileSync(__dirname + '/../certs/acuo-cert.p12'),
+      passphrase: 'acuo123$'
+    }
   }).then(response => {
-    console.log(response)
-    // return response
+    // console.log(response)
+    const token = JSON.parse(response).token
+    console.log(token)
+    setTimeout(() => {
+        rp({
+          uri: 'https://develop-api.symphony.com:8444/sessionauth/v1/app/user/347583113330922/authenticate',
+          method: 'POST',
+          headers: {
+            'cache-control': 'no-cache',
+            'sessionToken': token,
+            'Content-Type': 'application/json'
+          },
+          agentOptions: {
+            pfx: fs.readFileSync(__dirname + '/../certs/acuo-cert.p12'),
+            passphrase: 'acuo123$'
+          }
+        }).then(response => {
+          // console.log(response)
+          console.log(response)
+          res.send(JSON.parse(response))
+        })
+      }, 2000)
   })
 })
 
