@@ -13,16 +13,16 @@ const rp = require('request-promise')
 
 const Common = {}
 
-Common.getCurrencyInfo = () => {
-  const uri = GET_CURRENCY_INFO_URL
+Common.getCurrencyInfo = (clientID) => {
+  const uri = `${GET_CURRENCY_INFO_URL}/${clientID}`
   return rp({uri, json: true}).then(response => {
     console.log('currency info returned')
     return response
   })
 }
 
-Common.getNavbarAlerts = () => {
-  const uri = GET_NAVBAR_ALERTS
+Common.getNavbarAlerts = (clientID) => {
+  const uri = `${GET_NAVBAR_ALERTS}/${clientID}`
   return rp({uri, json: true}).then(response => {
     console.log('navbar alerts returned')
     return response

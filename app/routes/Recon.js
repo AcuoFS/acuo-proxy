@@ -138,10 +138,10 @@ const checkTolerance = (item, parentID, id, amount, toleranceLevel, GUID, who) =
 /*********
 * DEPRECATED ROUTE
 * */
-routerInstance.get('/', (req, res, next) => {
+routerInstance.get('/:clientID', (req, res, next) => {
   const key = req.path()
 
-  ReconService.get().then(data => {
+  ReconService.get(req.params.clientID).then(data => {
 
     const newData = _.map(data, (item) =>
       _.chain(item)
@@ -184,15 +184,17 @@ routerInstance.get('/', (req, res, next) => {
  * DEPRECATED ROUTE END
  * */
 
-routerInstance.get('/new', (req, res, next) => {
+routerInstance.get('/new/:clientID', (req, res, next) => {
   console.log('**** ========= ****')
   console.log('requesting recon data')
   const key = req.path()
+  const clientID = req.params.clientID
+  console.log('clientID :', req.params.clientID)
 
   Promise.all([
-    ReconService.get(),
-    ReconService.getReconDisputes(),
-    CommonService.getCurrencyInfo()
+    ReconService.get(clientID),
+    ReconService.getReconDisputes(clientID),
+    CommonService.getCurrencyInfo(clientID)
   ]).then(data => {
     console.log('recon URLs resolved')
     console.log(data)
@@ -246,12 +248,12 @@ routerInstance.get('/new', (req, res, next) => {
 })
 
 
-routerInstance.get('/disputes', (req, res, next) => {
+routerInstance.get('/disputes/:clientID', (req, res, next) => {
   console.log('**** ========= ****')
   console.log('requesting recon disputes')
   const key = req.path()
 
-  ReconService.getReconDisputes().then(data => {
+  ReconService.getReconDisputes(req.params.clientID).then(data => {
     //FsCacheService.set({key, data})
     console.log('recon disputes URL resolved')
     console.log('responding with: ----------')
@@ -294,14 +296,15 @@ routerInstance.post('/disputeStatement', (req, res, next) => {
   })
 })
 
-routerInstance.post('/reconcile', (req, res, next) => {
+routerInstance.post('/reconcile/', (req, res, next) => {
   // forwards response from endpoint
   console.log('**** ========= ****')
   console.log('posting reconcile')
   const params = JSON.parse(req.body).params
+  const clientID = JSON.parse(req.body).clientID
   console.log('params: ' + params)
 
-  ReconService.getReconcile(params).then(data => {
+  ReconService.getReconcile(clientID, params).then(data => {
     console.log('posting reconcile resolved')
     console.log('responding with: ----------')
     console.log(data)

@@ -11,11 +11,14 @@ const routerInstance = new Router()
 const prefix = "dashboard"
 
 // ======================================================================
-routerInstance.get('/', (req, res, next) => {
+routerInstance.get('/:clientID', (req, res, next) => {
   console.log('**** ========= ****')
   console.log('requesting dashboard')
   const key = req.path()
-  DashboardService.get().then(data => {
+  console.log('clientID :', req.params.clientID)
+
+
+  DashboardService.get(req.params.clientID).then(data => {
     // hit backend
     console.log('dashboard URL resolved')
     let { derivatives } = data

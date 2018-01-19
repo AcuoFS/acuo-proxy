@@ -13,8 +13,8 @@ const rp = require('request-promise')
 const Recon = {}
 
 // get Recon items
-Recon.get = () => {
-  const uri = GET_RECON_URL
+Recon.get = (clientID) => {
+  const uri = `${GET_RECON_URL}/${clientID}`
   return rp({uri, json: true})
     .then(response => {
       console.log('get all recon returned')
@@ -27,8 +27,8 @@ Recon.getTestRecon = () => new Promise(resolve => {
   resolve(json)
 })
 
-Recon.getReconDisputes = () => {
-  const uri = GET_RECON_DISPUTES_URL
+Recon.getReconDisputes = (clientID) => {
+  const uri = `${GET_RECON_DISPUTES_URL}/${clientID}`
   return rp({uri, json: true}).then(response => {
     console.log('get recon disputes returned')
     return response
@@ -50,11 +50,11 @@ Recon.postReconDispute = (reqBody) => {
   })
 }
 
-Recon.getReconcile = (params) => {
+Recon.getReconcile = (clientID, params) => {
   return rp({
     method: 'GET',
     headers: {'content-type': 'application/json'},
-    uri: GET_RECONCILE_URL + params,
+    uri: `${GET_RECONCILE_URL}/${clientID}/ms/${params}`,
     json: true,
     // Use full response to check status code
     // resolveWithFullResponse: true

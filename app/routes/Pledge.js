@@ -13,10 +13,15 @@ const prefix = "pledge"
 routerInstance.post('/remove-allocated-asset', (req, res, next) => {
   console.log('**** ========= ****')
   console.log('removing allocated asset')
+  // console.log('clientID :', req.params.clientID)
+
   const key = req.path()
   const json = req.body
+  const { clientID } = JSON.parse(json)
+  console.log('clientID :', clientID)
+
   Promise.all([
-    PledgeService.getInitSelection(),
+    PledgeService.getInitSelection(clientID),
     PledgeService.postRemoveAllocated(json)
   ]).then(data => {
     // hit backend
@@ -48,13 +53,14 @@ routerInstance.post('/remove-allocated-asset', (req, res, next) => {
   })
 })
 // ======================================================================
-routerInstance.get('/optimization', (req, res, next) => {
+routerInstance.get('/optimization/:clientID', (req, res, next) => {
   // get data
   console.log('**** ========= ****')
   console.log('request optimization')
   const key = req.path()
+  console.log('clientID :', req.params.clientID)
 
-  PledgeService.get().then(items => {
+  PledgeService.getOptimisation(req.params.clientID).then(items => {
     // hit backend
     console.log('optimization resolved')
     //FsCacheService.set({key, data: items})
@@ -73,12 +79,12 @@ routerInstance.post('/allocate-selection', (req, res, next) => {
   console.log('**** ========= ****')
   console.log('posting allocate of selection')
   const key = req.path()
-  const {guids, optimisationSetting} = JSON.parse(req.body)
+  const {guids, optimisationSetting, clientID} = JSON.parse(req.body)
 
   Promise.all([
     PledgeService.calculateCase(optimisationSetting),
-    PledgeService.getInitSelection(),
-    PledgeService.getAllocatedAssets()
+    PledgeService.getInitSelection(clientID),
+    PledgeService.getAllocatedAssets(clientID)
   ]).then(data => {
     // hit backend
     console.log('allocation URLs resolved')
@@ -108,11 +114,11 @@ routerInstance.post('/allocate-selection-new', (req, res, next) => {
   console.log('**** ========= ****')
   console.log('posting allocate selection new')
   const key = req.path()
-  const {optimisationSettings, toBeAllocated} = JSON.parse(req.body)
+  const {optimisationSettings, toBeAllocated, clientID} = JSON.parse(req.body)
 
   Promise.all([
-    PledgeService.getInitSelection(),
-    PledgeService.postSelection({optimisationSettings, toBeAllocated})
+    PledgeService.getInitSelection(clientID),
+    PledgeService.postSelection({optimisationSettings, toBeAllocated, clientID})
   ]).then(data => {
     console.log('allocate selection new URLs resolved')
     const [selectionItems, {allocated}] = data
@@ -179,11 +185,11 @@ routerInstance.post('/pledge-allocation', (req, res, next) => {
 //   })
 // })
 
-routerInstance.get('/init-selection', (req, res, next) => {
+routerInstance.get('/init-selection/:clientID', (req, res, next) => {
   console.log('requesting selection')
   const key = req.path()
 
-  PledgeService.getInitSelection().then(data => {
+  PledgeService.getInitSelection(req.params.clientID).then(data => {
     console.log('**** ========= ****')
     console.log('selection URL resolved')
     const newData = _.map(data, (item) =>
@@ -205,10 +211,10 @@ routerInstance.get('/init-selection', (req, res, next) => {
   })
 })
 
-routerInstance.get('/init-collateral', (req, res, next) => {
+routerInstance.get('/init-collateral/:clientID', (req, res, next) => {
   console.log('**** ========= ****')
   console.log('requesting collateral')
-  PledgeService.getInitCollateral().then(data => {
+  PledgeService.getInitCollateral(req.params.clientID).then(data => {
       console.log('responding with: ----------')
       console.log(data)
       console.log('---------------------------')
@@ -219,13 +225,13 @@ routerInstance.get('/init-collateral', (req, res, next) => {
 
 })
 
-routerInstance.get('/init-new-collateral', (req, res, next) => {
+routerInstance.get('/init-new-collateral/:clientID', (req, res, next) => {
   console.log('**** ========= ****')
   console.log('requesting new collateral')
   const key = req.path()
   Promise.all([
-    PledgeService.asset(),
-    PledgeService.earmarked()
+    PledgeService.asset(req.params.clientID),
+    PledgeService.earmarked(req.params.clientID)
   ]).then(data => {
     // hit backend
     console.log('new collateral URLs resolved')

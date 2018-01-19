@@ -10,12 +10,12 @@ const routerInstance = new Router()
 // constants
 const prefix = "unmatched"
 
-routerInstance.get('/', (req, res, next) => {
+routerInstance.get('/:clientID', (req, res, next) => {
   console.log('**** ========= ****')
   console.log('requesting unmatched portfolios')
   const key = req.path()
 
-  UnmatchedPortfolioService.get().then(data => {
+  UnmatchedPortfolioService.get(req.params.clientID).then(data => {
     console.log('unmatched portfolio URL resolved')
     // FsCacheService.set({key, data})
     console.log('responding with: ----------')

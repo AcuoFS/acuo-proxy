@@ -7,8 +7,8 @@ const rp = require('request-promise')
 // main object
 const UnmatchedPortfolio = {}
 
-UnmatchedPortfolio.get = () => {
-  const uri = GET_UNMATCHED_URL
+UnmatchedPortfolio.get = (clientID) => {
+  const uri = `${GET_UNMATCHED_URL}/${clientID}`
   return rp({uri, json: true}).then(response => {
     console.log('unmatched portfolio returned')
     return response
