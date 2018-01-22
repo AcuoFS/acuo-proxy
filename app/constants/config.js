@@ -3,7 +3,7 @@ var configJson = {
   '$qa_baseUrl' : 'http://',
   '$uat_baseUrl' : 'http://traefik/',
   '$kube_baseUrl' : 'http://',
-  GET_DASHBOARD_URL: '<%= baseUrl %>margin/acuo/api/margin/dashboard/data',
+  GET_DASHBOARD_URL: '<%= baseUrl %>margin/acuo/api/dashboard/data',
   GET_RECON_URL: '<%= baseUrl %>margin/acuo/api/margin/items/all',
   GET_UNMATCHED_URL: '<%= baseUrl %>margin/acuo/api/margin/items/unmatched',
   GET_OPTIMISATION_URL: '<%= baseUrl %>margin/acuo/api/pledge/settings/optimization',
