@@ -301,10 +301,10 @@ routerInstance.post('/reconcile/', (req, res, next) => {
   console.log('**** ========= ****')
   console.log('posting reconcile')
   const params = JSON.parse(req.body).params
-  const clientID = JSON.parse(req.body).clientID
+  // const clientID = JSON.parse(req.body).clientID
   console.log('params: ' + params)
 
-  ReconService.getReconcile(clientID, params).then(data => {
+  ReconService.getReconcile(params).then(data => {
     console.log('posting reconcile resolved')
     console.log('responding with: ----------')
     console.log(data)

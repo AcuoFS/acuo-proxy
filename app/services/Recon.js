@@ -50,11 +50,11 @@ Recon.postReconDispute = (reqBody) => {
   })
 }
 
-Recon.getReconcile = (clientID, params) => {
+Recon.getReconcile = (params) => {
   return rp({
     method: 'GET',
     headers: {'content-type': 'application/json'},
-    uri: `${GET_RECONCILE_URL}/${clientID}/ms/${params}`,
+    uri: `${GET_RECONCILE_URL}/${params}`,
     json: true,
     // Use full response to check status code
     // resolveWithFullResponse: true
