@@ -20,12 +20,12 @@ const routerInstance = new Router()
 // constants
 const prefix = "deployed"
 
-routerInstance.get('/departures/:clientID', (req, res, next) => {
+routerInstance.get('/departures/:clientId', (req, res, next) => {
   console.log('**** ========= ****')
   console.log('requesting deployed departures')
-  console.log('clientID :', req.params.clientID)
+  console.log('clientId :', req.params.clientId)
 
-  DeployedService.getDepartures(req.params.clientID).then(data => {
+  DeployedService.getDepartures(req.params.clientId).then(data => {
       console.log('responding with: ----------')
       console.log(data)
       console.log('---------------------------')

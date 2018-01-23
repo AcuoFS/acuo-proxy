@@ -14,11 +14,11 @@ routerInstance.get('/proxy-connectivity', (req, res, next) => {
   res.send({status: "OK"})
 })
 
-routerInstance.get('/navbar-alerts/:clientID', (req, res, next) => {
+routerInstance.get('/navbar-alerts/:clientId', (req, res, next) => {
   console.log('******** Navbar alerts ********')
-  console.log('clientID :', req.params.clientID)
+  console.log('clientId :', req.params.clientId)
 
-  CommonService.getNavbarAlerts(req.params.clientID).then(response => {
+  CommonService.getNavbarAlerts(req.params.clientId).then(response => {
     console.log('response :')
     console.log(response)
     res.send(response)
@@ -68,7 +68,7 @@ routerInstance.post('/auth/login', (req, res, next) => {
   // console.log(req.body)
   const { user, pass } = req.body
   CommonService.login(user, pass).then(response => {
-    res.send({clientID: response})
+    res.send({clientId: response})
   })
 })
 

@@ -13,8 +13,8 @@ const rp = require('request-promise')
 const Recon = {}
 
 // get Recon items
-Recon.get = (clientID) => {
-  const uri = `${GET_RECON_URL}/${clientID}`
+Recon.get = (clientId) => {
+  const uri = `${GET_RECON_URL}/${clientId}`
   return rp({uri, json: true})
     .then(response => {
       console.log('get all recon returned')
@@ -27,8 +27,8 @@ Recon.getTestRecon = () => new Promise(resolve => {
   resolve(json)
 })
 
-Recon.getReconDisputes = (clientID) => {
-  const uri = `${GET_RECON_DISPUTES_URL}/${clientID}`
+Recon.getReconDisputes = (clientId) => {
+  const uri = `${GET_RECON_DISPUTES_URL}/${clientId}`
   return rp({uri, json: true}).then(response => {
     console.log('get recon disputes returned')
     return response

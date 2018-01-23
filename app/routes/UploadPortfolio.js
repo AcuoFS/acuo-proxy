@@ -23,12 +23,12 @@ const {
 
 // var upload = multer({dest: 'json/'})
 
-routerInstance.post('/uploadPortfolio/:clientID', (req, res, next) => {
+routerInstance.post('/uploadPortfolio/:clientId', (req, res, next) => {
   console.log('attempting upload portfolio')
 
   let form = new FormData();
 
-  const clientID = req.params.clientID
+  const clientId = req.params.clientId
 
   console.log('preparing files to send')
   Object.keys(req.files).map(x => {
@@ -45,7 +45,7 @@ routerInstance.post('/uploadPortfolio/:clientID', (req, res, next) => {
   }
 
   console.log('sending files')
-  UploadPortfolioService.postUpload(options, clientID)
+  UploadPortfolioService.postUpload(options, clientId)
     .then(response => res.send(response))
   console.log('response returned')
 })
@@ -53,9 +53,9 @@ routerInstance.post('/uploadPortfolio/:clientID', (req, res, next) => {
 routerInstance.post('/request-valuation', (req, res, next) => {
   console.log('attempting portfolio valuation')
   console.log(req.body)
-  const { clientID } = req.body
-  // console.log(clientID)
-  UploadPortfolioService.postRequestValuation(req.body, clientID)
+  const { clientId } = req.body
+  // console.log(clientId)
+  UploadPortfolioService.postRequestValuation(req.body, clientId)
     .then(response => {
       console.log('responding with :')
       console.log(JSON.parse(response.toJSON().body))
@@ -67,9 +67,9 @@ routerInstance.post('/request-valuation', (req, res, next) => {
 routerInstance.post('/request-margincalls', (req, res, next) => {
   console.log('attempting portfolio margin call generation')
   console.log(req.body)
-  const { clientID } = req.body
+  const { clientId } = req.body
 
-  UploadPortfolioService.postGenerateMarginCall(req.body, clientID)
+  UploadPortfolioService.postGenerateMarginCall(req.body, clientId)
     .then(response => {
       console.log('responding with :')
       console.log(JSON.parse(response.toJSON().body))
@@ -86,9 +86,9 @@ routerInstance.post('/request-margincalls', (req, res, next) => {
 routerInstance.post('/send-margin-calls', (req, res, next) => {
   console.log('attempting to send margin calls')
   console.log(req.body)
-  const { clientID } = req.body
+  const { clientId } = req.body
 
-  UploadPortfolioService.postSendMarginCalls(req.body, clientID)
+  UploadPortfolioService.postSendMarginCalls(req.body, clientId)
     .then(response => {
       console.log('responding with :')
       console.log(JSON.parse(response.toJSON().body))

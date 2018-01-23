@@ -9,8 +9,8 @@ const rp = require('request-promise')
 const Dashboard = {}
 
 // get Dashboard items
-Dashboard.get = (clientID) => {
-  const uri = `${GET_DASHBOARD_URL}/${clientID}`
+Dashboard.get = (clientId) => {
+  const uri = `${GET_DASHBOARD_URL}/${clientId}`
   return rp({uri, json: true}).then(response => {
     console.log('dashboard data returned')
     return response

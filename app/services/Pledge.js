@@ -18,8 +18,8 @@ const Pledge = {}
 
 // =============================================================================
 //
-Pledge.getOptimisation = (clientID) => {
-  const uri = `${GET_OPTIMISATION_URL}/${clientID}`
+Pledge.getOptimisation = (clientId) => {
+  const uri = `${GET_OPTIMISATION_URL}/${clientId}`
   return rp({uri, json: true})
 }
 
@@ -28,12 +28,12 @@ Pledge.getInitCollateral = () => new Promise(resolve => {
   resolve(json)
 })
 
-Pledge.getInitSelection = (clientID) => {
-  const uri = `${GET_PLEDGE_SELECTIONS_URL}/${clientID}`
+Pledge.getInitSelection = (clientId) => {
+  const uri = `${GET_PLEDGE_SELECTIONS_URL}/${clientId}`
   return rp({uri, json: true})
 }
 
-Pledge.getAllocatedAssets = (clientID) => new Promise (resolve => {
+Pledge.getAllocatedAssets = (clientId) => new Promise (resolve => {
   const json = require('../json/allocatedAssets')
   resolve(json)
 })
@@ -109,13 +109,13 @@ Pledge.postPledgeAllocation = (reqBody) => {
   })
 }
 
-Pledge.asset = (clientID) => {
-  const uri = `${GET_COLLATERAL_URL}/${clientID}`
+Pledge.asset = (clientId) => {
+  const uri = `${GET_COLLATERAL_URL}/${clientId}`
   return rp({uri, json: true})
 }
 
-Pledge.earmarked = (clientID) => {
-  const uri = `${GET_EARMARKED_COLLATERAL_URL}/${clientID}`
+Pledge.earmarked = (clientId) => {
+  const uri = `${GET_EARMARKED_COLLATERAL_URL}/${clientId}`
   return rp({uri, json: true})
 }
 

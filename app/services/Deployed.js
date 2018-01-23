@@ -13,8 +13,8 @@ const rp = require('request-promise')
 // main object
 const Deployed = {}
 
-Deployed.getDepartures = (clientID) => {
-  const uri = `${GET_DEPLOYED_DEPARTURES}/${clientID}`
+Deployed.getDepartures = (clientId) => {
+  const uri = `${GET_DEPLOYED_DEPARTURES}/${clientId}`
   return rp({uri, json: true}).then(response => {
     console.log('get deployed departures returned')
     console.log(response)
