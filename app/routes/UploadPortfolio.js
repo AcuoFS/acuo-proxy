@@ -23,10 +23,12 @@ const {
 
 // var upload = multer({dest: 'json/'})
 
-routerInstance.post('/', (req, res, next) => {
+routerInstance.post('/:clientID', (req, res, next) => {
   console.log('attempting upload portfolio')
 
   let form = new FormData();
+
+  const clientID = req.params.clientID
 
   console.log('preparing files to send')
   Object.keys(req.files).map(x => {
@@ -43,7 +45,7 @@ routerInstance.post('/', (req, res, next) => {
   }
 
   console.log('sending files')
-  UploadPortfolioService.postUpload(options)
+  UploadPortfolioService.postUpload(options, clientID)
     .then(response => res.send(response))
   console.log('response returned')
 })
@@ -51,7 +53,9 @@ routerInstance.post('/', (req, res, next) => {
 routerInstance.post('/request-valuation', (req, res, next) => {
   console.log('attempting portfolio valuation')
   console.log(req.body)
-  UploadPortfolioService.postRequestValuation(req.body)
+  const { clientID } = req.body
+  // console.log(clientID)
+  UploadPortfolioService.postRequestValuation(req.body, clientID)
     .then(response => {
       console.log('responding with :')
       console.log(JSON.parse(response.toJSON().body))
@@ -63,7 +67,9 @@ routerInstance.post('/request-valuation', (req, res, next) => {
 routerInstance.post('/request-margincalls', (req, res, next) => {
   console.log('attempting portfolio margin call generation')
   console.log(req.body)
-  UploadPortfolioService.postGenerateMarginCall(req.body)
+  const { clientID } = req.body
+
+  UploadPortfolioService.postGenerateMarginCall(req.body, clientID)
     .then(response => {
       console.log('responding with :')
       console.log(JSON.parse(response.toJSON().body))
@@ -80,7 +86,9 @@ routerInstance.post('/request-margincalls', (req, res, next) => {
 routerInstance.post('/send-margin-calls', (req, res, next) => {
   console.log('attempting to send margin calls')
   console.log(req.body)
-  UploadPortfolioService.postSendMarginCalls(req.body)
+  const { clientID } = req.body
+
+  UploadPortfolioService.postSendMarginCalls(req.body, clientID)
     .then(response => {
       console.log('responding with :')
       console.log(JSON.parse(response.toJSON().body))
