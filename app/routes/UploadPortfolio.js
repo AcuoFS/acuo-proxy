@@ -23,7 +23,7 @@ const {
 
 // var upload = multer({dest: 'json/'})
 
-routerInstance.post('/:clientID', (req, res, next) => {
+routerInstance.post('/uploadPortfolio/:clientID', (req, res, next) => {
   console.log('attempting upload portfolio')
 
   let form = new FormData();
@@ -52,10 +52,10 @@ routerInstance.post('/:clientID', (req, res, next) => {
 
 routerInstance.post('/request-valuation', (req, res, next) => {
   console.log('attempting portfolio valuation')
-  console.log(JSON.parse(req.body))
-  // const { clientID } = JSON.parse(req.body)
+  console.log(req.body)
+  const { clientID } = JSON.parse(req.body)
   // console.log(clientID)
-  UploadPortfolioService.postRequestValuation(req.body)
+  UploadPortfolioService.postRequestValuation(req.body, clientID)
     .then(response => {
       console.log('responding with :')
       console.log(JSON.parse(response.toJSON().body))
