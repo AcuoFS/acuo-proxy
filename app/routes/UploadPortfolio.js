@@ -53,7 +53,7 @@ routerInstance.post('/:clientID', (req, res, next) => {
 routerInstance.post('/request-valuation', (req, res, next) => {
   console.log('attempting portfolio valuation')
   console.log(req.body)
-  const { clientID } = req.body
+  const clientID = req.body.clientID
   // console.log(clientID)
   UploadPortfolioService.postRequestValuation(req.body, clientID)
     .then(response => {
