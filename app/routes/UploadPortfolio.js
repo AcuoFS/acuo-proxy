@@ -67,7 +67,7 @@ routerInstance.post('/request-valuation', (req, res, next) => {
 routerInstance.post('/request-margincalls', (req, res, next) => {
   console.log('attempting portfolio margin call generation')
   console.log(req.body)
-  const clientID = JSON.parse(req.body).clientID
+  const { clientID } = req.body
 
   UploadPortfolioService.postGenerateMarginCall(req.body, clientID)
     .then(response => {
@@ -86,7 +86,7 @@ routerInstance.post('/request-margincalls', (req, res, next) => {
 routerInstance.post('/send-margin-calls', (req, res, next) => {
   console.log('attempting to send margin calls')
   console.log(req.body)
-  const clientID = JSON.parse(req.body).clientID
+  const { clientID } = req.body
 
   UploadPortfolioService.postSendMarginCalls(req.body, clientID)
     .then(response => {
