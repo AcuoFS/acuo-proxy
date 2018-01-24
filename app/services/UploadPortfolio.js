@@ -55,7 +55,7 @@ UploadPortfolio.postGenerateMarginCall = (body, clientId) =>
 
 UploadPortfolio.postSendMarginCalls = (body, clientId) =>
   rp({
-    url: `${REQUEST_SEND_MARGIN_CALLS}/${clientId}`,
+    url: `${REQUEST_SEND_MARGIN_CALLS}`,
     method: 'POST',
     body: JSON.stringify(body),
     headers: {'content-type': 'application/json'},
