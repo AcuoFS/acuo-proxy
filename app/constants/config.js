@@ -27,9 +27,9 @@ var configJson = {
   POST_PLEDGE_SELECTIONS_URL: '<%= baseUrl %>collateral/acuo/api/optimization/allocate',
   POST_REMOVE_ALLOCATED_ASSET: '<%= baseUrl %>collateral/acuo/api/optimization/update',
   //valuation
-  POST_UPLOAD_PORTFOLIO: '<%= baseUrl %>valuation/acuo/api/upload/v1/clientId/',
-  REQUEST_VALUATION: '<%= baseUrl %>valuation/acuo/api/calls/split/portfolios/clientId/',
-  REQUEST_GENERATE_MARGINCALLS: '<%= baseUrl %>valuation/acuo/api/calls/generate/portfolios/clientId/',
+  POST_UPLOAD_PORTFOLIO: '<%= baseUrl %>valuation/acuo/api/upload/v1/clientId',
+  REQUEST_VALUATION: '<%= baseUrl %>valuation/acuo/api/calls/split/portfolios/clientId',
+  REQUEST_GENERATE_MARGINCALLS: '<%= baseUrl %>valuation/acuo/api/calls/generate/portfolios/clientId',
   //auth
   LOGIN_URL: '<%= baseUrl %>auth/acuo/api/login/clientId/',
   //healthchecks
