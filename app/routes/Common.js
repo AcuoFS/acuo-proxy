@@ -72,8 +72,8 @@ routerInstance.post('/auth/login', (req, res, next) => {
   })
 })
 
-routerInstance.get('/get-currency', (req, res, next) => {
-  CommonService.getCurrencyInfo().then(response => {
+routerInstance.get('/get-currency/:clientId', (req, res, next) => {
+  CommonService.getCurrencyInfo(req.params.clientId).then(response => {
     console.log('response :')
     console.log(response)
     res.send(response)
