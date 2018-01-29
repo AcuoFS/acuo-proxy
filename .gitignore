@@ -9,3 +9,10 @@
 
 # log file
 /*.log
+
+# build files
+dist/
+build/
+
+# misc files
+confluence/

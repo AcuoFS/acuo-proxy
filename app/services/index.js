@@ -6,6 +6,7 @@ const UnmatchedPortfolioService = require('./UnmatchedPortfolio')
 const CommonService = require('./Common')
 const UploadPortfolioService = require('./UploadPortfolio')
 const DeployedService = require('./Deployed')
+const AnalyticsService = require('./Analytics')
 
 module.exports = {
   DashboardService,
@@ -15,5 +16,6 @@ module.exports = {
   UnmatchedPortfolioService,
   CommonService,
   UploadPortfolioService,
-  DeployedService
+  DeployedService,
+  AnalyticsService
 }
