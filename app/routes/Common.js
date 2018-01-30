@@ -70,7 +70,8 @@ routerInstance.post('/auth/login', (req, res, next) => {
   const { user, pass } = req.body
   CommonService.login(user, pass).then(response => {
     // console.log(response)
-    res.send({clientId: response})
+    res.header("authorization", response.headers.authorization);
+    res.send({clientId: response.body})
   })
 })
 

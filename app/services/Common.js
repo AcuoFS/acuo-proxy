@@ -62,7 +62,7 @@ Common.login = (user, pass) =>
     json: true,
     resolveWithFullResponse: true
   }).then(response => {
-    console.log(response.headers)
+    // console.log(response.headers)
     console.log('login return response')
     return response
   })
