@@ -61,6 +61,7 @@ Common.login = (user, pass) =>
     },
     json: true
   }).then(response => {
+    console.log(response)
     console.log('login return response')
     return response
   })
