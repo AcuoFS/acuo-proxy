@@ -198,7 +198,7 @@ routerInstance.get('/new/:clientId', (req, res, next) => {
   ]).then(data => {
     console.log('recon URLs resolved')
     console.log(data)
-    const [recon, disputes, currencyInfo] = data
+    const [recon, disputes, currencyInfo] = data.body
 
     const newData = _.map(recon, (item) =>
       _.chain(item)
@@ -234,6 +234,7 @@ routerInstance.get('/new/:clientId', (req, res, next) => {
     console.log('responding with: ----------')
     console.log(compositeData)
     console.log('---------------------------')
+    res.header("authorization", data.headers.authorization)
     res.json(compositeData)
     console.log('recon responded')
   }).catch(err => {
@@ -259,6 +260,7 @@ routerInstance.get('/disputes/:clientId', (req, res, next) => {
     console.log('responding with: ----------')
     console.log({items: data})
     console.log('---------------------------')
+    res.header("authorization", data.headers.authorization)
     res.json({items: data})
     console.log('recon disputes responded')
   }).catch(err => {
@@ -287,6 +289,7 @@ routerInstance.post('/disputeStatement', (req, res, next) => {
     console.log('responding with: ----------')
     console.log(data)
     console.log('---------------------------')
+    res.header("authorization", data.headers.authorization)
     res.send(data)
     console.log('posting dispute responded')
   }).catch(err => {
@@ -310,6 +313,7 @@ routerInstance.post('/reconcile/', (req, res, next) => {
     console.log(data)
     console.log('---------------------------' +
       '')
+    res.header("authorization", data.headers.authorization)
     res.send(data)
     console.log('posting reconcile responded')
   }).catch(err => {

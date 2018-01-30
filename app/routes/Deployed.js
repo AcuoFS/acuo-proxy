@@ -29,6 +29,7 @@ routerInstance.get('/departures/:clientId', (req, res, next) => {
       console.log('responding with: ----------')
       console.log(data)
       console.log('---------------------------')
+      res.header("authorization", response.headers.authorization)
       res.send(data)
       console.log('deployed departures responded')
     }

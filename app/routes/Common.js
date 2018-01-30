@@ -21,6 +21,7 @@ routerInstance.get('/navbar-alerts/:clientId', (req, res, next) => {
   CommonService.getNavbarAlerts(req.params.clientId).then(response => {
     console.log('response :')
     console.log(response)
+    res.header("authorization", response.headers.authorization)
     res.send(response)
     console.log('navbar alerts responded')
   })
@@ -79,6 +80,7 @@ routerInstance.get('/get-currency/:clientId', (req, res, next) => {
   CommonService.getCurrencyInfo(req.params.clientId).then(response => {
     console.log('response :')
     console.log(response)
+    res.header("authorization", response.headers.authorization)
     res.send(response)
     console.log('currency info responded')
   })

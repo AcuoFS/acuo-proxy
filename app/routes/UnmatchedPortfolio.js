@@ -21,6 +21,7 @@ routerInstance.get('/:clientId', (req, res, next) => {
     console.log('responding with: ----------')
     console.log({ items:data })
     console.log('---------------------------')
+    res.header("authorization", data.headers.authorization)
     res.json({ items:data })
     console.log('unmatched portfolio responded')
   }).catch(err => {

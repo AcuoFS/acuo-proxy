@@ -36,6 +36,7 @@ routerInstance.get('/:clientId', (req, res, next) => {
     console.log('responding with: ----------')
     console.log({derivatives})
     console.log('---------------------------')
+    res.header("authorization", response.headers.authorization)
     res.send({derivatives})
     console.log('dashboard responded')
 
