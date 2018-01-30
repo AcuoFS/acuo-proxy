@@ -31,7 +31,7 @@ var configJson = {
   REQUEST_VALUATION: '<%= baseUrl %>valuation/acuo/api/calls/split/portfolios/clientId',
   REQUEST_GENERATE_MARGINCALLS: '<%= baseUrl %>valuation/acuo/api/calls/generate/portfolios/clientId',
   //auth
-  LOGIN_URL: '<%= baseUrl %>auth/acuo/api/login/clientId/',
+  LOGIN_URL: '<%= baseUrl %>auth/acuo/api/login',
   //healthchecks
   MARGIN_HEALTH_CHECK: '<%= baseUrl %>margin/acuo/admin/ping',
   VALUATION_HEALTH_CHECK: '<%= baseUrl %>valuation/acuo/admin/ping',

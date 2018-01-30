@@ -66,11 +66,8 @@ routerInstance.get('/throw-500', (req, res, next) => {
 routerInstance.post('/auth/login', (req, res, next) => {
   console.log('attempting login')
   // console.log(req.body)
-  console.log(req)
-  const { user, pass } = req.body
 
-  console.log(user)
-  console.log(pass)
+  const { user, pass } = req.body
   CommonService.login(user, pass).then(response => {
     res.send({clientId: response})
   })

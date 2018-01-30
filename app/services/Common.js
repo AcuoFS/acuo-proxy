@@ -51,9 +51,20 @@ Common.collateralConnectivity = () => {
 }
 
 Common.login = (user, pass) =>
-  rp({uri: LOGIN_URL + user + '/' + pass}).then(response => {
+  rp({
+    method: 'POST',
+    headers: {'content-type': 'application/json'},
+    uri: LOGIN_URL,
+    body: {
+      "userName" : user,
+      "password" : pass
+    },
+    json: true
+  }).then(response => {
     console.log('login return response')
     return response
   })
+
+
 
 module.exports = Common
