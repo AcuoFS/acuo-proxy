@@ -9,7 +9,7 @@ const UnmatchedPortfolio = {}
 
 UnmatchedPortfolio.get = (clientId) => {
   const uri = `${GET_UNMATCHED_URL}/${clientId}`
-  return rp({uri, json: true}).then(response => {
+  return rp({uri, json: true, resolveWithFullResponse: true}).then(response => {
     console.log('unmatched portfolio returned')
     return response
   })

@@ -20,7 +20,7 @@ const Pledge = {}
 //
 Pledge.getOptimisation = (clientId) => {
   const uri = `${GET_OPTIMISATION_URL}/${clientId}`
-  return rp({uri, json: true})
+  return rp({uri, json: true, resolveWithFullResponse: true})
 }
 
 Pledge.getInitCollateral = () => new Promise(resolve => {
@@ -30,7 +30,7 @@ Pledge.getInitCollateral = () => new Promise(resolve => {
 
 Pledge.getInitSelection = (clientId) => {
   const uri = `${GET_PLEDGE_SELECTIONS_URL}/${clientId}`
-  return rp({uri, json: true})
+  return rp({uri, json: true, resolveWithFullResponse: true})
 }
 
 Pledge.getAllocatedAssets = (clientId) => new Promise (resolve => {
@@ -74,7 +74,8 @@ Pledge.postSelection = (reqBody) => {
     headers: {'content-type': 'application/json'},
     uri: POST_PLEDGE_SELECTIONS_URL,
     body: reqBody,
-    json: true
+    json: true,
+    resolveWithFullResponse: true
   }).then(response => {
     console.log('post selection returned')
     return response
@@ -87,7 +88,8 @@ Pledge.postRemoveAllocated = (reqBody) => {
     headers: {'content-type': 'application/json'},
     uri: POST_REMOVE_ALLOCATED_ASSET,
     body: reqBody,
-    json: true
+    json: true,
+    resolveWithFullResponse: true
   }).then(response => {
     console.log('post remove allocated returned')
     return response
@@ -111,12 +113,12 @@ Pledge.postPledgeAllocation = (reqBody) => {
 
 Pledge.asset = (clientId) => {
   const uri = `${GET_COLLATERAL_URL}/${clientId}`
-  return rp({uri, json: true})
+  return rp({uri, json: true, resolveWithFullResponse: true})
 }
 
 Pledge.earmarked = (clientId) => {
   const uri = `${GET_EARMARKED_COLLATERAL_URL}/${clientId}`
-  return rp({uri, json: true})
+  return rp({uri, json: true, resolveWithFullResponse: true})
 }
 
 Pledge.allocateSelection = () => new Promise(resolve => {

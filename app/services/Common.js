@@ -15,7 +15,7 @@ const Common = {}
 
 Common.getCurrencyInfo = (clientId) => {
   const uri = `${GET_CURRENCY_INFO_URL}/${clientId}`
-  return rp({uri, json: true}).then(response => {
+  return rp({uri, json: true, resolveWithFullResponse: true}).then(response => {
     console.log('currency info returned')
     return response
   })
@@ -23,7 +23,7 @@ Common.getCurrencyInfo = (clientId) => {
 
 Common.getNavbarAlerts = (clientId) => {
   const uri = `${GET_NAVBAR_ALERTS}/${clientId}`
-  return rp({uri, json: true}).then(response => {
+  return rp({uri, json: true, resolveWithFullResponse: true}).then(response => {
     console.log('navbar alerts returned')
     return response
   })
