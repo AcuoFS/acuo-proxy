@@ -28,7 +28,7 @@ routerInstance.post('/remove-allocated-asset', (req, res, next) => {
   ]).then(data => {
     // hit backend
     console.log('removing allocated asset all URLs resolved')
-    const [selectionItems, {allocated}] = data
+    const [selectionItems, {allocated}] = data.body
 
     const processedItems = _.map(selectionItems, (item) => _.set(item, 'clientAssets', _.filter(item.clientAssets, (group) => group.data.length))).map(selectionItem => {
         _.forOwn(allocated, (allocatedInfo, allocatedGUID) => {
@@ -67,7 +67,7 @@ routerInstance.get('/optimization/:clientId', (req, res, next) => {
     // hit backend
     console.log('optimization resolved')
     //FsCacheService.set({key, data: items})
-    res.header("authorization", items.headers.authorization)
+    // res.header("authorization", items.headers.authorization)
     res.json({items})
     console.log('optimization returned')
 
@@ -93,7 +93,7 @@ routerInstance.post('/allocate-selection', (req, res, next) => {
     // hit backend
     console.log('allocation URLs resolved')
     console.log(data)
-    const [caseCode, items, {items: assets}] = data
+    const [caseCode, items, {items: assets}] = data.body
 
     const processedItems = items.map(item => (guids.includes(item.GUID)
         // if item is in request list, then allocate assets to it
@@ -146,7 +146,7 @@ routerInstance.post('/allocate-selection-new', (req, res, next) => {
     console.log('responding with: ----------')
     console.log({items: processedItems})
     console.log('---------------------------')
-    res.header("authorization", data.headers.authorization)
+    // res.header("authorization", data.headers.authorization)
     res.send({items: processedItems})
     console.log('allocate selection new responded')
   }).catch(err => {
@@ -161,8 +161,8 @@ routerInstance.post('/pledge-allocation', (req, res, next) => {
 
   // forwards reponse from endpoint
   PledgeService.postPledgeAllocation(pledgeReq).then(response => {
-    res.header("authorization", response.headers.authorization)
-    res.send(response)
+    // res.header("authorization", response.headers.authorization)
+    res.send(response.body)
   })
 })
 
@@ -210,7 +210,7 @@ routerInstance.get('/init-selection/:clientId', (req, res, next) => {
     console.log('responding with: ----------')
     console.log({items: newData})
     console.log('---------------------------')
-    res.header("authorization", data.headers.authorization)
+    // res.header("authorization", data.headers.authorization)
     res.send({items: newData})
     console.log('selection responded')
   }).catch(err => {
@@ -228,7 +228,7 @@ routerInstance.get('/init-collateral/:clientId', (req, res, next) => {
       console.log('responding with: ----------')
       console.log(data.body)
       console.log('---------------------------')
-      res.header("authorization", data.headers.authorization)
+      // res.header("authorization", data.headers.authorization)
       res.send(data.body)
       console.log('collateral responded')
     }
@@ -269,7 +269,7 @@ routerInstance.get('/init-new-collateral/:clientId', (req, res, next) => {
     console.log('responding with: ----------')
     console.log({items: assets})
     console.log('---------------------------')
-    res.header("authorization", data.headers.authorization)
+    // res.header("authorization", data.headers.authorization)
     res.send({items: assets})
     console.log('new collateral returned')
   }).catch(err => {

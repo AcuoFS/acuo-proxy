@@ -21,7 +21,7 @@ routerInstance.get('/:clientId', (req, res, next) => {
   DashboardService.get(req.params.clientId).then(data => {
     // hit backend
     console.log('dashboard URL resolved')
-    let { derivatives } = data
+    let { derivatives } = data.body
 
     derivatives = _.map(derivatives, (derivative => {
       return _.set(derivative, 'marginStatus', _.filter(derivative.marginStatus, (margin => {
@@ -36,7 +36,7 @@ routerInstance.get('/:clientId', (req, res, next) => {
     console.log('responding with: ----------')
     console.log({derivatives})
     console.log('---------------------------')
-    res.header("authorization", response.headers.authorization)
+    // res.header("authorization", response.headers.authorization)
     res.send({derivatives})
     console.log('dashboard responded')
 

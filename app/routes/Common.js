@@ -80,8 +80,8 @@ routerInstance.get('/get-currency/:clientId', (req, res, next) => {
   CommonService.getCurrencyInfo(req.params.clientId).then(response => {
     console.log('response :')
     console.log(response)
-    res.header("authorization", response.headers.authorization)
-    res.send(response)
+    // res.header("authorization", response.headers.authorization)
+    res.send(response.body)
     console.log('currency info responded')
   })
 })

@@ -138,47 +138,47 @@ const checkTolerance = (item, parentID, id, amount, toleranceLevel, GUID, who) =
 /*********
 * DEPRECATED ROUTE
 * */
-routerInstance.get('/:clientId', (req, res, next) => {
-  const key = req.path()
-
-  ReconService.get(req.params.clientId).then(data => {
-
-    const newData = _.map(data, (item) =>
-      _.chain(item)
-        .set('clientAssets', _.map(_.filter(item.clientAssets, (group) => group.data.length), (group) =>
-          _.set(group, 'data', _.map(group.data, (firstLevel) =>
-            _.chain(firstLevel)
-              .set(['firstLevel', 'secondLevel'], _.map(firstLevel.firstLevel.secondLevel, (secondLevel) =>
-                _.chain(secondLevel)
-                  .set('parentIndex', firstLevel.firstLevel.id)
-                  .set('tolerance', checkTolerance(item, firstLevel.firstLevel.id, secondLevel.id, secondLevel.amount, item.tolerance, item.GUID, 'CLIENT'))))
-              .set(['firstLevel', 'secondLevelCount'], firstLevel.firstLevel.secondLevel.length)
-              .set(['firstLevel', 'GUID'], item.GUID)
-              .set(['firstLevel', 'tolerance'], (!firstLevel.firstLevel.secondLevel.length ? checkFirstLevelOnlyTolerance(item, firstLevel.firstLevel.id, firstLevel.firstLevel.amount, item.tolerance, item.GUID, 'CLIENT') : false))
-
-          ))))
-        .set('counterpartyAssets', _.map(_.filter(item.counterpartyAssets, (group) => group.data.length), (group) =>
-          _.set(group, 'data', _.map(group.data, (firstLevel) =>
-            _.chain(firstLevel)
-              .set(['firstLevel', 'secondLevel'], _.map(firstLevel.firstLevel.secondLevel, (secondLevel) =>
-                _.chain(secondLevel)
-                  .set('parentIndex', firstLevel.firstLevel.id)
-                  .set('tolerance', checkTolerance(item, firstLevel.firstLevel.id, secondLevel.id, secondLevel.amount, item.tolerance, item.GUID, 'COUNTERPARTY'))))
-              .set(['firstLevel', 'secondLevelCount'], firstLevel.firstLevel.secondLevel.length)
-              .set(['firstLevel', 'GUID'], item.GUID)
-              .set(['firstLevel', 'tolerance'], (!firstLevel.firstLevel.secondLevel.length ? checkFirstLevelOnlyTolerance(item, firstLevel.firstLevel.id, firstLevel.firstLevel.amount, item.tolerance, item.GUID, 'COUNTERPARTY') : false))
-
-          )))))
-
-    // FsCacheService.set({key, newData})
-    res.json({items: newData})
-  }).catch(err => {
-    // hit cache
-    // FsCacheService.get(key)
-    //   .then(items => res.json(_.set({items}, 'fromCache', true)))
-    //   .catch((error) => console.log('Error getting from cache: ' + error))
-  })
-})
+// routerInstance.get('/:clientId', (req, res, next) => {
+//   const key = req.path()
+//
+//   ReconService.get(req.params.clientId).then(data => {
+//
+//     const newData = _.map(data, (item) =>
+//       _.chain(item)
+//         .set('clientAssets', _.map(_.filter(item.clientAssets, (group) => group.data.length), (group) =>
+//           _.set(group, 'data', _.map(group.data, (firstLevel) =>
+//             _.chain(firstLevel)
+//               .set(['firstLevel', 'secondLevel'], _.map(firstLevel.firstLevel.secondLevel, (secondLevel) =>
+//                 _.chain(secondLevel)
+//                   .set('parentIndex', firstLevel.firstLevel.id)
+//                   .set('tolerance', checkTolerance(item, firstLevel.firstLevel.id, secondLevel.id, secondLevel.amount, item.tolerance, item.GUID, 'CLIENT'))))
+//               .set(['firstLevel', 'secondLevelCount'], firstLevel.firstLevel.secondLevel.length)
+//               .set(['firstLevel', 'GUID'], item.GUID)
+//               .set(['firstLevel', 'tolerance'], (!firstLevel.firstLevel.secondLevel.length ? checkFirstLevelOnlyTolerance(item, firstLevel.firstLevel.id, firstLevel.firstLevel.amount, item.tolerance, item.GUID, 'CLIENT') : false))
+//
+//           ))))
+//         .set('counterpartyAssets', _.map(_.filter(item.counterpartyAssets, (group) => group.data.length), (group) =>
+//           _.set(group, 'data', _.map(group.data, (firstLevel) =>
+//             _.chain(firstLevel)
+//               .set(['firstLevel', 'secondLevel'], _.map(firstLevel.firstLevel.secondLevel, (secondLevel) =>
+//                 _.chain(secondLevel)
+//                   .set('parentIndex', firstLevel.firstLevel.id)
+//                   .set('tolerance', checkTolerance(item, firstLevel.firstLevel.id, secondLevel.id, secondLevel.amount, item.tolerance, item.GUID, 'COUNTERPARTY'))))
+//               .set(['firstLevel', 'secondLevelCount'], firstLevel.firstLevel.secondLevel.length)
+//               .set(['firstLevel', 'GUID'], item.GUID)
+//               .set(['firstLevel', 'tolerance'], (!firstLevel.firstLevel.secondLevel.length ? checkFirstLevelOnlyTolerance(item, firstLevel.firstLevel.id, firstLevel.firstLevel.amount, item.tolerance, item.GUID, 'COUNTERPARTY') : false))
+//
+//           )))))
+//
+//     // FsCacheService.set({key, newData})
+//     res.json({items: newData})
+//   }).catch(err => {
+//     // hit cache
+//     // FsCacheService.get(key)
+//     //   .then(items => res.json(_.set({items}, 'fromCache', true)))
+//     //   .catch((error) => console.log('Error getting from cache: ' + error))
+//   })
+// })
 
 /**********
  * DEPRECATED ROUTE END
@@ -234,7 +234,7 @@ routerInstance.get('/new/:clientId', (req, res, next) => {
     console.log('responding with: ----------')
     console.log(compositeData)
     console.log('---------------------------')
-    res.header("authorization", data.headers.authorization)
+    // res.header("authorization", data.headers.authorization)
     res.json(compositeData)
     console.log('recon responded')
   }).catch(err => {
@@ -258,10 +258,10 @@ routerInstance.get('/disputes/:clientId', (req, res, next) => {
     //FsCacheService.set({key, data})
     console.log('recon disputes URL resolved')
     console.log('responding with: ----------')
-    console.log({items: data})
+    console.log({items: data.body})
     console.log('---------------------------')
-    res.header("authorization", data.headers.authorization)
-    res.json({items: data})
+    // res.header("authorization", data.headers.authorization)
+    res.json({items: data.body})
     console.log('recon disputes responded')
   }).catch(err => {
     // hit cache
@@ -289,7 +289,7 @@ routerInstance.post('/disputeStatement', (req, res, next) => {
     console.log('responding with: ----------')
     console.log(data)
     console.log('---------------------------')
-    res.header("authorization", data.headers.authorization)
+    // res.header("authorization", data.headers.authorization)
     res.send(data)
     console.log('posting dispute responded')
   }).catch(err => {
@@ -313,7 +313,7 @@ routerInstance.post('/reconcile/', (req, res, next) => {
     console.log(data)
     console.log('---------------------------' +
       '')
-    res.header("authorization", data.headers.authorization)
+    // res.header("authorization", data.headers.authorization)
     res.send(data)
     console.log('posting reconcile responded')
   }).catch(err => {

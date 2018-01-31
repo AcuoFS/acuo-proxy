@@ -47,7 +47,7 @@ routerInstance.post('/uploadPortfolio/:clientId', (req, res, next) => {
   console.log('sending files')
   UploadPortfolioService.postUpload(options, clientId)
     .then(response => {
-      res.header("authorization", response.headers.authorization)
+      // res.header("authorization", response.headers.authorization)
       res.send(response)
     })
   console.log('response returned')
@@ -63,7 +63,7 @@ routerInstance.post('/request-valuation', (req, res, next) => {
       console.log('responding with :')
       console.log(response.body)
       console.log(JSON.parse(response.toJSON().body))
-      res.header("authorization", response.headers.authorization)
+      // res.header("authorization", response.headers.authorization)
       res.send(JSON.parse(response.toJSON().body))
       console.log('response returned')
     })
@@ -78,7 +78,7 @@ routerInstance.post('/request-margincalls', (req, res, next) => {
     .then(response => {
       console.log('responding with :')
       console.log(JSON.parse(response.toJSON().body))
-      res.header("authorization", response.headers.authorization)
+      // res.header("authorization", response.headers.authorization)
       res.send(JSON.parse(response.toJSON().body))
       console.log('response returned')
     })
@@ -98,7 +98,7 @@ routerInstance.post('/send-margin-calls', (req, res, next) => {
     .then(response => {
       console.log('responding with :')
       console.log(JSON.parse(response.toJSON().body))
-      res.header("authorization", response.headers.authorization)
+      // res.header("authorization", response.headers.authorization)
       res.send(JSON.parse(response.toJSON().body))
       console.log('response returned')
     })
