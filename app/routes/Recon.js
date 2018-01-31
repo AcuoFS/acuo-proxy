@@ -287,10 +287,10 @@ routerInstance.post('/disputeStatement', (req, res, next) => {
   ReconService.postReconDispute(objToSend).then(data => {
     console.log('posting dispute resolved')
     console.log('responding with: ----------')
-    console.log(data)
+    console.log(data.body)
     console.log('---------------------------')
     // res.header("authorization", data.headers.authorization)
-    res.send(data)
+    res.send(data.body)
     console.log('posting dispute responded')
   }).catch(err => {
     console.log('posting dispute URL did not resolve')

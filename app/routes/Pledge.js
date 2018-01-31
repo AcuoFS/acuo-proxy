@@ -69,7 +69,7 @@ routerInstance.get('/optimization/:clientId', (req, res, next) => {
     console.log('optimization resolved')
     //FsCacheService.set({key, data: items})
     // res.header("authorization", items.headers.authorization)
-    res.json({items})
+    res.json({items: items.body})
     console.log('optimization returned')
 
   }).catch(err => {
