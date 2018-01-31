@@ -6,7 +6,8 @@ const {
   MARGIN_HEALTH_CHECK,
   VALUATION_HEALTH_CHECK,
   COLLATERAL_HEALTH_CHECK,
-  LOGIN_URL
+  LOGIN_URL,
+  GET_VALIDATE_AUTH_TOKEN
 } = config
 
 const rp = require('request-promise')
@@ -70,6 +71,7 @@ Common.login = (user, pass) =>
 Common.authTokenValidation = (token) => {
   rp({
     method: 'GET',
+    uri: GET_VALIDATE_AUTH_TOKEN,
     headers: {
       authorization: token
     },
@@ -77,6 +79,7 @@ Common.authTokenValidation = (token) => {
     resolveWithFullResponse: true
   }).then(response => {
     console.log(response)
+    return response
   })
 }
 

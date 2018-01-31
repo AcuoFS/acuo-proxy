@@ -21,7 +21,7 @@ routerInstance.get('/navbar-alerts/:clientId', (req, res, next) => {
   // console.log(req.headers.authorization)
 
   console.log('/******* AUTH *******/')
-  CommonService.authTokenValidation(req.headers.authorization)
+  CommonService.authTokenValidation(req.headers.authorization).then(response => response)
   console.log('/******* AUTH END *******/')
 
   CommonService.getNavbarAlerts(req.params.clientId).then(response => {

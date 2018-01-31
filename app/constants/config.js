@@ -39,7 +39,10 @@ var configJson = {
   REQUEST_SEND_MARGIN_CALLS: '<%= baseUrl %>margin/acuo/api/margin/send/calls',
   //analytics
   GET_ANALYTICS_TEST_CLIENT: '<%= baseUrl %>analytics/analytics',
-  GET_ANALYTICS_TEST_CPTY: '<%= baseUrl %>analytics/analytics/cpty'
+  GET_ANALYTICS_TEST_CPTY: '<%= baseUrl %>analytics/analytics/cpty',
+  //auth token
+  GET_VALIDATE_AUTH_TOKEN: '<%= baseUrl %>auth/acuo/api/validate',
+  GET_INVALIDATE_AUTH_TOKEN: '<%= baseUrl %>auth/acuo/api/logout'
 };
 
 /**
