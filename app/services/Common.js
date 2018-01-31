@@ -67,7 +67,7 @@ Common.login = (user, pass) =>
     // console.log(response.headers)
     console.log('login return response')
     return response
-  })
+  }).catch(err => err)
 
 Common.authTokenValidation = (token) =>
   rp({
