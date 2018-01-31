@@ -73,7 +73,7 @@ Common.authTokenValidation = (token) => {
     method: 'GET',
     uri: GET_VALIDATE_AUTH_TOKEN,
     auth: {
-      bearer: token
+      'bearer': removeBearer(token)
     },
     json: true,
     resolveWithFullResponse: true
@@ -82,6 +82,10 @@ Common.authTokenValidation = (token) => {
     return response
   }).catch(err => console.log(err))
 }
+
+const removeBearer = (token) =>
+  token.split('Bearer ')[0]
+
 
 
 module.exports = Common
