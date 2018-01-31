@@ -84,7 +84,7 @@ Common.authTokenValidation = (token) => {
 }
 
 const removeBearer = (token) =>
-  token.split('Bearer ')[0]
+  token.split('Bearer ')[1]
 
 
 
