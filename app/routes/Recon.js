@@ -303,6 +303,7 @@ routerInstance.post('/reconcile/', (req, res, next) => {
   // forwards response from endpoint
   console.log('**** ========= ****')
   console.log('posting reconcile')
+  console.log(req.body)
   const params = JSON.parse(req.body).params
   // const clientId = JSON.parse(req.body).clientId
   console.log('params: ' + params)
