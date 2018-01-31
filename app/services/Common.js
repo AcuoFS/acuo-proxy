@@ -7,7 +7,8 @@ const {
   VALUATION_HEALTH_CHECK,
   COLLATERAL_HEALTH_CHECK,
   LOGIN_URL,
-  GET_VALIDATE_AUTH_TOKEN
+  GET_VALIDATE_AUTH_TOKEN,
+  GET_INVALIDATE_AUTH_TOKEN
 } = config
 
 const rp = require('request-promise')
