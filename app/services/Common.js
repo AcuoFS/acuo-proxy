@@ -81,7 +81,10 @@ Common.authTokenValidation = (token) =>
   }).then(response => {
     console.log(response)
     return response
-  }).catch(err => console.log(err))
+  }).catch(err => {
+    console.log(err)
+    return err
+  })
 
 
 Common.authInvalidateToken = (token) =>
@@ -96,7 +99,10 @@ Common.authInvalidateToken = (token) =>
   }).then(response => {
     console.log(response)
     return response
-  }).catch(err => console.log(err))
+  }).catch(err => {
+    console.log(err)
+    return err
+  })
 
 
 const removeBearer = (token) =>
