@@ -18,6 +18,8 @@ routerInstance.get('/navbar-alerts/:clientId', (req, res, next) => {
   console.log('******** Navbar alerts ********')
   console.log('clientId :', req.params.clientId)
 
+  console.log(req.headers)
+
   CommonService.getNavbarAlerts(req.params.clientId).then(response => {
     console.log('response :')
     console.log(response)
