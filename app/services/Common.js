@@ -72,8 +72,8 @@ Common.authTokenValidation = (token) => {
   rp({
     method: 'GET',
     uri: GET_VALIDATE_AUTH_TOKEN,
-    headers: {
-      authorization: token
+    auth: {
+      bearer: token
     },
     json: true,
     resolveWithFullResponse: true
