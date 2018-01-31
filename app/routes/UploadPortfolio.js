@@ -40,8 +40,7 @@ routerInstance.post('/uploadPortfolio/:clientId', (req, res, next) => {
   const options = {
     method: 'POST',
     headers: form.getHeaders(),
-    body: form,
-    resolveWithFullResponse: true
+    body: form
   }
 
   console.log('sending files')
