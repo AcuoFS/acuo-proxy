@@ -20,17 +20,17 @@ routerInstance.get('/navbar-alerts/:clientId', (req, res, next) => {
 
   // console.log(req.headers.authorization)
 
-  console.log('/******* AUTH *******/')
-  CommonService.authTokenValidation(req.headers.authorization).then(response => response)
-  console.log('/******* AUTH END *******/')
-
-  CommonService.getNavbarAlerts(req.params.clientId).then(response => {
-    console.log('response :')
-    console.log(response)
-    // res.header("authorization", response.headers.authorization)
-    res.send(response.body)
-    console.log('navbar alerts responded')
-  })
+  // console.log('/******* AUTH *******/')
+  CommonService.authTokenValidation(req.headers.authorization).then(response =>
+  // console.log('/******* AUTH END *******/')
+    CommonService.getNavbarAlerts(req.params.clientId).then(response => {
+      console.log('response :')
+      console.log(response)
+      // res.header("authorization", response.headers.authorization)
+      res.send(response.body)
+      console.log('navbar alerts responded')
+    })
+  ).catch(err => res.send(401))
 })
 
 routerInstance.get('/margin-connectivity', (req, res, next) => {
@@ -93,13 +93,15 @@ routerInstance.post('/auth/login', (req, res, next) => {
 })
 
 routerInstance.get('/get-currency/:clientId', (req, res, next) => {
-  CommonService.getCurrencyInfo(req.params.clientId).then(response => {
-    console.log('response :')
-    console.log(response)
-    // res.header("authorization", response.headers.authorization)
-    res.send(response.body)
-    console.log('currency info responded')
-  })
+  CommonService.authTokenValidation(req.headers.authorization).then(response =>
+    CommonService.getCurrencyInfo(req.params.clientId).then(response => {
+      console.log('response :')
+      console.log(response)
+      // res.header("authorization", response.headers.authorization)
+      res.send(response.body)
+      console.log('currency info responded')
+    })
+  ).catch(err => res.send(401))
 })
 
 module.exports = ({server}) => routerInstance.applyRoutes(server, prefix)
