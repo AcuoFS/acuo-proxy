@@ -69,7 +69,7 @@ Common.login = (user, pass) =>
     return response
   })
 
-Common.authTokenValidation = (token) => {
+Common.authTokenValidation = (token) =>
   rp({
     method: 'GET',
     uri: GET_VALIDATE_AUTH_TOKEN,
@@ -82,9 +82,9 @@ Common.authTokenValidation = (token) => {
     console.log(response)
     return response
   }).catch(err => console.log(err))
-}
 
-Common.authInvalidateToken = (token) => {
+
+Common.authInvalidateToken = (token) =>
   rp({
     method: 'GET',
     uri: GET_INVALIDATE_AUTH_TOKEN,
@@ -97,7 +97,7 @@ Common.authInvalidateToken = (token) => {
     console.log(response)
     return response
   }).catch(err => console.log(err))
-}
+
 
 const removeBearer = (token) =>
   token.split('Bearer ')[1]

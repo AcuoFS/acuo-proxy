@@ -76,13 +76,20 @@ routerInstance.post('/auth/login', (req, res, next) => {
 
   const { user, pass } = req.body
 
-  CommonService.authInvalidateToken(req.headers.authorization).then(response =>
+  if(req.headers.authorization)
+    CommonService.authInvalidateToken(req.headers.authorization).then(response =>
+      CommonService.login(user, pass).then(response => {
+        // console.log(response)
+        res.header("authorization", response.headers.authorization)
+        res.send({clientId: response.body})
+      })
+    )
+  else
     CommonService.login(user, pass).then(response => {
       // console.log(response)
       res.header("authorization", response.headers.authorization)
       res.send({clientId: response.body})
     })
-  )
 })
 
 routerInstance.get('/get-currency/:clientId', (req, res, next) => {
