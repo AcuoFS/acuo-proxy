@@ -67,6 +67,18 @@ Common.login = (user, pass) =>
     return response
   })
 
+Common.authTokenValidation = (token) => {
+  rp({
+    method: 'GET',
+    headers: {
+      authorization: token
+    },
+    json: true,
+    resolveWithFullResponse: true
+  }).then(response => {
+    console.log(response)
+  })
+}
 
 
 module.exports = Common
