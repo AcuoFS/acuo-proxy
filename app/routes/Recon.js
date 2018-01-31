@@ -303,19 +303,19 @@ routerInstance.post('/reconcile/', (req, res, next) => {
   // forwards response from endpoint
   console.log('**** ========= ****')
   console.log('posting reconcile')
-  console.log(req.body)
-  const params = JSON.parse(req.body).params
+  // console.log(req.body)
+  const params = req.body.params
   // const clientId = JSON.parse(req.body).clientId
   console.log('params: ' + params)
 
   ReconService.getReconcile(params).then(data => {
     console.log('posting reconcile resolved')
     console.log('responding with: ----------')
-    console.log(data)
+    console.log(data.body)
     console.log('---------------------------' +
       '')
     // res.header("authorization", data.headers.authorization)
-    res.send(data)
+    res.send(data.body)
     console.log('posting reconcile responded')
   }).catch(err => {
     console.log('posting reconcile URL did not resolve')
