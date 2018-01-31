@@ -83,6 +83,21 @@ Common.authTokenValidation = (token) => {
   }).catch(err => console.log(err))
 }
 
+Common.authInvalidateToken = (token) => {
+  rp({
+    method: 'GET',
+    uri: GET_INVALIDATE_AUTH_TOKEN,
+    auth: {
+      'bearer': removeBearer(token)
+    },
+    json: true,
+    resolveWithFullResponse: true
+  }).then(response => {
+    console.log(response)
+    return response
+  }).catch(err => console.log(err))
+}
+
 const removeBearer = (token) =>
   token.split('Bearer ')[1]
 
