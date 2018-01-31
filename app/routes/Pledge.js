@@ -28,9 +28,10 @@ routerInstance.post('/remove-allocated-asset', (req, res, next) => {
   ]).then(data => {
     // hit backend
     console.log('removing allocated asset all URLs resolved')
-    const [selectionItems, {allocated}] = data.body
+    const [selectionItems, allocatedRes] = data
+    const { allocated } = allocatedRes.body
 
-    const processedItems = _.map(selectionItems, (item) => _.set(item, 'clientAssets', _.filter(item.clientAssets, (group) => group.data.length))).map(selectionItem => {
+    const processedItems = _.map(selectionItems.body, (item) => _.set(item, 'clientAssets', _.filter(item.clientAssets, (group) => group.data.length))).map(selectionItem => {
         _.forOwn(allocated, (allocatedInfo, allocatedGUID) => {
           if (selectionItem.GUID == allocatedGUID) {
             //console.log(allocatedInfo)
@@ -93,11 +94,12 @@ routerInstance.post('/allocate-selection', (req, res, next) => {
     // hit backend
     console.log('allocation URLs resolved')
     console.log(data)
-    const [caseCode, items, {items: assets}] = data.body
+    const [caseCode, items, assetsRes] = data
+    const {items: assets} = assetsRes.body
 
-    const processedItems = items.map(item => (guids.includes(item.GUID)
+    const processedItems = items.body.map(item => (guids.includes(item.GUID)
         // if item is in request list, then allocate assets to it
-        ? PledgeService.allocateAssets(item, caseCode, assets)
+        ? PledgeService.allocateAssets(item, caseCode.body, assets)
         // if item is not in request list, just return it
         : item
     ))
@@ -127,11 +129,12 @@ routerInstance.post('/allocate-selection-new', (req, res, next) => {
   ]).then(data => {
     console.log('allocate selection new URLs resolved')
     console.log(data)
-    const [selectionItems, {allocated}] = data.body
+    const [selectionItems, allocatedRes] = data
+    const { allocated } = allocatedRes.body
     // console.log('data: ' + JSON.stringify(data))
     // console.log('allocated: ' + JSON.stringify(allocated))
     //console.log(JSON.stringify(_.map(selectionItems, (item) => _.set(item, 'clientAssets', _.filter(item.clientAssets, (group) => group.data.length)))))
-    const processedItems = _.map(selectionItems, (item) => _.set(item, 'clientAssets', _.filter(item.clientAssets, (group) => group.data.length))).map(selectionItem => {
+    const processedItems = _.map(selectionItems.body, (item) => _.set(item, 'clientAssets', _.filter(item.clientAssets, (group) => group.data.length))).map(selectionItem => {
         _.forOwn(allocated, (allocatedInfo, allocatedGUID) => {
           if (selectionItem.GUID == allocatedGUID) {
             //console.log(allocatedInfo)
@@ -246,9 +249,10 @@ routerInstance.get('/init-new-collateral/:clientId', (req, res, next) => {
   ]).then(data => {
     // hit backend
     console.log('new collateral URLs resolved')
-    const [detailedAssets, {earmarked}] = data.body
+    const [detailedAssets, earmarkedRes] = data
+    const { earmarked } = earmarkedRes.body
 
-    const listOfAllAssets = _(detailedAssets).values().reduce((all, one) => {
+    const listOfAllAssets = _(detailedAssets.body).values().reduce((all, one) => {
       return _.concat(all, one)
     }, []).map(asset => {
       const filter = _.pick(asset, ['assetId', 'assetIdType'])

@@ -197,10 +197,10 @@ routerInstance.get('/new/:clientId', (req, res, next) => {
     CommonService.getCurrencyInfo(clientId)
   ]).then(data => {
     console.log('recon URLs resolved')
-    console.log(data)
-    const [recon, disputes, currencyInfo] = data.body
+    console.log(data.body)
+    const [recon, disputes, currencyInfo] = data
 
-    const newData = _.map(recon, (item) =>
+    const newData = _.map(recon.body, (item) =>
       _.chain(item)
         .set('clientAssets', _.map(_.filter(item.clientAssets, (group) => group.data.length), (group) =>
           _.set(group, 'data', _.map(group.data, (firstLevel) =>
@@ -225,10 +225,10 @@ routerInstance.get('/new/:clientId', (req, res, next) => {
               .set(['firstLevel', 'tolerance'], (!firstLevel.firstLevel.secondLevel.length ? checkFirstLevelOnlyTolerance(item, firstLevel.firstLevel.id, firstLevel.firstLevel.amount, item.tolerance, item.GUID, 'COUNTERPARTY') : false))
           ))))
         // Add disputes info
-        .set('disputeInfo', (_.filter(disputes, disputeItem => (item.GUID === disputeItem.msId))[0] || {}))
+        .set('disputeInfo', (_.filter(disputes.body, disputeItem => (item.GUID === disputeItem.msId))[0] || {}))
     )
 
-    const compositeData = {items: newData, currencyInfo: currencyInfo}
+    const compositeData = {items: newData, currencyInfo: currencyInfo.body}
 
     //FsCacheService.set({key, compositeData})
     console.log('responding with: ----------')
