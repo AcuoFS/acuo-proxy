@@ -131,6 +131,8 @@ routerInstance.post('/allocate-selection-new', (req, res, next) => {
     console.log(data)
     const [selectionItems, allocatedRes] = data
     const { allocated } = allocatedRes.body
+
+    console.log(allocated)
     // console.log('data: ' + JSON.stringify(data))
     // console.log('allocated: ' + JSON.stringify(allocated))
     //console.log(JSON.stringify(_.map(selectionItems, (item) => _.set(item, 'clientAssets', _.filter(item.clientAssets, (group) => group.data.length)))))
