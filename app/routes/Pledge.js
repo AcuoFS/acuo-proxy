@@ -121,7 +121,7 @@ routerInstance.post('/allocate-selection-new', (req, res, next) => {
   console.log('**** ========= ****')
   console.log('posting allocate selection new')
   const key = req.path()
-  const {optimisationSettings, toBeAllocated, clientId} = JSON.parse(req.body)
+  const {optimisationSettings, toBeAllocated, clientId} = req.body
 
   Promise.all([
     PledgeService.getInitSelection(clientId),
