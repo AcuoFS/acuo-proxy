@@ -20,16 +20,19 @@ routerInstance.get('/navbar-alerts/:clientId', (req, res, next) => {
 
   // console.log(req.headers.authorization)
 
-  // console.log('/******* AUTH *******/')
-  CommonService.authTokenValidation(req.headers.authorization).then(response =>
-  // console.log('/******* AUTH END *******/')
-    CommonService.getNavbarAlerts(req.params.clientId).then(response => {
-      console.log('response :')
+  console.log('/******* AUTH *******/')
+  CommonService.authTokenValidation(req.headers.authorization).then(response => {
       console.log(response)
-      // res.header("authorization", response.headers.authorization)
-      res.send(response.body)
-      console.log('navbar alerts responded')
-    })
+      console.log('/******* AUTH END *******/')
+
+      CommonService.getNavbarAlerts(req.params.clientId).then(response => {
+        console.log('response :')
+        console.log(response)
+        // res.header("authorization", response.headers.authorization)
+        res.send(response.body)
+        console.log('navbar alerts responded')
+      })
+    }
   ).catch(err => res.send(401))
 })
 
