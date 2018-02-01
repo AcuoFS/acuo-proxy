@@ -2,7 +2,7 @@
 const Router = require('restify-router').Router
 const _ = require('lodash')
 // import services
-const { UnmatchedPortfolioService, FsCacheService } = require('../services')
+const { UnmatchedPortfolioService, CommonService } = require('../services')
 
 // main object
 const routerInstance = new Router()
@@ -15,15 +15,20 @@ routerInstance.get('/:clientId', (req, res, next) => {
   console.log('requesting unmatched portfolios')
   const key = req.path()
 
-  CommonService.authTokenValidation(req.headers.authorization).then(response =>
+  CommonService.authTokenValidation(req.headers.authorization).then(response => {
+    if(response.statusCode === 401){
+      console.log('****** SESSION EXPIRED *******')
+      res.send(401)
+    }
+
     UnmatchedPortfolioService.get(req.params.clientId).then(data => {
       console.log('unmatched portfolio URL resolved')
       // FsCacheService.set({key, data})
       console.log('responding with: ----------')
-      console.log({ items:data })
+      console.log({items: data})
       console.log('---------------------------')
       // res.header("authorization", data.headers.authorization)
-      res.json({ items:data })
+      res.json({items: data})
       console.log('unmatched portfolio responded')
     }).catch(err => {
       // hit cache
@@ -31,7 +36,7 @@ routerInstance.get('/:clientId', (req, res, next) => {
       console.log('unmatched portfolio URL did not resolve')
       console.log(err)
     })
-  ).catch(err => res.send(401))
+  }).catch(err => res.send(401))
 
 })
 

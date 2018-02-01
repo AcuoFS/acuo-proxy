@@ -20,10 +20,15 @@ routerInstance.get('/navbar-alerts/:clientId', (req, res, next) => {
 
   // console.log(req.headers.authorization)
 
-  console.log('/******* AUTH *******/')
+  // console.log('/******* AUTH *******/')
   CommonService.authTokenValidation(req.headers.authorization).then(response => {
-      console.log(response)
-      console.log('/******* AUTH END *******/')
+
+      if(response.statusCode === 401){
+        console.log('****** SESSION EXPIRED *******')
+        res.send(401)
+      }
+
+      // console.log('/******* AUTH END *******/')
 
       CommonService.getNavbarAlerts(req.params.clientId).then(response => {
         console.log('response :')
@@ -98,7 +103,12 @@ routerInstance.post('/auth/login', (req, res, next) => {
 })
 
 routerInstance.get('/get-currency/:clientId', (req, res, next) => {
-  CommonService.authTokenValidation(req.headers.authorization).then(response =>
+  CommonService.authTokenValidation(req.headers.authorization).then(response => {
+    if(response.statusCode === 401){
+      console.log('****** SESSION EXPIRED *******')
+      res.send(401)
+    }
+
     CommonService.getCurrencyInfo(req.params.clientId).then(response => {
       console.log('response :')
       console.log(response)
@@ -106,7 +116,7 @@ routerInstance.get('/get-currency/:clientId', (req, res, next) => {
       res.send(response.body)
       console.log('currency info responded')
     })
-  ).catch(err => res.send(401))
+  }).catch(err => res.send(401))
 })
 
 module.exports = ({server}) => routerInstance.applyRoutes(server, prefix)

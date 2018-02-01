@@ -25,7 +25,10 @@ routerInstance.get('/departures/:clientId', (req, res, next) => {
   console.log('requesting deployed departures')
   console.log('clientId :', req.params.clientId)
 
-  CommonService.authTokenValidation(req.headers.authorization).then(response =>
+  CommonService.authTokenValidation(req.headers.authorization).then(response => {
+    if(response.statusCode === 401)
+      res.send(401)
+
     DeployedService.getDepartures(req.params.clientId).then(data => {
         console.log('responding with: ----------')
         console.log(data.body)
@@ -35,7 +38,7 @@ routerInstance.get('/departures/:clientId', (req, res, next) => {
         console.log('deployed departures responded')
       }
     )
-  ).catch(err => res.send(401))
+  }).catch(err => res.send(401))
 
 })
 

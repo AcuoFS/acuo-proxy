@@ -22,7 +22,12 @@ routerInstance.post('/remove-allocated-asset', (req, res, next) => {
   const { clientId } = JSON.parse(json)
   console.log('clientId :', clientId)
 
-  CommonService.authTokenValidation(req.headers.authorization).then(response =>
+  CommonService.authTokenValidation(req.headers.authorization).then(response => {
+    if(response.statusCode === 401){
+      console.log('****** SESSION EXPIRED *******')
+      res.send(401)
+    }
+
     Promise.all([
       PledgeService.getInitSelection(clientId),
       PledgeService.postRemoveAllocated(json)
@@ -30,7 +35,7 @@ routerInstance.post('/remove-allocated-asset', (req, res, next) => {
       // hit backend
       console.log('removing allocated asset all URLs resolved')
       const [selectionItems, allocatedRes] = data
-      const { allocated } = allocatedRes.body
+      const {allocated} = allocatedRes.body
 
       const processedItems = _.map(selectionItems.body, (item) => _.set(item, 'clientAssets', _.filter(item.clientAssets, (group) => group.data.length))).map(selectionItem => {
           _.forOwn(allocated, (allocatedInfo, allocatedGUID) => {
@@ -56,7 +61,7 @@ routerInstance.post('/remove-allocated-asset', (req, res, next) => {
       console.log('removing allocated URL did not resolve')
       console.log(err)
     })
-  ).catch(err => res.send(401))
+  }).catch(err => res.send(401))
 
 })
 // ======================================================================
@@ -67,7 +72,12 @@ routerInstance.get('/optimization/:clientId', (req, res, next) => {
   const key = req.path()
   console.log('clientId :', req.params.clientId)
 
-  CommonService.authTokenValidation(req.headers.authorization).then(response =>
+  CommonService.authTokenValidation(req.headers.authorization).then(response => {
+    if (response.statusCode === 401) {
+      console.log('****** SESSION EXPIRED *******')
+      res.send(401)
+    }
+
     PledgeService.getOptimisation(req.params.clientId).then(items => {
       // hit backend
       console.log('optimization resolved')
@@ -82,7 +92,7 @@ routerInstance.get('/optimization/:clientId', (req, res, next) => {
       console.log('optimization URL did not resolve')
       console.log(err)
     })
-  ).catch(err => res.send(401))
+  }).catch(err => res.send(401))
 
 })
 
@@ -92,7 +102,12 @@ routerInstance.post('/allocate-selection', (req, res, next) => {
   const key = req.path()
   const {guids, optimisationSetting, clientId} = JSON.parse(req.body)
 
-  CommonService.authTokenValidation(req.headers.authorization).then(response =>
+  CommonService.authTokenValidation(req.headers.authorization).then(response => {
+    if (response.statusCode === 401) {
+      console.log('****** SESSION EXPIRED *******')
+      res.send(401)
+    }
+
     Promise.all([
       PledgeService.calculateCase(optimisationSetting),
       PledgeService.getInitSelection(clientId),
@@ -121,7 +136,7 @@ routerInstance.post('/allocate-selection', (req, res, next) => {
       console.log('allocation URL did not resolve')
       console.log(err)
     })
-  ).catch(err => res.send(401))
+  }).catch(err => res.send(401))
 
 })
 
@@ -132,7 +147,12 @@ routerInstance.post('/allocate-selection-new', (req, res, next) => {
   const key = req.path()
   const {optimisationSettings, toBeAllocated, clientId} = req.body
 
-  CommonService.authTokenValidation(req.headers.authorization).then(response =>
+  CommonService.authTokenValidation(req.headers.authorization).then(response => {
+    if(response.statusCode === 401){
+      console.log('****** SESSION EXPIRED *******')
+      res.send(401)
+    }
+
     Promise.all([
       PledgeService.getInitSelection(clientId),
       PledgeService.postSelection({optimisationSettings, toBeAllocated, clientId})
@@ -140,7 +160,7 @@ routerInstance.post('/allocate-selection-new', (req, res, next) => {
       console.log('allocate selection new URLs resolved')
       console.log(data)
       const [selectionItems, allocatedRes] = data
-      const { allocated } = allocatedRes.body
+      const {allocated} = allocatedRes.body
 
       console.log(allocated)
       // console.log('data: ' + JSON.stringify(data))
@@ -168,7 +188,7 @@ routerInstance.post('/allocate-selection-new', (req, res, next) => {
       console.log('allocate selection URL did not resolve')
       console.log(err)
     })
-  ).catch(err => res.send(401))
+  }).catch(err => res.send(401))
 
 })
 
@@ -176,13 +196,17 @@ routerInstance.post('/pledge-allocation', (req, res, next) => {
   console.log('posting pledge')
   const pledgeReq = req.body
 
-  CommonService.authTokenValidation(req.headers.authorization).then(response =>
+  CommonService.authTokenValidation(req.headers.authorization).then(response => {
+    if(response.statusCode === 401){
+      console.log('****** SESSION EXPIRED *******')
+      res.send(401)
+    }
 // forwards reponse from endpoint
-      PledgeService.postPledgeAllocation(pledgeReq).then(response => {
-        // res.header("authorization", response.headers.authorization)
-        res.send(response.body)
-      })
-  ).catch(err => res.send(401))
+    PledgeService.postPledgeAllocation(pledgeReq).then(response => {
+      // res.header("authorization", response.headers.authorization)
+      res.send(response.body)
+    })
+  }).catch(err => res.send(401))
 
 })
 
@@ -218,7 +242,12 @@ routerInstance.get('/init-selection/:clientId', (req, res, next) => {
   console.log('requesting selection')
   const key = req.path()
 
-  CommonService.authTokenValidation(req.headers.authorization).then(response =>
+  CommonService.authTokenValidation(req.headers.authorization).then(response => {
+    if(response.statusCode === 401){
+      console.log('****** SESSION EXPIRED *******')
+      res.send(401)
+    }
+
     PledgeService.getInitSelection(req.params.clientId).then(data => {
       console.log('**** ========= ****')
       console.log('selection URL resolved')
@@ -240,7 +269,7 @@ routerInstance.get('/init-selection/:clientId', (req, res, next) => {
       console.log('selection URL did not resolve')
       console.log(err)
     })
-  ).catch(err => res.send(401))
+  }).catch(err => res.send(401))
 
 })
 
@@ -248,7 +277,12 @@ routerInstance.get('/init-collateral/:clientId', (req, res, next) => {
   console.log('**** ========= ****')
   console.log('requesting collateral')
 
-  CommonService.authTokenValidation(req.headers.authorization).then(response =>
+  CommonService.authTokenValidation(req.headers.authorization).then(response => {
+    if(response.statusCode === 401){
+      console.log('****** SESSION EXPIRED *******')
+      res.send(401)
+    }
+
     PledgeService.getInitCollateral(req.params.clientId).then(data => {
         console.log('responding with: ----------')
         console.log(data.body)
@@ -258,7 +292,7 @@ routerInstance.get('/init-collateral/:clientId', (req, res, next) => {
         console.log('collateral responded')
       }
     )
-  ).catch(err => res.send(401))
+  }).catch(err => res.send(401))
 
 
 })
@@ -268,7 +302,12 @@ routerInstance.get('/init-new-collateral/:clientId', (req, res, next) => {
   console.log('requesting new collateral')
   const key = req.path()
 
-  CommonService.authTokenValidation(req.headers.authorization).then(response =>
+  CommonService.authTokenValidation(req.headers.authorization).then(response => {
+    if(response.statusCode === 401){
+      console.log('****** SESSION EXPIRED *******')
+      res.send(401)
+    }
+
     Promise.all([
       PledgeService.asset(req.params.clientId),
       PledgeService.earmarked(req.params.clientId)
@@ -276,7 +315,7 @@ routerInstance.get('/init-new-collateral/:clientId', (req, res, next) => {
       // hit backend
       console.log('new collateral URLs resolved')
       const [detailedAssets, earmarkedRes] = data
-      const { earmarked } = earmarkedRes.body
+      const {earmarked} = earmarkedRes.body
 
       const listOfAllAssets = _(detailedAssets.body).values().reduce((all, one) => {
         return _.concat(all, one)
@@ -308,7 +347,7 @@ routerInstance.get('/init-new-collateral/:clientId', (req, res, next) => {
       console.log('new collateral URL did not resolve')
       console.log(err)
     })
-  ).catch(err => res.send(401))
+  }).catch(err => res.send(401))
 
 })
 

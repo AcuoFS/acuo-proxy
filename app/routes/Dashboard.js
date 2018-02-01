@@ -17,12 +17,14 @@ routerInstance.get('/:clientId', (req, res, next) => {
   const key = req.path()
   console.log('clientId :', req.params.clientId)
 
-  CommonService.authTokenValidation(req.headers.authorization).then(response =>
+  CommonService.authTokenValidation(req.headers.authorization).then(response => {
+    if(response.statusCode === 401)
+      res.send(401)
 
     DashboardService.get(req.params.clientId).then(data => {
       // hit backend
       console.log('dashboard URL resolved')
-      let { derivatives } = data.body
+      let {derivatives} = data.body
 
       derivatives = _.map(derivatives, (derivative => {
         return _.set(derivative, 'marginStatus', _.filter(derivative.marginStatus, (margin => {
@@ -48,7 +50,7 @@ routerInstance.get('/:clientId', (req, res, next) => {
       console.log(err)
     })
 
-  ).catch(err => res.send(401))
+  }).catch(err => res.send(401))
 })
 
 

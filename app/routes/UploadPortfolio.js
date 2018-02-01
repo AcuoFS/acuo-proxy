@@ -46,14 +46,19 @@ routerInstance.post('/uploadPortfolio/:clientId', (req, res, next) => {
 
   console.log('sending files')
 
-  CommonService.authTokenValidation(req.headers.authorization).then(response =>
+  CommonService.authTokenValidation(req.headers.authorization).then(response => {
+    if(response.statusCode === 401){
+      console.log('****** SESSION EXPIRED *******')
+      res.send(401)
+    }
+
     UploadPortfolioService.postUpload(options, clientId)
       .then(response => {
         // res.header("authorization", response.headers.authorization)
         res.send(response)
         console.log('response returned')
       })
-  ).catch(err => res.send(401))
+  }).catch(err => res.send(401))
 })
 
 routerInstance.post('/request-valuation', (req, res, next) => {
@@ -62,7 +67,12 @@ routerInstance.post('/request-valuation', (req, res, next) => {
   const { clientId } = req.body
   // console.log(clientId)
 
-  CommonService.authTokenValidation(req.headers.authorization).then(response =>
+  CommonService.authTokenValidation(req.headers.authorization).then(response => {
+    if(response.statusCode === 401){
+      console.log('****** SESSION EXPIRED *******')
+      res.send(401)
+    }
+
     UploadPortfolioService.postRequestValuation(req.body, clientId)
       .then(response => {
         console.log('responding with :')
@@ -72,7 +82,7 @@ routerInstance.post('/request-valuation', (req, res, next) => {
         res.send(JSON.parse(response.toJSON().body))
         console.log('response returned')
       })
-  ).catch(err => res.send(401))
+  }).catch(err => res.send(401))
 
 })
 
@@ -81,7 +91,12 @@ routerInstance.post('/request-margincalls', (req, res, next) => {
   console.log(req.body)
   const { clientId } = req.body
 
-  CommonService.authTokenValidation(req.headers.authorization).then(response =>
+  CommonService.authTokenValidation(req.headers.authorization).then(response => {
+    if(response.statusCode === 401){
+      console.log('****** SESSION EXPIRED *******')
+      res.send(401)
+    }
+
     UploadPortfolioService.postGenerateMarginCall(req.body, clientId)
       .then(response => {
         console.log('responding with :')
@@ -90,7 +105,7 @@ routerInstance.post('/request-margincalls', (req, res, next) => {
         res.send(JSON.parse(response.toJSON().body))
         console.log('response returned')
       })
-  ).catch(err => res.send(401))
+  }).catch(err => res.send(401))
 
 })
 
@@ -104,7 +119,12 @@ routerInstance.post('/send-margin-calls', (req, res, next) => {
   console.log(req.body)
   const { clientId } = req.body
 
-  CommonService.authTokenValidation(req.headers.authorization).then(response =>
+  CommonService.authTokenValidation(req.headers.authorization).then(response => {
+    if(response.statusCode === 401){
+      console.log('****** SESSION EXPIRED *******')
+      res.send(401)
+    }
+
     UploadPortfolioService.postSendMarginCalls(req.body, clientId)
       .then(response => {
         console.log('responding with :')
@@ -113,7 +133,7 @@ routerInstance.post('/send-margin-calls', (req, res, next) => {
         res.send(JSON.parse(response.toJSON().body))
         console.log('response returned')
       })
-  ).catch(err => res.send(401))
+  }).catch(err => res.send(401))
 
 })
 

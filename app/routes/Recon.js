@@ -191,7 +191,12 @@ routerInstance.get('/new/:clientId', (req, res, next) => {
   const clientId = req.params.clientId
   console.log('clientId :', req.params.clientId)
 
-  CommonService.authTokenValidation(req.headers.authorization).then(response =>
+  CommonService.authTokenValidation(req.headers.authorization).then(response => {
+    if(response.statusCode === 401){
+      console.log('****** SESSION EXPIRED *******')
+      res.send(401)
+    }
+
     Promise.all([
       ReconService.get(clientId),
       ReconService.getReconDisputes(clientId),
@@ -246,7 +251,7 @@ routerInstance.get('/new/:clientId', (req, res, next) => {
       //  .then(items => res.json(_.set({items}, 'fromCache', true)))
       //  .catch((error) => console.log('Error getting from cache: ' + error))
     })
-  ).catch(err => res.send(401))
+  }).catch(err => res.send(401))
 
 
 })
@@ -257,7 +262,12 @@ routerInstance.get('/disputes/:clientId', (req, res, next) => {
   console.log('requesting recon disputes')
   const key = req.path()
 
-  CommonService.authTokenValidation(req.headers.authorization).then(response =>
+  CommonService.authTokenValidation(req.headers.authorization).then(response => {
+    if(response.statusCode === 401){
+      console.log('****** SESSION EXPIRED *******')
+      res.send(401)
+    }
+
     ReconService.getReconDisputes(req.params.clientId).then(data => {
       //FsCacheService.set({key, data})
       console.log('recon disputes URL resolved')
@@ -275,7 +285,7 @@ routerInstance.get('/disputes/:clientId', (req, res, next) => {
       console.log('recon disputes URL did not resolve')
       console.log(err)
     })
-  ).catch(err => res.send(401))
+  }).catch(err => res.send(401))
 
 })
 
@@ -290,7 +300,12 @@ routerInstance.post('/disputeStatement', (req, res, next) => {
   }
   console.log('objToSend: ' + objToSend)
 
-  CommonService.authTokenValidation(req.headers.authorization).then(response =>
+  CommonService.authTokenValidation(req.headers.authorization).then(response => {
+    if(response.statusCode === 401){
+      console.log('****** SESSION EXPIRED *******')
+      res.send(401)
+    }
+
     ReconService.postReconDispute(objToSend).then(data => {
       console.log('posting dispute resolved')
       console.log('responding with: ----------')
@@ -304,7 +319,7 @@ routerInstance.post('/disputeStatement', (req, res, next) => {
       console.log(err)
       res.send(err)
     })
-  ).catch(err => res.send(401))
+  }).catch(err => res.send(401))
 
 })
 
@@ -317,7 +332,12 @@ routerInstance.post('/reconcile/', (req, res, next) => {
   // const clientId = JSON.parse(req.body).clientId
   console.log('params: ' + params)
 
-  CommonService.authTokenValidation(req.headers.authorization).then(response =>
+  CommonService.authTokenValidation(req.headers.authorization).then(response => {
+    if(response.statusCode === 401){
+      console.log('****** SESSION EXPIRED *******')
+      res.send(401)
+    }
+
     ReconService.getReconcile(params).then(data => {
       console.log('posting reconcile resolved')
       console.log('responding with: ----------')
@@ -332,7 +352,7 @@ routerInstance.post('/reconcile/', (req, res, next) => {
       console.log(err)
       res.send(err)
     })
-  ).catch(err => res.send(401))
+  }).catch(err => res.send(401))
 
 })
 
