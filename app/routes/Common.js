@@ -32,7 +32,7 @@ routerInstance.get('/navbar-alerts/:clientId', (req, res, next) => {
 
       CommonService.getNavbarAlerts(req.params.clientId).then(response => {
         console.log('response :')
-        console.log(response)
+        console.log(response.body)
         // res.header("authorization", response.headers.authorization)
         res.send(response.body)
         console.log('navbar alerts responded')
@@ -86,20 +86,35 @@ routerInstance.post('/auth/login', (req, res, next) => {
 
   console.log(req.headers.authorization)
 
-  if(req.headers.authorization)
-    CommonService.authInvalidateToken(req.headers.authorization).then(response =>
-      CommonService.login(user, pass).then(response => {
-        // console.log(response)
-        res.header("authorization", response.headers.authorization)
-        res.send({clientId: response.body})
-      }).catch(err => res.send({clientId: {}}))
-    )
-  else
-    CommonService.login(user, pass).then(response => {
-      // console.log(response)
-      res.header("authorization", response.headers.authorization)
-      res.send({clientId: response.body})
-    }).catch(err => res.send({clientId: {}}))
+  // if(req.headers.authorization)
+  //   CommonService.authInvalidateToken(req.headers.authorization).then(response =>
+  //     CommonService.login(user, pass).then(response => {
+  //       // console.log(response)
+  //       res.header("authorization", response.headers.authorization)
+  //       res.send({clientId: response.body})
+  //     }).catch(err => res.send({clientId: {}}))
+  //   )
+  // else
+  CommonService.login(user, pass).then(response => {
+    // console.log(response)
+    res.header("authorization", response.headers.authorization)
+    res.send({clientId: response.body})
+  }).catch(err => res.send({clientId: {}}))
+})
+
+routerInstance.post('/auth/logout', (req, res, next) => {
+  console.log('attempting auth token invalidation')
+  // console.log(req.body)
+
+  const { clientId } = req.body
+  console.log(`******* CLIENT ${clientId} LOGGING OUT *******`)
+  // console.log(req.headers.authorization)
+
+  // if(req.headers.authorization)
+  CommonService.authInvalidateToken(req.headers.authorization).then(response => {
+    console.log('token invalidated logout success')
+    res.send({status: 'success'})
+  }).catch(error => res.send({status: 'failed'}))
 })
 
 routerInstance.get('/get-currency/:clientId', (req, res, next) => {
@@ -111,7 +126,7 @@ routerInstance.get('/get-currency/:clientId', (req, res, next) => {
 
     CommonService.getCurrencyInfo(req.params.clientId).then(response => {
       console.log('response :')
-      console.log(response)
+      console.log(response.body)
       // res.header("authorization", response.headers.authorization)
       res.send(response.body)
       console.log('currency info responded')

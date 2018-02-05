@@ -52,7 +52,7 @@ routerInstance.post('/remove-allocated-asset', (req, res, next) => {
       console.log('responding with: ----------')
       console.log({items: processedItems})
       console.log('---------------------------')
-      console.log(data)
+      // console.log(data)
       res.send({items: processedItems})
       console.log('removing allocated asset responded')
     }).catch(err => {
