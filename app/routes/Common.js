@@ -92,14 +92,14 @@ routerInstance.post('/auth/login', (req, res, next) => {
         // console.log(response)
         res.header("authorization", response.headers.authorization)
         res.send({clientId: response.body})
-      }).catch(err => res.send(401))
+      })
     )
   else
     CommonService.login(user, pass).then(response => {
       // console.log(response)
       res.header("authorization", response.headers.authorization)
       res.send({clientId: response.body})
-    }).catch(err => res.send(401))
+    })
 })
 
 routerInstance.get('/get-currency/:clientId', (req, res, next) => {
