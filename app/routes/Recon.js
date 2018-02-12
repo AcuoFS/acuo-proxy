@@ -138,47 +138,47 @@ const checkTolerance = (item, parentID, id, amount, toleranceLevel, GUID, who) =
 /*********
 * DEPRECATED ROUTE
 * */
-routerInstance.get('/:clientId', (req, res, next) => {
-  const key = req.path()
-
-  ReconService.get(req.params.clientId).then(data => {
-
-    const newData = _.map(data, (item) =>
-      _.chain(item)
-        .set('clientAssets', _.map(_.filter(item.clientAssets, (group) => group.data.length), (group) =>
-          _.set(group, 'data', _.map(group.data, (firstLevel) =>
-            _.chain(firstLevel)
-              .set(['firstLevel', 'secondLevel'], _.map(firstLevel.firstLevel.secondLevel, (secondLevel) =>
-                _.chain(secondLevel)
-                  .set('parentIndex', firstLevel.firstLevel.id)
-                  .set('tolerance', checkTolerance(item, firstLevel.firstLevel.id, secondLevel.id, secondLevel.amount, item.tolerance, item.GUID, 'CLIENT'))))
-              .set(['firstLevel', 'secondLevelCount'], firstLevel.firstLevel.secondLevel.length)
-              .set(['firstLevel', 'GUID'], item.GUID)
-              .set(['firstLevel', 'tolerance'], (!firstLevel.firstLevel.secondLevel.length ? checkFirstLevelOnlyTolerance(item, firstLevel.firstLevel.id, firstLevel.firstLevel.amount, item.tolerance, item.GUID, 'CLIENT') : false))
-
-          ))))
-        .set('counterpartyAssets', _.map(_.filter(item.counterpartyAssets, (group) => group.data.length), (group) =>
-          _.set(group, 'data', _.map(group.data, (firstLevel) =>
-            _.chain(firstLevel)
-              .set(['firstLevel', 'secondLevel'], _.map(firstLevel.firstLevel.secondLevel, (secondLevel) =>
-                _.chain(secondLevel)
-                  .set('parentIndex', firstLevel.firstLevel.id)
-                  .set('tolerance', checkTolerance(item, firstLevel.firstLevel.id, secondLevel.id, secondLevel.amount, item.tolerance, item.GUID, 'COUNTERPARTY'))))
-              .set(['firstLevel', 'secondLevelCount'], firstLevel.firstLevel.secondLevel.length)
-              .set(['firstLevel', 'GUID'], item.GUID)
-              .set(['firstLevel', 'tolerance'], (!firstLevel.firstLevel.secondLevel.length ? checkFirstLevelOnlyTolerance(item, firstLevel.firstLevel.id, firstLevel.firstLevel.amount, item.tolerance, item.GUID, 'COUNTERPARTY') : false))
-
-          )))))
-
-    // FsCacheService.set({key, newData})
-    res.json({items: newData})
-  }).catch(err => {
-    // hit cache
-    // FsCacheService.get(key)
-    //   .then(items => res.json(_.set({items}, 'fromCache', true)))
-    //   .catch((error) => console.log('Error getting from cache: ' + error))
-  })
-})
+// routerInstance.get('/:clientId', (req, res, next) => {
+//   const key = req.path()
+//
+//   ReconService.get(req.params.clientId).then(data => {
+//
+//     const newData = _.map(data, (item) =>
+//       _.chain(item)
+//         .set('clientAssets', _.map(_.filter(item.clientAssets, (group) => group.data.length), (group) =>
+//           _.set(group, 'data', _.map(group.data, (firstLevel) =>
+//             _.chain(firstLevel)
+//               .set(['firstLevel', 'secondLevel'], _.map(firstLevel.firstLevel.secondLevel, (secondLevel) =>
+//                 _.chain(secondLevel)
+//                   .set('parentIndex', firstLevel.firstLevel.id)
+//                   .set('tolerance', checkTolerance(item, firstLevel.firstLevel.id, secondLevel.id, secondLevel.amount, item.tolerance, item.GUID, 'CLIENT'))))
+//               .set(['firstLevel', 'secondLevelCount'], firstLevel.firstLevel.secondLevel.length)
+//               .set(['firstLevel', 'GUID'], item.GUID)
+//               .set(['firstLevel', 'tolerance'], (!firstLevel.firstLevel.secondLevel.length ? checkFirstLevelOnlyTolerance(item, firstLevel.firstLevel.id, firstLevel.firstLevel.amount, item.tolerance, item.GUID, 'CLIENT') : false))
+//
+//           ))))
+//         .set('counterpartyAssets', _.map(_.filter(item.counterpartyAssets, (group) => group.data.length), (group) =>
+//           _.set(group, 'data', _.map(group.data, (firstLevel) =>
+//             _.chain(firstLevel)
+//               .set(['firstLevel', 'secondLevel'], _.map(firstLevel.firstLevel.secondLevel, (secondLevel) =>
+//                 _.chain(secondLevel)
+//                   .set('parentIndex', firstLevel.firstLevel.id)
+//                   .set('tolerance', checkTolerance(item, firstLevel.firstLevel.id, secondLevel.id, secondLevel.amount, item.tolerance, item.GUID, 'COUNTERPARTY'))))
+//               .set(['firstLevel', 'secondLevelCount'], firstLevel.firstLevel.secondLevel.length)
+//               .set(['firstLevel', 'GUID'], item.GUID)
+//               .set(['firstLevel', 'tolerance'], (!firstLevel.firstLevel.secondLevel.length ? checkFirstLevelOnlyTolerance(item, firstLevel.firstLevel.id, firstLevel.firstLevel.amount, item.tolerance, item.GUID, 'COUNTERPARTY') : false))
+//
+//           )))))
+//
+//     // FsCacheService.set({key, newData})
+//     res.json({items: newData})
+//   }).catch(err => {
+//     // hit cache
+//     // FsCacheService.get(key)
+//     //   .then(items => res.json(_.set({items}, 'fromCache', true)))
+//     //   .catch((error) => console.log('Error getting from cache: ' + error))
+//   })
+// })
 
 /**********
  * DEPRECATED ROUTE END
@@ -191,59 +191,68 @@ routerInstance.get('/new/:clientId', (req, res, next) => {
   const clientId = req.params.clientId
   console.log('clientId :', req.params.clientId)
 
-  Promise.all([
-    ReconService.get(clientId),
-    ReconService.getReconDisputes(clientId),
-    CommonService.getCurrencyInfo(clientId)
-  ]).then(data => {
-    console.log('recon URLs resolved')
-    console.log(data)
-    const [recon, disputes, currencyInfo] = data
+  CommonService.authTokenValidation(req.headers.authorization).then(response => {
+    if(response.statusCode === 401){
+      console.log('****** SESSION EXPIRED *******')
+      res.send(401)
+    }
 
-    const newData = _.map(recon, (item) =>
-      _.chain(item)
-        .set('clientAssets', _.map(_.filter(item.clientAssets, (group) => group.data.length), (group) =>
-          _.set(group, 'data', _.map(group.data, (firstLevel) =>
-            _.chain(firstLevel)
-              .set(['firstLevel', 'secondLevel'], _.map(firstLevel.firstLevel.secondLevel, (secondLevel) =>
-                _.chain(secondLevel)
-                  .set('parentIndex', firstLevel.firstLevel.id)
-                  .set('tolerance', checkTolerance(item, firstLevel.firstLevel.id, secondLevel.id, secondLevel.amount, item.tolerance, item.GUID, 'CLIENT'))))
-              .set(['firstLevel', 'secondLevelCount'], firstLevel.firstLevel.secondLevel.length)
-              .set(['firstLevel', 'GUID'], item.GUID)
-              .set(['firstLevel', 'tolerance'], (!firstLevel.firstLevel.secondLevel.length ? checkFirstLevelOnlyTolerance(item, firstLevel.firstLevel.id, firstLevel.firstLevel.amount, item.tolerance, item.GUID, 'CLIENT') : false))
-          ))))
-        .set('counterpartyAssets', _.map(_.filter(item.counterpartyAssets, (group) => group.data.length), (group) =>
-          _.set(group, 'data', _.map(group.data, (firstLevel) =>
-            _.chain(firstLevel)
-              .set(['firstLevel', 'secondLevel'], _.map(firstLevel.firstLevel.secondLevel, (secondLevel) =>
-                _.chain(secondLevel)
-                  .set('parentIndex', firstLevel.firstLevel.id)
-                  .set('tolerance', checkTolerance(item, firstLevel.firstLevel.id, secondLevel.id, secondLevel.amount, item.tolerance, item.GUID, 'COUNTERPARTY'))))
-              .set(['firstLevel', 'secondLevelCount'], firstLevel.firstLevel.secondLevel.length)
-              .set(['firstLevel', 'GUID'], item.GUID)
-              .set(['firstLevel', 'tolerance'], (!firstLevel.firstLevel.secondLevel.length ? checkFirstLevelOnlyTolerance(item, firstLevel.firstLevel.id, firstLevel.firstLevel.amount, item.tolerance, item.GUID, 'COUNTERPARTY') : false))
-          ))))
-        // Add disputes info
-        .set('disputeInfo', (_.filter(disputes, disputeItem => (item.GUID === disputeItem.msId))[0] || {}))
-    )
+    Promise.all([
+      ReconService.get(clientId),
+      ReconService.getReconDisputes(clientId),
+      CommonService.getCurrencyInfo(clientId)
+    ]).then(data => {
+      console.log('recon URLs resolved')
+      console.log(data.body)
+      const [recon, disputes, currencyInfo] = data
 
-    const compositeData = {items: newData, currencyInfo: currencyInfo}
+      const newData = _.map(recon.body, (item) =>
+        _.chain(item)
+          .set('clientAssets', _.map(_.filter(item.clientAssets, (group) => group.data.length), (group) =>
+            _.set(group, 'data', _.map(group.data, (firstLevel) =>
+              _.chain(firstLevel)
+                .set(['firstLevel', 'secondLevel'], _.map(firstLevel.firstLevel.secondLevel, (secondLevel) =>
+                  _.chain(secondLevel)
+                    .set('parentIndex', firstLevel.firstLevel.id)
+                    .set('tolerance', checkTolerance(item, firstLevel.firstLevel.id, secondLevel.id, secondLevel.amount, item.tolerance, item.GUID, 'CLIENT'))))
+                .set(['firstLevel', 'secondLevelCount'], firstLevel.firstLevel.secondLevel.length)
+                .set(['firstLevel', 'GUID'], item.GUID)
+                .set(['firstLevel', 'tolerance'], (!firstLevel.firstLevel.secondLevel.length ? checkFirstLevelOnlyTolerance(item, firstLevel.firstLevel.id, firstLevel.firstLevel.amount, item.tolerance, item.GUID, 'CLIENT') : false))
+            ))))
+          .set('counterpartyAssets', _.map(_.filter(item.counterpartyAssets, (group) => group.data.length), (group) =>
+            _.set(group, 'data', _.map(group.data, (firstLevel) =>
+              _.chain(firstLevel)
+                .set(['firstLevel', 'secondLevel'], _.map(firstLevel.firstLevel.secondLevel, (secondLevel) =>
+                  _.chain(secondLevel)
+                    .set('parentIndex', firstLevel.firstLevel.id)
+                    .set('tolerance', checkTolerance(item, firstLevel.firstLevel.id, secondLevel.id, secondLevel.amount, item.tolerance, item.GUID, 'COUNTERPARTY'))))
+                .set(['firstLevel', 'secondLevelCount'], firstLevel.firstLevel.secondLevel.length)
+                .set(['firstLevel', 'GUID'], item.GUID)
+                .set(['firstLevel', 'tolerance'], (!firstLevel.firstLevel.secondLevel.length ? checkFirstLevelOnlyTolerance(item, firstLevel.firstLevel.id, firstLevel.firstLevel.amount, item.tolerance, item.GUID, 'COUNTERPARTY') : false))
+            ))))
+          // Add disputes info
+          .set('disputeInfo', (_.filter(disputes.body, disputeItem => (item.GUID === disputeItem.msId))[0] || {}))
+      )
 
-    //FsCacheService.set({key, compositeData})
-    console.log('responding with: ----------')
-    console.log(compositeData)
-    console.log('---------------------------')
-    res.json(compositeData)
-    console.log('recon responded')
-  }).catch(err => {
-    console.log('recon URL did not resolve')
-    console.log(err)
-    // hit cache
-    //FsCacheService.get(key)
-    //  .then(items => res.json(_.set({items}, 'fromCache', true)))
-    //  .catch((error) => console.log('Error getting from cache: ' + error))
-  })
+      const compositeData = {items: newData, currencyInfo: currencyInfo.body}
+
+      //FsCacheService.set({key, compositeData})
+      console.log('responding with: ----------')
+      console.log(compositeData)
+      console.log('---------------------------')
+      // res.header("authorization", data.headers.authorization)
+      res.json(compositeData)
+      console.log('recon responded')
+    }).catch(err => {
+      console.log('recon URL did not resolve')
+      console.log(err)
+      // hit cache
+      //FsCacheService.get(key)
+      //  .then(items => res.json(_.set({items}, 'fromCache', true)))
+      //  .catch((error) => console.log('Error getting from cache: ' + error))
+    })
+  }).catch(err => res.send(401))
+
 
 })
 
@@ -253,22 +262,31 @@ routerInstance.get('/disputes/:clientId', (req, res, next) => {
   console.log('requesting recon disputes')
   const key = req.path()
 
-  ReconService.getReconDisputes(req.params.clientId).then(data => {
-    //FsCacheService.set({key, data})
-    console.log('recon disputes URL resolved')
-    console.log('responding with: ----------')
-    console.log({items: data})
-    console.log('---------------------------')
-    res.json({items: data})
-    console.log('recon disputes responded')
-  }).catch(err => {
-    // hit cache
-    // FsCacheService.get(key)
-    //   .then(items => res.json(_.set({items}, 'fromCache', true)))
-    //   .catch((error) => console.log('Error getting from cache: ' + error))
-    console.log('recon disputes URL did not resolve')
-    console.log(err)
-  })
+  CommonService.authTokenValidation(req.headers.authorization).then(response => {
+    if(response.statusCode === 401){
+      console.log('****** SESSION EXPIRED *******')
+      res.send(401)
+    }
+
+    ReconService.getReconDisputes(req.params.clientId).then(data => {
+      //FsCacheService.set({key, data})
+      console.log('recon disputes URL resolved')
+      console.log('responding with: ----------')
+      console.log({items: data.body})
+      console.log('---------------------------')
+      // res.header("authorization", data.headers.authorization)
+      res.json({items: data.body})
+      console.log('recon disputes responded')
+    }).catch(err => {
+      // hit cache
+      // FsCacheService.get(key)
+      //   .then(items => res.json(_.set({items}, 'fromCache', true)))
+      //   .catch((error) => console.log('Error getting from cache: ' + error))
+      console.log('recon disputes URL did not resolve')
+      console.log(err)
+    })
+  }).catch(err => res.send(401))
+
 })
 
 routerInstance.post('/disputeStatement', (req, res, next) => {
@@ -282,41 +300,60 @@ routerInstance.post('/disputeStatement', (req, res, next) => {
   }
   console.log('objToSend: ' + objToSend)
 
-  ReconService.postReconDispute(objToSend).then(data => {
-    console.log('posting dispute resolved')
-    console.log('responding with: ----------')
-    console.log(data)
-    console.log('---------------------------')
-    res.send(data)
-    console.log('posting dispute responded')
-  }).catch(err => {
-    console.log('posting dispute URL did not resolve')
-    console.log(err)
-    res.send(err)
-  })
+  CommonService.authTokenValidation(req.headers.authorization).then(response => {
+    if(response.statusCode === 401){
+      console.log('****** SESSION EXPIRED *******')
+      res.send(401)
+    }
+
+    ReconService.postReconDispute(objToSend).then(data => {
+      console.log('posting dispute resolved')
+      console.log('responding with: ----------')
+      console.log(data.body)
+      console.log('---------------------------')
+      // res.header("authorization", data.headers.authorization)
+      res.send(data.body)
+      console.log('posting dispute responded')
+    }).catch(err => {
+      console.log('posting dispute URL did not resolve')
+      console.log(err)
+      res.send(err)
+    })
+  }).catch(err => res.send(401))
+
 })
 
 routerInstance.post('/reconcile/', (req, res, next) => {
   // forwards response from endpoint
   console.log('**** ========= ****')
   console.log('posting reconcile')
-  const params = JSON.parse(req.body).params
+  // console.log(req.body)
+  const params = req.body.params
   // const clientId = JSON.parse(req.body).clientId
   console.log('params: ' + params)
 
-  ReconService.getReconcile(params).then(data => {
-    console.log('posting reconcile resolved')
-    console.log('responding with: ----------')
-    console.log(data)
-    console.log('---------------------------' +
-      '')
-    res.send(data)
-    console.log('posting reconcile responded')
-  }).catch(err => {
-    console.log('posting reconcile URL did not resolve')
-    console.log(err)
-    res.send(err)
-  })
+  CommonService.authTokenValidation(req.headers.authorization).then(response => {
+    if(response.statusCode === 401){
+      console.log('****** SESSION EXPIRED *******')
+      res.send(401)
+    }
+
+    ReconService.getReconcile(params).then(data => {
+      console.log('posting reconcile resolved')
+      console.log('responding with: ----------')
+      console.log(data.body)
+      console.log('---------------------------' +
+        '')
+      // res.header("authorization", data.headers.authorization)
+      res.send(data.body)
+      console.log('posting reconcile responded')
+    }).catch(err => {
+      console.log('posting reconcile URL did not resolve')
+      console.log(err)
+      res.send(err)
+    })
+  }).catch(err => res.send(401))
+
 })
 
 

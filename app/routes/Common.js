@@ -18,12 +18,27 @@ routerInstance.get('/navbar-alerts/:clientId', (req, res, next) => {
   console.log('******** Navbar alerts ********')
   console.log('clientId :', req.params.clientId)
 
-  CommonService.getNavbarAlerts(req.params.clientId).then(response => {
-    console.log('response :')
-    console.log(response)
-    res.send(response)
-    console.log('navbar alerts responded')
-  })
+  // console.log(req.headers.authorization)
+
+  // console.log('/******* AUTH *******/')
+  CommonService.authTokenValidation(req.headers.authorization).then(response => {
+
+      if(response.statusCode === 401){
+        console.log('****** SESSION EXPIRED *******')
+        res.send(401)
+      }
+
+      // console.log('/******* AUTH END *******/')
+
+      CommonService.getNavbarAlerts(req.params.clientId).then(response => {
+        console.log('response :')
+        console.log(response.body)
+        // res.header("authorization", response.headers.authorization)
+        res.send(response.body)
+        console.log('navbar alerts responded')
+      })
+    }
+  ).catch(err => res.send(401))
 })
 
 routerInstance.get('/margin-connectivity', (req, res, next) => {
@@ -66,19 +81,57 @@ routerInstance.get('/throw-500', (req, res, next) => {
 routerInstance.post('/auth/login', (req, res, next) => {
   console.log('attempting login')
   // console.log(req.body)
+
   const { user, pass } = req.body
+
+  console.log(req.headers.authorization)
+
+  // if(req.headers.authorization)
+  //   CommonService.authInvalidateToken(req.headers.authorization).then(response =>
+  //     CommonService.login(user, pass).then(response => {
+  //       // console.log(response)
+  //       res.header("authorization", response.headers.authorization)
+  //       res.send({clientId: response.body})
+  //     }).catch(err => res.send({clientId: {}}))
+  //   )
+  // else
   CommonService.login(user, pass).then(response => {
-    res.send({clientId: response})
-  })
+    // console.log(response)
+    res.header("authorization", response.headers.authorization)
+    res.send({clientId: response.body})
+  }).catch(err => res.send({clientId: {}}))
+})
+
+routerInstance.post('/auth/logout', (req, res, next) => {
+  console.log('attempting auth token invalidation')
+  // console.log(req.body)
+
+  const { clientId } = req.body
+  console.log(`******* CLIENT ${clientId} LOGGING OUT *******`)
+  // console.log(req.headers.authorization)
+
+  // if(req.headers.authorization)
+  CommonService.authInvalidateToken(req.headers.authorization).then(response => {
+    console.log('token invalidated logout success')
+    res.send({status: 'success'})
+  }).catch(error => res.send({status: 'failed'}))
 })
 
 routerInstance.get('/get-currency/:clientId', (req, res, next) => {
-  CommonService.getCurrencyInfo(req.params.clientId).then(response => {
-    console.log('response :')
-    console.log(response)
-    res.send(response)
-    console.log('currency info responded')
-  })
+  CommonService.authTokenValidation(req.headers.authorization).then(response => {
+    if(response.statusCode === 401){
+      console.log('****** SESSION EXPIRED *******')
+      res.send(401)
+    }
+
+    CommonService.getCurrencyInfo(req.params.clientId).then(response => {
+      console.log('response :')
+      console.log(response.body)
+      // res.header("authorization", response.headers.authorization)
+      res.send(response.body)
+      console.log('currency info responded')
+    })
+  }).catch(err => res.send(401))
 })
 
 module.exports = ({server}) => routerInstance.applyRoutes(server, prefix)

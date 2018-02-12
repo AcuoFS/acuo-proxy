@@ -15,7 +15,7 @@ const Deployed = {}
 
 Deployed.getDepartures = (clientId) => {
   const uri = `${GET_DEPLOYED_DEPARTURES}/${clientId}`
-  return rp({uri, json: true}).then(response => {
+  return rp({uri, json: true, resolveWithFullResponse: true}).then(response => {
     console.log('get deployed departures returned')
     console.log(response)
     return response

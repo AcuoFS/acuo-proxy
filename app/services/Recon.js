@@ -15,7 +15,7 @@ const Recon = {}
 // get Recon items
 Recon.get = (clientId) => {
   const uri = `${GET_RECON_URL}/${clientId}`
-  return rp({uri, json: true})
+  return rp({uri, json: true, resolveWithFullResponse: true})
     .then(response => {
       console.log('get all recon returned')
       return response
@@ -29,7 +29,7 @@ Recon.getTestRecon = () => new Promise(resolve => {
 
 Recon.getReconDisputes = (clientId) => {
   const uri = `${GET_RECON_DISPUTES_URL}/${clientId}`
-  return rp({uri, json: true}).then(response => {
+  return rp({uri, json: true, resolveWithFullResponse: true}).then(response => {
     console.log('get recon disputes returned')
     return response
   })
@@ -43,7 +43,7 @@ Recon.postReconDispute = (reqBody) => {
     body: reqBody,
     json: true,
     // Use full response to check status code
-    // resolveWithFullResponse: true
+    resolveWithFullResponse: true
   }).then(response => {
     console.log('post recon dispute returned')
     return response
@@ -57,7 +57,7 @@ Recon.getReconcile = (params) => {
     uri: `${GET_RECONCILE_URL}/${params}`,
     json: true,
     // Use full response to check status code
-    // resolveWithFullResponse: true
+    resolveWithFullResponse: true
   }).then(response => {
     console.log('GET recon returned')
     return response

@@ -31,7 +31,7 @@ var configJson = {
   REQUEST_VALUATION: '<%= baseUrl %>valuation/acuo/api/calls/split/portfolios/clientId',
   REQUEST_GENERATE_MARGINCALLS: '<%= baseUrl %>valuation/acuo/api/calls/generate/portfolios/clientId',
   //auth
-  LOGIN_URL: '<%= baseUrl %>auth/acuo/api/login/clientId/',
+  LOGIN_URL: '<%= baseUrl %>auth/acuo/api/login',
   //healthchecks
   MARGIN_HEALTH_CHECK: '<%= baseUrl %>margin/acuo/admin/ping',
   VALUATION_HEALTH_CHECK: '<%= baseUrl %>valuation/acuo/admin/ping',
@@ -39,7 +39,10 @@ var configJson = {
   REQUEST_SEND_MARGIN_CALLS: '<%= baseUrl %>margin/acuo/api/margin/send/calls',
   //analytics
   GET_ANALYTICS_TEST_CLIENT: '<%= baseUrl %>analytics/analytics',
-  GET_ANALYTICS_TEST_CPTY: '<%= baseUrl %>analytics/analytics/cpty'
+  GET_ANALYTICS_TEST_CPTY: '<%= baseUrl %>analytics/analytics/cpty',
+  //auth token
+  GET_VALIDATE_AUTH_TOKEN: '<%= baseUrl %>auth/acuo/api/validate',
+  GET_INVALIDATE_AUTH_TOKEN: '<%= baseUrl %>auth/acuo/api/logout'
 };
 
 /**

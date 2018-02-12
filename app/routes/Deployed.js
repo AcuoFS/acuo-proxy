@@ -8,7 +8,7 @@ const _ = require('lodash')
 // import services
 const {
   DeployedService,
-  FsCacheService,
+  CommonService,
   // CommonService
 } = require('../services')
 
@@ -25,14 +25,21 @@ routerInstance.get('/departures/:clientId', (req, res, next) => {
   console.log('requesting deployed departures')
   console.log('clientId :', req.params.clientId)
 
-  DeployedService.getDepartures(req.params.clientId).then(data => {
-      console.log('responding with: ----------')
-      console.log(data)
-      console.log('---------------------------')
-      res.send(data)
-      console.log('deployed departures responded')
-    }
-  )
+  CommonService.authTokenValidation(req.headers.authorization).then(response => {
+    if(response.statusCode === 401)
+      res.send(401)
+
+    DeployedService.getDepartures(req.params.clientId).then(data => {
+        console.log('responding with: ----------')
+        console.log(data.body)
+        console.log('---------------------------')
+        // res.header("authorization", response.headers.authorization)
+        res.send(data.body)
+        console.log('deployed departures responded')
+      }
+    )
+  }).catch(err => res.send(401))
+
 })
 
 module.exports = ({server}) => routerInstance.applyRoutes(server, prefix)
