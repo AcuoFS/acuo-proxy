@@ -14,8 +14,11 @@ routerInstance.get('/proxy-connectivity', (req, res, next) => {
   res.send({status: "OK"})
 })
 
-routerInstance.get('/navbar-alerts', (req, res, next) => {
-  CommonService.getNavbarAlerts().then(response => {
+routerInstance.get('/navbar-alerts/:clientId', (req, res, next) => {
+  console.log('******** Navbar alerts ********')
+  console.log('clientId :', req.params.clientId)
+
+  CommonService.getNavbarAlerts(req.params.clientId).then(response => {
     console.log('response :')
     console.log(response)
     res.send(response)
@@ -65,12 +68,12 @@ routerInstance.post('/auth/login', (req, res, next) => {
   // console.log(req.body)
   const { user, pass } = req.body
   CommonService.login(user, pass).then(response => {
-    res.send({clientID: response})
+    res.send({clientId: response})
   })
 })
 
-routerInstance.get('/get-currency', (req, res, next) => {
-  CommonService.getCurrencyInfo().then(response => {
+routerInstance.get('/get-currency/:clientId', (req, res, next) => {
+  CommonService.getCurrencyInfo(req.params.clientId).then(response => {
     console.log('response :')
     console.log(response)
     res.send(response)

@@ -15,8 +15,8 @@ const {
 
 const UploadPortfolio = {}
 
-UploadPortfolio.postUpload = (options) =>
-  rp(POST_UPLOAD_PORTFOLIO, options)
+UploadPortfolio.postUpload = (options, clientId) =>
+  rp(`${POST_UPLOAD_PORTFOLIO}/${clientId}`, options)
     .then(response => {
       console.log('server responded')
       console.log(JSON.parse(response.toJSON().body))
@@ -27,9 +27,9 @@ UploadPortfolio.postUpload = (options) =>
       return error
     })
 
-UploadPortfolio.postRequestValuation = (body) =>
+UploadPortfolio.postRequestValuation = (body, clientId) =>
   rp({
-    url: REQUEST_VALUATION,
+    url: `${REQUEST_VALUATION}/${clientId}`,
     method: 'POST',
     body: JSON.stringify(body),
     headers: {'content-type': 'application/json'},
@@ -40,9 +40,9 @@ UploadPortfolio.postRequestValuation = (body) =>
     return response
   })
 
-UploadPortfolio.postGenerateMarginCall = (body) =>
+UploadPortfolio.postGenerateMarginCall = (body, clientId) =>
   rp({
-    url: REQUEST_GENERATE_MARGINCALLS,
+    url: `${REQUEST_GENERATE_MARGINCALLS}/${clientId}`,
     method: 'POST',
     body: JSON.stringify(body),
     headers: {'content-type': 'application/json'},
@@ -53,9 +53,9 @@ UploadPortfolio.postGenerateMarginCall = (body) =>
     return response
   })
 
-UploadPortfolio.postSendMarginCalls = (body) =>
+UploadPortfolio.postSendMarginCalls = (body, clientId) =>
   rp({
-    url: REQUEST_SEND_MARGIN_CALLS,
+    url: `${REQUEST_SEND_MARGIN_CALLS}`,
     method: 'POST',
     body: JSON.stringify(body),
     headers: {'content-type': 'application/json'},
