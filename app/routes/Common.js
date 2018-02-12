@@ -134,4 +134,9 @@ routerInstance.get('/get-currency/:clientId', (req, res, next) => {
   }).catch(err => res.send(401))
 })
 
+
+routerInstance.get('/version-check-rui', (req, res, next) => {
+  res.send(process.env.npm_package_version)
+})
+
 module.exports = ({server}) => routerInstance.applyRoutes(server, prefix)
