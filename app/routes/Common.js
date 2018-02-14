@@ -100,7 +100,7 @@ routerInstance.post('/auth/login', (req, res, next) => {
     // console.log('********** headers **********')
     // console.log(response.headers)
     res.header("authorization", response.headers.authorization)
-    res.header("set-cookie", response.headers['set-cookies'])
+    res.header("set-cookies", response.headers['set-cookies'])
     res.send({clientId: response.body})
   }).catch(err => res.send({clientId: {}}))
 })
