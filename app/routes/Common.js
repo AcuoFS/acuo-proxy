@@ -98,10 +98,10 @@ routerInstance.post('/auth/login', (req, res, next) => {
   CommonService.login(user, pass).then(response => {
     // console.log(response)
     console.log('********** headers **********')
-    console.log(response.headers['set-cookies'])
+    console.log(response.headers['set-cookie'])
     console.log(response.headers)
     res.header("authorization", response.headers.authorization)
-    res.header("set-cookies", response.headers['set-cookies'])
+    res.header("set-cookie", response.headers['set-cookie'])
     res.send({clientId: response.body})
   }).catch(err => res.send({clientId: {}}))
 })
