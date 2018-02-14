@@ -84,7 +84,7 @@ routerInstance.post('/auth/login', (req, res, next) => {
 
   const { user, pass } = req.body
 
-  console.log(req.headers.authorization)
+  // console.log(req.headers.authorization)
 
   // if(req.headers.authorization)
   //   CommonService.authInvalidateToken(req.headers.authorization).then(response =>
@@ -97,6 +97,8 @@ routerInstance.post('/auth/login', (req, res, next) => {
   // else
   CommonService.login(user, pass).then(response => {
     // console.log(response)
+    console.log('********** headers **********')
+    console.log(response.headers)
     res.header("authorization", response.headers.authorization)
     res.send({clientId: response.body})
   }).catch(err => res.send({clientId: {}}))
