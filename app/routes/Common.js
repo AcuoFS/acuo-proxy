@@ -147,12 +147,15 @@ routerInstance.get('/refresh-access-token', (req, res, next) => {
   console.log('******** REFRESH TOKEN *******')
   console.log(req.headers)
   CommonService.refreshAuthToken(req.headers['set-cookie']).then(response => {
+    if(response.statusCode === 401)
+      res.send(401)
+
     console.log('****** NEW TOKEN *******')
     console.log(response.headers.authorization)
     res.header("authorization", response.headers.authorization)
     res.send(200)
     console.log('RES SENT BACK')
-  }).catch(err => res.send(401))
+  })
 })
 
 
