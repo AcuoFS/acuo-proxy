@@ -152,7 +152,7 @@ routerInstance.get('/refresh-access-token', (req, res, next) => {
     res.header("authorization", response.headers.authorization)
     res.send(200)
     console.log('RES SENT BACK')
-  })
+  }).catch(err => res.send(401))
 })
 
 
