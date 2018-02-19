@@ -146,7 +146,7 @@ routerInstance.get('/get-currency/:clientId', (req, res, next) => {
 routerInstance.get('/refresh-access-token', (req, res, next) => {
   console.log('******** REFRESH TOKEN *******')
   console.log(req.headers)
-  CommonService.refreshAuthToken(req.headers['cookie']).then(response => {
+  CommonService.refreshAuthToken(req.headers.cookie).then(response => {
     if(response.statusCode === 401)
       res.send(401)
 

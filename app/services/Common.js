@@ -107,8 +107,10 @@ Common.authInvalidateToken = (token) =>
     return err
   })
 
-Common.refreshAuthToken = (cookie) =>
-   rp({
+Common.refreshAuthToken = (cookie) => {
+  console.log('IN SERVICE')
+  console.log(cookie)
+  return rp({
     method: 'GET',
     uri: GET_REFRESH_AUTH_TOKEN,
     jar: cookie,
@@ -121,6 +123,7 @@ Common.refreshAuthToken = (cookie) =>
     console.log(err)
     return err
   })
+}
 
 
 
