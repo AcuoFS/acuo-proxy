@@ -8,7 +8,8 @@ const {
   COLLATERAL_HEALTH_CHECK,
   LOGIN_URL,
   GET_VALIDATE_AUTH_TOKEN,
-  GET_INVALIDATE_AUTH_TOKEN
+  GET_INVALIDATE_AUTH_TOKEN,
+  GET_REFRESH_AUTH_TOKEN
 } = config
 
 const rp = require('request-promise')
@@ -79,10 +80,12 @@ Common.authTokenValidation = (token) =>
     json: true,
     resolveWithFullResponse: true
   }).then(response => {
-    console.log(response)
+    // console.log(response)
+
     return response
   }).catch(err => {
-    console.log(err)
+    // console.log(err)
+    err.statusCode = 498
     return err
   })
 
@@ -103,6 +106,22 @@ Common.authInvalidateToken = (token) =>
     console.log(err)
     return err
   })
+
+Common.refreshAuthToken = (cookie) =>
+   rp({
+    method: 'GET',
+    uri: GET_REFRESH_AUTH_TOKEN,
+    jar: cookie,
+    json: true,
+    resolveWithFullResponse: true
+  }).then(response => {
+    // console.log(response)
+    return response
+  }).catch(err => {
+    console.log(err)
+    return err
+  })
+
 
 
 const removeBearer = (token) =>

@@ -23,9 +23,14 @@ routerInstance.get('/navbar-alerts/:clientId', (req, res, next) => {
   // console.log('/******* AUTH *******/')
   CommonService.authTokenValidation(req.headers.authorization).then(response => {
 
-      if(response.statusCode === 401){
-        console.log('****** SESSION EXPIRED *******')
-        res.send(401)
+      // if(response.statusCode === 401){
+      //   console.log('****** REFRESH EXPIRED *******')
+      //   res.send(401)
+      // }
+
+      if(response.statusCode === 498){
+        console.log('****** AUTH EXPIRED *******')
+        res.send(498)
       }
 
       // console.log('/******* AUTH END *******/')
@@ -136,6 +141,18 @@ routerInstance.get('/get-currency/:clientId', (req, res, next) => {
       console.log('currency info responded')
     })
   }).catch(err => res.send(401))
+})
+
+routerInstance.get('/refresh-access-token', (req, res, next) => {
+  console.log('******** REFRESH TOKEN *******')
+  console.log(req.headers)
+  CommonService.refreshAuthToken(req.headers['set-cookie']).then(response => {
+    console.log('****** NEW TOKEN *******')
+    console.log(response.headers.authorization)
+    res.header("authorization", response.headers.authorization)
+    res.send(200)
+    console.log('RES SENT BACK')
+  })
 })
 
 
