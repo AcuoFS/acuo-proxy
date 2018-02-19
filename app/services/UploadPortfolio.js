@@ -18,8 +18,8 @@ const UploadPortfolio = {}
 UploadPortfolio.postUpload = (options, clientId) =>
   rp(`${POST_UPLOAD_PORTFOLIO}/${clientId}`, options)
     .then(response => {
-      console.log('server responded')
-      console.log(response)
+      console.log('server responded to portfolio upload')
+      // console.log(response)
       console.log(JSON.parse(response.toJSON().body))
       return JSON.parse(response.toJSON().body)
     })
