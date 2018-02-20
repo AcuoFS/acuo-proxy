@@ -112,7 +112,9 @@ Common.refreshAuthToken = (cookie) => {
   return rp({
     method: 'GET',
     uri: GET_REFRESH_AUTH_TOKEN,
-    cookie,
+    headers: {
+      cookie
+    },
     json: true,
     resolveWithFullResponse: true
   }).then(response => {
