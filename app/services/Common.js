@@ -80,8 +80,7 @@ Common.authTokenValidation = (token) =>
     json: true,
     resolveWithFullResponse: true
   }).then(response => {
-    // console.log(response)
-
+    console.log('===== VALID ACCESS TOKEN =====')
     return response
   }).catch(err => {
     // console.log(err)
@@ -113,7 +112,7 @@ Common.refreshAuthToken = (cookie) => {
   return rp({
     method: 'GET',
     uri: GET_REFRESH_AUTH_TOKEN,
-    jar: cookie,
+    cookie,
     json: true,
     resolveWithFullResponse: true
   }).then(response => {
