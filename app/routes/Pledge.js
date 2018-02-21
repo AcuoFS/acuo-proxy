@@ -23,9 +23,9 @@ routerInstance.post('/remove-allocated-asset', (req, res, next) => {
   console.log('clientId :', clientId)
 
   CommonService.authTokenValidation(req.headers.authorization).then(response => {
-    if(response.statusCode === 401){
-      console.log('****** SESSION EXPIRED *******')
-      res.send(401)
+    if(response.statusCode === 498){
+      console.log('****** AUTH EXPIRED *******')
+      res.send(498)
     }
 
     Promise.all([
@@ -73,9 +73,9 @@ routerInstance.get('/optimization/:clientId', (req, res, next) => {
   console.log('clientId :', req.params.clientId)
 
   CommonService.authTokenValidation(req.headers.authorization).then(response => {
-    if (response.statusCode === 401) {
-      console.log('****** SESSION EXPIRED *******')
-      res.send(401)
+    if(response.statusCode === 498){
+      console.log('****** AUTH EXPIRED *******')
+      res.send(498)
     }
 
     PledgeService.getOptimisation(req.params.clientId).then(items => {
@@ -103,9 +103,9 @@ routerInstance.post('/allocate-selection', (req, res, next) => {
   const {guids, optimisationSetting, clientId} = JSON.parse(req.body)
 
   CommonService.authTokenValidation(req.headers.authorization).then(response => {
-    if (response.statusCode === 401) {
-      console.log('****** SESSION EXPIRED *******')
-      res.send(401)
+    if(response.statusCode === 498){
+      console.log('****** AUTH EXPIRED *******')
+      res.send(498)
     }
 
     Promise.all([
@@ -148,9 +148,9 @@ routerInstance.post('/allocate-selection-new', (req, res, next) => {
   const {optimisationSettings, toBeAllocated, clientId} = req.body
 
   CommonService.authTokenValidation(req.headers.authorization).then(response => {
-    if(response.statusCode === 401){
-      console.log('****** SESSION EXPIRED *******')
-      res.send(401)
+    if(response.statusCode === 498){
+      console.log('****** AUTH EXPIRED *******')
+      res.send(498)
     }
 
     Promise.all([
@@ -197,9 +197,9 @@ routerInstance.post('/pledge-allocation', (req, res, next) => {
   const pledgeReq = req.body
 
   CommonService.authTokenValidation(req.headers.authorization).then(response => {
-    if(response.statusCode === 401){
-      console.log('****** SESSION EXPIRED *******')
-      res.send(401)
+    if(response.statusCode === 498){
+      console.log('****** AUTH EXPIRED *******')
+      res.send(498)
     }
 // forwards reponse from endpoint
     PledgeService.postPledgeAllocation(pledgeReq).then(response => {
@@ -243,9 +243,9 @@ routerInstance.get('/init-selection/:clientId', (req, res, next) => {
   const key = req.path()
 
   CommonService.authTokenValidation(req.headers.authorization).then(response => {
-    if(response.statusCode === 401){
-      console.log('****** SESSION EXPIRED *******')
-      res.send(401)
+    if(response.statusCode === 498){
+      console.log('****** AUTH EXPIRED *******')
+      res.send(498)
     }
 
     PledgeService.getInitSelection(req.params.clientId).then(data => {
@@ -278,9 +278,9 @@ routerInstance.get('/init-collateral/:clientId', (req, res, next) => {
   console.log('requesting collateral')
 
   CommonService.authTokenValidation(req.headers.authorization).then(response => {
-    if(response.statusCode === 401){
-      console.log('****** SESSION EXPIRED *******')
-      res.send(401)
+    if(response.statusCode === 498){
+      console.log('****** AUTH EXPIRED *******')
+      res.send(498)
     }
 
     PledgeService.getInitCollateral(req.params.clientId).then(data => {
@@ -303,9 +303,9 @@ routerInstance.get('/init-new-collateral/:clientId', (req, res, next) => {
   const key = req.path()
 
   CommonService.authTokenValidation(req.headers.authorization).then(response => {
-    if(response.statusCode === 401){
-      console.log('****** SESSION EXPIRED *******')
-      res.send(401)
+    if(response.statusCode === 498){
+      console.log('****** AUTH EXPIRED *******')
+      res.send(498)
     }
 
     Promise.all([

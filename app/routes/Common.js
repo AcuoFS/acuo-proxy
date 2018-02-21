@@ -38,7 +38,6 @@ routerInstance.get('/navbar-alerts/:clientId', (req, res, next) => {
       CommonService.getNavbarAlerts(req.params.clientId).then(response => {
         console.log('response :')
         console.log(response.body)
-        // res.header("authorization", response.headers.authorization)
         res.send(response.body)
         console.log('navbar alerts responded')
       })
@@ -128,9 +127,9 @@ routerInstance.post('/auth/logout', (req, res, next) => {
 
 routerInstance.get('/get-currency/:clientId', (req, res, next) => {
   CommonService.authTokenValidation(req.headers.authorization).then(response => {
-    if(response.statusCode === 401){
-      console.log('****** SESSION EXPIRED *******')
-      res.send(401)
+    if(response.statusCode === 498){
+      console.log('****** AUTH EXPIRED *******')
+      res.send(498)
     }
 
     CommonService.getCurrencyInfo(req.params.clientId).then(response => {

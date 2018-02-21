@@ -192,9 +192,9 @@ routerInstance.get('/new/:clientId', (req, res, next) => {
   console.log('clientId :', req.params.clientId)
 
   CommonService.authTokenValidation(req.headers.authorization).then(response => {
-    if(response.statusCode === 401){
-      console.log('****** SESSION EXPIRED *******')
-      res.send(401)
+    if(response.statusCode === 498){
+      console.log('****** AUTH EXPIRED *******')
+      res.send(498)
     }
 
     Promise.all([
@@ -263,9 +263,9 @@ routerInstance.get('/disputes/:clientId', (req, res, next) => {
   const key = req.path()
 
   CommonService.authTokenValidation(req.headers.authorization).then(response => {
-    if(response.statusCode === 401){
-      console.log('****** SESSION EXPIRED *******')
-      res.send(401)
+    if(response.statusCode === 498){
+      console.log('****** AUTH EXPIRED *******')
+      res.send(498)
     }
 
     ReconService.getReconDisputes(req.params.clientId).then(data => {
@@ -301,9 +301,9 @@ routerInstance.post('/disputeStatement', (req, res, next) => {
   console.log('objToSend: ' + objToSend)
 
   CommonService.authTokenValidation(req.headers.authorization).then(response => {
-    if(response.statusCode === 401){
-      console.log('****** SESSION EXPIRED *******')
-      res.send(401)
+    if(response.statusCode === 498){
+      console.log('****** AUTH EXPIRED *******')
+      res.send(498)
     }
 
     ReconService.postReconDispute(objToSend).then(data => {
@@ -333,9 +333,9 @@ routerInstance.post('/reconcile/', (req, res, next) => {
   console.log('params: ' + params)
 
   CommonService.authTokenValidation(req.headers.authorization).then(response => {
-    if(response.statusCode === 401){
-      console.log('****** SESSION EXPIRED *******')
-      res.send(401)
+    if(response.statusCode === 498){
+      console.log('****** AUTH EXPIRED *******')
+      res.send(498)
     }
 
     ReconService.getReconcile(params).then(data => {
