@@ -15,10 +15,10 @@ const {
 
 const UploadPortfolio = {}
 
-UploadPortfolio.postUpload = (options, clientId) =>
+UploadPortfolio.postUpload = (options, clientId) => {
   console.log(options)
 
-  rp(`${POST_UPLOAD_PORTFOLIO}/${clientId}`, options)
+  return rp(`${POST_UPLOAD_PORTFOLIO}/${clientId}`, options)
     .then(response => {
       console.log('server responded to portfolio upload')
       // console.log(response)
@@ -29,6 +29,7 @@ UploadPortfolio.postUpload = (options, clientId) =>
       console.log('encountered error')
       return error
     })
+}
 
 UploadPortfolio.postRequestValuation = (body, clientId) =>
   rp({
