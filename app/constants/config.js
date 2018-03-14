@@ -42,7 +42,8 @@ var configJson = {
   GET_ANALYTICS_TEST_CPTY: '<%= baseUrl %>analytics/analytics/cpty',
   //auth token
   GET_VALIDATE_AUTH_TOKEN: '<%= baseUrl %>auth/acuo/api/validate',
-  GET_INVALIDATE_AUTH_TOKEN: '<%= baseUrl %>auth/acuo/api/logout'
+  GET_INVALIDATE_AUTH_TOKEN: '<%= baseUrl %>auth/acuo/api/logout',
+  GET_REFRESH_AUTH_TOKEN: '<%= baseUrl %>auth/acuo/api/refresh'
 };
 
 /**
