@@ -11,7 +11,7 @@ const Dashboard = {}
 // get Dashboard items
 Dashboard.get = (clientId) => {
   const uri = `${GET_DASHBOARD_URL}/${clientId}`
-  return rp({uri, json: true}).then(response => {
+  return rp({uri, json: true, resolveWithFullResponse: true}).then(response => {
     console.log('dashboard data returned')
     return response
   })

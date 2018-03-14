@@ -2,7 +2,7 @@
 const Router = require('restify-router').Router
 const _ = require('lodash')
 // import services
-const { UploadPortfolioService, FsCacheService } = require('../services')
+const { UploadPortfolioService, CommonService } = require('../services')
 // const multiparty = require('multiparty')
 const request = require('request')
 const fs = require('fs')
@@ -45,9 +45,20 @@ routerInstance.post('/uploadPortfolio/:clientId', (req, res, next) => {
   }
 
   console.log('sending files')
-  UploadPortfolioService.postUpload(options, clientId)
-    .then(response => res.send(response))
-  console.log('response returned')
+
+  CommonService.authTokenValidation(req.headers.authorization).then(response => {
+    if(response.statusCode === 401){
+      console.log('****** SESSION EXPIRED *******')
+      res.send(401)
+    }
+
+    UploadPortfolioService.postUpload(options, clientId)
+      .then(response => {
+        // res.header("authorization", response.headers.authorization)
+        res.send(response)
+        console.log('response returned')
+      })
+  }).catch(err => res.send(401))
 })
 
 routerInstance.post('/request-valuation', (req, res, next) => {
@@ -55,13 +66,24 @@ routerInstance.post('/request-valuation', (req, res, next) => {
   console.log(req.body)
   const { clientId } = req.body
   // console.log(clientId)
-  UploadPortfolioService.postRequestValuation(req.body, clientId)
-    .then(response => {
-      console.log('responding with :')
-      console.log(JSON.parse(response.toJSON().body))
-      res.send(JSON.parse(response.toJSON().body))
-      console.log('response returned')
-    })
+
+  CommonService.authTokenValidation(req.headers.authorization).then(response => {
+    if(response.statusCode === 401){
+      console.log('****** SESSION EXPIRED *******')
+      res.send(401)
+    }
+
+    UploadPortfolioService.postRequestValuation(req.body, clientId)
+      .then(response => {
+        console.log('responding with :')
+        console.log(response.body)
+        console.log(JSON.parse(response.toJSON().body))
+        // res.header("authorization", response.headers.authorization)
+        res.send(JSON.parse(response.toJSON().body))
+        console.log('response returned')
+      })
+  }).catch(err => res.send(401))
+
 })
 
 routerInstance.post('/request-margincalls', (req, res, next) => {
@@ -69,13 +91,22 @@ routerInstance.post('/request-margincalls', (req, res, next) => {
   console.log(req.body)
   const { clientId } = req.body
 
-  UploadPortfolioService.postGenerateMarginCall(req.body, clientId)
-    .then(response => {
-      console.log('responding with :')
-      console.log(JSON.parse(response.toJSON().body))
-      res.send(JSON.parse(response.toJSON().body))
-      console.log('response returned')
-    })
+  CommonService.authTokenValidation(req.headers.authorization).then(response => {
+    if(response.statusCode === 401){
+      console.log('****** SESSION EXPIRED *******')
+      res.send(401)
+    }
+
+    UploadPortfolioService.postGenerateMarginCall(req.body, clientId)
+      .then(response => {
+        console.log('responding with :')
+        console.log(JSON.parse(response.toJSON().body))
+        // res.header("authorization", response.headers.authorization)
+        res.send(JSON.parse(response.toJSON().body))
+        console.log('response returned')
+      })
+  }).catch(err => res.send(401))
+
 })
 
 // routerInstance.post('/testroute', (req, res, next) => {
@@ -88,13 +119,22 @@ routerInstance.post('/send-margin-calls', (req, res, next) => {
   console.log(req.body)
   const { clientId } = req.body
 
-  UploadPortfolioService.postSendMarginCalls(req.body, clientId)
-    .then(response => {
-      console.log('responding with :')
-      console.log(JSON.parse(response.toJSON().body))
-      res.send(JSON.parse(response.toJSON().body))
-      console.log('response returned')
-    })
+  CommonService.authTokenValidation(req.headers.authorization).then(response => {
+    if(response.statusCode === 401){
+      console.log('****** SESSION EXPIRED *******')
+      res.send(401)
+    }
+
+    UploadPortfolioService.postSendMarginCalls(req.body, clientId)
+      .then(response => {
+        console.log('responding with :')
+        console.log(JSON.parse(response.toJSON().body))
+        // res.header("authorization", response.headers.authorization)
+        res.send(JSON.parse(response.toJSON().body))
+        console.log('response returned')
+      })
+  }).catch(err => res.send(401))
+
 })
 
 module.exports = ({server}) => routerInstance.applyRoutes(server, prefix)
