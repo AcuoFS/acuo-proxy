@@ -46,11 +46,11 @@ routerInstance.post('/uploadPortfolio/:clientId', (req, res, next) => {
 
   console.log('sending files')
 
-  CommonService.authTokenValidation(req.headers.authorization).then(response => {
-    if(response.statusCode === 498){
-      console.log('****** AUTH EXPIRED *******')
-      res.send(498)
-    }
+  // CommonService.authTokenValidation(req.headers.authorization).then(response => {
+  //   if(response.statusCode === 498){
+  //     console.log('****** AUTH EXPIRED *******')
+  //     res.send(498)
+  //   }
 
     UploadPortfolioService.postUpload(options, clientId)
       .then(response => {
@@ -58,7 +58,7 @@ routerInstance.post('/uploadPortfolio/:clientId', (req, res, next) => {
         res.send(response)
         console.log('response returned')
       })
-  }).catch(err => res.send(401))
+  // }).catch(err => res.send(401))
 })
 
 routerInstance.post('/request-valuation', (req, res, next) => {
