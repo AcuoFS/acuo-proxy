@@ -26,8 +26,10 @@ routerInstance.get('/departures/:clientId', (req, res, next) => {
   console.log('clientId :', req.params.clientId)
 
   CommonService.authTokenValidation(req.headers.authorization).then(response => {
-    if(response.statusCode === 401)
-      res.send(401)
+    if(response.statusCode === 498){
+      console.log('****** AUTH EXPIRED *******')
+      res.send(498)
+    }
 
     DeployedService.getDepartures(req.params.clientId).then(data => {
         console.log('responding with: ----------')

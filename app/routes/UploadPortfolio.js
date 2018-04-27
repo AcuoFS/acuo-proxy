@@ -46,11 +46,11 @@ routerInstance.post('/uploadPortfolio/:clientId', (req, res, next) => {
 
   console.log('sending files')
 
-  CommonService.authTokenValidation(req.headers.authorization).then(response => {
-    if(response.statusCode === 401){
-      console.log('****** SESSION EXPIRED *******')
-      res.send(401)
-    }
+  // CommonService.authTokenValidation(req.headers.authorization).then(response => {
+  //   if(response.statusCode === 498){
+  //     console.log('****** AUTH EXPIRED *******')
+  //     res.send(498)
+  //   }
 
     UploadPortfolioService.postUpload(options, clientId)
       .then(response => {
@@ -58,7 +58,7 @@ routerInstance.post('/uploadPortfolio/:clientId', (req, res, next) => {
         res.send(response)
         console.log('response returned')
       })
-  }).catch(err => res.send(401))
+  // }).catch(err => res.send(401))
 })
 
 routerInstance.post('/request-valuation', (req, res, next) => {
@@ -68,9 +68,9 @@ routerInstance.post('/request-valuation', (req, res, next) => {
   // console.log(clientId)
 
   CommonService.authTokenValidation(req.headers.authorization).then(response => {
-    if(response.statusCode === 401){
-      console.log('****** SESSION EXPIRED *******')
-      res.send(401)
+    if(response.statusCode === 498){
+      console.log('****** AUTH EXPIRED *******')
+      res.send(498)
     }
 
     UploadPortfolioService.postRequestValuation(req.body, clientId)
@@ -92,9 +92,9 @@ routerInstance.post('/request-margincalls', (req, res, next) => {
   const { clientId } = req.body
 
   CommonService.authTokenValidation(req.headers.authorization).then(response => {
-    if(response.statusCode === 401){
-      console.log('****** SESSION EXPIRED *******')
-      res.send(401)
+    if(response.statusCode === 498){
+      console.log('****** AUTH EXPIRED *******')
+      res.send(498)
     }
 
     UploadPortfolioService.postGenerateMarginCall(req.body, clientId)
@@ -120,9 +120,9 @@ routerInstance.post('/send-margin-calls', (req, res, next) => {
   const { clientId } = req.body
 
   CommonService.authTokenValidation(req.headers.authorization).then(response => {
-    if(response.statusCode === 401){
-      console.log('****** SESSION EXPIRED *******')
-      res.send(401)
+    if(response.statusCode === 498){
+      console.log('****** AUTH EXPIRED *******')
+      res.send(498)
     }
 
     UploadPortfolioService.postSendMarginCalls(req.body, clientId)
