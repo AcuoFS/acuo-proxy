@@ -17,19 +17,15 @@ docker-build:
 	docker build -t ${IMAGE_NAME}:latest .
 
 docker-tag:
-	docker tag ${IMAGE_NAME}:latest ${DOCKER_REGISTRY}/${IMAGE_NAME}:latest
-	docker tag ${IMAGE_NAME}:latest ${DOCKER_REGISTRY}/${IMAGE_NAME}:${APP_VERSION}
-	docker tag ${IMAGE_NAME}:latest ${DOCKER_REGISTRY}/${IMAGE_NAME}:${GIT_COMMIT}
-	docker tag ${IMAGE_NAME}:latest ${DOCKER_REGISTRY}/${IMAGE_NAME}:build_${BUILD_NUMBER}
+	docker tag ${IMAGE_NAME}:latest ${DOCKER_REGISTRY}/${IMAGE_NAME}:latest	
+	docker tag ${IMAGE_NAME}:latest ${DOCKER_REGISTRY}/${IMAGE_NAME}:${BUILD_NUMBER}
 
 docker-login:
 	@eval ${DOCKER_LOGIN_CMD}
 
 docker-push:
 	docker push ${DOCKER_REGISTRY}/${IMAGE_NAME}:latest
-	docker push ${DOCKER_REGISTRY}/${IMAGE_NAME}:${APP_VERSION}
-	docker push ${DOCKER_REGISTRY}/${IMAGE_NAME}:${GIT_COMMIT}
-	docker push ${DOCKER_REGISTRY}/${IMAGE_NAME}:build_${BUILD_NUMBER}
+	docker push ${DOCKER_REGISTRY}/${IMAGE_NAME}:${BUILD_NUMBER}
 
 k8-nodes:
 	kubectl get nodes
